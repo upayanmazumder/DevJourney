@@ -2,7 +2,7 @@ name: Daily Tag Creator
 
 on:
   schedule:
-    - cron: '20 14 * * *'  # This cron expression runs at 7:50 PM IST (which is 14:20 UTC)
+   - cron: '00 18 * * *'  # This cron expression runs at 11:30 PM IST (which is 18:00 UTC)
 
 jobs:
   create-daily-tag:
