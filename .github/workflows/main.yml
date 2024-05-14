@@ -1,0 +1,59 @@
+name: Daily Tag Creator
+
+on:
+  schedule:
+    - cron: '20 14 * * *'  # This cron expression runs at 7:50 PM IST (which is 14:20 UTC)
+
+jobs:
+  create-daily-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensure full history is fetched for logging
+
+      - name: Set up Date Command
+        run: sudo apt-get install -y tzdata
+
+      - name: Get the current date in IST
+        id: date
+        run: |
+          DATE=$(TZ='Asia/Kolkata' date +'%d-%m-%Y') || { echo "Failed to get date"; exit 1; }
+          echo "Current date in IST: $DATE"
+          echo "::set-output name=date::$DATE"
+        continue-on-error: false
+
+      - name: Check for commits today
+        id: commits
+        run: |
+          COMMITS=$(git log --since=midnight --until=now --oneline || { echo "Failed to check commits"; exit 1; })
+          echo "Commits today: $COMMITS"
+          if [ -z "$COMMITS" ]; then
+            echo "No commits found today"
+            echo "::set-output name=has_commits::false"
+          else
+            echo "Commits found"
+            echo "::set-output name=has_commits::true"
+          fi
+        continue-on-error: false
+
+      - name: Create Tag
+        if: steps.commits.outputs.has_commits == 'true'
+        env:
+          TAG_DATE: ${{ steps.date.outputs.date }}
+        run: |
+          echo "Creating tag $TAG_DATE"
+          git config --global user.name "github-actions[bot]" || { echo "Failed to configure git user name"; exit 1; }
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" || { echo "Failed to configure git user email"; exit 1; }
+          git tag $TAG_DATE || { echo "Failed to create tag"; exit 1; }
+          git push origin $TAG_DATE || { echo "Failed to push tag"; exit 1; }
+        continue-on-error: false
+
+      - name: Log success message
+        if: success()
+        run: echo "Workflow completed successfully"
+
+      - name: Log failure message
+        if: failure()
+        run: echo "Workflow failed"
