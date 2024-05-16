@@ -1,4 +1,4 @@
-//Calculator using if
+//Calculator using "if" statement
 #include<stdio.h>
 #include<conio.h>
 void main()

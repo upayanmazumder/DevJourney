@@ -3,16 +3,16 @@
 #include<conio.h>
 void main()
 {
-int a,b,r;
-clrscr();
-printf("Enter the number to divide : ");
-scanf("%d",&a);
-printf("Enter the number to divide by : ");
-scanf("%d",&b);
-r=a%b;
-if(r==0)
-	printf("Divisible");
-else
-	printf("Not divisible");
-getch();
+	int a,b,r;
+	clrscr();
+	printf("Enter the number to divide : ");
+	scanf("%d",&a);
+	printf("Enter the number to divide by : ");
+	scanf("%d",&b);
+	r=a%b;
+	if(r==0)
+		printf("Divisible");
+	else
+		printf("Not divisible");
+	getch();
 }
