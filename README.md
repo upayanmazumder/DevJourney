@@ -1,5 +1,7 @@
 # DevJourney
 
+[![Daily Tag Creator](https://github.com/upayanmazumder/DevJourney/actions/workflows/main.yml/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/main.yml)
+
 ## Description
 
 This repository is a collection of various pieces of code written in multiple languages. The code stored here is a mix of different projects, tests, and studies, each unrelated to the other.
