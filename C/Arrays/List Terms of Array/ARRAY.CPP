@@ -1,3 +1,4 @@
+//Program to print terms of an array
 #include<stdio.h>
 #include<conio.h>
 void main()
