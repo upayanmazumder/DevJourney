@@ -4,14 +4,15 @@
 void main ()
 	{
 		int HCF(int,int);
-		int b,r,a;
+		int b,r,a,LCM;
 		clrscr();
 		printf("Enter the first number : ");
 		scanf("%d",&a);
 		printf("Enter the second number : ");
 		scanf("%d",&b);
 		r=HCF(a,b);
-		printf("HCF of %d and %d is %d",a,b,r);
+		LCM=(a*b)/r;
+		printf("LCM of %d and %d is %d",a,b,LCM);
 		getch();
 	}
 int HCF(int a,int b)
