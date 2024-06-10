@@ -2,7 +2,6 @@
 #include<stdio.h>
 #include<conio.h>
 void main()
-
 {
 	char ren[80],ch;
 	int i,c=0;
