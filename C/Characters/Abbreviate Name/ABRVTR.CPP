@@ -5,6 +5,7 @@ void main()
 	{
 		char name[80];
 		int i,j;
+		clrscr();
 		printf("Enter full name : ");
 		gets(name);
 		printf("The output is  : ");
