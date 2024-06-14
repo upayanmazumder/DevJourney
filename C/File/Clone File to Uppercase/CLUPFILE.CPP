@@ -1,4 +1,5 @@
 //Programme to copy the content of a text file to another text file
+//Result in uppercase
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
