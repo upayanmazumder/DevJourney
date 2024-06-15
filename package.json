@@ -1,0 +1,32 @@
+{
+  "name": "devjourney",
+  "version": "1.0.0",
+  "description": "My development journey",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upayanmazumder/DevJourney.git"
+  },
+  "keywords": [
+    "devjourney",
+    "c",
+    "qwik",
+    "coding",
+    "development",
+    "dev",
+    "journey",
+    "beginner",
+    "react",
+    "html",
+    "css",
+    "js",
+    "student",
+    "data",
+    "science"
+  ],
+  "author": "upayanmazumder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/upayanmazumder/DevJourney/issues"
+  },
+  "homepage": "https://github.com/upayanmazumder/DevJourney#readme"
+}
