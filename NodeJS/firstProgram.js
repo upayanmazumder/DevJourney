@@ -4,4 +4,4 @@ http.createServer(function(req, res) {
     res.end('Hello, world!');
     console.log('Request served!');
 }).listen(8080);
-console.log('Server listening on port 8080\n >> http://localhost:8080')
+console.log('Server listening on port 8080\n> View on http://localhost:8080')
