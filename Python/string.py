@@ -1,0 +1,8 @@
+s=str(input("Enter a string: "))
+l=len(s)
+print("The entire string forward: \n{0} \n\tOR \n{1} \n\tOR \n{2} \n\tOR \n{3}".format(s,s[:],s[0:l],s[-l:]))
+print("\nThe entire string backward: \n{0} \n\tOR \n{1} \n\tOR \n{2} \n\tOR \n{3}".format(s[::-1],s[-1:-l-1:-1],s[-1:-l-1:-1],s[-1:-l-1:-1]))
+print("\nAlternate characters of the string (odd): \n{0} \n\tOR \n{1} \n\tOR \n{2} \n\tOR \n{3}".format(s[0:l:2],s[::2],s[:l:2],s[0::2]))
+print("\nAlternate characters of the string (odd) backward: \n{0} \n\tOR \n{1} \n\tOR \n{2} \n\tOR \n{3}".format(s[-1:-l-1:-2],s[-1::-2],s[-1:-l-1:-2],s[-1::-2]))
+print("\nAlternate characters of the string (even): \n{0} \n\tOR \n{1} \n\tOR \n{2} \n\tOR \n{3}".format(s[1:l:2],s[1::2],s[1:l:2],s[1::2]))
+print("\nAlternate characters of the string (even) backward: \n{0} \n\tOR \n{1} \n\tOR \n{2} \n\tOR \n{3}".format(s[-2:-l-1:-2],s[-2::-2],s[-2:-l-1:-2],s[-2::-2])) 
