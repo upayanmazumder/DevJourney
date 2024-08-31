@@ -18,7 +18,3 @@ if totExp > giftT:
     print("John's expenditure on gifts has exceeded the allotted amount.")
 else:
     print("John's expenditure on gifts is within the allotted amount.")
-    
-# Output the results
-print(f"Allotted Amount for Gifts: Rs {giftT}")
-print(f"Total Expenditure on Gifts: Rs {totExp}")
