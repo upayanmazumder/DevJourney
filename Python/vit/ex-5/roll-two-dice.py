@@ -7,5 +7,4 @@ die1 = random.randint(1, 6)
 die2 = random.randint(1, 6)
 
 # Print the results
-print("Die 1 rolled:", die1)
-print("Die 2 rolled:", die2)
+print("Die 1 rolled a", die1, "while die 2 rolled a", die2)
