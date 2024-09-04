@@ -1,12 +1,20 @@
-n=int(input("Enter no. of subjects: "))
-sum=0
-marks=[]
-i=0
+mL = []
+mT = 0
 
-for i in range(0,n,1):
-    marks[i]=int(input("Enter marks of subject "+str(i+1)+": "))
-    sum=sum+marks[i]
-    i+=1
+nSub = int(input("Enter the number of subjects: "))
 
-avg = sum / n
-print("Average marks: ",avg)
+for i in range(nSub):
+    m = int(input(f"Enter the marks secured in subject {i + 1}: "))
+    mL.append(m)
+    mT += m
+
+mAvg = mT / nSub
+
+if mAvg > 80:
+    studentType = "an outstanding student"
+elif mAvg > 50:
+    studentType = "a average student"
+else:
+    studentType = "a slow learner"
+
+print(f"The average mark is: {mAvg} and is {studentType}.")
