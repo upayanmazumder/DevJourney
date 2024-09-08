@@ -5,21 +5,13 @@ l1,l2,lC=[],[],[]
 # Populate List 1
 print("List 1 >>")
 for i in range(n1):
-    x = input(f"\tEnter element {i+1}: ")
-    try:
-        x = eval(x)
-    except:
-        pass    # Store as string
+    x = str(input(f"\tEnter element {i+1}: "))
     l1.append(x)
 
 # Populate List 2
 print("List 2 >>")
 for i in range(n2):
-    x = input(f"\tEnter element {i+1}: ")
-    try:
-        x = eval(x)
-    except:
-        pass    # Store as string
+    x = str(input(f"\tEnter element {i+1}: "))
     l2.append(x)
 
 # Compare and print common elements
