@@ -1,6 +1,6 @@
 n1 = int(input("Enter length of List 1: "))
 n2 = int(input("Enter length of List 2: "))
-l1,l2=[],[]
+l1,l2,lC=[],[],[]
 
 # Populate List 1
 print("List 1 >>")
@@ -15,21 +15,24 @@ for i in range(n1):
 # Populate List 2
 print("List 2 >>")
 for i in range(n2):
-    x = input(f"\tList 2: Enter element {i+1}: ")
+    x = input(f"\tEnter element {i+1}: ")
     try:
         x = eval(x)
     except:
         pass    # Store as string
     l2.append(x)
 
-anyCommon=False
-
 # Compare and print common elements
 for i in range(n1):
     for j in range(n2):
         if l1[i] == l2[j]:
-            print(l1[i], end=' ')
-            anyCommon=True
+            lC.append(l1[i])
 
-if anyCommon==False:
-    print("No common element") 
+if len(lC)==0:
+    print("No common elements")
+else:
+    print("Common element(s):",end=' ')
+    for i in range(len(lC)):
+        print(lC[i], end = '')
+        if i<len(lC)-1:
+            print(',',end='')
