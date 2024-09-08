@@ -1,12 +1,14 @@
-n = str(int(input("Enter a number: ")))
+x = int(input("Enter a number: "))
+n=x
+s=0
 
-nLen = len(n)
-
-# Calculate the Armstrong sum
-nArmSum = sum(int(digit) ** nLen for digit in n)
-
-# Check if the Armstrong sum equals the original number
-if nArmSum == n:
-    print(f"{n} is an Armstrong number.")
+# Sum of digits
+while n:
+    l=n%10
+    n=n//10
+    s+=l**3
+    
+if s==x:
+    print(f"{x} is an armstrong number")
 else:
-    print(f"{n} is not an Armstrong number.")
+    print(f"{x} is not an armstrong number")

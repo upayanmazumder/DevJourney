@@ -1,9 +1,8 @@
 n = int(input("Enter a number: "))
-digCount = 0
+dC = 0
 
-#Increment digit count for each digit in the number
 while n > 0:
-    digCount += 1
+    dC += 1
     n //= 10
 
-print("Digit Count:",digCount)
+print("Digit Count:",dC)

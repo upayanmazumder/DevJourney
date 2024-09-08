@@ -11,10 +11,10 @@ for i in range(nSub):
 mAvg = mT / nSub
 
 if mAvg > 80:
-    studentType = "an outstanding student"
+    sT = "an outstanding student"
 elif mAvg > 50:
-    studentType = "a average student"
+    sT = "an average student"
 else:
-    studentType = "a slow learner"
+    sT = "a slow learner"
 
-print(f"The average mark is: {mAvg} and is {studentType}.")
+print(f"The average mark is {mAvg} and the student is {sT}.")
