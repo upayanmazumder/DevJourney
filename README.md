@@ -10,10 +10,6 @@ This repository is a collection of various pieces of code written in multiple la
 
 The purpose of this repository is to store and document the diverse range of code I have written as part of my learning journey. It serves as a personal reference and a showcase of my progress and exploration in various programming languages.
 
-## Projects
-
-This section will be updated with a brief description of each project or piece of code added to the repository.
-
 ## Author
 
 Upayan Mazumder
