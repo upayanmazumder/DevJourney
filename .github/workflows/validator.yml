@@ -1,0 +1,44 @@
+# .github/workflows/build.yml
+
+name: Build and Test C/CPP Files
+
+on:
+  push:
+    paths:
+      - 'C/**'
+      - 'CPP/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up build environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential
+        
+    - name: Find and build C files
+      run: |
+        find C -type f -name "*.c" | while read file; do
+          echo "Building $file"
+          gcc -o "${file%.c}.out" "$file"
+          if [ $? -ne 0 ]; then
+            echo "Build failed for $file" >&2
+            exit 1
+          fi
+        done
+
+    - name: Find and build CPP files
+      run: |
+        find CPP -type f -name "*.cpp" | while read file; do
+          echo "Building $file"
+          g++ -o "${file%.cpp}.out" "$file"
+          if [ $? -ne 0 ]; then
+            echo "Build failed for $file" >&2
+            exit 1
+          fi
+        done
