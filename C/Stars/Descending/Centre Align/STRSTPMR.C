@@ -1,7 +1,7 @@
 //Program to print a straight pyramid with stars in reverse order
 #include<stdio.h>
 #include<conio.h>
-int main() {
+int main()
 {
 	int i,j,k,l,n;
 	

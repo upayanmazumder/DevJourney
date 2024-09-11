@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<ctype.h>
-int main() {
+int main()
 {
 	char name[80];
 	int i,j;
