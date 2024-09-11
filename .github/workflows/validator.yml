@@ -20,25 +20,27 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential
-        
-    - name: Find and build C files
+
+    - name: Build C files
       run: |
-        find C -type f -name "*.c" | while read file; do
+        for file in $(find C -type f -name "*.c"); do
           echo "Building $file"
-          gcc -o "${file%.c}.out" "$file"
+          gcc -o "${file%.c}.out" "$file" 2> build_errors.log
           if [ $? -ne 0 ]; then
-            echo "Build failed for $file" >&2
+            echo "Build failed for $file"
+            cat build_errors.log
             exit 1
           fi
         done
 
-    - name: Find and build CPP files
+    - name: Build CPP files
       run: |
-        find CPP -type f -name "*.cpp" | while read file; do
+        for file in $(find CPP -type f -name "*.cpp"); do
           echo "Building $file"
-          g++ -o "${file%.cpp}.out" "$file"
+          g++ -o "${file%.cpp}.out" "$file" 2> build_errors.log
           if [ $? -ne 0 ]; then
-            echo "Build failed for $file" >&2
+            echo "Build failed for $file"
+            cat build_errors.log
             exit 1
           fi
         done
