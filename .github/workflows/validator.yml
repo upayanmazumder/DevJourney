@@ -24,23 +24,31 @@ jobs:
     - name: Build C files
       run: |
         for file in $(find C -type f -name "*.c"); do
-          echo "Building $file"
-          gcc -o "${file%.c}.out" "$file" 2> build_errors.log
-          if [ $? -ne 0 ]; then
-            echo "Build failed for $file"
-            cat build_errors.log
-            exit 1
+          if [ -f "$file" ]; then
+            echo "Building $file"
+            gcc -o "${file%.c}.out" "$file" 2> build_errors.log
+            if [ $? -ne 0 ]; then
+              echo "Build failed for $file"
+              cat build_errors.log
+              exit 1
+            fi
+          else
+            echo "Skipping $file as it is not a valid file"
           fi
         done
 
     - name: Build CPP files
       run: |
         for file in $(find CPP -type f -name "*.cpp"); do
-          echo "Building $file"
-          g++ -o "${file%.cpp}.out" "$file" 2> build_errors.log
-          if [ $? -ne 0 ]; then
-            echo "Build failed for $file"
-            cat build_errors.log
-            exit 1
+          if [ -f "$file" ]; then
+            echo "Building $file"
+            g++ -o "${file%.cpp}.out" "$file" 2> build_errors.log
+            if [ $? -ne 0 ]; then
+              echo "Build failed for $file"
+              cat build_errors.log
+              exit 1
+            fi
+          else
+            echo "Skipping $file as it is not a valid file"
           fi
         done
