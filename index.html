@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevJourney</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #58a6ff;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+        }
+
+        .button-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #161b22;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button-container:hover {
+            background-color: #1f6feb;
+            transform: scale(1.05);
+        }
+
+        .button-container:active {
+            background-color: #58a6ff;
+        }
+
+        .button {
+            background-color: #1f6feb;
+            color: #c9d1d9;
+            font-size: 1.5rem;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .description {
+            color: #8b949e;
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .button {
+                font-size: 1.2rem;
+                padding: 15px 30px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>DevJourney</h1>
+    <div class="container">
+        <div class="button-container">
+            <a href="./C/"><div class="button">C</div></a>
+            <div class="description">A general-purpose language used for system programming and embedded systems.</div>
+        </div>
+        <div class="button-container">
+            <a href="./CPP/"><div class="button">CPP</div></a>
+            <div class="description">An extension of C, widely used in application development and competitive programming.</div>
+        </div>
+        <div class="button-container">
+            <a href="./Java/"><div class="button">Java</div></a>
+            <div class="description">A versatile, platform-independent language popular in web and mobile app development.</div>
+        </div>
+        <div class="button-container">
+            <a href="./Javascript/"><div class="button">Javascript</div></a>
+            <div class="description">A language primarily used for interactive web applications and front-end development.</div>
+        </div>
+        <div class="button-container">
+            <a href="./Matlab/"><div class="button">MATLAB</div></a>
+            <div class="description">A high-performance language used for numerical computing and data visualization.</div>
+        </div>
+        <div class="button-container">
+            <a href="./Nodejs/"><div class="button">Node.js</div></a>
+            <div class="description">A runtime environment for executing JavaScript server-side, ideal for building scalable applications.</div>
+        </div>
+        <div class="button-container">
+            <a href="./Python/"><div class="button">Python</div></a>
+            <div class="description">A popular language for web development, data science, and automation.</div>
+        </div>
+        <div class="button-container">
+            <a href="./Qwik/"><div class="button">Qwik</div></a>
+            <div class="description">A modern framework optimized for instant web app performance and efficient loading.</div>
+        </div>
+        <div class="button-container">
+            <a href="./React/"><div class="button">React</div></a>
+            <div class="description">A JavaScript library for building dynamic, component-based user interfaces.</div>
+        </div>
+    </div>
+</body>
+</html>
