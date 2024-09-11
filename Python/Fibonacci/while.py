@@ -6,5 +6,12 @@ while len(f)<n:
     i=j
     j=s
     f.append(s)
-print(f)
-    
+
+if len(f)>0:
+    print(f'{n} fibonacci numbers are: ')
+    for i in range(len(f)):
+        print(f[i],end=' ')
+        if i<len(f)-1:
+            print(',',end=' ')
+else:
+    print('No fibonacci numbers found')

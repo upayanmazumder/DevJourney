@@ -13,6 +13,11 @@ while len(p)<n:     # Until list is complete
     if div==False:
         p.append(i)
 
-print(p)
-            
-    
+if len(p)>0:
+    print(f'The first {n} prime numbers are: ')
+    for i in range(len(p)):
+        print(p[i],end=' ')
+        if i<len(p)-1:
+            print(',',end=' ')
+else:
+    print('No prime numbers found')
