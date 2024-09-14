@@ -25,10 +25,10 @@ if len(eU) == 0:
     print("No unique elements found.")
 else:
     print("Unique elements:")
-for i in range(len(eU)):
-    print(eU[i],end=' ')
-    if i < len(eU)-1:
-        print(',',end=' ')
+    for i in range(len(eU)):
+        print(eU[i],end=' ')
+        if i < len(eU)-1:
+            print(',',end=' ')
 
 if len(eD) == 0:
     print("\nNo duplicate elements found.")
