@@ -19,11 +19,12 @@ for i in range(len(nums)):
 
 # New list with unique numbers
 uNums = []
-for num in nums:
-    if num not in uNums:
-        uNums.append(num)
+for i in range(len(nums)):
+    if nums[i] not in uNums:
+        uNums.append(nums[i])
 
+# Print the output
 if len(uNums) >= 3:
     print("The 2nd largest number is:", uNums[1])
 else:
-    print("Not enough unique numbers to find the 2nd largest.")
+    print("Not enough unique numbers to find the 2nd largest number.")

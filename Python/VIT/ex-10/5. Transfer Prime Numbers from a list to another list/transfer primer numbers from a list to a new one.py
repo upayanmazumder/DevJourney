@@ -1,5 +1,7 @@
 n=10
 L1,L2=[],[]
+
+# Get user input
 for i in range(n):
     x=int(input(f'Enter number {i+1}: '))
     while x<=0:
