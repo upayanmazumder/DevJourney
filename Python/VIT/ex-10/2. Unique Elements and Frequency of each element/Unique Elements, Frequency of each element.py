@@ -1,9 +1,8 @@
-A1=[1,1,1,2,2,1,4,5,3,8,8,9,10,1]
-lA1=len(A1)
+A1=[1,1,1,2,2,1,4,5,3,3,8,8,9,10,1]
 L1,L2=[],[]
 
 # Populate List 1
-for i in range(lA1):
+for i in range(len(A1)):
     if A1[i] not in L1:
         L1.append(A1[i])
 
@@ -21,7 +20,7 @@ print('The unique elements are:')
 for i in range(len(L1)):
     print(f'{L1[i]}',end='')
     if i<len(L1)-1:
-          print(',',end='')
+        print(',',end='')
 
 
 # Print List 2
@@ -29,4 +28,4 @@ print('\n\nThe numbers and their respective frequencies are:')
 print('   Number : Frequency')
 for i in range(len(L2)):
     if L2[i]!=0:
-          print(f'\t{i} : {L2[i]}') # Print the number followed by its frequency
+        print(f'\t{i} : {L2[i]}') # Print the number followed by its frequency
