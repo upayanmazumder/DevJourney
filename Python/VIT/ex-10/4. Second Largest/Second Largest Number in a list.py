@@ -24,7 +24,7 @@ for i in range(len(nums)):
         uNums.append(nums[i])
 
 # Print the output
-if len(uNums) >= 3:
+if len(uNums) >= 2:
     print("The 2nd largest number is:", uNums[1])
 else:
     print("Not enough unique numbers to find the 2nd largest number.")
