@@ -1,3 +1,4 @@
 x=4
 y=4
-print(xy)
+p=xy
+print(p)
