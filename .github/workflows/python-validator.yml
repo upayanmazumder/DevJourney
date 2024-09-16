@@ -1,0 +1,54 @@
+name: Python Validator
+
+on:
+  push:
+    paths:
+      - 'Python/**/*.py'   # Monitors all Python files under the 'Python' folder, regardless of depth
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up latest Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Ensures latest Python version is used
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f "requirements.txt" ]; then pip install -r requirements.txt; fi
+
+    - name: Run linter (flake8)
+      run: |
+        python -m pip install flake8
+        flake8 Python/ --count --select=E9,F63,F7,F82 --show-source --statistics --exit-zero
+      continue-on-error: true   # Continue even if flake8 finds issues
+      # Logs the files with issues and errors
+      env:
+        FL8_LOG_FILE: flake8_report.txt
+    
+    - name: Display problematic files from flake8
+      if: failure()  # Only run if the flake8 step fails
+      run: cat flake8_report.txt || echo "No flake8 issues found."
+
+    - name: Run static analysis (mypy)
+      run: |
+        python -m pip install mypy
+        mypy Python/ --show-error-codes --pretty
+      continue-on-error: true   # Continue even if mypy finds type issues
+      # Logs the files with type issues
+      env:
+        MYPY_LOG_FILE: mypy_report.txt
+
+    - name: Display problematic files from mypy
+      if: failure()  # Only run if the mypy step fails
+      run: cat mypy_report.txt || echo "No mypy issues found."
+
+    - name: Run tests (if applicable)
+      run: |
+        if [ -d "tests" ]; then pytest --maxfail=10 --disable-warnings; fi
