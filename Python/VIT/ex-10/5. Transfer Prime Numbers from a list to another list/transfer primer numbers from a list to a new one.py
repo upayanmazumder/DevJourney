@@ -14,7 +14,7 @@ for i in range(n): # For each number the user entered
     prime=True # Initially assume its prime
     for j in range(2,L1[i]): # Start a iterative check to find whether at least one number can divide it
         if L1[i]%j==0:
-              prime=False
+            prime=False
     if prime and L1[i] not in L2: # If no factors were found and the number isnt already stored in new list
         L2.append(L1[i]) 
 
