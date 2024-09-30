@@ -13,10 +13,10 @@ for i in range(n): # For each set
     l.append(set(li))
 
 # Convert to sets
-s1 = l[0]
-s2 = l[1]
-s3 = l[2]
-s4 = l[3]
+s1 = set(l[0])
+s2 = set(l[1])
+s3 = set(l[2])
+s4 = set(l[3])
 
 # Find intersection set
 sI=s1.intersection(s2).intersection(s3).intersection(s4)
