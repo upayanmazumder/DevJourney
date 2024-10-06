@@ -1,5 +1,5 @@
 # DevJourney
-
+[![CodeQL](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql)
 [![Daily Tag Creator](https://github.com/upayanmazumder/DevJourney/actions/workflows/main.yml/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/main.yml)
 
 ## What is it?
