@@ -1,6 +1,5 @@
 # DevJourney
-[![CodeQL](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql)
-[![Daily Tag Creator](https://github.com/upayanmazumder/DevJourney/actions/workflows/main.yml/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/main.yml)
+[![CodeQL](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql) [![Dependabot Updates](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates) [![Daily Tag Creator](https://github.com/upayanmazumder/DevJourney/actions/workflows/main.yml/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/main.yml) [![Deploy Jekyll with GitHub Pages dependencies preinstalled](https://github.com/upayanmazumder/DevJourney/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/jekyll-gh-pages.yml)
 
 ## What is it?
 
