@@ -1,7 +1,7 @@
-word=str(input("Enter a string: "))
-wordF=word.lower()
-wordR=wordF[::-1]
-if wordF==wordR:
+text=str(input("Enter a string: "))
+textF=text.lower()
+textR=textF[::-1]
+if textF==textR:
     print("Palindrome")
 else:
     print("Not a palindrome")
