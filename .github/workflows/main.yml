@@ -21,7 +21,7 @@ jobs:
         run: |
           DATE=$(TZ='Asia/Kolkata' date +'%d-%m-%Y') || { echo "Failed to get date"; exit 1; }
           echo "Current date in IST: $DATE"
-          echo "::set-output name=date::$DATE"
+          echo "DATE=$DATE" >> $GITHUB_ENV
         continue-on-error: false
 
       - name: Check for commits today
@@ -31,17 +31,17 @@ jobs:
           echo "Commits today: $COMMITS"
           if [ -z "$COMMITS" ]; then
             echo "No commits found today"
-            echo "::set-output name=has_commits::false"
+            echo "HAS_COMMITS=false" >> $GITHUB_ENV
           else
             echo "Commits found"
-            echo "::set-output name=has_commits::true"
+            echo "HAS_COMMITS=true" >> $GITHUB_ENV
           fi
         continue-on-error: false
 
       - name: Create Tag
-        if: steps.commits.outputs.has_commits == 'true'
+        if: env.HAS_COMMITS == 'true'
         env:
-          TAG_DATE: ${{ steps.date.outputs.date }}
+          TAG_DATE: ${{ env.DATE }}
         run: |
           echo "Creating tag $TAG_DATE"
           git config --global user.name "github-actions[bot]" || { echo "Failed to configure git user name"; exit 1; }
