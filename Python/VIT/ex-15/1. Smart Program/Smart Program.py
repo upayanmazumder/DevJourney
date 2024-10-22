@@ -82,13 +82,13 @@ printInstructions()
 choice = int(input("Enter the operation you wish to perform: "))
 if choice != 6:
     res = op(choice,l)
-    print("Result: ",res)
+    print(l,"\nResult: ",res)
 
 while choice != 6:
     printInstructions()
     choice = int(input("Enter the operation you wish to perform: "))
     if choice != 6:
         res = op(choice,l)
-        print("Result: ",res)
+        print(l,"\nResult: ",res)
 
 print("Stopping..")
