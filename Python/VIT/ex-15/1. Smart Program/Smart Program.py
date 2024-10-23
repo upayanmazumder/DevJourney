@@ -1,13 +1,16 @@
-# Populate the list
-l = []
-n = int(input("Enter length of list: "))
+def makeList():
+    """Populate the list"""
+    l = []
+    n = int(input("Enter length of list: "))
+    for i in range(n):
+        x = float(input(f"Enter element {i+1}: "))
+        l.append(x)
+    print(l)
 
-for i in range(n):
-    x = float(input(f"Enter element {i+1}: "))
-    l.append(x)
-print(l)
+    return l
 
 def op(c,l):
+    """Handles which operation is to be performed"""
     if c==1:
         res = op1(l)
     elif c==2:
@@ -22,8 +25,10 @@ def op(c,l):
 
 def op1(l):
     """Add all elements of given list"""
-    res = sum(l)
-    return res
+    sum = 0
+    for i in range(len(l)):
+        sum += l[i]
+    return sum
 
 def op2(l):
     """Add even index numbers"""
@@ -77,6 +82,8 @@ def printInstructions():
         5. Check if the second element of the list is an Armstrong number or not.
         6. End
     """)
+
+l = makeList()
 
 printInstructions()
 choice = int(input("Enter the operation you wish to perform: "))
