@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevJourney</title>
     <style>
-        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Custom Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -28,7 +26,6 @@
             border-radius: 10px;
         }
 
-        /* Body Styling */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #0a0f17;
@@ -43,7 +40,6 @@
             overflow-x: hidden;
         }
 
-        /* Header Styling */
         header h1 {
             font-size: 4rem;
             margin-bottom: 30px;
@@ -54,13 +50,11 @@
             text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
         }
 
-        /* Neon Glow Animation for Text */
         @keyframes neonGlow {
             0% { opacity: 0; text-shadow: none; }
             100% { opacity: 1; text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc; }
         }
 
-        /* Container Styling */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -72,7 +66,6 @@
             animation: fadeSlideIn 1.5s forwards ease-in-out;
         }
 
-        /* Button Container */
         .button-container {
             display: flex;
             flex-direction: column;
@@ -87,7 +80,6 @@
             box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
         }
 
-        /* Glowing Border Animation */
         .button-container::before {
             content: '';
             position: absolute;
@@ -103,7 +95,6 @@
             transition: opacity 0.3s;
         }
 
-        /* Hover Effect */
         .button-container:hover::before {
             opacity: 1;
             animation: glowBorder 3s linear infinite;
@@ -114,7 +105,6 @@
             100% { background-position: 100% 50%; }
         }
 
-        /* Main Button Styling */
         a.button {
             background-color: #00ffcc;
             color: #0a0f17;
@@ -130,13 +120,11 @@
             box-shadow: 0 0 20px rgba(0, 255, 204, 0.5), inset 0 0 15px rgba(0, 255, 204, 0.8);
         }
 
-        /* Button Hover Effects */
         a.button:hover {
             background-color: #00aaff;
             transform: scale(1.05);
         }
 
-        /* GitHub Button */
         a.github-button {
             background-color: rgba(18, 18, 18, 0.8);
             color: #00ffcc;
@@ -149,14 +137,12 @@
             transition: background-color 0.3s, transform 0.3s;
         }
 
-        /* GitHub Button Hover */
         a.github-button:hover {
             background-color: #0a0f17;
             border-color: #00aaff;
             transform: scale(1.1);
         }
 
-        /* Description Styling */
         .description {
             color: #8b949e;
             font-size: 1rem;
@@ -165,7 +151,6 @@
             transition: color 0.3s;
         }
 
-        /* Responsive Media Queries */
         @media (max-width: 600px) {
             .container {
                 grid-template-columns: 1fr;
@@ -185,13 +170,11 @@
             }
         }
 
-        /* Slide In Animation */
         @keyframes fadeSlideIn {
             0% { opacity: 0; transform: translateY(50px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Footer Styling */
         footer {
             margin-top: 40px;
             color: #8b949e;
@@ -204,12 +187,10 @@
 </head>
 
 <body>
-    <!-- Header Section -->
     <header>
         <h1>DevJourney</h1>
     </header>
 
-    <!-- Button Grid Container -->
     <div class="container">
         <div class="button-container">
             <a href="./C/" class="button">C</a>
@@ -258,7 +239,6 @@
         </div>
     </div>
 
-    <!-- Footer Section -->
     <footer>
         © 2024 DevJourney. All rights reserved.
     </footer>
