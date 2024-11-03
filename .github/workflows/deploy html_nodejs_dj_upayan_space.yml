@@ -1,34 +1,30 @@
 name: Docker Image CI
 
 on:
-    push:
-        branches: ["main"]
-        paths:
-            - 'HTML/html.nodejs.dj.upayan.space/**'
-    pull_request:
-        branches: ["main"]
-        paths:
-            - 'HTML/html.nodejs.dj.upayan.space/**'
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 permissions:
-    contents: read
-    packages: write
+  contents: read
+  packages: write
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-                uses: actions/checkout@v4
-            
-            - name: Login to GitHub Container Registry
-                uses: docker/login-action@v1
-                with:
-                    registry: ghcr.io
-                    username: ${{ github.actor }}
-                    password: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Build and Push Docker Image
-                run: |
-                    docker build HTML/html.nodejs.dj.upayan.space --tag ghcr.io/upayanmazumder/devjourney_html-nodejs:latest --build-arg NODE_ENV=production
-                    docker push ghcr.io/upayanmazumder/devjourney_html-nodejs:latest
+      - name: Build and Push Docker Image
+        run: |
+          docker build HTML/html.nodejs.dj.upayan.space --tag ghcr.io/upayanmazumder/devjourney_html-nodejs:latest --build-arg NODE_ENV=production
+          docker push ghcr.io/upayanmazumder/devjourney_html-nodejs:latest
