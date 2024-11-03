@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI for html.nodejs.dj.upayan.space
 
 on:
   push:
@@ -26,5 +26,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build HTML/html.nodejs.dj.upayan.space --tag ghcr.io/upayanmazumder/devjourney_html-nodejs:latest --build-arg NODE_ENV=production
-          docker push ghcr.io/upayanmazumder/devjourney_html-nodejs:latest
+          docker build HTML/html.nodejs.dj.upayan.space --tag ghcr.io/upayanmazumder/devjourney/html-nodejs:latest --build-arg NODE_ENV=production
+          docker push ghcr.io/upayanmazumder/devjourney/html-nodejs:latest
