@@ -1,4 +1,4 @@
-def makeList():
+def make_list():
     """Populate the list"""
     l = []
     n = int(input("Enter length of list: "))
@@ -72,7 +72,7 @@ def op5(l):
         res = False
     return res
 
-def printInstructions():
+def print_instructions():
     """Print the instructions"""
     print("""
         1. Add all the elements of the given list.
@@ -83,16 +83,16 @@ def printInstructions():
         6. End
     """)
 
-l = makeList()
+l = make_list()
 
-printInstructions()
+print_instructions()
 choice = int(input("Enter the operation you wish to perform: "))
 if choice != 6:
     res = op(choice,l)
     print(l,"\nResult: ",res)
 
 while choice != 6:
-    printInstructions()
+    print_instructions()
     choice = int(input("Enter the operation you wish to perform: "))
     if choice != 6:
         res = op(choice,l)
