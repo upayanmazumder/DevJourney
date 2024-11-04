@@ -4,15 +4,12 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve index.html for the home page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'routes', 'index.html'));
 });
 
-// Dynamically serve other HTML files from the 'routes' directory
 app.get('/:page', (req, res) => {
     const page = req.params.page;
     const filePath = path.join(__dirname, 'routes', `${page}.html`);
@@ -29,5 +26,3 @@ app.get('/:page', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
-
-//Testing gg

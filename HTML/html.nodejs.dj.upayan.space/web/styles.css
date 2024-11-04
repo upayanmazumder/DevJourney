@@ -1,0 +1,96 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #000000; /* Black */
+    color: #E0E0E0;
+    line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #1E90FF; /* DodgerBlue */
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+    color: #00BFFF; /* DeepSkyBlue */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1E90FF; /* DodgerBlue */
+    text-decoration: underline;
+}
+
+/* Buttons */
+button {
+    background-color: #00BFFF; /* DeepSkyBlue */
+    color: #000000; /* Black */
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1E90FF; /* DodgerBlue */
+}
+
+/* Forms */
+input, textarea {
+    background-color: #1C1C1C; /* Very dark gray */
+    color: #E0E0E0;
+    border: 1px solid #1E90FF; /* DodgerBlue */
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+input:focus, textarea:focus {
+    border-color: #00BFFF; /* DeepSkyBlue */
+    outline: none;
+}
+
+/* Containers */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Navigation */
+nav {
+    background-color: #1C1C1C; /* Very dark gray */
+    padding: 1rem;
+}
+
+nav a {
+    color: #E0E0E0;
+    margin-right: 1rem;
+}
+
+nav a:hover {
+    color: #1E90FF; /* DodgerBlue */
+}
+
+/* Footer */
+footer {
+    background-color: #1C1C1C; /* Very dark gray */
+    color: #E0E0E0;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
