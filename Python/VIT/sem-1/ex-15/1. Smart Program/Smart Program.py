@@ -6,22 +6,24 @@ def make_list():
         x = float(input(f"Enter element {i+1}: "))
         l.append(x)
     print(l)
-
     return l
 
 def op(c,l):
-    """Handles which operation is to be performed"""
-    if c==1:
-        res = op1(l)
-    elif c==2:
-        res = op2(l)
-    elif c==3:
-        res = op3(l)
-    elif c==4:
-        res = op4(l)
-    elif c==5:
-        res = op5(l)
-    return res
+    """Handles which operation to perform"""
+    if c>0 and c<6:
+        if c==1:
+            res = op1(l)
+        elif c==2:
+            res = op2(l)
+        elif c==3:
+            res = op3(l)
+        elif c==4:
+            res = op4(l)
+        elif c==5:
+            res = op5(l)
+        print(res)
+    else:
+        print("Invalid choice")
 
 def op1(l):
     """Add all elements of given list"""
@@ -84,18 +86,13 @@ def print_instructions():
     """)
 
 l = make_list()
-
 print_instructions()
 choice = int(input("Enter the operation you wish to perform: "))
 if choice != 6:
-    res = op(choice,l)
-    print(l,"\nResult: ",res)
+    op(choice,l)
 
 while choice != 6:
-    print_instructions()
     choice = int(input("Enter the operation you wish to perform: "))
     if choice != 6:
-        res = op(choice,l)
-        print(l,"\nResult: ",res)
-
+        op(choice,l)
 print("Stopping..")
