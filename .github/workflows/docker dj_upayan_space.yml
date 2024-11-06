@@ -26,5 +26,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build . --tag ghcr.io/upayanmazumder/devjourney:latest --build-arg NODE_ENV=production
+          docker build dj.upayan.space --tag ghcr.io/upayanmazumder/devjourney:latest --build-arg NODE_ENV=production
           docker push ghcr.io/upayanmazumder/devjourney:latest
