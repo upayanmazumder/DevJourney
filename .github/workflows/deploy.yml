@@ -28,18 +28,17 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Change directory
-        run: cd astro/test
-
-      - name: Install step
+      - name: Install dependencies
         run: npm install
+        working-directory: astro/test
 
-      - name: Build step
+      - name: Build project
         run: npm run build
+        working-directory: astro/test
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "upayan-devjourney-astro"
-          entrypoint: "server/entry.mjs"
-          root: "dist"
+          entrypoint: "astro/test/server/entry.mjs"
+          root: "astro/test/dist"
