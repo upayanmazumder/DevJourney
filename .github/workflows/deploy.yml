@@ -40,5 +40,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "upayan-devjourney-astro"
-          entrypoint: "astro/test/server/entry.mjs"
+          entrypoint: "server/entry.mjs"
           root: "astro/test/dist"
