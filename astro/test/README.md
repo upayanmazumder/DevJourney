@@ -1,5 +1,7 @@
 # Astro Starter Kit: Basics
 
+This site is deployed at [https://upayan-devjourney-astro.deno.dev/](https://upayan-devjourney-astro.deno.dev/)
+
 ```sh
 npm create astro@latest -- --template basics
 ```
