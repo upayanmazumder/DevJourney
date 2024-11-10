@@ -106,7 +106,7 @@ app.get('/*', async (req, res) => {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github-dark.min.css">
             <style>
                 body { font-family: Arial, sans-serif; background-color: #0d0d0d; color: #d3d3d3; margin: 0; padding: 0; overflow-x: hidden; }
-                header { background-color: #1f1f1f; padding: 20px; text-align: center; color: #03a9f4; animation: slideInDown 0.6s ease-out; }
+                header { background-color: #1f1f1f; padding: 20px; text-align: center; color: #03a9f4; animation: slideInDown 0.6s ease-out; position: sticky; top: 0; z-index: 100; }
                 .content { max-width: 800px; margin: 20px auto; padding: 0 20px; }
                 .breadcrumbs { margin-bottom: 20px; font-size: 14px; color: #d3d3d3; animation: fadeInLeft 0.7s ease-out; }
                 .breadcrumbs a { color: #03a9f4; text-decoration: none; }
