@@ -1,6 +1,6 @@
 n = 10
 l = []
-for i in range(10):
+for i in range(n):
     prod = 10 * (i + 1)
     l.append(prod)
 
