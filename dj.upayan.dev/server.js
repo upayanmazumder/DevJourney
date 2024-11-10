@@ -132,7 +132,7 @@ app.get('/*', async (req, res) => {
             </style>
         </head>
         <body>
-            <header>DevJourney Explorer</header>
+            <header>DevJourney</header>
             <div class="content">
                 <div class="breadcrumbs">${breadcrumbs}</div>
                 <h1>${route || 'Home'}</h1>
