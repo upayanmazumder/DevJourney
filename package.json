@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/upayanmazumder/DevJourney.git"
   },
+  "scripts": {
+    "start": "cd dj.upayan.dev && node server"
+  },
   "keywords": [
     "devjourney",
     "c",
