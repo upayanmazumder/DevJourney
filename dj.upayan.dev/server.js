@@ -6,11 +6,9 @@ const path = require('path');
 const hljs = require('highlight.js');
 const app = express();
 
-// GitHub API setup
 const GITHUB_REPO = 'upayanmazumder/devjourney';
 const API_BASE = `https://api.github.com/repos/${GITHUB_REPO}/contents`;
 
-// Fetch GitHub contents with authentication
 const fetchContents = async (route) => {
     try {
         const url = `${API_BASE}${route ? `/${route}` : ''}`;
@@ -26,7 +24,6 @@ const fetchContents = async (route) => {
     }
 };
 
-// Fetch specific file's content with syntax highlighting
 const fetchFileContent = async (filePath) => {
     try {
         const url = `${API_BASE}/${filePath}`;
@@ -38,12 +35,10 @@ const fetchFileContent = async (filePath) => {
         const content = Buffer.from(response.data.content, 'base64').toString('utf8');
         const extension = path.extname(filePath);
 
-        // Syntax highlight for non-Markdown files
         if (extension !== '.md') {
             const language = hljs.getLanguage(extension.slice(1)) ? extension.slice(1) : 'plaintext';
             return hljs.highlight(content, { language }).value;
         }
-        // Markdown content is parsed without syntax highlight
         return marked.parse(content);
     } catch (error) {
         console.error('Error fetching file content:', error);
@@ -51,7 +46,6 @@ const fetchFileContent = async (filePath) => {
     }
 };
 
-// Generate breadcrumbs
 const generateBreadcrumbs = (route) => {
     const parts = route ? route.split('/') : [];
     let breadcrumbHtml = `<a href="/">Home</a>`;
@@ -62,7 +56,6 @@ const generateBreadcrumbs = (route) => {
     return breadcrumbHtml;
 };
 
-// Route to handle dynamic folder paths and file viewing
 app.get('/*', async (req, res) => {
     const route = req.params[0];
     const contents = await fetchContents(route);
@@ -76,7 +69,6 @@ app.get('/*', async (req, res) => {
 
     let contentHtml;
     if (Array.isArray(contents)) {
-        // Directory listing with README display
         const readme = contents.find((item) => item.name === 'README.md');
         const readmeContent = readme ? await fetchFileContent(`${route}/README.md`) : '<p>No README available</p>';
 
@@ -93,7 +85,6 @@ app.get('/*', async (req, res) => {
             </ul>
         `;
     } else {
-        // Render file with syntax highlighting
         const fileContent = await fetchFileContent(route);
 
         contentHtml = `<div class="file-content"><pre><code>${fileContent}</code></pre></div>`;
@@ -146,7 +137,6 @@ app.get('/*', async (req, res) => {
     `);
 });
 
-// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
