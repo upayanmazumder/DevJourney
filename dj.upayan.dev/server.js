@@ -59,7 +59,10 @@ const generateBreadcrumbs = (route) => {
 };
 
 app.get('/*', async (req, res) => {
-    const route = req.params[0];
+    let route = req.params[0];
+    if (!/^[a-zA-Z0-9/_-]+$/.test(route)) {
+        return res.status(400).send('Invalid route.');
+    }
     const contents = await fetchContents(route);
 
     if (!contents) {
