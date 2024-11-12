@@ -6,7 +6,6 @@ const path = require('path');
 const hljs = require('highlight.js');
 const app = express();
 
-// Set up the public folder to serve static files
 app.use(express.static('public'));
 
 const GITHUB_REPO = 'upayanmazumder/devjourney';
