@@ -18,17 +18,20 @@
 To run the server locally, follow these steps:
 
 1. Clone the repository:
+
     ```sh
     git clone https://github.com/upayanmazumder/DevJourney.git
     cd DevJourney/dj.upayan.dev
     ```
 
 2. Install dependencies:
+
     ```sh
     npm install
     ```
 
 3. Start the server:
+
     ```sh
     npm start
     ```
