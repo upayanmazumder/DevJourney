@@ -59,4 +59,4 @@ Contributions are welcome! Please open an issue or submit a pull request on GitH
 
 ## Contact
 
-For any questions or feedback, please contact [Upayan Mazumder](https://github.com/upayanmazumder).
+For any questions or feedback, please contact [Upayan Mazumder](https://github.com/upayanmazumder)
