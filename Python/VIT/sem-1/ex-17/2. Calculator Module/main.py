@@ -11,9 +11,13 @@ print("""
     e. Floor Divide
     f. Power
     g. Modulus
+    h. Square Root
+    i. Absolute
+    j. Factorial
+    k. GCD
+    l. LCM
+    0. End Program
 """)
-
-choice = input("Enter your choice: ")
 
 def evaluate(a, b, choice):
     if choice == 'a':
@@ -30,15 +34,45 @@ def evaluate(a, b, choice):
         res = c.power(a, b)
     elif choice == 'g':
         res = c.modulus(a, b)
+    elif choice == 'h':
+        res = f"Square root of {a} is "
+        res += str(c.square_root(a))
+        res += f"\n\tSquare root of {b} is "
+        res += str(c.square_root(b))
+    elif choice == 'i':
+        res = f"Absolute of {a} is "
+        res += str(c.absolute(a))
+        res += f"\n\tAbsolute of {b} is "
+        res += str(c.absolute(b))
+    elif choice == 'j':
+        res = f"Factorial of {a} is "
+        res += str(c.factorial(a))
+        res += f"\n\tFactorial of {b} is "
+        res += str(c.factorial(b))
+    elif choice == 'k':
+        res = c.gcd(a, b)
+    elif choice == 'l':
+        res = c.lcm(a,b)
     else:
         res = "Invalid choice"
     return res
 
-if choice in 'abcdefg':
-    if choice in 'deg' and b == 0:
-        print("Division by zero is not allowed")
+def display_result(choice):
+    if choice in 'abcdefghijk':
+        if choice in 'deg' and b == 0:
+            print("Division by zero is not allowed")
+        else:
+            res = evaluate(a,b,choice)
+            print(f"Result: {res}")
+
+    elif choice == '0':
+        print("Ending program")
     else:
-        res = evaluate(a,b,choice)
-        print(f"Result: {res}")
-else:
-    print("Invalid choice")
+        print("Invalid choice")
+
+choice = input("Enter your choice: ")
+display_result(choice)
+
+while choice != '0':
+    choice = input("Enter your choice: ")
+    display_result(choice)

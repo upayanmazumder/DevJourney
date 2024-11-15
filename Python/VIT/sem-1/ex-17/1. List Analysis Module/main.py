@@ -4,7 +4,7 @@ n = int(input("Enter number of elements: "))
 l = []
 
 for i in range(n):
-    element = input("Enter element: ")
+    element = input(f"Enter element {i+1}: ")
     try:
         element = eval(element)
         l.append(element)
@@ -14,7 +14,7 @@ for i in range(n):
 print(l)
 
 print("""
-    a. Count the total elements in a list
+    a. Count the total elements in the list
     b. Count the total integers, float and string elements in the list
     c. Extract only the unique elements from the list
     d. Extract only the duplicate elements from the list  
