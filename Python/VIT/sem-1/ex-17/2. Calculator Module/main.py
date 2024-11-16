@@ -58,7 +58,7 @@ def evaluate(a, b, choice):
     return res
 
 def display_result(choice):
-    if choice in 'abcdefghijk':
+    if choice in 'abcdefghijkl':
         if choice in 'deg' and b == 0:
             print("Division by zero is not allowed")
         else:
