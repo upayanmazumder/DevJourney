@@ -35,20 +35,11 @@ def evaluate(a, b, choice):
     elif choice == 'g':
         res = c.modulus(a, b)
     elif choice == 'h':
-        res = f"Square root of {a} is "
-        res += str(c.square_root(a))
-        res += f"\n\tSquare root of {b} is "
-        res += str(c.square_root(b))
+        res = f"Square root of {a} is {c.square_root(a)}\n\tSquare root of {b} is {c.square_root(b)}"
     elif choice == 'i':
-        res = f"Absolute of {a} is "
-        res += str(c.absolute(a))
-        res += f"\n\tAbsolute of {b} is "
-        res += str(c.absolute(b))
+        res = f"Absolute of {a} is {c.absolute(a)}\n\tAbsolute of {b} is {c.absolute(b)}"
     elif choice == 'j':
-        res = f"Factorial of {a} is "
-        res += str(c.factorial(a))
-        res += f"\n\tFactorial of {b} is "
-        res += str(c.factorial(b))
+        res = f"Factorial of {a} is {c.factorial(a)}\n\tFactorial of {b} is {c.factorial(b)}"
     elif choice == 'k':
         res = c.gcd(a, b)
     elif choice == 'l':
