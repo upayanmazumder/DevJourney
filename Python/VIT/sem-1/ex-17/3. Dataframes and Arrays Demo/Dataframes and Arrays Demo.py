@@ -1,23 +1,22 @@
-import pandas as pd
-import numpy as np
+import pandas as p
+import numpy as n
 
 # The Pandas Dataframe
-num_students = 5
 data = {
     'Registration Number': [],
     'Student Name': [],
     'Registered Credits': []
 }
 
-for _ in range(num_students):
-    reg_no = input("Enter Registration Number: ")
+for student in range(x):
+    regNo = input("Enter Registration Number: ")
     name = input("Enter Student Name: ")
     credits = float(input("Enter Registered Credits: "))
-    data['Registration Number'].append(reg_no)
+    data['Registration Number'].append(regNo)
     data['Student Name'].append(name)
     data['Registered Credits'].append(credits)
 
-df = pd.DataFrame(data)
+df = p.DataFrame(data)
 print("Pandas DataFrame:\n", df)
 
 # The Numpy array
@@ -32,5 +31,5 @@ for i in range(rows):
         row.append(value)
     matrix.append(row)
 
-matrix = np.array(matrix)
+matrix = n.array(matrix)
 print("\nNumpy Array (Matrix):\n", matrix)
