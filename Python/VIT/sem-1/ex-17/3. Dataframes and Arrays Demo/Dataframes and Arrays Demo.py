@@ -7,7 +7,7 @@ data = {
     'Student Name': [],
     'Registered Credits': []
 }
-x = 3
+x = 5
 for student in range(x):
     regNo = input("Enter Registration Number: ")
     name = input("Enter Student Name: ")
