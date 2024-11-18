@@ -1,0 +1,61 @@
+
+**** 11/17/24 21:45:13 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-Sim"  [ D:\upayanmazumder\DevJourney\Capture Cis Lite\Maximum Power Transfer Theorem\Maximum Power Transfer 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.DC LIN PARAM RL 1 20 .2 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source MAXIMUM POWER TRANSFER THEOREM
+V_V1         N00181 N00196 0Vdc
+R_R1         N00181 N00140  4 TC=0,0 
+R_R2         0 N00181  12 TC=0,0 
+R_R3         N00196 N00140  6 TC=0,0 
+R_R4         0 N00196  8 TC=0,0 
+R_R5         0 N00140  {RL} TC=0,0 
+.PARAM  rl=1
+
+**** RESUMING Sim.cir ****
+.END
+
+
+          JOB CONCLUDED
+
+**** 11/17/24 21:45:13 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-Sim"  [ D:\upayanmazumder\DevJourney\Capture Cis Lite\Maximum Power Transfer Theorem\Maximum Power Transfer 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .02
+
