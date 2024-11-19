@@ -1,0 +1,15 @@
+integrand = @(x,y) exp(-y) ./ y;
+result = integral2(integrand, 0, Inf, @(x) x, Inf);
+fprintf('The value of the integral is: %.4f\n', result);
+figure;
+fplot (@(x) x, [0, 5], 'r', 'LineWidth', 1.5);
+hold on;
+fill([0, 5, 5], [0, 5, 10], 'b', 'FaceAlpha', 0.1);
+xlabel('x');
+ylabel('y');
+title('Integration Region for the Double Integral');
+xlim([0 5]);
+ylim([0 10]);
+legend('y = x boundary' , 'Integration Region (y >= x)');
+grid on;
+hold off;
