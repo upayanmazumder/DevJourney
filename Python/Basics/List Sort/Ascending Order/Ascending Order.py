@@ -1,5 +1,6 @@
 n = int(input("How many numbers? : "))
 l = []
+
 for i in range(n):
     l.append(int(input("Enter number : ")))
 
