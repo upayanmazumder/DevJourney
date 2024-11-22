@@ -1,8 +1,7 @@
-l = [2,3,4,6,1,2,3,6,10,2]
-n = 10
-s = []
-
-min = l[0]
+n = int(input("How many numbers? : "))
+l = []
+for i in range(n):
+    l.append(int(input("Enter number : ")))
 
 for i in range(len(l)):
     for j in range(0, len(l) - i - 1):
