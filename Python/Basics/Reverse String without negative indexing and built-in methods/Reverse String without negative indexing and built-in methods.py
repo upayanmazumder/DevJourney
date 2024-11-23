@@ -4,5 +4,8 @@ l = []
 for char in s:
     l.append(char)
 
-for i in range(len(l)):
-    print(l.pop(), end="")
+i = len(l) - 1
+
+while i >= 0:
+    print(l[i], end="")
+    i -= 1
