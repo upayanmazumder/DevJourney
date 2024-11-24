@@ -1,3 +1,5 @@
 A for Apple
 B for Ball
 C for Cat
+Vowels => 8
+Consonants => 16
