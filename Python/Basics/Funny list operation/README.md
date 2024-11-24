@@ -39,7 +39,7 @@ strings into list object.
 
 ```plaintext
 ["Hello",12,(3-8j)]
-[['H', 'e', 'l', 'l', 'o'], 12, (3-8j)]
+['H', 'e', 'l', 'l', 'o', 12, (3-8j)]
 ```
 
 #### Test Case 5

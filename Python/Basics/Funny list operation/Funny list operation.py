@@ -1,6 +1,5 @@
 l = eval(input(""))
 mid = l[len(l) // 2]
-# Input <[1,(2+3j),'a']>
 
 def check_max(l):
     """ Check max 2 str, 2 complex and 2 int """
@@ -84,15 +83,6 @@ def is_at_least_one_palindrome(l):
     else:
         return False
 
-def convert_strings_to_list(x):
-    """Converts the string to a list"""
-    l = []
-
-    for char in x:
-        l.append(char)
-        
-    return l    
-
 
 # Main function
 sat = 0
@@ -128,7 +118,10 @@ else:
         elif sat == 0:
             for i in range(len(l)):
                 if type(l[i]) == str:
-                    l[i] = convert_strings_to_list(l[i])
+                    charList = list(l[i])  # Convert string to list of characters
+                    l.pop(i)              # Remove the original string
+                    for char in reversed(charList):  # Insert characters in reverse
+                        l.insert(i, char)
     
         if sat != 2:    
             print(l)
