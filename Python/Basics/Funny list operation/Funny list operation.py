@@ -23,26 +23,22 @@ def check_max(l):
     
 def is_prime(n):
     """Checks whether the number is prime or not"""
-    prime = True
 
     for i in range(2, n):
         if n % i == 0:
             return False
     
-    if prime:
-        return True
+    return True
 
 def check_at_least_one_integer_is_prime(l):
     """Check if the integer is prime in the given list"""
-    prime =  False
 
     for integer in l:
         if type(integer) == int and integer > 0:
             if is_prime(integer):
                 return True
 
-    if not prime:
-        return False
+    return False
     
 def reverse_string(s):
     """Reverses the string"""
@@ -69,14 +65,12 @@ def is_palindrome(x):
     
 def is_at_least_one_palindrome(l):
     """Checks if the list has at least one palindrome"""
-    isPalindrome = False
 
     for i in range(len(l)):
         if type(l[i]) == str and is_palindrome(l[i]):
             return True
 
-    if not isPalindrome:
-        return False
+    return False
 
 # Main function
 sat = 0
