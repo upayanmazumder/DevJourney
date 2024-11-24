@@ -23,13 +23,13 @@ def check_max(l):
     
 def is_prime(n):
     """Checks whether the number is prime or not"""
-    Prime = True
+    prime = True
 
     for i in range(2, n):
         if n % i == 0:
-            Prime = False
+            prime = False
     
-    if Prime:
+    if prime:
         return True
     else:
         return False
