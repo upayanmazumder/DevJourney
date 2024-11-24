@@ -27,12 +27,10 @@ def is_prime(n):
 
     for i in range(2, n):
         if n % i == 0:
-            prime = False
+            return False
     
     if prime:
         return True
-    else:
-        return False
 
 def check_at_least_one_integer_is_prime(l):
     """Check if the integer is prime in the given list"""
@@ -41,10 +39,9 @@ def check_at_least_one_integer_is_prime(l):
     for integer in l:
         if type(integer) == int and integer > 0:
             if is_prime(integer):
-                prime = True
-    if prime:
-        return True
-    else:
+                return True
+
+    if not prime:
         return False
     
 def reverse_string(s):
@@ -76,13 +73,10 @@ def is_at_least_one_palindrome(l):
 
     for i in range(len(l)):
         if type(l[i]) == str and is_palindrome(l[i]):
-            isPalindrome = True
+            return True
 
-    if isPalindrome:
-        return True
-    else:
+    if not isPalindrome:
         return False
-
 
 # Main function
 sat = 0
