@@ -1,8 +1,0 @@
-* source MAXIMUM POWER TRANSFER THEOREM
-V_V1         N00181 N00196 30Vdc
-R_R1         N00181 N00140  4 TC=0,0 
-R_R2         0 N00181  12 TC=0,0 
-R_R3         N00196 N00140  6 TC=0,0 
-R_R4         0 N00196  8 TC=0,0 
-R_R5         0 N00140  {RL} TC=0,0 
-.PARAM  rl=1

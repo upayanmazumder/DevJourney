@@ -1,0 +1,116 @@
+
+**** 11/26/24 12:35:19 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-Full_Wave"  [ d:\upayanmazumder\devjourney\capture cis lite\single phase rectifier\full wave rectifier-pspic
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Full_Wave.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 0.04s 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source FULL WAVE RECTIFIER
+R_R1         0 N00098  100 TC=0,0 
+V_V1         N00090 N00094  AC 0
++SIN 0 100 50 0 0 0
+C_C1         0 N00098  1uF  TC=0,0 
+D_D1         N00090 N00098 D1N4007 
+D_D2         N00094 N00098 D1N4007 
+D_D3         0 N00090 D1N4007 
+D_D4         0 N00094 D1N4007 
+
+**** RESUMING Full_Wave.cir ****
+.END
+
+**** 11/26/24 12:35:19 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-Full_Wave"  [ d:\upayanmazumder\devjourney\capture cis lite\single phase rectifier\full wave rectifier-pspic
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4007         D1N4001         
+          IS   14.110000E-09   14.110000E-09 
+           N    1.984           1.984        
+         IKF   94.81           94.81         
+          BV    1.500000E+03   75            
+         IBV   10.000000E-06   10.000000E-06 
+          RS     .03389          .03389      
+          TT    5.700000E-06    5.700000E-06 
+         CJO   25.890000E-12   25.890000E-12 
+          VJ     .3245           .3245       
+           M     .44             .44         
+
+
+**** 11/26/24 12:35:19 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-Full_Wave"  [ d:\upayanmazumder\devjourney\capture cis lite\single phase rectifier\full wave rectifier-pspic
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00090) 1.404E-18 (N00094) 1.404E-18 (N00098) 10.65E-24 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 11/26/24 12:35:19 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-Full_Wave"  [ d:\upayanmazumder\devjourney\capture cis lite\single phase rectifier\full wave rectifier-pspic
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .05
+
