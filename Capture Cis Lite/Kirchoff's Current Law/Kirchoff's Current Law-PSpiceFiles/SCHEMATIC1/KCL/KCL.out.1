@@ -1,0 +1,54 @@
+
+**** 11/26/24 16:14:04 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-KCL"  [ D:\upayanmazumder\DevJourney\Capture Cis Lite\Kirchoff's Current Law\Kirchoff's Current Law-PSpiceFi
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "KCL.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source KIRCHOFF'S CURRENT LAW
+R_R1         N00266 N00187  330 TC=0,0 
+R_R2         N00187 N00211  270 TC=0,0 
+R_R3         N00211 N00270  390 TC=0,0 
+R_R4         N00274 N00187  220 TC=0,0 
+R_R5         N00274 N00211  180 TC=0,0 
+V_V1         N00266 N00274 12Vdc
+V_V2         N00270 N00274 10Vdc
+
+**** RESUMING KCL.cir ****
+.END
+
+ERROR(ORPSIM-15142): Node N00266 is floating
+
+ERROR(ORPSIM-15142): Node N00187 is floating
+
+ERROR(ORPSIM-15142): Node N00211 is floating
+
+ERROR(ORPSIM-15142): Node N00270 is floating
+
+ERROR(ORPSIM-15142): Node N00274 is floating
+

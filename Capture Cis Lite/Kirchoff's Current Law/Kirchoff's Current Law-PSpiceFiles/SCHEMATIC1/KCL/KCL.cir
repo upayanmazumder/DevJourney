@@ -1,0 +1,19 @@
+** Profile: "SCHEMATIC1-KCL"  [ D:\upayanmazumder\DevJourney\Capture Cis Lite\Kirchoff's Current Law\Kirchoff's Current Law-PSpiceFiles\SCHEMATIC1\KCL.sim ] 
+
+** Creating circuit file "KCL.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+.END

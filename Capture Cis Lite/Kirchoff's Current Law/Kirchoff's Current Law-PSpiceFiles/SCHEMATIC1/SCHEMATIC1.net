@@ -1,0 +1,8 @@
+* source KIRCHOFF'S CURRENT LAW
+R_R1         N00266 N00187  330 TC=0,0 
+R_R2         N00187 N00211  270 TC=0,0 
+R_R3         N00211 N00270  390 TC=0,0 
+R_R4         0 N00187  220 TC=0,0 
+R_R5         0 N00211  180 TC=0,0 
+V_V1         N00266 0 12Vdc
+V_V2         N00270 0 10Vdc
