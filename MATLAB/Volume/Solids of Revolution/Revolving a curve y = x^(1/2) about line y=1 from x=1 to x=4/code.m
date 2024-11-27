@@ -8,7 +8,7 @@ I=[0,4]; % Interval of integration
 a=I(1);b=I(2);
 vol=pi*int((f(x)-yr)^2,a,b);
 disp('Volume of solid of revolution is: ');
-disp(vol); % Visualization if solid of revolution
+disp(vol); % Visualization of solid of revolution
 fx=matlabFunction(f);
 xv = linspace(a,b,101); % Creates 101 points from a to b
 [X,Y,Z] = cylinder(fx(xv)-yr);
