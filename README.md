@@ -1,6 +1,6 @@
 # DevJourney
 
-[![Site](https://img.shields.io/badge/dj.upayan.dev-1e3a8a?style=for-the-badge&logo=internet-explorer&logoColor=white)](https://dj.upayan.dev)
+[![Site](https://img.shields.io/badge/upayan.dev/devjourney-1e3a8a?style=for-the-badge&logo=internet-explorer&logoColor=white)](https://upayan.dev/devjourney)
 
 [![CodeQL](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql) 
 [![Dependabot Updates](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates) 
@@ -16,4 +16,4 @@ The purpose of this repository is to store and document the diverse range of cod
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
