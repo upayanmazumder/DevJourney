@@ -2,7 +2,9 @@
 
 [![Site](https://img.shields.io/badge/dj.upayan.dev-1e3a8a?style=for-the-badge&logo=internet-explorer&logoColor=white)](https://dj.upayan.dev)
 
-[![CodeQL](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql) [![Dependabot Updates](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates) [![Daily Tag Creator](https://github.com/upayanmazumder/DevJourney/actions/workflows/daily%20tag%20creator.yml/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/daily%20tag%20creator.yml) [![Docker Image CI for dj.upayan.dev](https://github.com/upayanmazumder/DevJourney/actions/workflows/docker%20dj_upayan_dev.yml/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/docker%20dj_upayan_dev.yml)
+[![CodeQL](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql) 
+[![Dependabot Updates](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates) 
+[![Daily Tag Creator](https://github.com/upayanmazumder/DevJourney/actions/workflows/daily%20tag%20creator.yml/badge.svg)](https://github.com/upayanmazumder/DevJourney/actions/workflows/daily%20tag%20creator.yml) 
 
 ## What is it?
 
