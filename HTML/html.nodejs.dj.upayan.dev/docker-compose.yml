@@ -1,0 +1,3 @@
+services:
+  dj_html-nodejs:
+    image: ghcr.io/upayanmazumder/devjourney/html-nodejs:latest
