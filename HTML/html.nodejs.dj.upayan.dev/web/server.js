@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 app.get('/:page', (req, res) => {
     const page = req.params.page;
     const filePath = path.join(__dirname, 'routes', `${page}.html`);
-    
+
     fs.access(filePath, fs.constants.F_OK, (err) => {
         if (err) {
             res.status(404).send('Page not found');
@@ -23,6 +23,6 @@ app.get('/:page', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Web server running at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Web server running at http://0.0.0.0:${port}`);
 });

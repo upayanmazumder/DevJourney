@@ -1,3 +1,6 @@
 services:
   dj_html-nodejs:
     image: ghcr.io/upayanmazumder/devjourney/html-nodejs:latest
+    ports:
+      - "3000:3000"
+      - "4000:4000"
