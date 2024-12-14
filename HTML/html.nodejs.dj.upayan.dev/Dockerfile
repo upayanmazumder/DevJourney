@@ -24,5 +24,9 @@ RUN npm install
 WORKDIR /app
 COPY . .
 
+# Expose port 3000 & 4000
+EXPOSE 3000
+EXPOSE 4000
+
 # Run the web service on container startup
 CMD ["sh", "-c", "npm run deploy"]
