@@ -1,5 +1,5 @@
 # Use the official Node.js image
-FROM node:23
+FROM node:latest
 
 # Create and change to the app directory
 WORKDIR /app
