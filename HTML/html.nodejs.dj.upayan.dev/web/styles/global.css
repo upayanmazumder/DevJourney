@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'RedHatDisplay';
+    src: url('../fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype'),
+        url('../fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --background-color: #000000;
+    --text-color: white;
+    --text-link-color: #1a73e8;
+    --text-link--hover-color: #3f8cf1;
+}
+
+body {
+    font-family: 'RedHatDisplay', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #393939c2;
+    padding: 5px 5%;
+    text-align: center;
+    height: 10vh;
+    vertical-align: middle;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0;
+    gap: 15px;
+}
+
+footer {
+    background-color: #393939c2;
+    padding: 10px 5%;
+    text-align: center;
+    height: 10vh;
+}
+
+footer nav ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0;
+    gap: 15px;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+}
+
+a {
+    color: var(--text-link-color);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    margin: auto;
+}
+
+a:hover {
+    color: var(--text-link--hover-color);
+}
+
+main {
+    padding: 30px 15%;
+    flex-wrap: wrap;
+    min-height: 70vh;
+    text-align: center;
+    align-items: center;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2e2e2e;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+    border: 2px solid #2e2e2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
