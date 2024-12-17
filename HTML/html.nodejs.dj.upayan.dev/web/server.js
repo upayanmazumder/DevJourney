@@ -10,7 +10,24 @@ const server = http.createServer((req, res) => {
 
     let filePath = '.' + req.url;
     if (filePath === './') {
-        filePath = './index.html';
+        filePath = './routes/index.html';
+    } else if (filePath === './favicon.ico') {
+        filePath = './public/favicon.ico';
+    } else if (filePath.startsWith('./fonts')) {
+        filePath = './public' + req.url;
+    } else if (filePath.startsWith('./styles')) {
+        filePath = './styles' + req.url.slice(7);
+    } else if (filePath.startsWith('./scripts')) {
+        filePath = './scripts' + req.url.slice(8);
+    } else if (filePath === './404.html') {
+        filePath = './routes/404.html';
+    } else {
+        filePath = './routes' + req.url;
+    }
+
+    // Check if the path is a directory and append index.html
+    if (fs.existsSync(filePath) && fs.lstatSync(filePath).isDirectory()) {
+        filePath = path.join(filePath, 'index.html');
     }
 
     const extname = String(path.extname(filePath)).toLowerCase();
@@ -36,13 +53,26 @@ const server = http.createServer((req, res) => {
     fs.readFile(filePath, (error, content) => {
         if (error) {
             if (error.code === 'ENOENT') {
-                fs.readFile('./404.html', (error, content) => {
-                    if (error) {
-                        res.writeHead(500);
-                        res.end('Error loading 404 page');
+                // Try with .html extension
+                fs.readFile(filePath + '.html', (errorHtml, contentHtml) => {
+                    if (errorHtml) {
+                        if (errorHtml.code === 'ENOENT') {
+                            fs.readFile('./routes/404.html', (error404, content404) => {
+                                if (error404) {
+                                    res.writeHead(500);
+                                    res.end('Error loading 404 page');
+                                } else {
+                                    res.writeHead(404, { 'Content-Type': 'text/html' });
+                                    res.end(content404, 'utf-8');
+                                }
+                            });
+                        } else {
+                            res.writeHead(500);
+                            res.end(`Sorry, check with the site admin for error: ${errorHtml.code} ..\n`);
+                        }
                     } else {
-                        res.writeHead(404, { 'Content-Type': 'text/html' });
-                        res.end(content, 'utf-8');
+                        res.writeHead(200, { 'Content-Type': 'text/html' });
+                        res.end(contentHtml, 'utf-8');
                     }
                 });
             } else {
