@@ -10,69 +10,41 @@
 
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="/#about-me">
-                        About Me
-                    </a>
-                </li>
-                <li>
-                    <a href="/#more">
-                        More
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header"></div>
 
     <div class="page">
 
-        <section id="about-me">
-            <h2>
-                About me
-            </h2>
-            <img src="./upayan.png" height="50px" width="50px" class="upayan">
-            <br />
-            <br />
-            I'm Upayan, a 19-year-old student currently pursuing a BTech in Computer Science with a specialization in
-            Data
-            Science at VIT Vellore. I have a deep passion for programming and love exploring various technologies. My
-            areas of
-            interest range from web development to data science, and I'm always excited to work on new projects and
-            expand my
-            skillset.
-        </section>
+        <table border="1">
+            <tr>
+                <th>About Me</th>
+                <th>More</th>
+            </tr>
+            <tr>
+                <td>
+                    <h2>About me</h2>
+                    <img src="/media/upayan.png" height="50px" width="50px" class="upayan">
+                    <br /><br />
+                    I'm Upayan, a 19-year-old student currently pursuing a BTech in Computer Science with a
+                    specialization in
+                    Data Science at VIT Vellore. I have a deep passion for programming and love exploring various
+                    technologies. My
+                    areas of interest range from web development to data science, and I'm always excited to work on new
+                    projects and
+                    expand my skillset.
+                </td>
+                <td>
+                    <h2>More</h2>
+                    What more do you want to know about me bruh!
+                    Feel free to view my website at <a href="https://upayan.dev" target="_blank">upayan.dev</a>
+                </td>
+            </tr>
+        </table>
 
-        <section id="more">
-            <h2>
-                More
-            </h2>
-            What more do you want to know about me bruh!
-            Feel free to view my website at <a href="https://upayan.dev" target="_blank">upayan.dev</a>
-        </section>
     </div>
 
-    <footer>
-        <ul class="links">
-            <li>
-                <a href="https://github.com/upayanmazumder" target="_blank">Github</a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/upayanmazumder/" target="_blank">LinkedIn</a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/upayan.mazumder/" target="_blank">Instagram</a>
-            </li>
-        </ul>
-        &copy Made with love by Upayan Mazumder
-    </footer>
+    <div id="footer"></div>
+
+    <script src="../scripts/common.js"></script>
 </body>
 
 </html>

@@ -15,10 +15,14 @@ const server = http.createServer((req, res) => {
         filePath = './public/favicon.ico';
     } else if (filePath.startsWith('./fonts')) {
         filePath = './public' + req.url;
+    } else if (filePath.startsWith('./media')) {
+        filePath = './public' + req.url;
     } else if (filePath.startsWith('./styles')) {
         filePath = './styles' + req.url.slice(7);
     } else if (filePath.startsWith('./scripts')) {
         filePath = './scripts' + req.url.slice(8);
+    } else if (filePath.startsWith('./components')) {
+        filePath = './components' + req.url.slice(11);
     } else if (filePath === './404.html') {
         filePath = './routes/404.html';
     } else {
