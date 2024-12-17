@@ -25,4 +25,5 @@ app.get('/:page', (req, res) => {
 
 app.listen(port, '0.0.0.0', () => {
     console.log(`Web server running at http://0.0.0.0:${port}`);
+    console.log(`View the website at http://localhost:${port}`);
 });

@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
   res.send('Hello from API!');
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`API server running at http://localhost:${port}`);
+  console.log(`View the api at http://localhost:${port}`);
 });
