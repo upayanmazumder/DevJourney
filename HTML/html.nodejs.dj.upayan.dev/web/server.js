@@ -1,29 +1,57 @@
-const express = require('express');
+const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const app = express();
+
+const hostname = '0.0.0.0';
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+const server = http.createServer((req, res) => {
+    console.log(`Request for ${req.url} received.`);
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'routes', 'index.html'));
-});
+    let filePath = '.' + req.url;
+    if (filePath == './') {
+        filePath = './index.html';
+    }
 
-app.get('/:page', (req, res) => {
-    const page = req.params.page;
-    const filePath = path.join(__dirname, 'routes', `${page}.html`);
+    const extname = String(path.extname(filePath)).toLowerCase();
+    const mimeTypes = {
+        '.html': 'text/html',
+        '.js': 'text/javascript',
+        '.css': 'text/css',
+        '.json': 'application/json',
+        '.png': 'image/png',
+        '.jpg': 'image/jpg',
+        '.gif': 'image/gif',
+        '.wav': 'audio/wav',
+        '.mp4': 'video/mp4',
+        '.woff': 'application/font-woff',
+        '.ttf': 'application/font-ttf',
+        '.eot': 'application/vnd.ms-fontobject',
+        '.otf': 'application/font-otf',
+        '.svg': 'application/image/svg+xml'
+    };
 
-    fs.access(filePath, fs.constants.F_OK, (err) => {
-        if (err) {
-            res.status(404).send('Page not found');
+    const contentType = mimeTypes[extname] || 'application/octet-stream';
+
+    fs.readFile(filePath, (error, content) => {
+        if (error) {
+            if (error.code == 'ENOENT') {
+                fs.readFile('./404.html', (error, content) => {
+                    res.writeHead(404, { 'Content-Type': 'text/html' });
+                    res.end(content, 'utf-8');
+                });
+            } else {
+                res.writeHead(500);
+                res.end(`Sorry, check with the site admin for error: ${error.code} ..\n`);
+                res.end();
+            }
         } else {
-            res.sendFile(filePath);
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content, 'utf-8');
         }
     });
 });
 
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Web server running at http://0.0.0.0:${port}`);
-    console.log(`View the website at http://localhost:${port}`);
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://localhost:${port}/`);
 });

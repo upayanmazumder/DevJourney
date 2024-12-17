@@ -1,0 +1,5 @@
+services:
+  web:
+    image: ghcr.io/upayanmazumder/devjourney/html-nodejs/web:latest
+    ports:
+      - "3000:3000"
