@@ -4,17 +4,15 @@ FROM node:latest
 # Create and change to the app directory
 WORKDIR /app
 
-# Copy application dependency manifests to the container image
+# Copy package manifests and install dependencies
 COPY package*.json ./
-
-# Install dependencies for the root
 RUN npm install
 
 # Copy the local code to the container image
-WORKDIR /app
 COPY . .
 
+# Expose port 3000 to external traffic
 EXPOSE 3000
 
-# Run the web service on container startup
-CMD ["node","server"]
+# Start the Node.js server
+CMD ["node", "server.js"]
