@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
     } else if (filePath.startsWith('./fonts')) {
         filePath = './public' + req.url;
     } else if (filePath.startsWith('./media')) {
-        filePath = './public' + req.url;
+        filePath = './media' + req.url.slice(6);
     } else if (filePath.startsWith('./styles')) {
         filePath = './styles' + req.url.slice(7);
     } else if (filePath.startsWith('./scripts')) {
