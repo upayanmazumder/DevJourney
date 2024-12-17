@@ -19,5 +19,5 @@ int main()
 			printf("\n");
 		}
 	getch();
-    return 0
+    return 0;
 }
