@@ -57,6 +57,19 @@ header nav ul li a {
     box-shadow: rgb(42, 56, 132) 1px 1px 6px 2px;
 }
 
+
+footer {
+    padding: 5px;
+    text-align: center;
+    color: gray;
+}
+
+footer ul {
+    justify-content: center;
+    display: flex;
+    gap: 15px;
+}
+
 .page {
     margin: 15%;
 }
@@ -91,6 +104,7 @@ section:hover {
 
 ::-webkit-scrollbar {
     background: var(--background-color);
+    width: 8px;
 }
 
 ::-webkit-scrollbar-button {
@@ -100,23 +114,9 @@ section:hover {
 ::-webkit-scrollbar-thumb {
     background: rgb(99, 99, 99);
     transition: background 0.3s ease-in-out;
-    width: 8px;
     border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(124, 124, 124);
-}
-
-footer {
-    background-color: rgba(169, 169, 169, 0.192);
-    padding: 5px;
-    text-align: center;
-    color: gray;
-}
-
-footer ul {
-    justify-content: center;
-    display: flex;
-    gap: 15px;
 }
