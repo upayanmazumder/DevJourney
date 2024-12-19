@@ -84,6 +84,8 @@ footer {
     padding: 5px;
     text-align: center;
     color: gray;
+    bottom: 0;
+    z-index: 1000;
 }
 
 footer ul {
