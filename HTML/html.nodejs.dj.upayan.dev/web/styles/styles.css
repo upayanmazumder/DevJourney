@@ -31,6 +31,10 @@
     --margin-large: 40px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--background-color);
     background: var(--background-color);
@@ -47,10 +51,9 @@ header {
     width: 100%;
     text-align: center;
     align-items: center;
-}
-
-ul {
-    list-style: none;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
 }
 
 header nav ul {
@@ -77,7 +80,6 @@ header nav ul li a {
     box-shadow: rgb(42, 56, 132) 1px 1px 6px 2px;
 }
 
-
 footer {
     padding: 5px;
     text-align: center;
@@ -91,7 +93,9 @@ footer ul {
 }
 
 .page {
-    margin: 15%;
+    margin: 0 50px;
+    padding: var(--padding-medium) var(--padding-large);
+    justify-content: center;
 }
 
 a {
@@ -109,13 +113,15 @@ a:hover {
 }
 
 section {
-    background-color: rgba(128, 128, 128, 0.384);
+    background-color: var(--card-background-color);
     padding: var(--padding-medium) var(--padding-small);
     border-radius: 15px;
-    margin: 15px 0;
+    margin: 15px auto;
     border: 2px outset darkgray;
     box-shadow: 2px 2px 10px 1px rgba(30, 133, 201, 0.5);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 90%;
+    align-self: center;
 }
 
 section:hover {
@@ -126,7 +132,7 @@ section:hover {
 form {
     background-color: rgba(128, 128, 128, 0.26);
     border-radius: var(--border-radius-medium);
-    padding: var(--padding-medium) var(--padding-small);
+    padding: var(--padding-medium);
     font-size: 0.8em;
     box-shadow: 2px 2px 10px 1px rgba(30, 133, 201, 0.5);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -156,6 +162,10 @@ form input:focus {
     background-color: rgba(158, 158, 158, 0.5);
     border-color: rgba(255, 255, 255, 0.5);
     outline: none;
+}
+
+ul {
+    list-style: none;
 }
 
 ::-webkit-scrollbar {
