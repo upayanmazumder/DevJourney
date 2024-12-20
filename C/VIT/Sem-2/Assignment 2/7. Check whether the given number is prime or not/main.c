@@ -12,8 +12,11 @@ int main() {
 			if(r == 0)
 				fac = fac + 1;
 		}
+		
+	printf("The number is ");
+
 	if(fac == 0)
-		printf("The number is prime");
+		printf("prime");
 	else
-		printf("The number is composite");
+		printf("composite");
 }

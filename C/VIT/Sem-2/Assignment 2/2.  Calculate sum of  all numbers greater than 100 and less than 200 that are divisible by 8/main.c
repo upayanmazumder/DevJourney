@@ -3,7 +3,7 @@
 int main() {
     int i, sum=0;
 
-    for(i = 100;i < 200;i++) {
+    for(i = 101;i < 200;i++) {
         if (i % 8 == 0 ) {
             sum += i;
         }
