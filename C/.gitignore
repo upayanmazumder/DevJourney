@@ -1,2 +1,5 @@
 # Ignore the exe files
 *.exe
+
+# Ignore temporary code runner files
+tempCodeRunnerFile.c
