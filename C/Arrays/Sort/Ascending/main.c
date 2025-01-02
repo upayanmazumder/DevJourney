@@ -2,9 +2,12 @@
 #include<conio.h>
 int main() {
 	int temp,a[20],i,j,k,n;
+
+	printf("How many numbers: ");
+	scanf("%d",&n);
 	
 	printf("Enter the number \n");
-	for(i=0;i<4;i++) {
+	for(i=0;i<n;i++) {
 		scanf("%d",&a[i]);
 	}
 
@@ -19,7 +22,7 @@ int main() {
 	}
 	
 	printf("Ascending order: \n");
-	for(i=0;i<4;i++) {
+	for(i=0;i<n;i++) {
 			printf("%d\n",a[i]);
 	}
 }

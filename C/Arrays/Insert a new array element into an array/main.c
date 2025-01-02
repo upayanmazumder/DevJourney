@@ -16,12 +16,15 @@ int main() {
     }
     printf("\nEnter index of new element: ");
     scanf("%d",&p);
+
     printf("Enter new element: ");
     scanf("%d",&n);
+
     for(i=x+1;i>p;i--) {
         a[i] = a[i-1];
     }
     a[p] = n;
+    
     printf("The updated array is: ");
     for(i=0;i<x+1;i++) {
         printf("%d ",a[i]);

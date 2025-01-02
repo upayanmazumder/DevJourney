@@ -16,5 +16,6 @@ int main() {
 	}
 
 	avg=s/n;
+	
 	printf("Average of the elements of the array is %d",avg);
 }
