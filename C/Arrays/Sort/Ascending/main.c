@@ -6,8 +6,8 @@ int main() {
 	printf("How many numbers: ");
 	scanf("%d",&n);
 	
-	printf("Enter the number \n");
 	for(i=0;i<n;i++) {
+		printf("Enter %dth number: ",i+1);
 		scanf("%d",&a[i]);
 	}
 
@@ -23,6 +23,6 @@ int main() {
 	
 	printf("Ascending order: \n");
 	for(i=0;i<n;i++) {
-			printf("%d\n",a[i]);
+			printf("%d ",a[i]);
 	}
 }
