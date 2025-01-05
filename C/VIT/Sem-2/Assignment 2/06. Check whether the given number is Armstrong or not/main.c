@@ -1,22 +1,25 @@
 #include<stdio.h>
 
 int main() {
-	int n,r,sum=0,i;
+	int n,r,sum=0,i,l=0,x,p;
 	printf("Enter a number : ");
 	scanf("%d",&n);
 	i = n;
-	while(i > 9)
-		{
+	x= n;
+
+	while(x != 0) {
+		x = x / 10;
+		l++;
+	}
+
+	while(i != 0) {
 			r = i % 10;
-			sum = sum + (r * r * r);
+			p = 1;
+			for(int j=0;j<l;j++)
+				p = p * r;
+			sum = sum + p;
 			i = i / 10 ;
-		}
-	sum = sum + (i * i * i);
+	}
 
-	printf("It is ");
-
-    if(sum != n)
-        printf("not ");
-    
-	printf("an Armstrong number!");
+	printf("It is %san Armstrong number!", (sum != n) ? "not " : "");
 }
