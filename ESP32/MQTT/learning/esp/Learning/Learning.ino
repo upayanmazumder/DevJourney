@@ -9,7 +9,7 @@ const char* ssid = "Upayan's Pavillion Plus";
 const char* password = "1234567890";
 
 // Server URL
-const char* serverURL = "http://192.168.67.9:5000/connect";
+const char* serverURL = "http://127.0.0.1:5000/connect";
 
 // OLED display configuration
 #define SCREEN_WIDTH 128
