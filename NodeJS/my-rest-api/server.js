@@ -1,9 +1,16 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const RateLimit = require('express-rate-limit');
 const PORT = 3000;
 const users = [];
 
+const limiter = RateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // max 100 requests per windowMs
+});
+
+app.use(limiter);
 app.use(express.json());
 
 app.get('/', (req, res) => {
