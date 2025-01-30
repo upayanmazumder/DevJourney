@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-
+const ROOT = path.resolve(__dirname, 'public');
 const hostname = `0.0.0.0`;
 const port = 3000;
 
@@ -28,7 +28,14 @@ const server = http.createServer((req, res) => {
     } else {
         filePath = './routes' + req.url;
     }
-
+    // Normalize the file path
+    filePath = path.resolve(ROOT, filePath);
+    // Check that the file path is within the root directory
+    if (!filePath.startsWith(ROOT)) {
+        res.writeHead(403);
+        res.end('Access denied');
+        return;
+    }
     // Check if the path is a directory and append index.html
     if (fs.existsSync(filePath) && fs.lstatSync(filePath).isDirectory()) {
         filePath = path.join(filePath, 'index.html');
