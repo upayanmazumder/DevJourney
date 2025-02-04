@@ -6,5 +6,5 @@ function getMonthName(date) {
     return monthNames[date.getMonth()];
 }
 
-const date = new Date('2023-10-09');
+const date = new Date('2025-10-09');
 console.log(getMonthName(date));
