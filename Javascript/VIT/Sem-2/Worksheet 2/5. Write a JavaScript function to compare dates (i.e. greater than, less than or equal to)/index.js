@@ -13,4 +13,4 @@ function compareDates(date1, date2) {
 
 console.log(compareDates('2025-10-01', '2025-10-02'));
 console.log(compareDates('2025-10-02', '2025-10-01'));
-console.log(compareDates('2025-10-01', '2025-10-01'))
+console.log(compareDates('2025-10-01', '2025-10-01'));
