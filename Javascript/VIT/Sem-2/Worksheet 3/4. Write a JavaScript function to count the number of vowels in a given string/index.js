@@ -1,14 +1,6 @@
 function countVowels(str) {
-    const vowels = 'aeiouAEIOU';
-    let count = 0;
-
-    for (let char of str) {
-        if (vowels.includes(char)) {
-            count++;
-        }
-    }
-
-    return count;
+    const matches = str.match(/[aeiouAEIOU]/g);
+    return matches ? matches.length : 0;
 }
 
 const exampleString = "Hello World";
