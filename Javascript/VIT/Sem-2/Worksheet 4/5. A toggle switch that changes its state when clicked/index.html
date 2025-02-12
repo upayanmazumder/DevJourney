@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>5</title>
+    <style>
+        #toggle {
+            width: 50px;
+            height: 25px;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="toggle"></div>
+
+    <script>
+        const toggle = document.getElementById("toggle");
+
+        toggle.addEventListener("click", () => {
+            toggle.style.backgroundColor = toggle.style.backgroundColor === "red" ? "green" : "red";
+        });
+    </script>
+
+</body>
+</html>

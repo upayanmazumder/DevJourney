@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>4</title>
+</head>
+<body>
+
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <span id="nameError" style="color: red;"></span><br>
+        
+        <input type="email" id="email" placeholder="Enter your email">
+        <span id="emailError" style="color: red;"></span><br>
+        
+        <input type="text" id="address" placeholder="Enter your address" required>
+        <span id="addressError" style="color: red;"></span><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(e) {
+            let valid = true;
+
+            if (!document.getElementById("name").value.trim()) {
+                valid = false;
+                document.getElementById("nameError").textContent = "This field is required!";
+            } else {
+                document.getElementById("nameError").textContent = "";
+            }
+
+            if (!document.getElementById("address").value.trim()) {
+                valid = false;
+                document.getElementById("addressError").textContent = "This field is required!";
+            } else {
+                document.getElementById("addressError").textContent = "";
+            }
+
+            if (!valid) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+</html>

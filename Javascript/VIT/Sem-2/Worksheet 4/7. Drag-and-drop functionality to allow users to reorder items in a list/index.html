@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>7</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            background-color: lightgray;
+            margin: 5px;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="sortableList">
+        <li draggable="true">Item 1</li>
+        <li draggable="true">Item 2</li>
+        <li draggable="true">Item 3</li>
+    </ul>
+
+    <script>
+        const list = document.getElementById("sortableList");
+
+        let draggedItem = null;
+
+        list.addEventListener("dragstart", (e) => {
+            draggedItem = e.target;
+        });
+
+        list.addEventListener("dragover", (e) => {
+            e.preventDefault();
+        });
+
+        list.addEventListener("drop", (e) => {
+            e.preventDefault();
+            if (e.target.tagName === "LI") {
+                list.insertBefore(draggedItem, e.target.nextSibling);
+            }
+        });
+    </script>
+
+</body>
+</html>

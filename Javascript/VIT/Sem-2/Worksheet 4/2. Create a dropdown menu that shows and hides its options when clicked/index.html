@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>2</title>
+</head>
+<body>
+
+    <button id="toggleButton">Toggle Menu</button>
+    <div id="dropdown">
+        <p>Option 1</p>
+        <p>Option 2</p>
+        <p>Option 3</p>
+    </div>
+
+    <script>
+        const button = document.getElementById("toggleButton");
+        const dropdown = document.getElementById("dropdown");
+
+        button.addEventListener("click", () => {
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        });
+    </script>
+
+</body>
+</html>
