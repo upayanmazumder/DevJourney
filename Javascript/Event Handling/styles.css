@@ -51,6 +51,7 @@ body {
     position: absolute;
     background-color: #00b3ff;
     z-index: 1;
+    transform: translateY(10px);
 }
 
 .dropdown-content a {
