@@ -1,5 +1,5 @@
 // Bg blue on mouseenter and bg red on double click outside of nav
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     const body = document.querySelector('body');
 
     body.addEventListener('mouseenter', () => {
