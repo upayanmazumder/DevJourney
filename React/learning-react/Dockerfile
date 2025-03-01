@@ -8,6 +8,9 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install
 
+# Build
+RUN npm run build
+
 # Copy the local code to the container image
 COPY . .
 
