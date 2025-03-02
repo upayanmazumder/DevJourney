@@ -18,10 +18,6 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install Markdown Linter and Formatter
-        run: |
-          pip install mdformat
-
       - name: Create Markdown Formatting Script
         run: |
           echo """import sys
@@ -58,7 +54,6 @@ jobs:
         run: |
           find C/VIT/Sem-2/Assessments -type f -name "README.md" | while read file; do
             python format_readme.py "$file"
-            mdformat "$file"
           done
 
       - name: Check for Changes
