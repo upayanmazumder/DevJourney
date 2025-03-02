@@ -6,13 +6,13 @@ Raveena is developing a program to analyze an integer array. Her task is to iden
 
 Write a program that assists Raveena in counting and displaying the number of negative elements in an integer array.
 
-### Input format :
+### Input format:
 
 The first line of input consists of an integer n, representing the number of elements in the array.
 
 The second line of input consists of n space-separated integers, representing the elements of the array.
 
-### Output format :
+### Output format:
 
 If there are no negative elements in the array, the output prints "No negative elements in the array".
 
