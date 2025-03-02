@@ -18,6 +18,10 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Install Markdown Linter and Formatter
+        run: |
+          pip install mdformat
+
       - name: Create Markdown Formatting Script
         run: |
           echo """import sys
@@ -26,17 +30,17 @@ jobs:
               markdown_lines = []
               
               for line in lines:
-                  line = line.strip()
+                  stripped = line.lstrip()
+                  indent = len(line) - len(stripped)
                   
-                  if line.startswith('Single File Programming Question'):
-                      markdown_lines.append(f'# {line}')
-                  elif line.startswith('Problem Statement'):
-                      markdown_lines.append(f'## {line}')
-                  elif line.startswith('Input format') or line.startswith('Output format') or \
-                       line.startswith('Code constraints') or line.startswith('Sample test cases'):
-                      markdown_lines.append(f'### {line}')
-                  elif line.startswith('Input ') or line.startswith('Output '):
-                      markdown_lines.append(f'#### {line}')
+                  if stripped.startswith('Single File Programming Question'):
+                      markdown_lines.append(f'{' ' * indent}# {stripped}')
+                  elif stripped.startswith('Problem Statement'):
+                      markdown_lines.append(f'{' ' * indent}## {stripped}')
+                  elif stripped.startswith(('Input format', 'Output format', 'Code constraints', 'Sample test cases')):
+                      markdown_lines.append(f'{' ' * indent}### {stripped}')
+                  elif stripped.startswith(('Input ', 'Output ')):
+                      markdown_lines.append(f'{' ' * indent}#### {stripped}')
                   else:
                       markdown_lines.append(line)
               
@@ -54,6 +58,7 @@ jobs:
         run: |
           find C/VIT/Sem-2/Assessments -type f -name "README.md" | while read file; do
             python format_readme.py "$file"
+            mdformat "$file"
           done
 
       - name: Check for Changes
@@ -68,7 +73,7 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git checkout -b fix-readme-formatting
           git add C/VIT/Sem-2/Assessments/**/README.md
-          git commit -m "Fix README formatting issues"
+          git commit -m "Fix README formatting issues and preserve indentation"
           git push origin fix-readme-formatting
 
       - name: Create Pull Request
@@ -76,5 +81,5 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           title: "Fix README Formatting"
-          body: "This PR fixes formatting issues in README files under C/VIT/Sem-2/Assessments and applies the standardized structure."
+          body: "This PR fixes formatting issues in README files under C/VIT/Sem-2/Assessments and preserves indentation."
           branch: fix-readme-formatting
