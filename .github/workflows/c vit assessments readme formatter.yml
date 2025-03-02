@@ -1,0 +1,52 @@
+name: Fix README Formatting
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  fix-readmes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install Markdown Linter and Formatter
+        run: |
+          pip install mdformat
+
+      - name: Find and Fix README.md Files
+        run: |
+          find C/VIT/Sem-2/Assessments -type f -name "README.md" | while read file; do
+            mdformat "$file"
+          done
+
+      - name: Check for Changes
+        id: git-check
+        run: |
+          git diff --exit-code || echo "changes_detected=true" >> $GITHUB_ENV
+
+      - name: Commit and Push Changes
+        if: env.changes_detected == 'true'
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git checkout -b fix-readme-formatting
+          git add C/VIT/Sem-2/Assessments/**/README.md
+          git commit -m "Fix README formatting issues"
+          git push origin fix-readme-formatting
+
+      - name: Create Pull Request
+        if: env.changes_detected == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: "Fix README Formatting"
+          body: "This PR fixes formatting issues in README files under C/VIT/Sem-2/Assessments."
+          branch: fix-readme-formatting
