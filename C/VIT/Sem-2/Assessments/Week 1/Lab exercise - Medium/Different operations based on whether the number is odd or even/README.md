@@ -24,24 +24,30 @@ Refer to the sample output for formatting specifications.
 
 In this scenario, the test cases fall under the following constraints:
 
-- \(11 \leq N \leq 200\)
+- (11 \\leq N \\leq 200)
 
 ### Sample Test Cases
 
 **Input 1:**
+
 ```
 12
 ```
+
 **Output 1:**
+
 ```
 Sum of digits: 3
 ```
 
 **Input 2:**
+
 ```
 13
 ```
+
 **Output 2:**
+
 ```
 Reversed number: 31
 ```

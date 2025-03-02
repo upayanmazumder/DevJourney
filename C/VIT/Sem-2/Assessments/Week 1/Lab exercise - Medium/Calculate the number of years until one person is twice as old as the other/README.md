@@ -30,55 +30,67 @@ Refer to the sample output for formatting specifications.
 
 In this scenario, the test cases fall under the following constraints:
 
-- \(1 \leq A, B \leq 100\)
-- \(1960 \leq C, F \leq 2100\)
+- (1 \\leq A, B \\leq 100)
+- (1960 \\leq C, F \\leq 2100)
 
 ### Sample test cases
 
 #### Input 1
+
 ```
 8
 24
 2024
 2036
 ```
+
 #### Output 1
+
 ```
 8
 ```
 
 #### Input 2
+
 ```
 8
 24
 2024
 2030
 ```
+
 #### Output 2
+
 ```
 No such year found up to 2030
 ```
 
 #### Input 3
+
 ```
 25
 20
 2022
 2028
 ```
+
 #### Output 3
+
 ```
 No such year found up to 2028
 ```
 
 #### Input 4
+
 ```
 60
 30
 2024
 2040
 ```
+
 #### Output 4
+
 ```
 0
 ```
