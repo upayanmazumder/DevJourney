@@ -24,33 +24,42 @@ Refer to the sample output for the formatting specifications.
 
 In the given scenario, the test cases fall under the following constraints:
 
-- \(2 \leq n \leq 103\)
+- (2 \\leq n \\leq 103)
 
 ### Sample test cases
 
 **Input 1:**
+
 ```
 5
 ```
+
 **Output 1:**
+
 ```
 5 is a prime number.
 ```
 
 **Input 2:**
+
 ```
 1000
 ```
+
 **Output 2:**
+
 ```
 1000 is not a prime number.
 ```
 
 **Input 3:**
+
 ```
 2
 ```
+
 **Output 3:**
+
 ```
 2 is a prime number.
 ```
@@ -58,7 +67,9 @@ In the given scenario, the test cases fall under the following constraints:
 ### Whitelist
 
 **Set 1:**
+
 - `if`
 
 **Set 2:**
+
 - `else`

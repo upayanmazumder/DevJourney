@@ -16,24 +16,24 @@ Write a program to help Yasmin analyze the characteristics of animals based on t
 
 - The first line of input consists of a character, representing the type of animal 'D/d' for deer, 'B/b' for bear, 'F/f' for bird.
 
-    - If the choice is 'D' or 'd':
-        - The second line of input consists of a floating-point value T, representing the time taken from the deer's location to the observer.
-    - If the choice is 'B' or 'b':
-        - The second line of input consists of a floating-point value S, representing the size of the bear's footprint in square inches.
-    - If the choice is 'F' or 'f':
-        - The second line of input consists of a floating-point value P, representing the bird's flying pattern.
-        - The third line consists of a floating-point value D, representing the distance covered by the bird in meters.
+  - If the choice is 'D' or 'd':
+    - The second line of input consists of a floating-point value T, representing the time taken from the deer's location to the observer.
+  - If the choice is 'B' or 'b':
+    - The second line of input consists of a floating-point value S, representing the size of the bear's footprint in square inches.
+  - If the choice is 'F' or 'f':
+    - The second line of input consists of a floating-point value P, representing the bird's flying pattern.
+    - The third line consists of a floating-point value D, representing the distance covered by the bird in meters.
 
 ### Output format:
 
 The output prints one of the following:
 
 - If the choice is 'D' or 'd':
-    - The output prints "Distance: X m" where X is a floating point value rounded off to two decimal places, representing the calculated distance travelled by the sound wave in meters.
+  - The output prints "Distance: X m" where X is a floating point value rounded off to two decimal places, representing the calculated distance travelled by the sound wave in meters.
 - If the choice is 'B' or 'b':
-    - The output prints "Weight: Y lb" where Y is a floating point value rounded off to two decimal places, representing the estimated weight of the bear in pounds.
+  - The output prints "Weight: Y lb" where Y is a floating point value rounded off to two decimal places, representing the estimated weight of the bear in pounds.
 - If the choice is 'F' or 'f':
-    - The output prints "Altitude: Z m" where Z is a floating point value rounded off to two decimal places, representing the calculated altitude of the bird's flight in meters.
+  - The output prints "Altitude: Z m" where Z is a floating point value rounded off to two decimal places, representing the calculated altitude of the bird's flight in meters.
 - If the given choice is invalid, print "Invalid".
 
 Refer to the sample output for formatting specifications.
@@ -50,41 +50,53 @@ In this scenario, the test cases fall under the following constraints:
 ### Sample test cases:
 
 #### Input 1:
+
 ```
 d
 2.5
 ```
+
 #### Output 1:
+
 ```
 Distance: 857.50 m
 ```
 
 #### Input 2:
+
 ```
 B
 4.5
 ```
+
 #### Output 2:
+
 ```
 Weight: 22.50 lb
 ```
 
 #### Input 3:
+
 ```
 F
 10.0
 15.0
 ```
+
 #### Output 3:
+
 ```
 Altitude: 150.00 m
 ```
 
 #### Input 4:
+
 ```
 G
 ```
+
 #### Output 4:
+
 ```
 Invalid
 ```

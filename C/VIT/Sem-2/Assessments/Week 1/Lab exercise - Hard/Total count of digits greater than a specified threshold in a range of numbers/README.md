@@ -40,8 +40,8 @@ Refer to the sample output for the formatting specifications.
 
 In this scenario, the test cases fall under the following constraints:
 
-- \(0 \leq M < N \leq 20000\)
-- \(0 \leq X \leq 9\)
+- (0 \\leq M < N \\leq 20000)
+- (0 \\leq X \\leq 9)
 
 ## Sample test cases
 

@@ -19,7 +19,7 @@ Refer to the sample output for the formatting specifications.
 
 ### Code constraints
 
-- \(0 \leq \text{cost price}, \text{selling price} < 10^7\)
+- (0 \\leq \\text{cost price}, \\text{selling price} < 10^7)
 
 ### Sample test cases
 
