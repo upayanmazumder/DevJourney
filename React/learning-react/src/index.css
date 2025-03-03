@@ -1,6 +1,12 @@
+@font-face {
+  font-family: 'RedHatDisplay';
+  src: url('../public/fonts/RedHatDisplay-VariableFont_wght.ttf') format(' truetype');
+
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'RedHatDisplay', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

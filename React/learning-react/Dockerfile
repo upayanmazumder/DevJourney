@@ -8,11 +8,11 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install
 
-# Build
-RUN npm run build
-
 # Copy the local code to the container image
 COPY . .
+
+# Build
+RUN npm run build
 
 # Expose port 3000 to external traffic
 EXPOSE 3000
