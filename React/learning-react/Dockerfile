@@ -1,7 +1,7 @@
 # Stage 1: Build the app
 FROM node:latest AS build-app
 WORKDIR /app
-COPY app/package.json app/package-lock.json ./
+COPY app/package.json ./
 RUN npm install
 COPY app/ ./
 RUN npm run build
@@ -9,7 +9,7 @@ RUN npm run build
 # Stage 2: Prepare the API
 FROM node:latest AS build-api
 WORKDIR /api
-COPY api/package.json api/package-lock.json ./
+COPY api/package.json ./
 RUN npm install
 COPY api/ ./
 
