@@ -1,21 +1,31 @@
-# Use the official Node.js image
-FROM node:latest
-
-# Create and change to the app directory
+# Stage 1: Build the app
+FROM node:latest AS build-app
 WORKDIR /app
-
-# Copy package manifests and install dependencies
-COPY package.json ./
+COPY app/package.json app/package-lock.json ./
 RUN npm install
-
-# Copy the local code to the container image
-COPY . .
-
-# Build
+COPY app/ ./
 RUN npm run build
 
-# Expose port 3000 to external traffic
-EXPOSE 3000
+# Stage 2: Prepare the API
+FROM node:latest AS build-api
+WORKDIR /api
+COPY api/package.json api/package-lock.json ./
+RUN npm install
+COPY api/ ./
 
-# Start the Node.js server
-CMD ["node", "server"]
+# Stage 3: Run both app and API
+FROM node:latest
+WORKDIR /app
+COPY --from=build-app /app/build ./build
+COPY --from=build-app /app/server.js ./server.js
+COPY --from=build-api /api ./api
+
+# Install serve for serving the React app
+RUN npm install -g serve
+
+# Expose ports
+EXPOSE 3000
+EXPOSE 3001
+
+# Start both the app and the API
+CMD ["sh", "-c", "node server.js & cd api && npm run server"]
