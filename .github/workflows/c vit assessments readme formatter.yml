@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensures all branches are fetched
 
       - name: Set Up Python
         uses: actions/setup-python@v4
@@ -26,7 +28,7 @@ jobs:
         run: |
           echo """import sys
           def convert_to_markdown(message: str) -> str:
-              lines = message.split('\n')
+              lines = message.split('\\n')
               markdown_lines = []
               
               for line in lines:
@@ -44,7 +46,7 @@ jobs:
                   else:
                       markdown_lines.append(line)
               
-              return '\n'.join(markdown_lines)
+              return '\\n'.join(markdown_lines)
 
           for file in sys.argv[1:]:
               with open(file, 'r', encoding='utf-8') as f:
@@ -71,10 +73,13 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git checkout -b fix-readme-formatting
+
+          # Ensure the latest remote changes are pulled before pushing
+          git pull --rebase origin fix-readme-formatting || git checkout -b fix-readme-formatting
+
           git add C/VIT/Sem-2/Assessments/**/README.md
           git commit -m "Fix README formatting issues and preserve indentation"
-          git push origin fix-readme-formatting
+          git push origin fix-readme-formatting --force  # Force push to avoid conflicts
 
       - name: Create Pull Request
         if: env.changes_detected == 'true'
