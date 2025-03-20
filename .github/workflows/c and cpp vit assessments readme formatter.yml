@@ -75,16 +75,8 @@ jobs:
           git config --global user.email "github-actions@github.com"
 
           # Ensure the latest remote changes are pulled before pushing
-          git pull --rebase origin fix-readme-formatting || git checkout -b fix-readme-formatting
+          git pull --rebase origin main || git checkout main
 
           git add C/VIT/Sem-2/Assessments/**/README.md CPP/VIT/Sem-2/Assessments/**/README.md
           git commit -m "Fix README formatting issues and preserve indentation"
-          git push origin fix-readme-formatting --force  # Force push to avoid conflicts
-
-      - name: Create Pull Request
-        if: env.changes_detected == 'true'
-        uses: peter-evans/create-pull-request@v5
-        with:
-          title: "Fix README Formatting"
-          body: "This PR fixes formatting issues in README files under C/VIT/Sem-2/Assessments and CPP/VIT/Sem-2/Assessments and preserves indentation."
-          branch: fix-readme-formatting
+          git push origin main
