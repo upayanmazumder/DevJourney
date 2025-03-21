@@ -1,2 +1,5 @@
 # Ignore the exe files
 *.exe
+
+# Ignore test files used for leaning
+test.cpp
