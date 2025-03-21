@@ -1,5 +1,8 @@
 # Ignore the exe files
 *.exe
 
-# Ignore test files used for leaning
+# Ignore temporary code runner files
+tempCodeRunnerFile.cpp
+
+#Ignore learning files
 test.cpp
