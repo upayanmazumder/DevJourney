@@ -1,0 +1,45 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        language: [cpp, javascript, python] # Add other languages as needed
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ (matrix.language == 'cpp') && 'manual' || 'autobuild' }}
+
+      # **Only manually build C/C++ code**
+      - name: Manually build C/C++ code
+        if: matrix.language == 'cpp'
+        run: |
+          cd C || cd CPP  # Ensure correct directory
+          cmake .         # Use CMake (adjust if using Makefiles)
+          make            # Build project
+
+      # **Autobuild for other languages**
+      - name: Autobuild
+        if: matrix.language != 'cpp'
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
