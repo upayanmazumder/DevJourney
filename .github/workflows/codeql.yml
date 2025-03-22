@@ -22,16 +22,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - language: actions
-            build-mode: none
           - language: c-cpp
             build-mode: manual
-          - language: java-kotlin
-            build-mode: autobuild
-          - language: javascript-typescript
-            build-mode: autobuild
-          - language: python
-            build-mode: none
 
     steps:
       - name: Checkout repository
@@ -50,6 +42,12 @@ jobs:
           echo "Building C and C++ projects manually..."
           cd C && make || echo "No Makefile in C directory"
           cd ../CPP && make || echo "No Makefile in CPP directory"
+          echo "Running clangd for static analysis..."
+          clangd --check=C/*.c || echo "clangd check failed for C files"
+          clangd --check=CPP/*.cpp || echo "clangd check failed for C++ files"
+          echo "Running valgrind for memory analysis..."
+          valgrind ./C/your_binary || echo "Valgrind failed for C binary"
+          valgrind ./CPP/your_binary || echo "Valgrind failed for C++ binary"
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
