@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/upayanmazumder/DevJourney/issues"
   },
-  "homepage": "https://github.com/upayanmazumder/DevJourney#readme"
+  "homepage": "https://github.com/upayanmazumder/DevJourney#readme",
+  "dependencies": {
+    "astro": "^5.5.4"
+  }
 }
