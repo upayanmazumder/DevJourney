@@ -27,40 +27,25 @@ jobs:
       - name: Create Markdown Formatting Script
         run: |
           echo """import sys
-
           def convert_to_markdown(message: str) -> str:
               lines = message.split('\\n')
               markdown_lines = []
-              in_whitelist = False
-              in_set = False
-
+              
               for line in lines:
                   stripped = line.lstrip()
                   indent = len(line) - len(stripped)
-
+                  
                   if stripped.startswith('Single File Programming Question'):
-                      markdown_lines.append(f"{' ' * indent}# {stripped}")
+                      markdown_lines.append(f'{' ' * indent}# {stripped}')
                   elif stripped.startswith('Problem Statement'):
-                      markdown_lines.append(f"{' ' * indent}## {stripped}")
+                      markdown_lines.append(f'{' ' * indent}## {stripped}')
                   elif stripped.startswith(('Input format', 'Output format', 'Code constraints', 'Sample test cases')):
-                      markdown_lines.append(f"{' ' * indent}### {stripped}")
+                      markdown_lines.append(f'{' ' * indent}### {stripped}')
                   elif stripped.startswith(('Input ', 'Output ')):
-                      markdown_lines.append(f"{' ' * indent}#### {stripped}")
-                  elif stripped.startswith('Whitelist'):
-                      markdown_lines.append(f"{' ' * indent}### {stripped}")
-                      in_whitelist = True
-                      in_set = False  # Reset set flag
-                  elif in_whitelist and stripped.startswith('Set'):
-                      markdown_lines.append(f"{' ' * indent}- **{stripped}**")  # Bold the set title
-                      in_set = True  # Start processing set items
-                  elif in_set:
-                      if stripped:  # If it's not an empty line
-                          markdown_lines.append(f"{' ' * (indent + 2)}- {stripped}")  # Indented list under set
-                      else:
-                          in_set = False  # End set when an empty line is encountered
+                      markdown_lines.append(f'{' ' * indent}#### {stripped}')
                   else:
                       markdown_lines.append(line)
-
+              
               return '\\n'.join(markdown_lines)
 
           for file in sys.argv[1:]:
