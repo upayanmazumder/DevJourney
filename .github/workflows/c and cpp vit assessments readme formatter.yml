@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Ensures all branches are fetched
+          fetch-depth: 0
 
       - name: Set Up Python
         uses: actions/setup-python@v4
@@ -27,33 +27,44 @@ jobs:
       - name: Create Markdown Formatting Script
         run: |
           echo """import sys
-          def convert_to_markdown(message: str) -> str:
-              lines = message.split('\\n')
-              markdown_lines = []
-              
+
+          def format_whitelist(content: str) -> str:
+              lines = content.split('\\n')
+              formatted_lines = []
+              inside_whitelist = False
+
               for line in lines:
-                  stripped = line.lstrip()
-                  indent = len(line) - len(stripped)
+                  stripped = line.strip()
                   
-                  if stripped.startswith('Single File Programming Question'):
-                      markdown_lines.append(f'{' ' * indent}# {stripped}')
-                  elif stripped.startswith('Problem Statement'):
-                      markdown_lines.append(f'{' ' * indent}## {stripped}')
-                  elif stripped.startswith(('Input format', 'Output format', 'Code constraints', 'Sample test cases')):
-                      markdown_lines.append(f'{' ' * indent}### {stripped}')
-                  elif stripped.startswith(('Input ', 'Output ')):
-                      markdown_lines.append(f'{' ' * indent}#### {stripped}')
+                  if stripped.lower() == "whitelist":
+                      formatted_lines.append("## Whitelist\\n")
+                      inside_whitelist = True
+                      continue
+
+                  if inside_whitelist:
+                      if not stripped:
+                          inside_whitelist = False
+                      else:
+                          formatted_lines.append(f"- {stripped}")
                   else:
-                      markdown_lines.append(line)
-              
-              return '\\n'.join(markdown_lines)
+                      formatted_lines.append(line)
+
+              return '\\n'.join(formatted_lines)
+
+          def ensure_header(content: str) -> str:
+              if not content.startswith("Single File Programming Question"):
+                  return "Single File Programming Question\\n\\n" + content
+              return content
 
           for file in sys.argv[1:]:
               with open(file, 'r', encoding='utf-8') as f:
                   content = f.read()
-              formatted_content = convert_to_markdown(content)
+              
+              content = ensure_header(content)
+              content = format_whitelist(content)
+
               with open(file, 'w', encoding='utf-8') as f:
-                  f.write(formatted_content)
+                  f.write(content)
           """ > format_readme.py
 
       - name: Find and Fix README.md Files
@@ -68,15 +79,18 @@ jobs:
         run: |
           git diff --exit-code || echo "changes_detected=true" >> $GITHUB_ENV
 
-      - name: Commit and Push Changes
+      - name: Create PR for Whitelist Formatting Fix
         if: env.changes_detected == 'true'
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          # Ensure the latest remote changes are pulled before pushing
-          git pull --rebase origin main || git checkout main
-
+          git checkout -b fix-readme-whitelist
           git add C/VIT/Sem-2/Assessments/**/README.md CPP/VIT/Sem-2/Assessments/**/README.md
-          git commit -m "Fix README formatting issues and preserve indentation"
-          git push origin main
+          git commit -m "Format whitelist section in README files"
+
+          git push origin fix-readme-whitelist
+
+          gh pr create --title "Fix Whitelist Formatting in READMEs" --body "Formatted the whitelist section while preserving indentation and ensured each README starts with 'Single File Programming Question'."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
