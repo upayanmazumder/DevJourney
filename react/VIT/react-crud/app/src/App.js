@@ -1,29 +1,31 @@
-import './App.css';
-import { useEffect, useState } from "react";
-import Axios from "axios";
+import "./App.css";
+import {useState, useEffect} from 'react';
+import Axios from 'axios';
+
+const API_URL = 'http://localhost:4000';
 
 function App() {
-    // for getting the input from the text field
     const [users, setUsers] = useState([]);
     const [id, setId] = useState("");
     const [name, setName] = useState("");
-    const [updated, setUpdated] = useState({ id: "", name: "" });
+    const [updated, setUpdated] = useState({
+        id: "",
+        name: ""
+    });
 
     useEffect(() => {
         loadData();
     }, []);
 
-    // get user from API
     const loadData = async () => {
-        const response = await Axios.get('http://localhost:4000/users');
+        const response = await Axios.get(`${API_URL}/users`)
         console.log(response.data);
-        setUsers(response.data); // to pass the fetched data
+        setUsers(response.data);
     };
 
-    // Add user
-    const AddUser = (e) => {
+    const addUser = (e) => {
         e.preventDefault();
-        Axios.post('http://localhost:4000/users', {
+        Axios.post(`${API_URL}/users/`, {
             id, name
         }).then(() => {
             setId("");
@@ -36,17 +38,15 @@ function App() {
         }, 500);
     };
 
-    // delete user
     const deleteUser = (id) => {
-        Axios.delete(`http://localhost:4000/users/${id}`);
+        Axios.delete(`${API_URL}/users/${id}`);
         setTimeout(() => {
             loadData();
         }, 500);
     };
 
-    // update user
     const updateUser = () => {
-        Axios.put(`http://localhost:4000/users/${updated.id}`, {
+        Axios.put(`${API_URL}/users/${updated.id}`, {
             id: updated.id,
             name: updated.name
         }).then((response) => {
@@ -61,40 +61,41 @@ function App() {
 
     return (
         <div className="App">
-            <input
-                placeholder='Enter ID ..'
+            <input 
+                placeholder="Enter ID..."
                 value={id}
                 onChange={e => setId(e.target.value)}
             />
-            <input
-                placeholder='Enter Name ..'
+            <input 
+                placeholder="Enter Name..."
                 value={name}
                 onChange={e => setName(e.target.value)}
             />
-            <button onClick={AddUser}>Add</button>
+            <button onClick={addUser}>Add</button>
 
             {
                 users.map(e => (
                     <div key={e.id}>
                         {e.id} {e.name}
-                        <button onClick={() => { deleteUser(e.id) }}>Delete</button>
+                        <button onclick={() => {deleteUser(e.id)}}>Delete</button>
 
-                        <input
+                        <input 
                             type="text"
-                            placeholder='Enter updated ID'
-                            onChange={e => setUpdated({ ...updated, id: e.target.value })}
+                            placeholder="Enter ID"
+                            onChange={e => setUpdated({...updated, id: e.target.value})}
                         />
-                        <input
+
+                        <input 
                             type="text"
-                            placeholder='Enter updated Name'
-                            onChange={e => setUpdated({ ...updated, name: e.target.value })}
+                            placeholder="Enter Name"
+                            onChange={e => setUpdated({...updated, name: e.target.value})}
                         />
-                        <button onClick={updateUser}>Update</button>
+                        <button onclick={updateUser}>Update</button>
                     </div>
                 ))
             }
         </div>
-    );
+    )
 }
 
 export default App;
