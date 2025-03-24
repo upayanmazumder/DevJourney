@@ -26,5 +26,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build React/learning-react --tag ghcr.io/upayanmazumder/devjourney/learning-react:latest --build-arg NODE_ENV=production
+          docker build react/learning-react --tag ghcr.io/upayanmazumder/devjourney/learning-react:latest --build-arg NODE_ENV=production
           docker push ghcr.io/upayanmazumder/devjourney/learning-react:latest
