@@ -1,5 +1,6 @@
-Single File Programming Question
-Problem Statement:
+# Single File Programming Question
+
+## Problem Statement:
 
 Alphabetics Game:
 
@@ -9,18 +10,28 @@ Write a program to calculate the total score.
 
 Create a base class with a virtual method void game(). Define this method in the Derived class and calculate the total score.
 
-Input format :
-Input consists of four characters separated by space.
+### Input format :
 
-Output format :
+#### Input consists of four characters separated by space.
+
+### Output format :
+
 The output prints the total score.
 
-Sample test cases :
-Input 1 :
+### Sample test cases :
+
+#### Input 1 :
+
 A F K R
-Output 1 :
+
+#### Output 1 :
+
 Score : 40
-Input 2 :
+
+#### Input 2 :
+
 A b D f
-Output 2 :
+
+#### Output 2 :
+
 Score : 10
