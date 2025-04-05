@@ -2,8 +2,8 @@ name: Daily Tag Creator
 
 on:
   schedule:
-    - cron: "00 18 * * *" # Runs at 11:30 PM IST (18:00 UTC)
-  workflow_dispatch: # Allows manual trigger for testing
+    - cron: "20 18 * * *" # Runs at 11:50 PM IST (18:20 UTC)
+  workflow_dispatch:
 
 jobs:
   create-daily-tag:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Ensure full history is fetched
+          fetch-depth: 0
 
       - name: Set up Date Command
         run: sudo apt-get install -y tzdata
