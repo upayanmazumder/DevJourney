@@ -1,5 +1,6 @@
 import react, { useEffect, useState } from 'react';
 import api from './shared/axios';
+import "./App.css"
 
 export default function App() {
   const [users, setUsers] = useState([])
@@ -32,7 +33,7 @@ export default function App() {
   }, [])
 
   return (
-    <>
+    <div class='App'>
       <h2>Add User</h2>
       <form>
         <input
@@ -67,7 +68,7 @@ export default function App() {
           ))
         }
       </ul>
-    </>
+    </div>
   );
 
 }
