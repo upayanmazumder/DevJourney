@@ -32,7 +32,33 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.user {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.user p {
+  letter-spacing: 2px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10dvh;
+  width: fit-content;
+  margin: auto;
+}
+
+button:hover {
+  cursor: pointer;
 }
