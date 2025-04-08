@@ -2,7 +2,7 @@ name: Daily Tag Creator
 
 on:
   schedule:
-    - cron: "20 18 * * *" # Runs at 11:50 PM IST (18:20 UTC)
+    - cron: "00 18 * * *" # Runs at 11:30 PM IST
   workflow_dispatch:
 
 jobs:
