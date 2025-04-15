@@ -1,0 +1,1 @@
+Create  an  abstract  class  MathSymbol  may  provide  a  pure  virtual  function doOperation(), and create two more classes Plus and Minus implement doOperation() to provide concrete implementations of addition in Plus class and subtraction in Minus class. 

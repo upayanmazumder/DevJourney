@@ -1,0 +1,1 @@
+Write a C++ program to maintain the records of person with details (Name and Age) and find the youngest among them. The program must use STL vector and functions to return the result. 
