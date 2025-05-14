@@ -1,42 +1,43 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const ROOT = path.resolve(__dirname, 'public');
+
+const ROOT = path.resolve(__dirname);
 const hostname = `0.0.0.0`;
 const port = 3000;
 
 const server = http.createServer((req, res) => {
     console.log(`Request for ${req.url} received.`);
 
-    let filePath = '.' + req.url;
-    if (filePath === './') {
-        filePath = './routes/index.html';
-    } else if (filePath === './favicon.ico') {
-        filePath = './public/favicon.ico';
-    } else if (filePath.startsWith('./fonts')) {
-        filePath = './public' + req.url;
-    } else if (filePath.startsWith('./media')) {
-        filePath = './media' + req.url.slice(6);
-    } else if (filePath.startsWith('./styles')) {
-        filePath = './styles' + req.url.slice(7);
-    } else if (filePath.startsWith('./scripts')) {
-        filePath = './scripts' + req.url.slice(8);
-    } else if (filePath.startsWith('./components')) {
-        filePath = './components' + req.url.slice(11);
-    } else if (filePath === './404.html') {
-        filePath = './routes/404.html';
+    let filePath;
+    if (req.url === '/' || req.url === '') {
+        filePath = path.join(ROOT, 'routes', 'index.html');
+    } else if (req.url === '/favicon.ico') {
+        filePath = path.join(ROOT, 'public', 'favicon.ico');
+    } else if (req.url.startsWith('/fonts')) {
+        filePath = path.join(ROOT, 'public', req.url);
+    } else if (req.url.startsWith('/media')) {
+        filePath = path.join(ROOT, req.url);
+    } else if (req.url.startsWith('/styles')) {
+        filePath = path.join(ROOT, req.url);
+    } else if (req.url.startsWith('/scripts')) {
+        filePath = path.join(ROOT, req.url);
+    } else if (req.url.startsWith('/components')) {
+        filePath = path.join(ROOT, req.url);
+    } else if (req.url === '/404.html') {
+        filePath = path.join(ROOT, 'routes', '404.html');
     } else {
-        filePath = './routes' + req.url;
+        filePath = path.join(ROOT, 'routes', req.url);
     }
-    // Normalize the file path
-    filePath = path.resolve(ROOT, filePath);
-    // Check that the file path is within the root directory
+
+    filePath = path.normalize(filePath);
+
     if (!filePath.startsWith(ROOT)) {
         res.writeHead(403);
         res.end('Access denied');
         return;
     }
-    // Check if the path is a directory and append index.html
+
     if (fs.existsSync(filePath) && fs.lstatSync(filePath).isDirectory()) {
         filePath = path.join(filePath, 'index.html');
     }
@@ -64,11 +65,10 @@ const server = http.createServer((req, res) => {
     fs.readFile(filePath, (error, content) => {
         if (error) {
             if (error.code === 'ENOENT') {
-                // Try with .html extension
                 fs.readFile(filePath + '.html', (errorHtml, contentHtml) => {
                     if (errorHtml) {
                         if (errorHtml.code === 'ENOENT') {
-                            fs.readFile('./routes/404.html', (error404, content404) => {
+                            fs.readFile(path.join(ROOT, 'routes', '404.html'), (error404, content404) => {
                                 if (error404) {
                                     res.writeHead(500);
                                     res.end('Error loading 404 page');
