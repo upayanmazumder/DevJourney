@@ -35,14 +35,11 @@ jobs:
             --build-arg NODE_ENV=production
           docker push ghcr.io/upayanmazumder/devjourney/learning-react:latest
 
-      - name: Notify Keel (GitHub-style webhook)
+      - name: Notify Keel (Native webhook)
         run: |
-          PAYLOAD=$(jq -n --arg repo "upayanmazumder/devjourney" --arg ref "refs/heads/main" \
-            '{repository: {full_name: $repo}, ref: $ref}')
-
-          SIGNATURE=$(echo -n "$PAYLOAD" | openssl sha1 -hmac "${{ secrets.KEEL_WEBHOOK_SECRET }}" | sed 's/^.* //')
-
-          curl -X POST https://keel.upayan.dev/v1/webhooks/github \
+          curl -X POST https://keel.upayan.dev/v1/webhooks/native \
             -H "Content-Type: application/json" \
-            -H "X-Hub-Signature: sha1=$SIGNATURE" \
-            -d "$PAYLOAD"
+            -d '{
+              "name": "ghcr.io/upayanmazumder/devjourney/learning-react",
+              "tag": "latest"
+            }'
