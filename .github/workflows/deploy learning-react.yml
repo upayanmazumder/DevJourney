@@ -36,7 +36,12 @@ jobs:
           docker push ghcr.io/upayanmazumder/devjourney/learning-react:latest
 
       - name: Notify Keel
+        env:
+          SECRET: ${{ secrets.KEEL_SECRET_LEARNING_REACT }}
         run: |
+          payload='{"name":"ghcr.io/upayanmazumder/devjourney/learning-react","tag":"latest"}'
+          signature=$(echo -n "$payload" | openssl dgst -sha256 -hmac "$SECRET" | sed 's/^.* //')
           curl -X POST https://keel.upayan.dev/v1/webhooks/native \
             -H "Content-Type: application/json" \
-            -d '{"name":"ghcr.io/upayanmazumder/devjourney/learning-react","tag":"latest"}'
+            -H "X-Signature: sha256=$signature" \
+            -d "$payload"
