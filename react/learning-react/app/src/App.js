@@ -20,7 +20,7 @@ function App() {
         <a href="https://upayan.dev" target="_blank" rel="noopener noreferrer">
           upayan.dev
         </a>
-        this wont work cuz no secret
+        This works
       </header>
     </div>
   );
