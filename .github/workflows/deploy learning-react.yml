@@ -30,18 +30,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build react/learning-react \
-            --tag ghcr.io/upayanmazumder/devjourney/learning-react:latest \
-            --build-arg NODE_ENV=production
+          docker build react/learning-react --tag ghcr.io/upayanmazumder/devjourney/learning-react:latest --build-arg NODE_ENV=production
           docker push ghcr.io/upayanmazumder/devjourney/learning-react:latest
-
-      - name: Notify Keel
-        env:
-          SECRET: ${{ secrets.KEEL_SECRET_LEARNING_REACT }}
-        run: |
-          payload='{"name":"ghcr.io/upayanmazumder/devjourney/learning-react","tag":"latest"}'
-          signature=$(echo -n "$payload" | openssl dgst -sha256 -hmac "$SECRET" | sed 's/^.* //')
-          curl -X POST https://keel.upayan.dev/v1/webhooks/native \
-            -H "Content-Type: application/json" \
-            -H "X-Signature: sha256=$signature" \
-            -d "$payload"
