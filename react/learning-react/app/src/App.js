@@ -17,10 +17,6 @@ function App() {
         >
           Learn React
         </a>
-        <a href="https://upayan.dev" target="_blank" rel="noopener noreferrer">
-          upayan.dev
-        </a>
-        polling aah keel
       </header>
     </div>
   );
