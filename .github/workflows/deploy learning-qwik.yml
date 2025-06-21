@@ -1,9 +1,13 @@
-name: Docker Image CI for qwik.dj.upayan.dev
+name: Docker Image CI for learning-qwik
 
 on:
   push:
+    paths:
+      - "qwik/learning-qwik/**"
     branches: ["main"]
   pull_request:
+    paths:
+      - "qwik/learning-qwik/**"
     branches: ["main"]
 
 permissions:

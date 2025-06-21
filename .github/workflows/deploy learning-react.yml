@@ -1,9 +1,13 @@
-name: Docker Image CI for react.dj.upayan.dev
+name: Docker Image CI for learning-react
 
 on:
   push:
+    paths:
+      - "react/learning-react/**"
     branches: ["main"]
   pull_request:
+    paths:
+      - "react/learning-react/**"
     branches: ["main"]
 
 permissions:

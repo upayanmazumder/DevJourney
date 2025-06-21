@@ -2,8 +2,12 @@ name: Docker Image CI for html.nodejs.dj.upayan.dev
 
 on:
   push:
+    paths:
+      - "HTML/html.nodejs.dj.upayan.dev/**"
     branches: ["main"]
   pull_request:
+    paths:
+      - "HTML/html.nodejs.dj.upayan.dev/**"
     branches: ["main"]
 
 permissions:
