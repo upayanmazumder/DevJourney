@@ -17,7 +17,9 @@ function App() {
         >
           Learn React
         </a>
-        uwu test
+        <a href="https://upayan.dev" target="_blank" rel="noopener noreferrer">
+          upayan.dev
+        </a>
       </header>
     </div>
   );
