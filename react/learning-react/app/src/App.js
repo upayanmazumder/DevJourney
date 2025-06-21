@@ -20,7 +20,7 @@ function App() {
         <a href="https://upayan.dev" target="_blank" rel="noopener noreferrer">
           upayan.dev
         </a>
-        asdasd asd asd asd asdd asdsa
+        native
       </header>
     </div>
   );
