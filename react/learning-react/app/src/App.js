@@ -17,7 +17,7 @@ function App() {
         >
           Learn React
         </a>
-        uwu
+        uwu test
       </header>
     </div>
   );
