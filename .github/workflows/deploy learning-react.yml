@@ -39,4 +39,5 @@ jobs:
         run: |
           curl -X POST https://keel.upayan.dev/v1/webhooks/native \
             -H "Content-Type: application/json" \
+            -H "X-Webhook-Token: ${{ secrets.KEEL_WEBHOOK_SECRET }}" \
             -d '{"name":"ghcr.io/upayanmazumder/devjourney/learning-react","tag":"latest"}'
