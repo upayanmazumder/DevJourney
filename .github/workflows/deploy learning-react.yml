@@ -35,11 +35,11 @@ jobs:
             --build-arg NODE_ENV=production
           docker push ghcr.io/upayanmazumder/devjourney/learning-react:latest
 
-      - name: Notify Keel (Native webhook)
-        run: |
-          curl -X POST https://keel.upayan.dev/v1/webhooks/native \
-            -H "Content-Type: application/json" \
-            -d '{
-              "name": "ghcr.io/upayanmazumder/devjourney/learning-react",
-              "tag": "latest"
-            }'
+      # - name: Notify Keel (Native webhook)
+      #   run: |
+      #     curl -X POST https://keel.upayan.dev/v1/webhooks/native \
+      #       -H "Content-Type: application/json" \
+      #       -d '{
+      #         "name": "ghcr.io/upayanmazumder/devjourney/learning-react",
+      #         "tag": "latest"
+      #       }'

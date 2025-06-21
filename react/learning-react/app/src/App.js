@@ -20,7 +20,7 @@ function App() {
         <a href="https://upayan.dev" target="_blank" rel="noopener noreferrer">
           upayan.dev
         </a>
-        native with secretsad asd
+        polling aah keel
       </header>
     </div>
   );
