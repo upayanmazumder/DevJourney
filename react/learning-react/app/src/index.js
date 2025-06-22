@@ -9,9 +9,18 @@ import Footer from "./components/Footer/Footer";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Header />
-    <App />
-    <Footer />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+        justifyContent: "space-between",
+      }}
+    >
+      <Header />
+      <App />
+      <Footer />
+    </div>
   </React.StrictMode>
 );
 

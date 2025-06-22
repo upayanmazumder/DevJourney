@@ -1,19 +1,108 @@
+/* Font face */
 @font-face {
-  font-family: 'RedHatDisplay';
-  src: url('../public/fonts/RedHatDisplay-VariableFont_wght.ttf') format(' truetype');
-
+  font-family: "RedHatDisplay";
+  src: url("../public/fonts/RedHatDisplay-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
 }
 
-body {
+/* Base Reset */
+* {
   margin: 0;
-  font-family: 'RedHatDisplay', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+/* Light Theme Variables */
+:root {
+  --font-body: "RedHatDisplay", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", sans-serif;
+  --font-code: "source-code-pro", Menlo, Monaco, Consolas, "Courier New",
     monospace;
+
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-muted: #666666;
+  --color-primary: #0070f3;
+  --color-border: #eaeaea;
+  --color-card: #f9f9f9;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+
+  --footer-bg: #f9f9f9;
+  --border-color: #ccc;
+  --text-color: #333;
+  --accent-color: #0070f3;
+}
+
+/* Dark Theme Override */
+[data-theme="dark"] {
+  --color-bg: #0f0f0f;
+  --color-text: #f2f2f2;
+  --color-muted: #999999;
+  --color-primary: #1e90ff;
+  --color-border: #2a2a2a;
+  --color-card: #1a1a1a;
+  --color-shadow: rgba(255, 255, 255, 0.05);
+
+  --footer-bg: #121212;
+  --border-color: #333;
+  --text-color: #eee;
+  --accent-color: #66ccff;
+}
+
+/* Body and global text styles */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+/* Code */
+code {
+  font-family: var(--font-code);
+  background-color: var(--color-card);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* Container */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Card */
+.card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--color-shadow);
+  padding: 1.25rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Button */
+.button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: darken(var(--color-primary), 10%);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
