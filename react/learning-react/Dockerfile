@@ -25,7 +25,7 @@ COPY --from=build-api /api ./api
 RUN npm install -g serve
 
 # Expose ports
-EXPOSE 3000 3001
+EXPOSE 3000 5000
 
 # Start both the app and the API
 CMD ["sh", "-c", "node server.js & cd api && npm run server"]
