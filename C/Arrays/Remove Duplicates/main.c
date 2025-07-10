@@ -13,12 +13,14 @@ int main() {
 
     for (i = 0; i < n; i++) {
         found = 0;
+
         for (j = 0; j < uniqueN; j++) {
             if (a[i] == unique[j]) {
                 found = 1;
                 break;
             }
         }
+
         if (!found) {
             unique[uniqueN] = a[i];
             uniqueN++;
@@ -26,7 +28,10 @@ int main() {
     }
 
     printf("Array without duplicates: ");
+
     for (i = 0; i < uniqueN; i++) {
         printf("%d ", unique[i]);
     }
+
+    return 0;
 }

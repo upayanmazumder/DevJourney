@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<conio.h>
 
 int main()
 {
@@ -7,6 +6,7 @@ int main()
 	
 	printf("Enter a number : ");
 	scanf("%d",&n);
+
 	i = n;
 	printf("Sum of the cubes of the digits of %d is ",n);
 
@@ -18,12 +18,7 @@ int main()
 
 	sum += (i * i * i);
 
-	printf("%d.\n Hence it is ",sum);
+	printf("%d.\nHence, it is %san Armstrong number!", n, (sum == n) ? "" : "not ");
 
-	if(sum==n)
-		printf("");
-	else
-		printf("not ");
-
-	printf("an Armstrong number!");
+	return 0;
 }
