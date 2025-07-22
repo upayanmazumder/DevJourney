@@ -1,0 +1,8 @@
+D:/upayanmazumder/DevJourney/ModelSim/AND_Gate.v {0 {vlog -work work D:/upayanmazumder/DevJourney/ModelSim/AND_Gate.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module AND_2
+** Error: D:/upayanmazumder/DevJourney/ModelSim/AND_Gate.v(2): near ",": Syntax error.
+** Error: D:/upayanmazumder/DevJourney/ModelSim/AND_Gate.v(1): Identifier must be declared with a port mode: A.
+** Error: D:/upayanmazumder/DevJourney/ModelSim/AND_Gate.v(1): Identifier must be declared with a port mode: B.
+
+} {4.0 7.0} {}}
