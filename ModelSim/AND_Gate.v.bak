@@ -1,5 +1,0 @@
-module AND_2(Y, A, B)
-  Input A, B;
-  output Y;
-  and(Y, A, B);
-endmodule
