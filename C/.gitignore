@@ -3,3 +3,6 @@
 
 # Ignore temporary code runner files
 tempCodeRunnerFile.c
+
+# Ignore test files
+test*.c
