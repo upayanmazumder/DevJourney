@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "utils.h"
+#include "../../utils.h"
 
 // Linear Search
 int linearSearch(int arr[], int n, int key) {

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "utils.h"
+#include "../../utils.h"
 
 // Selection Sort
 void selectionSort(int arr[], int n) {

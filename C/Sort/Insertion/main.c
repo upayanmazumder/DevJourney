@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "utils.h"
+#include "../../utils.h"
 
 // Insertion Sort
 void insertionSort(int arr[], int n) {

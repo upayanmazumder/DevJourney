@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "utils.h"
+#include "../../utils.h"
 
 // Binary Search
 int binarySearch(int arr[], int n, int key) {

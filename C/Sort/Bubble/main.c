@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "utils.h"
+#include "../../utils.h"
 
 // Bubble Sort
 void bubbleSort(int arr[], int n) {
