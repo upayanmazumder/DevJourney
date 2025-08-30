@@ -1,0 +1,50 @@
+# ModelSim / QuestaSim simulation artifacts
+
+# Work library (compiled units)
+work/
+vsim.wlf
+*.wlf
+*.wlf.*
+*.asdb
+*.asetmp
+*.vstf
+
+# Logs and transcripts
+transcript
+vsim_transcript
+*.log
+*.jou
+*.rpt
+
+# Coverage and database files
+covhtmlreport/
+*.ucdb
+*.ucis
+*.dat
+*.idx
+
+# Temporary & autosave files
+*.bak
+*.tmp
+*.~*
+*.swp
+
+# Generated waves and debug files
+*.do~
+*.db
+*.psm
+*.mti
+*.dmp
+
+# GUI / waveform config files (if you don’t want user-specific settings)
+*.ini
+modelsim.ini
+*.vcd
+*.wlf*
+
+# Ignore compiled foreign libraries
+libraries/
+
+# If you use Questa
+questasim/
+questa_lib/
