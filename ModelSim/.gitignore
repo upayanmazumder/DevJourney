@@ -48,3 +48,5 @@ libraries/
 # If you use Questa
 questasim/
 questa_lib/
+
+*.mpf
