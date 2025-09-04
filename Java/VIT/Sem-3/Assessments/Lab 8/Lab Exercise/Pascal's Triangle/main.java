@@ -7,11 +7,9 @@ class PascalTriangle {
             return;
         }
 
-        // The first element of any row is always 1
         long current = 1;
         System.out.print(current + " ");
 
-        // Loop to generate the rest of the row
         for (int i = 1; i < n; i++) {
             current = current * (n - i) / i;
             System.out.print(current + (i == n - 1 ? "" : " "));
