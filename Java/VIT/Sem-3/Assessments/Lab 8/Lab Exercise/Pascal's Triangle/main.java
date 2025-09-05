@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 class PascalTriangle {
     public void printPascalRow(int n) {
@@ -31,19 +31,5 @@ class Solution {
 
         pascalTriangle.printPascalRow(rowNumber);
         scanner.close();
-    }
-}
-
-class Main {
-    public static void main(String[] args) {
-        PascalTriangle pascalTriangle = new PascalTriangle();
-        Scanner scanner = new Scanner(System.in);
-        int rowNumber = scanner.nextInt();
-        if (rowNumber < 0) {
-            System.out.println("Invalid Input");
-            return;
-        }
-
-        pascalTriangle.printPascalRow(rowNumber);
     }
 }

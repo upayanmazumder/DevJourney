@@ -49,17 +49,3 @@ class Solution {
         scanner.close();
     }
 }
-
-class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String symbol = scanner.next();
-        double currentPrice = scanner.nextDouble();
-        Stock stock = new Stock(symbol, currentPrice);
-        String recordPrevious = scanner.next();
-        if (recordPrevious.equalsIgnoreCase("yes")) {
-            double previousPrice = scanner.nextDouble();
-            stock.recordPreviousPrice(previousPrice);
-        }
-    }
-}
