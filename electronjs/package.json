@@ -11,6 +11,6 @@
   "license": "ISC",
   "description": "Devjourney",
   "devDependencies": {
-    "electron": "^35.2.1"
+    "electron": "^35.7.5"
   }
 }
