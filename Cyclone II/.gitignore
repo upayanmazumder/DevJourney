@@ -1,0 +1,68 @@
+# Quartus II / Intel FPGA build artifacts
+
+# Database & compilation cache
+db/
+incremental_db/
+simulation/modelsim/
+simulation/qsim/
+*.rpt
+*.smsg
+*.summary
+*.done
+*.jdi
+*.sld
+*.qarlog
+*.qws
+
+# Temporary project files
+*.bak
+*.tmp
+*.log
+*.chg
+*.env
+*.pin
+*.dpf
+*.sof
+*.pof
+*.jic
+*.jam
+*.svf
+*.ppf
+*.qdf
+*.qdt
+*.qmsg
+*.fsf
+*.asm.rpt
+*.sta.rpt
+
+# Output files (bitstreams, programming, timing)
+*.map
+*.fit.*
+*.sta.*
+*.asm.*
+*.tan.*
+*.eqn
+*.qxp
+*.qip~   # backup
+output_files/
+
+# Ignore auto-generated simulation output
+*.vho
+*.vo
+*.sdo
+*.sdf
+*.vcd
+*.wlf
+
+# Ignore Quartus user-specific settings
+*.qdf
+*.qws
+*.qdf
+*.qpf~
+*.qsf~
+*.qsf
+*.qpf
+
+# OS junk
+.DS_Store
+Thumbs.db
