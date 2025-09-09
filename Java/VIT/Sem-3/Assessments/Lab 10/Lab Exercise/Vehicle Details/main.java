@@ -20,12 +20,10 @@ class Car extends Vehicle {
         this.brand = brand;
     }
 
-    // Calculate speed
     void calc() {
         speed = distance / time;
     }
 
-    // Final display method
     final void display() {
         System.out.println("Brand: " + brand);
         String category;
@@ -39,12 +37,10 @@ class Car extends Vehicle {
         System.out.printf("Speed: %.2f km/hr (%s)\n", speed, category);
     }
 
-    // Predict distance for a new time
     double predictDistance(double newTime) {
         return speed * newTime;
     }
 
-    // Predict time for a new distance
     double predictTime(double newDistance) {
         return newDistance / speed;
     }

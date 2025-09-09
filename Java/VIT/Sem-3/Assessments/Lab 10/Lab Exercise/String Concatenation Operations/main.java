@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
 class StringManipulator {
-    // Method 1: Simple concatenation
+
     public static String concatenate(String s1, String s2) {
         return s1 + s2;
     }
 
-    // Method 2: Concatenation with reversal (excluding spaces)
     public static String concatenate(String s1, String s2, boolean reverse) {
         if (reverse) {
             String combined = s1 + s2;

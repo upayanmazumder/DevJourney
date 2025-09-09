@@ -1,22 +1,19 @@
 import java.util.Scanner;
 
 class CircleUtils {
-    // Method to calculate circumference for integer radius
+
     public double calculateCircumference(int radius) {
         return 2 * 3.14 * radius;
     }
 
-    // Method to calculate circumference for double radius
     public double calculateCircumference(double radius) {
         return 2 * 3.14 * radius;
     }
 
-    // Method to calculate area for integer radius
     public double calculateArea(int radius) {
         return 3.14 * radius * radius;
     }
 
-    // Method to calculate area for double radius
     public double calculateArea(double radius) {
         return 3.14 * radius * radius;
     }
