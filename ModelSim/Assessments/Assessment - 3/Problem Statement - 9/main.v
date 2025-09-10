@@ -9,28 +9,33 @@ module magnitude_comparator(input A1, A0, B1, B0, output Y1, Y0);
 endmodule
 
 module magnitude_comparator_testbench();
-    reg A1, A0, B1, B0;
+    reg [1:0] A, B;
     wire Y1, Y0;
-    
-    magnitude_comparator uut(A1, A0, B1, B0, Y1, Y0);
-    
+
+    magnitude_comparator uut(A[1], A[0], B[1], B[0], Y1, Y0);
+
     initial begin
-        A1 = 0; A0 = 0; B1 = 0; B0 = 0; #10;
-        A1 = 0; A0 = 0; B1 = 0; B0 = 1; #10;
-        A1 = 0; A0 = 0; B1 = 1; B0 = 0; #10;
-        A1 = 0; A0 = 0; B1 = 1; B0 = 1; #10;
-        A1 = 0; A0 = 1; B1 = 0; B0 = 0; #10;
-        A1 = 0; A0 = 1; B1 = 0; B0 = 1; #10;
-        A1 = 0; A0 = 1; B1 = 1; B0 = 0; #10;
-        A1 = 0; A0 = 1; B1 = 1; B0 = 1; #10;
-        A1 = 1; A0 = 0; B1 = 0; B0 = 0; #10;
-        A1 = 1; A0 = 0; B1 = 0; B0 = 1; #10;
-        A1 = 1; A0 = 0; B1 = 1; B0 = 0; #10;
-        A1 = 1; A0 = 0; B1 = 1; B0 = 1; #10;
-        A1 = 1; A0 = 1; B1 = 0; B0 = 0; #10;
-        A1 = 1; A0 = 1; B1 = 0; B0 = 1; #10;
-        A1 = 1; A0 = 1; B1 = 1; B0 = 0; #10;
-        A1 = 1; A0 = 1; B1 = 1; B0 = 1; #10;
+        A = 2'b00; B = 2'b00; #10;
+        A = 2'b00; B = 2'b01; #10;
+        A = 2'b00; B = 2'b10; #10;
+        A = 2'b00; B = 2'b11; #10;
+
+        A = 2'b01; B = 2'b00; #10;
+        A = 2'b01; B = 2'b01; #10;
+        A = 2'b01; B = 2'b10; #10;
+        A = 2'b01; B = 2'b11; #10;
+
+        A = 2'b10; B = 2'b00; #10;
+        A = 2'b10; B = 2'b01; #10;
+        A = 2'b10; B = 2'b10; #10;
+        A = 2'b10; B = 2'b11; #10;
+
+        A = 2'b11; B = 2'b00; #10;
+        A = 2'b11; B = 2'b01; #10;
+        A = 2'b11; B = 2'b10; #10;
+        A = 2'b11; B = 2'b11; #10;
+
         $finish;
-   end
-endmodule	
+    end
+endmodule
+
