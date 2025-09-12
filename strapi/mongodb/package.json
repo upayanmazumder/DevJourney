@@ -1,5 +1,5 @@
 {
-  "name": "learning-strapi",
+  "name": "mongodb",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -16,12 +16,12 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.23.3",
-    "@strapi/plugin-users-permissions": "5.23.3",
-    "@strapi/strapi": "5.23.3",
+    "@strapi/plugin-cloud": "5.23.4",
+    "@strapi/plugin-users-permissions": "5.23.4",
+    "@strapi/strapi": "5.23.4",
+    "better-sqlite3": "11.3.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
-    "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -38,7 +38,7 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "236eca6f-befb-4c08-b77f-5eace3665c77",
-    "installId": "017570fb6554a0fc773b61bc58632a2f959cac8ca71979a249ea4492b180ed9e"
+    "uuid": "cd9e050b-dbe3-4aa5-bfff-0eeaa42d0148",
+    "installId": "147796d08115c8e261285d4ccde4164c4f6d68a6b0f7c9defbba0c837e9a5e46"
   }
 }
