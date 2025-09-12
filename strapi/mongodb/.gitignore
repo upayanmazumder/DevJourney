@@ -37,3 +37,6 @@ Thumbs.db
 
 # Optional: ignore generated admin build
 /admin/build/
+
+.strapi
+types
