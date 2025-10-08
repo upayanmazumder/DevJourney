@@ -1,62 +1,78 @@
 #include <stdio.h>
 #define MAX 100
 
-int queue[MAX];
-int front = 0;
-int rear = -1;
-
-int isEmpty()
+void insert(int queue[], int max, int *front, int *rear, int item)
 {
-    return front > rear;
-}
-
-int isFull()
-{
-    return rear == MAX - 1;
-}
-
-void enqueue(int val)
-{
-    if (isFull())
+    if (*rear + 1 == max)
     {
-        printf("Queue Overflow\n");
-        return;
+        printf("Overflow\n");
     }
-    queue[++rear] = val;
-}
-
-int dequeue()
-{
-    if (isEmpty())
+    else
     {
-        printf("Queue Underflow\n");
-        return -1;
+        if (*front == -1 && *rear == -1)
+        {
+            *front = 0;
+            *rear = 0;
+        }
+        else
+        {
+            *rear = *rear + 1;
+        }
+        queue[*rear] = item;
+        printf("%d inserted\n", item);
     }
-    return queue[front++];
 }
 
-int peek()
+void delete(int queue[], int *front, int *rear)
 {
-    if (isEmpty())
+    if (*front == -1 || *front > *rear)
+    {
+        printf("Underflow\n");
+    }
+    else
+    {
+        int item = queue[*front];
+        printf("%d deleted\n", item);
+        *front = *front + 1;
+        if (*front > *rear)
+        {
+            *front = *rear = -1; // reset after last deletion
+        }
+    }
+}
+
+void display(int queue[], int front, int rear)
+{
+    if (front == -1)
     {
         printf("Queue is empty\n");
-        return -1;
     }
-    return queue[front];
+    else
+    {
+        printf("Queue elements: ");
+        for (int i = front; i <= rear; i++)
+        {
+            printf("%d ", queue[i]);
+        }
+        printf("\n");
+    }
 }
 
 int main()
 {
-    enqueue(10);
-    enqueue(20);
-    enqueue(30);
+    int queue[MAX];
+    int front = -1, rear = -1;
 
-    printf("Front: %d\n", peek());       // 10
-    printf("Dequeue: %d\n", dequeue());  // 10
-    printf("Dequeue: %d\n", dequeue());  // 20
-    printf("Is Empty: %d\n", isEmpty()); // 0 (false)
-    printf("Dequeue: %d\n", dequeue());  // 30
-    printf("Is Empty: %d\n", isEmpty()); // 1 (true)
+    insert(queue, MAX, &front, &rear, 10);
+    insert(queue, MAX, &front, &rear, 20);
+    insert(queue, MAX, &front, &rear, 30);
+
+    display(queue, front, rear);
+
+    delete(queue, &front, &rear);
+    delete(queue, &front, &rear);
+
+    display(queue, front, rear);
 
     return 0;
 }
