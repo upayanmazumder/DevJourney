@@ -50,6 +50,37 @@ void insertEnd(int val)
     newNode->next = head;
 }
 
+void insertPos(int val, int pos)
+{
+    struct Node *newNode = malloc(sizeof(struct Node));
+    newNode->data = val;
+
+    if (pos == 1)
+    {
+        insertBeg(val);
+        return;
+    }
+
+    struct Node *temp = head;
+    int count = 1;
+
+    while (count < pos - 1 && temp->next != head)
+    {
+        temp = temp->next;
+        count++;
+    }
+
+    if (count < pos - 1)
+    {
+        printf("Position out of range\n");
+        free(newNode);
+        return;
+    }
+
+    newNode->next = temp->next;
+    temp->next = newNode;
+}
+
 void deleteBeg()
 {
     if (head == NULL)
@@ -107,6 +138,43 @@ void deleteEnd()
     free(temp);
 }
 
+void deletePos(int pos)
+{
+    if (head == NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+
+    struct Node *temp = head;
+
+    if (pos == 1)
+    {
+        deleteBeg();
+        return;
+    }
+
+    struct Node *prev = NULL;
+    int count = 1;
+
+    while (count < pos && temp->next != head)
+    {
+        prev = temp;
+        temp = temp->next;
+        count++;
+    }
+
+    if (count < pos)
+    {
+        printf("Position out of range\n");
+        return;
+    }
+
+    prev->next = temp->next;
+    printf("Deleted item: %d\n", temp->data);
+    free(temp);
+}
+
 void display()
 {
     if (head == NULL)
@@ -126,16 +194,19 @@ void display()
 
 int main()
 {
-    int choice, val;
+    int choice, val, pos;
+
     do
     {
         printf("\n--- Circular Linked List Menu ---\n");
         printf("1. Insert at Beginning\n");
         printf("2. Insert at End\n");
-        printf("3. Delete from Beginning\n");
-        printf("4. Delete from End\n");
-        printf("5. Display\n");
-        printf("6. Exit\n");
+        printf("3. Insert at Position\n");
+        printf("4. Delete from Beginning\n");
+        printf("5. Delete from End\n");
+        printf("6. Delete from Position\n");
+        printf("7. Display\n");
+        printf("8. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -152,21 +223,31 @@ int main()
             insertEnd(val);
             break;
         case 3:
-            deleteBeg();
+            printf("Enter value and position: ");
+            scanf("%d%d", &val, &pos);
+            insertPos(val, pos);
             break;
         case 4:
-            deleteEnd();
+            deleteBeg();
             break;
         case 5:
-            display();
+            deleteEnd();
             break;
         case 6:
+            printf("Enter position to delete: ");
+            scanf("%d", &pos);
+            deletePos(pos);
+            break;
+        case 7:
+            display();
+            break;
+        case 8:
             printf("Exiting...\n");
             break;
         default:
             printf("Invalid choice!\n");
         }
-    } while (choice != 6);
+    } while (choice != 8);
 
     return 0;
 }
