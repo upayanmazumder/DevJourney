@@ -10,9 +10,9 @@ module jk_ff (
     assign qbar = ~q;
 
     always @(posedge clk or negedge reset) begin
-        if (!reset) begin
+        if (!reset)
             q <= 1'b0; 
-        end else begin
+        else begin
             case ({j, k})
                 2'b00: q <= q;         
                 2'b01: q <= 1'b0;      
@@ -24,15 +24,12 @@ module jk_ff (
 endmodule
 
 
-
-
 module tb_jk_ff;
 
     reg clk;
     reg j, k;
     reg reset;
     wire q, qbar;
-
 
     jk_ff uut (
         .clk(clk),
@@ -43,36 +40,28 @@ module tb_jk_ff;
         .qbar(qbar)
     );
 
-
+    
     initial begin
         clk = 0;
         forever #5 clk = ~clk;
     end
 
-
+    
     initial begin
-        $display("Time\tReset\tJ\tK\tQ\tQbar");
-        $monitor("%0t\t%b\t%b\t%b\t%b\t%b", $time, reset, j, k, q, qbar);
-
-        
-        reset = 0; j = 0; k = 0; #10; 
+        reset = 0; j = 0; k = 0; #10;
         reset = 1; #10;
 
-        
-        j = 0; k = 0; #10; 
-        j = 0; k = 1; #10; 
-        j = 1; k = 0; #10; 
-        j = 1; k = 1; #10; 
-
-        
+        j = 0; k = 0; #10;
+        j = 0; k = 1; #10;
+        j = 1; k = 0; #10;
+        j = 1; k = 1; #10;
         j = 1; k = 1; #10;
         j = 1; k = 1; #10;
 
-        
         reset = 0; #10;
         reset = 1; #10;
 
-        $finish;
+        #20; 
     end
 
 endmodule
