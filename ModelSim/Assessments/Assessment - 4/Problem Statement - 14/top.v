@@ -1,45 +1,76 @@
 module jk_ff (
-    input J,
-    input K,
     input clk,
-    input rst,     // active high reset
-    output reg Q
+    input j,
+    input k,
+    input reset,
+    output reg q,
+    output qbar
 );
 
-always @(posedge clk or posedge rst) begin
-    if (rst)
-        Q <= 0;
-    else begin
-        case ({J, K})
-            2'b00: Q <= Q;     // no change
-            2'b01: Q <= 0;     // reset
-            2'b10: Q <= 1;     // set
-            2'b11: Q <= ~Q;    // toggle
+assign qbar = ~q;
+
+always @(posedge clk or negedge reset) begin
+    if (!reset) begin
+        q <= 1'b0; 
+    end else begin
+        case ({j, k})
+            2'b00: q <= q;         
+            2'b01: q <= 1'b0;      
+            2'b10: q <= 1'b1;      
+            2'b11: q <= ~q;        
         endcase
     end
 end
 
 endmodule
 
-module jk_ff (
-    input J,
-    input K,
-    input clk,
-    input rst,     // active high reset
-    output reg Q
+module tb_jk_ff;
+
+reg clk;
+reg j, k;
+reg reset;
+wire q, qbar;
+
+
+jk_ff uut (
+    .clk(clk),
+    .j(j),
+    .k(k),
+    .reset(reset),
+    .q(q),
+    .qbar(qbar)
 );
 
-always @(posedge clk or posedge rst) begin
-    if (rst)
-        Q <= 0;
-    else begin
-        case ({J, K})
-            2'b00: Q <= Q;     // no change
-            2'b01: Q <= 0;     // reset
-            2'b10: Q <= 1;     // set
-            2'b11: Q <= ~Q;    // toggle
-        endcase
-    end
+
+initial begin
+    clk = 0;
+    forever #5 clk = ~clk;
+end
+
+
+initial begin
+    $display("Time\tReset\tJ\tK\tQ\tQbar");
+    $monitor("%0t\t%b\t%b\t%b\t%b\t%b", $time, reset, j, k, q, qbar);
+
+    
+    reset = 0; j = 0; k = 0; #10; 
+    reset = 1; #10;
+
+    
+    j = 0; k = 0; #10; 
+    j = 0; k = 1; #10; 
+    j = 1; k = 0; #10; 
+    j = 1; k = 1; #10; 
+
+    
+    j = 1; k = 1; #10;
+    j = 1; k = 1; #10;
+
+    
+    reset = 0; #10;
+    reset = 1; #10;
+
+    $finish;
 end
 
 endmodule
