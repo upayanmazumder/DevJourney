@@ -36,3 +36,35 @@ module sync_up_counter (
     );
 
 endmodule
+
+module tb_sync_up_counter;
+    reg clk;
+    reg reset;
+    wire [2:0] q;
+
+    // Instantiate counter
+    sync_up_counter uut (
+        .clk(clk),
+        .reset(reset),
+        .q(q)
+    );
+
+    // Clock generation
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk; // 10ns period
+    end
+
+    // Test sequence
+    initial begin
+        $dumpfile("sync_up_counter.vcd");
+        $dumpvars(0, tb_sync_up_counter);
+
+        reset = 0; #10;
+        reset = 1; #10;
+
+        repeat (16) #10; // run for a few cycles
+
+        $finish;
+    end
+endmodule
