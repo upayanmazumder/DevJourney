@@ -1,18 +1,12 @@
-`timescale 1ns/1ps
-
 module jk_ff(input clk, input j, input k, input rst_n, output reg q);
-always @(posedge clk or negedge rst_n) begin
-  if (!rst_n)
-    q <= 0;
-  else begin
-    case ({j,k})
-      2'b00: q <= q;
-      2'b01: q <= 0;
-      2'b10: q <= 1;
-      2'b11: q <= ~q;
-    endcase
-  end
-end
+always @(posedge clk or negedge rst_n)
+  if (!rst_n) q <= 0;
+  else case ({j,k})
+    2'b00: q <= q;
+    2'b01: q <= 0;
+    2'b10: q <= 1;
+    2'b11: q <= ~q;
+  endcase
 endmodule
 
 module ripple_count2(input clk, input rst_n, output [1:0] q);
@@ -23,17 +17,20 @@ module ripple_count2(input clk, input rst_n, output [1:0] q);
 endmodule
 
 module tb;
-  reg clk = 0;
-  reg rst_n = 0;
+  reg clk = 0, rst_n = 0;
   wire [1:0] q;
   ripple_count2 uut(clk, rst_n, q);
   initial begin
+    rst_n = 0;
     #5 rst_n = 1;
-    for (integer i = 0; i < 16; i = i + 1) begin
-      #5 clk = ~clk;
-      #5 clk = ~clk;
-      $display("Time=%0t Q1=%b Q0=%b", $time, q[1], q[0]);
-    end
+    #10 clk = 1; #10 clk = 0;
+    #10 clk = 1; #10 clk = 0;
+    #10 clk = 1; #10 clk = 0;
+    #10 clk = 1; #10 clk = 0;
+    #10 clk = 1; #10 clk = 0;
+    #10 clk = 1; #10 clk = 0;
+    #10 clk = 1; #10 clk = 0;
+    #10 clk = 1; #10 clk = 0;
     #10 $finish;
   end
 endmodule
