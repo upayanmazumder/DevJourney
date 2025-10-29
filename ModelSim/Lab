@@ -1,0 +1,38 @@
+module sync_up_counter (
+    input clk,
+    input reset,
+    output [2:0] q
+);
+    wire qbar0, qbar1, qbar2;
+
+    // JK Flip-Flop 0 (LSB)
+    jk_ff ff0 (
+        .clk(clk),
+        .j(1'b1),
+        .k(1'b1),
+        .reset(reset),
+        .q(q[0]),
+        .qbar(qbar0)
+    );
+
+    // JK Flip-Flop 1
+    jk_ff ff1 (
+        .clk(clk),
+        .j(q[0]),
+        .k(q[0]),
+        .reset(reset),
+        .q(q[1]),
+        .qbar(qbar1)
+    );
+
+    // JK Flip-Flop 2 (MSB)
+    jk_ff ff2 (
+        .clk(clk),
+        .j(q[0] & q[1]),
+        .k(q[0] & q[1]),
+        .reset(reset),
+        .q(q[2]),
+        .qbar(qbar2)
+    );
+
+endmodule
