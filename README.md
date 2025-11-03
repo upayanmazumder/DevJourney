@@ -1,6 +1,7 @@
 # DevJourney
 
-[![Website](https://img.shields.io/badge/🌐%20Website-upayan.dev/devjourney-2563eb?style=flat-square&logo=google-chrome&logoColor=white)](https://upayan.dev/devjourney) 
+[![Website](https://img.shields.io/badge/🌐%20Website-upayan.dev/devjourney-2563eb?style=flat-square&logo=google-chrome&logoColor=white)](https://upayan.dev/devjourney)
+[![DeepWiki](https://img.shields.io/badge/📘%20DeepWiki-DevJourney-0ea5e9?style=flat-square&logo=bookstack&logoColor=white)](https://deepwiki.com/upayanmazumder/DevJourney)
 
 [![CodeQL](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql/badge.svg?style=flat-square)](https://github.com/upayanmazumder/DevJourney/actions/workflows/github-code-scanning/codeql)  [![Dependabot](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates/badge.svg?style=flat-square)](https://github.com/upayanmazumder/DevJourney/actions/workflows/dependabot/dependabot-updates)  [![Daily Tag](https://github.com/upayanmazumder/DevJourney/actions/workflows/daily%20tag%20creator.yml/badge.svg?style=flat-square)](https://github.com/upayanmazumder/DevJourney/actions/workflows/daily%20tag%20creator.yml)  
 
