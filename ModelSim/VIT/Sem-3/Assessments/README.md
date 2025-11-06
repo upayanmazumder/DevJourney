@@ -33,3 +33,9 @@
 - [Problem Statement - 17 SISO Register](Assessment%20-%205/Problem%20Statement%20-%2017%20SISO%20Register/)
 - [Problem Statement - 18 SIPO Register](Assessment%20-%205/Problem%20Statement%20-%2018%20SIPO%20Register/)
 - [Problem Statement - 19 PIPO Register](Assessment%20-%205/Problem%20Statement%20-%2019%20PIPO%20Register/)
+
+## Assessment - 6
+
+- [Problem Statement - 20 2-Bit Upcounter](Assessment%20-%206/Problem%20Statement%20-%2020/)
+- [Problem Statement - 21 3-Bit Random Counter](Assessment%20-%206/Problem%20Statement%20-%2021/)
+- [Problem Statement - 22 Moore Sequence Detector](Assessment%20-%206/Problem%20Statement%20-%2022/)
