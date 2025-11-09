@@ -1,5 +1,8 @@
-Single File Programming Question
-Problem Statement
+# Academic Performance Tracker
+
+## Single File Programming Question
+
+## Problem Statement
 
 A dedicated student, Emily is keen on tracking her academic performance in various subjects. She wants to create a program that stores information about her grades and categorizes them based on performance. To achieve this, Emily has implemented a serialization program to store and retrieve grade information.
 
@@ -10,10 +13,20 @@ Note:
 "Excellent" for scores of 90 or above
 "Good" for scores above 70
 "Needs Improvement" for scores below 70.
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The input consists of a string value 's', containing a subject and a score separated by a space.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output displays the performance category after deserialization.
 
 Refer to the sample output for the formatting specifications.
@@ -26,7 +39,9 @@ The string s contains uppercase, lowercase, numbers, and spaces with at most 30 
 0 ≤ Score ≤ 100
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 Math 95
 Output 1 :
 Excellent
@@ -38,3 +53,4 @@ Input 3 :
 English 60
 Output 3 :
 Needs Improvement
+```

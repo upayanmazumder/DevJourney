@@ -1,5 +1,8 @@
-Single File Programming Question
-Problem Statement
+# Warehouse Manager
+
+## Single File Programming Question
+
+## Problem Statement
 
 Sarah, a warehouse manager, is managing a list of product names in her store’s inventory system. She needs to perform basic operations like adding (inserting) new products, removing products that are sold out or discontinued, displaying all the products in stock, and searching for a specific product in the inventory list.
 
@@ -9,7 +12,12 @@ Insert a Product: Sarah adds a new product to the inventory.
 Delete a Product: Sarah removes a product from the inventory when it’s sold or discontinued.
 Display the Inventory: Sarah checks all the products currently available in the inventory.
 Search for a Product: Sarah searches for a specific product in the inventory to check if it’s available.
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The input consists of multiple space-separated values representing different operations on a product list. Each operation follows a specific format:
 
 1 <product_name> - Adds <product_name> to the product list.
@@ -20,7 +28,12 @@ The input consists of multiple space-separated values representing different ope
 
 4 <product_name> - Checks if <product_name> exists in the list.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output displays,
 
 For (choice 1) prints, " <item> has been added to the list."
@@ -39,7 +52,9 @@ Code constraints :
 1 ≤ string length ≤ 100
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 1 apple 1 banana 2 apple 3 4 apple
 Output 1 :
 apple has been added to the list.
@@ -78,12 +93,13 @@ Fill your code here
 Java (11)
 theme
 instruction
+```
 
 123456789101112131415161718192021222324252627282930313233343536
 class StringListOperations { public static void insertItem(ArrayList<String> list, String item) { list.add(item); System.out.println(item + " has been added to the list."); } public static void deleteItem(ArrayList<String> list, String item) { if (list.remove(item)) { System.out.println(item + " has been removed from the list."); } } public static void displayItems(ArrayList<String> list) { if (list.isEmpty()) { System.out.println("The list is empty."); } else { System.out.println("Items in the list:"); for (String item : list) { System.out.println(item); } } } public static void searchItem(ArrayList<String> list, String item) { if (list.contains(item)) { System.out.println(item + " is found in the list."); } else { System.out.println(item + " not found in the list."); } } public static void main(String[] args) { Scanner scanner = new Scanner(System.in); String inputLine = scanner.nextLine(); String[] commands = inputLine.split(" "); ArrayList<String> list = new ArrayList<>();
 Footer Snippet
 12345678910
-public class Main { public static void main(String[] args) { Scanner sc = new Scanner(System.in); ArrayList<String> list = new ArrayList<>(); String input = sc.nextLine(); String[] commands = input.split(" "); int i = 0; while (i < commands.length) {  
+public class Main { public static void main(String[] args) { Scanner sc = new Scanner(System.in); ArrayList<String> list = new ArrayList<>(); String input = sc.nextLine(); String[] commands = input.split(" "); int i = 0; while (i < commands.length) {
 Provide Custom Input
 Result
 0/2 Sample testcase passed
@@ -103,7 +119,7 @@ apple has been removed from the list.
 Items in the list:
 banana
 apple not found in the list.
-Output
+#### Output:
 
 Testcase 2 - Failed
 Expected Output
@@ -118,4 +134,4 @@ car has been removed from the list.
 Items in the list:
 bus
 bus is found in the list.
-Output
+#### Output:

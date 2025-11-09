@@ -1,5 +1,8 @@
-Single File Programming Question
-Problem Statement
+# Student Records Storage
+
+## Single File Programming Question
+
+## Problem Statement
 
 Olivia is a college administrator who manages student records, including each student’s name, roll number, and enrolled courses. She wants to store student records safely using Java serialization and retrieve them later using deserialization.
 
@@ -12,14 +15,24 @@ Deserialize it.
 Print the student information in the specified format.
 Help Olivia develop this student administration system.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line contains a string representing the Student’s Name.
 
 The second line contains an integer representing the Student’s Roll Number.
 
 The third line contains a string representing the Enrolled Courses, as a comma-separated list of course names.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 If all the details are valid, output the following:
 
 Name: <name>
@@ -39,7 +52,9 @@ Roll Number: Must be a positive integer.
 Enrolled Courses: Must be a non-empty string with at least one course.
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 John Doe
 12345
 Math, Physics, Chemistry
@@ -66,3 +81,4 @@ The program will be evaluated only after the “Submit Code” is clicked.
 Extra spaces and new line characters in the program output will result in the failure of the test case.
 Marks : 10
 Negative Marks : 0
+```

@@ -1,5 +1,8 @@
-Single File Programming Question
-Problem Statement
+# Event Hall Booking
+
+## Single File Programming Question
+
+## Problem Statement
 
 Rajesh, the owner of "Royal Event Halls," manages a collection of event halls available for booking. Each hall has details such as the name, contact number, cost per day, and owner’s name. Rajesh wants to display the list of available halls sorted by their daily cost in a tabular format, making it easier for his clients to choose based on their budget.
 
@@ -16,7 +19,12 @@ getCostPerDay(), setCostPerDay(double costPerDay)
 getOwnerName(), setOwnerName(String ownerName)
 Use the compareTo() method to sort the halls, and ensure the program displays the details correctly in tabular form.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line of input consists of an integer n, representing the number of halls.
 
 The next n × 4 lines each contain hall details:
@@ -25,7 +33,12 @@ A String, representing the hall name
 A String, representing the contact number
 A double, representing the cost per day
 A String, representing the owner’s name
-Output format :
+#### Output:
+
+```
+format :
+```
+
 For each hall, print the following details in a single line, separated by a single space:
 
 Hall Name
@@ -40,7 +53,9 @@ Code constraints :
 1 ≤ n ≤ 100
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 3
 SDH hall
 12345
@@ -71,3 +86,4 @@ Michael
 Output 2 :
 Bliss hall 54321 18000.0 Rachel
 Luxe hall 98765 22000.0 Michael
+```

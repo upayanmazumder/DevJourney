@@ -1,32 +1,38 @@
-Single File Programming Question
-Problem Statement
+# Shape Surface Paint
 
+## Single File Programming Question
 
+## Problem Statement
 
 A painter needs to determine the cost to paint different shapes based on their surface area. The program should be designed to handle the area of a sphere and calculate the total painting cost using the following formulas:
 
-
-
 Area of sphere: Area = 4 * pi * r² where pi = 3.14
 Total painting cost: Cost = cost per square meter * area of sphere
-
 
 The program will consist of three classes:
 
 Shape class: This class should set the shape type and radius.
 Area class: This class should extend Shape to calculate the area.
 Cost class: This class should extend Area to calculate the total painting cost.
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The input consists of a string representing the shape type, a double value representing the radius, and another double value representing the cost per square meter on each line.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 For a valid shape type of "Sphere":
 
 The first line prints: "Area of Sphere is: <calculated_area>" rounded to two decimal places.
 The second line prints: "Cost to paint the shape is: <total_painting_cost>" rounded to two decimal places.
 For any other shape types, print: "Invalid type".
-
-
 
 Refer to the sample output for formatting specifications.
 
@@ -38,7 +44,9 @@ The given test cases fall under the following constraints:
 1.0 ≤ cost ≤ 10.0
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 Sphere
 3.4
 5.8
@@ -64,3 +72,4 @@ sphere
 4.9
 Output 4 :
 Invalid type
+```

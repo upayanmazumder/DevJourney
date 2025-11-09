@@ -1,18 +1,31 @@
-Single File Programming Question
-Problem Statement
+# Movie Ticket Booking
+
+## Single File Programming Question
+
+## Problem Statement
 
 Alex runs a movie ticket booking system that allows users to book tickets for different movies. Alex needs to keep track of the tickets booked, including movie name, seat number, and price, and later check how many tickets are booked for a specific movie. Your task is to help Alex serialize the ticket data and provide a way to count the tickets for any given movie.
 
 Help Alex implement this system to efficiently store and retrieve ticket data.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line consists of an integer n, representing the number of tickets booked (1 ≤ n ≤ 100).
 
 The next n lines contain the ticket details: each line contains an integer ticketId, a string movieName, a string seatNumber, and a double price.
 
 The last line contains a string searchMovie, which is the movie name for which Alex wants to check the number of tickets booked.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output prints an integer representing the number of tickets booked for the specified movie.
 
 If no tickets are booked for the movie, the output should be: "No tickets booked for this movie".
@@ -33,7 +46,9 @@ Seat number is a string of format "RowColumn" (e.g., A5, B10, C3)
 100.0 ≤ price ≤ 1000.0
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 5
 1001 Avatar A5 250.5
 1002 Inception B10 300.0
@@ -52,3 +67,4 @@ Input 2 :
 Inception
 Output 2 :
 No tickets booked for this movie
+```

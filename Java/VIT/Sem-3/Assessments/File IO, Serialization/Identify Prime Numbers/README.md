@@ -1,16 +1,29 @@
-Single File Programming Question
+# Identify Prime Numbers
+
+## Single File Programming Question
+
 Problem Statement:﻿
 
 Ranjith wants to identify all prime numbers from a given list of integers. Write a program that reads n integers, stores them in a file named numbers.txt, then reads the file to find prime numbers and saves them in primes_result.txt.
 
 If no prime numbers are present in the list, write "No primes found" to the output file.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line contains an integer n, the number of elements in the list.
 
 The second line contains n space-separated integers.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 Print the prime numbers to the console and write them in primes_result.txt.
 
 If there are no prime numbers, print and write "No primes found".
@@ -23,7 +36,9 @@ Code constraints :
 1 ≤ numbers ≤ 100
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 5
 2 4 7 9 11
 Output 1 :
@@ -38,3 +53,4 @@ The program will be evaluated only after the “Submit Code” is clicked.
 Extra spaces and new line characters in the program output will result in the failure of the test case.
 Marks : 10
 Negative Marks : 0
+```

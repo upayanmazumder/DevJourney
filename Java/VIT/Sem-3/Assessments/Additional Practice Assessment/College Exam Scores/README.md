@@ -1,5 +1,8 @@
-Single File Programming Question
-Problem Statement
+# College Exam Scores
+
+## Single File Programming Question
+
+## Problem Statement
 
 Amit, a college administrator, is developing a system to manage student exam scores efficiently. The system should allow him to input student's roll numbers along with their marks in three subjects and then generate useful insights. The program must calculate and display the total marks for each student, identify the highest scorer in each subject, and determine the student with the highest overall total. Help Amit build this system by implementing a class-based solution to process and display student data accurately.
 
@@ -12,7 +15,12 @@ int mark3.
 
 Create an array of objects for the above class.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line of input consists of an integer (n), representing the number of students.
 
 The next n lines each contain four space-separated integers:
@@ -21,7 +29,12 @@ The roll number (rno) of the student.
 The marks in subject 1 (mark1).
 The marks in subject 2 (mark2).
 The marks in subject 3 (mark3).
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output prints the Total marks for each student, printed on separate lines in the order of input.
 
 The roll number and highest mark for each subject, are printed in the order of subjects.
@@ -36,7 +49,9 @@ Code constraints :
 1 ≤ rno, mark1, mark2, mark3 ≤ 100
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 5
 1 98 85 76
 2 85 74 65
@@ -71,3 +86,4 @@ The program will be evaluated only after the “Submit Code” is clicked.
 Extra spaces and new line characters in the program output will result in the failure of the test case.
 Marks : 10
 Negative Marks : 0
+```

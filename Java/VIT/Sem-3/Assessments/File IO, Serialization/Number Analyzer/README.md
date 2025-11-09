@@ -1,6 +1,8 @@
-Single File Programming Question
+# Number Analyzer
 
-Problem Statement
+## Single File Programming Question
+
+## Problem Statement
 
 Jordan is examining a sequence of numbers and wants to find those that are greater than the number formed by reversing their digits.
 
@@ -10,12 +12,22 @@ Your task is to identify and extract the numbers that are greater than their rev
 
 If no numbers meet the condition, write the message "No numbers found" to the output file.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 First line: An integer n — the total number of integers in the list.
 
 Second line: n space-separated integers.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 A single line with space-separated numbers that are greater than their reverse.
 
 If none are found, print: No numbers found
@@ -28,7 +40,9 @@ Code constraints :
 1 ≤ each integer ≤ 1000
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 3
 21 798 22
 Output 1 :
@@ -53,3 +67,4 @@ The program will be evaluated only after the “Submit Code” is clicked.
 Extra spaces and new line characters in the program output will result in the failure of the test case.
 Marks : 10
 Negative Marks : 0
+```

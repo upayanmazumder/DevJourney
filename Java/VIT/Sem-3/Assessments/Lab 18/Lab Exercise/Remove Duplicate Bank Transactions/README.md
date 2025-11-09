@@ -1,23 +1,30 @@
-Single File Programming Question
-Problem Statement
+# Remove Duplicate Bank Transactions
 
+## Single File Programming Question
 
+## Problem Statement
 
 A financial analyst is reviewing a list of transaction amounts recorded in a bank's system. However, some transactions have been mistakenly duplicated. The analyst wants to remove all duplicate transaction amounts while keeping only the first occurrence of each amount.
 
-
-
 Help the financial analyst to implement this using ArrayList.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line contains an integer N, representing the number of transactions recorded.
 
 The next N lines contain integers representing transaction amounts.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output consists of unique transaction amounts in the order they first appeared in the input. Each amount is printed on a new line.
-
-
 
 Refer to the sample output for the formatting specifications.
 
@@ -29,7 +36,9 @@ In this scenario, the test cases will fall under the following constraints:
 1 ≤ Amount ≤ 100000
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 7
 500
 200
@@ -79,3 +88,4 @@ Footer Snippet
 12345678
 public class Main {    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        int n = sc.nextInt();          TransactionProcessor.processTransactions(n, sc);        sc.close();    }}
 Provide Custom Input
+```

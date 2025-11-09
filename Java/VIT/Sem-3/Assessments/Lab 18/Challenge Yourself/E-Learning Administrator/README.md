@@ -1,13 +1,26 @@
-Single File Programming Question
-Problem Statement
+# E-Learning Administrator
+
+## Single File Programming Question
+
+## Problem Statement
 
 Tony is an e-learning platform administrator, he oversees the user ratings for various online courses offered in the platform.
 
 To enhance user experience, you should assist him in utilizing a HashMap to store course ratings given by learners. Regularly, he analyzes this data to identify the highest and lowest-rated courses, enabling targeted improvements and ensuring the quality of the educational content. This process assists in maintaining a competitive and engaging online learning environment for the users.
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The input consists of a string representing the course name, followed by a double value representing the course's rating, in separate lines.
 The input is terminated by entering "done".
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The first line of output prints the string "Highest Rated Course: " followed by the highest-rated course.
 The second line prints the string "Lowest Rated Course: " followed by the lowest-rated courses.
 
@@ -17,7 +30,7 @@ The given test cases fall under the following constraints:
 1 ≤ Length of the String ≤ 25
 0.0 ≤ rating ≤ 5.0
 Sample test cases :
-Input 1 :
+#### Input 1:
 
 ```
 DSA
@@ -29,14 +42,14 @@ C
 done
 ```
 
-Output 1 :
+#### Output 1:
 
 ```
 Highest Rated Course: OOPS
 Lowest Rated Course: C
 ```
 
-Input 2 :
+#### Input 2:
 
 ```
 Accounting & Finance
@@ -48,7 +61,7 @@ Architecture
 done
 ```
 
-Output 2 :
+#### Output 2:
 
 ```
 Highest Rated Course: Art & Design
@@ -97,7 +110,4 @@ String courseName = scanner.nextLine();
 if (courseName.equalsIgnoreCase("done")) {
 break;
 
- 
-
- 
 Provide Custom Input

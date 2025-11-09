@@ -1,19 +1,14 @@
-Single File Programming Question
-Problem Statement
+# RPG Game
 
+## Single File Programming Question
 
+## Problem Statement
 
-Arjun is developing a role-playing game where players can create warrior characters with unique abilities. Each warrior inherits basic player attributes like name, health, and level, but also has additional combat-specific properties like strength and armor. The game needs to calculate various combat statistics including total attack power, critical hit damage, and damage reduction when facing enemies. 
+Arjun is developing a role-playing game where players can create warrior characters with unique abilities. Each warrior inherits basic player attributes like name, health, and level, but also has additional combat-specific properties like strength and armor. The game needs to calculate various combat statistics including total attack power, critical hit damage, and damage reduction when facing enemies.
 
-
-
-Arjun has already implemented the Player parent class with basic methods like calculateBaseAttack() and calculateDefense(), but he needs to complete the Warrior child class that extends Player functionality with methods like calculateTotalAttack(), calculateCriticalHit(), and calculateDamageReduction(). 
-
-
+Arjun has already implemented the Player parent class with basic methods like calculateBaseAttack() and calculateDefense(), but he needs to complete the Warrior child class that extends Player functionality with methods like calculateTotalAttack(), calculateCriticalHit(), and calculateDamageReduction().
 
 Help him to implement the task.
-
-
 
 Formulas:
 
@@ -29,7 +24,12 @@ Total Defense = Base Defense + (armor × 2) (calculated by calculateTotalDefense
 
 Damage Reduction = enemyDamage - Total Defense (minimum 1 if result is 0 or negative) (calculated by calculateDamageReduction() method in Warrior class)
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line of input consists of a String name representing the warrior's name.
 
 The second line of input consists of an integer health representing the warrior's health points.
@@ -42,14 +42,17 @@ The fifth line of input consists of an integer armor representing the warrior's 
 
 The sixth line of input consists of an integer enemyDamage representing incoming damage from an enemy.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The first line of output prints: Attack Power: <totalAttack>, where totalAttack represents the warrior's combined attack power including base attack and strength bonus.
 
 The second line of output prints: Critical Hit: <criticalHit>, where criticalHit represents the double damage when warrior performs a critical strike.
 
 The third line of output prints: Damage Taken: <damageReduction>, where damageReduction represents the final damage received after applying defense reduction.
-
-
 
 Refer to the sample output for formatting specifications.
 
@@ -67,7 +70,9 @@ The given test cases fall under the following constraints:
 1 ≤ enemyDamage ≤ 500
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 Arthur
 100
 1
@@ -89,3 +94,4 @@ Output 2 :
 Attack Power: 65
 Critical Hit: 130
 Damage Taken: 6
+```

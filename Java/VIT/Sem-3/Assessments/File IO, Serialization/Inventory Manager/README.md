@@ -1,6 +1,8 @@
-Single File Programming Question
+# Inventory Manager
 
-Problem Statement
+## Single File Programming Question
+
+## Problem Statement
 
 A store manager keeps track of product inventory in a file named inventory.txt. Each line in this file contains a product's name, its unit price (as a decimal number), and the available stock quantity (as an integer).
 
@@ -13,12 +15,22 @@ Display each product's name with its stock value, as well as the total stock val
 
 Your task is to write a program that performs these tasks.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 First line: integer n (number of products)
 
 Next n lines: product name (string), unit price (double), stock quantity (int)
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 For each product: "ProductName: Rs.StockValue"
 
 Last line: "Total Stock Value: Rs.TotalValue"
@@ -35,7 +47,9 @@ Unit price: 0.0 ≤ price ≤ 100000.0
 Stock quantity: 0 ≤ quantity ≤ 1000
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 3
 Laptop 45000.0 5
 Mouse 800.0 15
@@ -50,3 +64,4 @@ The program will be evaluated only after the “Submit Code” is clicked.
 Extra spaces and new line characters in the program output will result in the failure of the test case.
 Marks : 10
 Negative Marks : 0
+```

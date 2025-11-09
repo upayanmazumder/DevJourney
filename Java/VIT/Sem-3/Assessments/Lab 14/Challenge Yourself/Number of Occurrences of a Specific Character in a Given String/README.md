@@ -1,23 +1,30 @@
-Single File Programming Question
-Problem Statement
+# Number of Occurrences of a Specific Character in a Given String
 
+## Single File Programming Question
 
+## Problem Statement
 
 Sophie has been tasked with creating a program using the java.util.Scanner package that counts the number of occurrences of a specific character in a given string. The program should prompt the user to enter a string and then a single character. It should then compute how many times that character appears in the string and display the result.
 
-
-
 Your task is to help Sophie in implementing the same.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line of input contains a string S.
 
 The second line contains a character C.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output prints a single line indicating the number of times the character C appears in the string S in the format: "The character 'C' occurs X times."
-
-
 
 Refer to the sample output for formatting specifications.
 
@@ -31,7 +38,9 @@ The string S will contain only printable ASCII characters, including spaces.
 characters are case-sensitive.
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 apple
 p
 Output 1 :
@@ -46,3 +55,4 @@ Apple
 P
 Output 3 :
 The character 'P' occurs 0 times.
+```

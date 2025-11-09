@@ -1,33 +1,24 @@
-Single File Programming Question
-Problem Statement
+# Banking Application
 
+## Single File Programming Question
 
+## Problem Statement
 
 Jamie is developing a banking application that manages loan repayments and account balances with specific rules and constraints. The application must ensure proper validation and handle various custom exceptions related to loan repayments:
-
-
 
 Loan Overdue: If the loan is overdue by more than 60 days, throw LoanOverdueException with the message:
 
 "Loan is overdue by more than 60 days. Immediate payment required."
 
-
-
 Negative Repayment Amount: If the loan repayment amount is negative, throw NegativeLoanRepaymentAmountException with the message:
 
 "Loan repayment amount cannot be negative."
-
-
 
 Insufficient Funds: If the remaining balance after withdrawal is less than the minimum loan repayment amount, throw InsufficientFundsForLoanRepaymentException with the message:
 
 "Insufficient funds to cover loan repayment after withdrawal."
 
-
-
 The logic used for the withdrawal is:
-
-
 
 Step 1: remainingBalance = balance − amount
 
@@ -35,13 +26,16 @@ Step 2: If remainingBalance < minLoanRepayment, throw exception.
 
 Step 3: Else, update:
 
-
-
 balance = balance − amount − minLoanRepayment
 
 loanAmount = loanAmount − minLoanRepayment
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line of input consists of a double value b, representing the initial balance of the bank account.
 
 The second line consists of a double value o, representing the outstanding loan amount.
@@ -52,32 +46,29 @@ The fourth line consists of an integer n, representing the number of days the lo
 
 The fifth line consists of a double value w, representing the amount to withdraw from the bank account.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 Successful Withdrawal and Repayment:
 
 The first line of output prints: "Remaining Balance: " followed by the balance (rounded to two decimal places)
 
 The second line of output prints: "Remaining Loan Amount: " followed by loanAmount (rounded to two decimal places)
 
-
-
 Loan Overdue by More Than 60 Days:
 
 The only line of output prints: "Loan is overdue by more than 60 days. Immediate payment required."
-
-
 
 Negative Withdrawal Amount:
 
 The only line of output prints: "Loan repayment amount cannot be negative."
 
-
-
 Insufficient Funds for Loan Repayment After Withdrawal:
 
 The only line of output prints: "Insufficient funds to cover loan repayment after withdrawal."
-
-
 
 Refer to the sample output for formatting specifications.
 
@@ -95,7 +86,9 @@ The given test cases fall under the following constraints:
 0 ≤ amount ≤ balance (Withdrawal amount must be non-negative and not exceed the available balance)
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 5000
 2000
 300
@@ -128,3 +121,4 @@ Input 4 :
 1500
 Output 4 :
 Loan is overdue by more than 60 days. Immediate payment required.
+```

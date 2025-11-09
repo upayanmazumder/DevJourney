@@ -1,6 +1,8 @@
-Single File Programming Question
+# Bank Account
 
-Problem Statement
+## Single File Programming Question
+
+## Problem Statement
 
 Sam is managing his bank account and wants to perform various transactions using a program. He wants to deposit and withdraw funds and then save the account details using serialization. Upon restarting the program, he wants to be able to load the serialized data and continue with his banking transactions.
 
@@ -8,14 +10,24 @@ Write a program to assist Sam in managing his bank account, create a BankAccount
 
 Display the final balance after the transactions in a formatted manner with two decimal places.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line of input consists of a double value B, representing the initial balance.
 
 The second line consists of a double value D, representing the deposit amount.
 
 The third line consists of a double value W, representing the withdrawal amount.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output displays the final balance after the transactions, with two decimal places.
 
 Refer to the sample output for the formatting specifications.
@@ -30,7 +42,9 @@ In this scenario, the test cases fall under the following constraints:
 1.0 ≤ W ≤ 6000.0
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 1000.7
 500.5
 100.6
@@ -42,3 +56,4 @@ Input 2 :
 120.2
 Output 2 :
 10331.00
+```

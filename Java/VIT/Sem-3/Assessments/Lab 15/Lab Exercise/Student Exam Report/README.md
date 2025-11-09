@@ -1,24 +1,31 @@
-Single File Programming Question
-Problem Statement
+# Student Exam Report
 
+## Single File Programming Question
 
+## Problem Statement
 
 ﻿Sita is developing a program to manage student exam results. The program should allow users to input a student's name, marks in three subjects, and then calculate the average marks. It must store all this information in a file named result_source.txt.
 
-
-
 After storing the data, the program should copy the content from result_source.txt to another file named result_destination.txt and display the copied content to the user.
-
-
 
 Your task is to help Sita implement this functionality using character stream classes.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line of input contains a string representing the student's name.
 
 The second line of input contains three space-separated integers representing the marks obtained in three subjects (each out of 100).
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The first line of output prints "Student Exam Report:"
 
 The second line of output prints "Name: " followed by a string representing the student's name
@@ -31,8 +38,6 @@ The fifth line of output prints "Subject 3: " followed by an integer representin
 
 The sixth line prints of output prints "Average Marks: " followed by a double value representing the average of the three marks rounded to 2 decimal places.
 
-
-
 Refer to the sample output for formatting specifications.
 
 Code constraints :
@@ -43,7 +48,9 @@ The given testcases fall under the following constraints:
 0 ≤ Each subject mark ≤ 100
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 Amit Verma
 85 90 95
 Output 1 :
@@ -63,3 +70,4 @@ Subject 1: 78
 Subject 2: 82
 Subject 3: 84
 Average Marks: 81.33
+```

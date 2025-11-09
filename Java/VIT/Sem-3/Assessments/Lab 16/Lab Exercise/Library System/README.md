@@ -1,5 +1,8 @@
-Single File Programming Question
-Problem Statement
+# Library System
+
+## Single File Programming Question
+
+## Problem Statement
 
 Alex is managing a library system where book records need to be stored and retrieved efficiently. Each book has a unique ID, a title, an author, and a number of copies available. The records need to be serialized to a file so they can be retrieved later.
 
@@ -12,7 +15,12 @@ Stores them in a file using serialization.
 Reads the data back from the file.
 Filters and prints books with copies greater than a given threshold.
 If no books meet the criteria, print "No books found above threshold".
-Input format :
+#### Input:
+
+```
+format :
+```
+
 An integer n representing the number of books.
 
 Next n lines contains 4 space separated inputs:
@@ -23,7 +31,12 @@ A string author
 An integer copies (number of copies available)
 The last line contains an integer representing the minimum copies threshold.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output prints the books that have copies greater than the given threshold in the format:
 
 "book_id title author copies"
@@ -46,7 +59,9 @@ The given test cases fall under the following constraints:
 0 ≤ threshold ≤ 100 (Threshold for filtering books)
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 3
 401 AlgorithmsAndData BobDavis 4
 402 DatabaseManagement CarlaMoore 6
@@ -62,3 +77,4 @@ Input 2 :
 5
 Output 2 :
 No books found above threshold
+```

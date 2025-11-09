@@ -1,14 +1,18 @@
-Single File Programming Question
+# Priya - Automate Image Transformations
 
-Problem Statement
+## Single File Programming Question
 
+## Problem Statement
 
-Priya is building a system to automate image transformations using matrix operations. To do this, she needs to multiply two matrices representing pixel data and transformation rules. 
-
+Priya is building a system to automate image transformations using matrix operations. To do this, she needs to multiply two matrices representing pixel data and transformation rules.
 
 Help Priya perform matrix multiplication and print the resulting matrix if the operation is valid.
 
-Input format :
+#### Input:
+
+```
+format :
+```
 
 The first line of input consists of two int values, representing the number of rows R1 and columns C1 of the first matrix.
 
@@ -18,12 +22,15 @@ The next line consists of two int values, representing the number of rows R2 and
 
 The next R2 × C2 integers represent the elements of the second matrix.
 
-Output format :
+#### Output:
+
+```
+format :
+```
 
 If matrix multiplication is possible, print R1 lines, each containing C2 space-separated int values representing the resulting matrix.
 
 Otherwise, print "Matrix multiplication not possible".
-
 
 Refer to the sample output for formatting specifications.
 
@@ -37,19 +44,18 @@ The given test cases fall under the following constraints:
 
 Sample test cases :
 
-Input 1 :
+#### Input 1:
 
 2 3 1 2 3 4 5 6 3 2 7 8 9 10 11 12
 
-Output 1 :
+#### Output 1:
 
-58 64 139 154 
+58 64 139 154
 
-Input 2 :
+#### Input 2:
 
 1 1 5 1 1 4
 
-Output 2 :
+#### Output 2:
 
-20 
-
+20

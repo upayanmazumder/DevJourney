@@ -1,5 +1,8 @@
-Single File Programming Question
-Problem Statement
+# Replace Multiple of 3 with Fizz, of 5 with Buzz, and of both with FizzBuzz
+
+## Single File Programming Question
+
+## Problem Statement
 
 Helen wants to implement a FizzBuzz program using a generic class named FizzBuzz that takes a number of any numeric type.
 
@@ -7,10 +10,20 @@ FizzBuzz is a popular programming problem where you need to print numbers from 1
 
 Assist Helen in developing the program.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The input consists of an integer N, representing the ending range for which FizzBuzz should be applied.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The program prints the FizzBuzz sequence from 1 to N in each line.
 
 For each number, it should follow these rules:
@@ -26,7 +39,9 @@ Code constraints :
 1 ≤ N ≤ 50
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 28
 Output 1 :
 1
@@ -67,3 +82,4 @@ Fizz
 Buzz
 Fizz
 7
+```

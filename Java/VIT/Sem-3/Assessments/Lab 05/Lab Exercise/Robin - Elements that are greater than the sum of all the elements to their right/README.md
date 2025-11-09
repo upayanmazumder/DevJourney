@@ -1,13 +1,20 @@
+# Robin - Elements that are greater than the sum of all the elements to their right
+
 package Java.VIT.Sem-3.Assessments.Lab 5.Lab Exercise.Robin - Elements that are greater than the sum of all the elements to their right;
 
 public Java code
-Single File Programming Question
-Problem Statement
+## Single File Programming Question
+
+## Problem Statement
+
 Robin is a tech-savvy teenager who is diving into programming.
 He is working on a project to find special elements in an array called 'leaders.' Leaders are those exceptional elements that are greater than the sum of all the elements to their right.
 Assist Robin in writing this program.
-Example
-Input:
+## Example
+
+#### Input:
+
+```
 6
 16 28 74 19 25 11
 Output:
@@ -40,5 +47,6 @@ Input 2 :
 Output 2 :
 74 25 11
  main {
-    
+```
+
 }

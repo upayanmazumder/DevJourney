@@ -1,5 +1,8 @@
-Single File Programming Question
-Problem Statement
+# Track Seasons Based on Birthdays
+
+## Single File Programming Question
+
+## Problem Statement
 
 Fiji, a nature enthusiast, is fascinated by the changing seasons and wants to create a program to track the seasons based on birthdays. He wants a program that takes input in the form of a birthday serializes the data, and then deserializes it to determine the corresponding season.
 
@@ -12,10 +15,20 @@ Note:
 "Summer" for months 6, 7, and 8.
 "Fall" for months 9, 10, and 11.
 "Invalid month" for any month outside the valid range of 1 to 12.
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The input consists of a string containing the month and day of a birthday, separated by space.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output displays the corresponding season("Winter", "Spring", "Summer", "Fall") after deserialization.
 
 If month is invalid, print "Invalid month".
@@ -26,7 +39,9 @@ Code constraints :
 The string contains numbers separated by space with at most 5 characters.
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 12 15
 Output 1 :
 Winter
@@ -46,3 +61,4 @@ Input 5 :
 13 20
 Output 5 :
 Invalid month
+```

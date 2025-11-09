@@ -1,15 +1,12 @@
-Single File Programming Question
-Problem Statement
+# University Employee Category Categorizer
 
+## Single File Programming Question
 
+## Problem Statement
 
 Raghav is working on a university payroll system that categorizes employees into four types: Programmer, Assistant Professor, Associate Professor, and Professor. Each employee has basic details, including name, ID, address, email ID, and mobile number. All four roles inherit these details from the base class Employee.
 
-
-
 Each employee has a Basic Pay (BP), and the salary components are calculated as follows:
-
-
 
 DA (Dearness Allowance): 97% of Basic Pay
 HRA (House Rent Allowance): 10% of Basic Pay
@@ -18,10 +15,14 @@ Staff Club Fund: 0.1% of Basic Pay
 Gross Salary = BP + DA + HRA
 Net Salary = Gross Salary - (PF + Staff Club Fund)
 
-
 Help Raghav implement the class hierarchy and generate a payslip that displays the employee details and salary information.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line of the input conists of an Employee Type (Programmer, AssistantProfessor, AssociateProfessor, or Professor).
 
 The next lines (in order) contains the following one per line:
@@ -32,7 +33,12 @@ Address (String)
 Mail ID (String)
 Mobile Number (String)
 Basic Pay (double)
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output prints the payslip if the employee type is valid in the following format:
 
 Employee Type: <Type>
@@ -63,11 +69,7 @@ Net Salary: <Net>
 
 where the BP, DA, HRA, PF, Fund, Gross salary, and Net Salary should be rounded off to one decimal place.
 
-
-
 If the employee type is not valid, then print: "Invalid employee type"
-
-
 
 ﻿Refer to the sample output for formatting specifications.
 
@@ -81,7 +83,9 @@ Mobile number should be 10 digits
 Employee type must match one of the four valid types
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 Programmer
 Ravi
 E101
@@ -179,3 +183,4 @@ mohan@work.com
 100000
 Output 5 :
 Invalid employee type
+```

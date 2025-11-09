@@ -1,5 +1,8 @@
-Single File Programming Question
-Problem Statement
+# HR Management System
+
+## Single File Programming Question
+
+## Problem Statement
 
 Riya is working on an HR management system that needs to store and retrieve employee records using object serialization. The system should allow storing multiple employees' details and later retrieve only those earning above a given salary threshold.
 
@@ -12,14 +15,24 @@ department (String)
 salary (Double)
 Serializes the employee records into a file named "employees.ser".
 Deserializes the records from the file and prints employees' earnings above a given threshold.
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The first line consists of an integer n, representing the number of employees.
 
 The next n lines contain the employee details: each line contains an integer employee_id, a string name, a string department, and a double salary.
 
 The last line contains a double value X, the salary threshold.
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 If an employee’s salary is greater than X, print: "employee_id name department salary"
 
 If no employees meet the criteria, print: "No employees found above threshold"
@@ -42,7 +55,9 @@ jaThe given test cases fall under the following constraints:
 10000.00 ≤ X ≤ 5000000.00
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 3
 101 John HR 45000.00
 102 Alice IT 60000.00
@@ -58,3 +73,4 @@ Input 2 :
 45000.00
 Output 2 :
 No employees found above threshold
+```

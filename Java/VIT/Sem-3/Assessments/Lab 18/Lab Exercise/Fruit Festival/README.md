@@ -1,16 +1,29 @@
-Single File Programming Question
-Problem Statement
+# Fruit Festival
+
+## Single File Programming Question
+
+## Problem Statement
 
 John is organizing a fruit festival, and the quantities of various fruits are stored in a HashMap where fruit names are keys and quantities are values.
 
 Help him develop a program to find the total quantity of fruits for the festival by summing up the values in the HashMap.
 
-Input format :
+#### Input:
+
+```
+format :
+```
+
 The input consists of fruit quantities in the format 'fruitName:quantity', where fruitName is the name of the fruit(a string), and quantity is a double value representing the quantity.
 
 The input is terminated by entering "done".
 
-Output format :
+#### Output:
+
+```
+format :
+```
+
 The output prints a double value, representing the sum of values in the HashMap, rounded off to two decimal places.
 
 If the value is not numeric, print "Invalid input".
@@ -25,7 +38,9 @@ Code constraints :
 1.0 ≤ quantity ≤ 100.0
 
 Sample test cases :
-Input 1 :
+#### Input 1:
+
+```
 Banana:15.2
 Orange:56.3
 Mango:47.3
@@ -75,3 +90,4 @@ Footer Snippet
 12345678910
 class Main { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); Map<String, Double> valueMap = ValueProcessor.readValues(scanner); if (valueMap != null) { double sum = ValueProcessor.calculateSum(valueMap); System.out.printf("%.2f\n", sum); } scanner.close(); }
 Provide Custom Input
+```
