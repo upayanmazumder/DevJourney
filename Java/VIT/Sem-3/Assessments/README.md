@@ -1,12 +1,12 @@
 # Java VIT Sem-3 Assessments
 
-## Lab 04
+## [Lab 04](Lab%2004/)
 
 - Lab Exercise
   - [Arjun - Special Divisibility Properties](Lab%2004/Lab%20Exercise/Arjun%20-%20Special%20Divisibility%20Properties/)
   - [Emerson - Cyclic Rotations](Lab%2004/Lab%20Exercise/Emerson%20-%20Cyclic%20Rotations/)
 
-## Lab 05
+## [Lab 05](Lab%2005/)
 
 - Challenge Yourself
   - [Identify pair of elements within an array having sum that is closest to zero when compared to any other pair in the array](Lab%2005/Challenge%20Yourself/Identify%20pair%20of%20elements%20within%20an%20array%20having%20sum%20that%20is%20closest%20to%20zero%20when%20compared%20to%20any%20other%20pair%20in%20the%20array/)
@@ -21,7 +21,7 @@
   - [Rosh - Compute sum of the third-largest and second-smallest elements from a list of integers](Lab%2005/Lab%20Exercise/Rosh%20-%20Compute%20sum%20of%20the%20third-largest%20and%20second-smallest%20elements%20from%20a%20list%20of%20integers/)
   - [Sharon - Find the first repeated element in an integer array](Lab%2005/Lab%20Exercise/Sharon%20-%20Find%20the%20first%20repeated%20element%20in%20an%20integer%20array/)
 
-## Lab 06
+## [Lab 06](Lab%2006/)
 
 - Challenge Yourself
   - [Emma - Computer Vision Enthusiast](Lab%2006/Challenge%20Yourself/Emma%20-%20Computer%20Vision%20Enthusiast/)
@@ -36,7 +36,7 @@
   - [Sesha - Weather Monitoring System](Lab%2006/Lab%20Exercise/Sesha%20-%20Weather%20Monitoring%20System/)
   - [Shaath - Deep Space Exploration](Lab%2006/Lab%20Exercise/Shaath%20-%20Deep%20Space%20Exploration/)
 
-## Lab 07
+## [Lab 07](Lab%2007/)
 
 - Challenge Yourself
   - [Monthly Water Bill Consumption](Lab%2007/Challenge%20Yourself/Monthly%20Water%20Bill%20Consumption/)
@@ -51,7 +51,7 @@
   - [Sensor Data Optimization](Lab%2007/Lab%20Exercise/Sensor%20Data%20Optimization/)
   - [Smart Data Organizer](Lab%2007/Lab%20Exercise/Smart%20Data%20Organizer/)
 
-## Lab 08
+## [Lab 08](Lab%2008/)
 
 - Challenge Yourself
   - [Gadget Inventory Value](Lab%2008/Challenge%20Yourself/Gadget%20Inventory%20Value/)
@@ -66,7 +66,7 @@
   - [Pythagorean Triples](Lab%2008/Lab%20Exercise/Pythagorean%20Triples/)
   - [Track Percentage Change in Stock Prices](Lab%2008/Lab%20Exercise/Track%20Percentage%20Change%20in%20Stock%20Prices/)
 
-## Lab 09
+## [Lab 09](Lab%2009/)
 
 - Challenge Yourself
   - [Array Concatenator](Lab%2009/Challenge%20Yourself/Array%20Concatenator/)
@@ -81,7 +81,7 @@
   - [Rectangular Plots](Lab%2009/Lab%20Exercise/Rectangular%20Plots/)
   - [Speed Calculator](Lab%2009/Lab%20Exercise/Speed%20Calculator/)
 
-## Lab 10
+## [Lab 10](Lab%2010/)
 
 - Challenge Yourself
   - [Grade Tracker](Lab%2010/Challenge%20Yourself/Grade%20Tracker/)
@@ -96,7 +96,7 @@
   - [Vehicle Details](Lab%2010/Lab%20Exercise/Vehicle%20Details/)
   - [Volume of cube or pyramid](Lab%2010/Lab%20Exercise/Volume%20of%20cube%20or%20pyramid/)
 
-## Lab 11
+## [Lab 11](Lab%2011/)
 
 - Challenge Yourself
   - [Grading Automation System](Lab%2011/Challenge%20Yourself/Grading%20Automation%20System/)
@@ -111,7 +111,7 @@
   - [University Employee Category Categorizer](Lab%2011/Lab%20Exercise/University%20Employee%20Category%20Categorizer/)
   - [Volume of Cube and Cuboid](Lab%2011/Lab%20Exercise/Volume%20of%20Cube%20and%20Cuboid/)
 
-## Lab 12
+## [Lab 12](Lab%2012/)
 
 - Challenge Yourself
   - [Financial Calculator](Lab%2012/Challenge%20Yourself/Financial%20Calculator/)
@@ -126,7 +126,7 @@
   - [Student Performance](Lab%2012/Lab%20Exercise/Student%20Performance/)
   - [Vehicle Rental System](Lab%2012/Lab%20Exercise/Vehicle%20Rental%20System/)
 
-## Lab 13
+## [Lab 13](Lab%2013/)
 
 - Challenge Yourself
   - [Banking Application](Lab%2013/Challenge%20Yourself/Banking%20Application/)
@@ -141,7 +141,7 @@
   - [User ID Management System](Lab%2013/Lab%20Exercise/User%20ID%20Management%20System/)
   - [User Registration System](Lab%2013/Lab%20Exercise/User%20Registration%20System/)
 
-## Lab 14
+## [Lab 14](Lab%2014/)
 
 - Challenge Yourself
   - [Complete Weeks Between 2 Dates](Lab%2014/Challenge%20Yourself/Complete%20Weeks%20Between%202%20Dates/)
@@ -156,7 +156,7 @@
   - [Reverse String](Lab%2014/Lab%20Exercise/Reverse%20String/)
   - [Variable Name Standardization](Lab%2014/Lab%20Exercise/Variable%20Name%20Standardization/)
 
-## Lab 15
+## [Lab 15](Lab%2015/)
 
 - Challenge Yourself
   - [Encryption Decryption Program](Lab%2015/Challenge%20Yourself/Encryption%20Decryption%20Program/)
@@ -174,7 +174,7 @@
   - [Student Exam Report](Lab%2015/Lab%20Exercise/Student%20Exam%20Report/)
   - [Text Analyzer](Lab%2015/Lab%20Exercise/Text%20Analyzer/)
 
-## Lab 16
+## [Lab 16](Lab%2016/)
 
 - Challenge Yourself
   - [HR Management System](Lab%2016/Challenge%20Yourself/HR%20Management%20System/)
@@ -191,7 +191,7 @@
   - [Small Online Store](Lab%2016/Lab%20Exercise/Small%20Online%20Store/)
   - [Track Seasons Based on Birthdays](Lab%2016/Lab%20Exercise/Track%20Seasons%20Based%20on%20Birthdays/)
 
-## Lab 17
+## [Lab 17](Lab%2017/)
 
 - Challenge Yourself
   - [Event Hall Booking](Lab%2017/Challenge%20Yourself/Event%20Hall%20Booking/)
@@ -208,7 +208,7 @@
   - [Reverse Elements of an Array](Lab%2017/Lab%20Exercise/Reverse%20Elements%20of%20an%20Array/)
   - [Sum of Dimensions of a Rectangle](Lab%2017/Lab%20Exercise/Sum%20of%20Dimensions%20of%20a%20Rectangle/)
 
-## Lab 18
+## [Lab 18](Lab%2018/)
 
 - Challenge Yourself
   - [E-Learning Administrator](Lab%2018/Challenge%20Yourself/E-Learning%20Administrator/)
@@ -225,9 +225,30 @@
   - [Vowel Filter](Lab%2018/Lab%20Exercise/Vowel%20Filter/)
   - [Warehouse Manager](Lab%2018/Lab%20Exercise/Warehouse%20Manager/)
 
-## Lab 19
+## [Lab 19](Lab%2019/)
 
 - Challenge Yourself
   - _Not available_
 - Lab Exercise
   - [File Handling Serialization](Lab%2019/File%20Handling%20Serialization/)
+
+## [Additional Practice Assessment](Additional%20Practice%20Assessment/)
+
+- [Character Frequency in Novels](Additional%20Practice%20Assessment/Character%20Frequency%20in%20Novels/)
+- [College Exam Scores](Additional%20Practice%20Assessment/College%20Exam%20Scores/)
+- [Geometry Calculator](Additional%20Practice%20Assessment/Geometry%20Calculator/)
+- [Rental Service](Additional%20Practice%20Assessment/Rental%20Service/)
+- [Specific Patterns in Substrings](Additional%20Practice%20Assessment/Specific%20Patterns%20in%20Substrings/)
+
+## [File IO, Serialization](File%20IO%2C%20Serialization/)
+
+- [Course Enrollment System](File%20IO%2C%20Serialization/Course%20Enrollment%20System/)
+- [Digital Library Management System](File%20IO%2C%20Serialization/Digital%20Library%20Management%20System/)
+- [Identify Prime Numbers](File%20IO%2C%20Serialization/Identify%20Prime%20Numbers/)
+- [Inventory Manager](File%20IO%2C%20Serialization/Inventory%20Manager/)
+- [Library Management System](File%20IO%2C%20Serialization/Library%20Management%20System/)
+- [Number Analyzer](File%20IO%2C%20Serialization/Number%20Analyzer/)
+- [Perfect Square Finder](File%20IO%2C%20Serialization/Perfect%20Square%20Finder/)
+- [Student Records Storage](File%20IO%2C%20Serialization/Student%20Records%20Storage/)
+- [Tech Numbers](File%20IO%2C%20Serialization/Tech%20Numbers/)
+- [Track Employee Performance and Salaries](File%20IO%2C%20Serialization/Track%20Employee%20Performance%20and%20Salaries/)
