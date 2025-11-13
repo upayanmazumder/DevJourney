@@ -6,3 +6,20 @@ tempCodeRunnerFile.cpp
 
 #Ignore learning files
 test.cpp
+
+*.obj
+*.o
+*.log
+*.pch
+*.idb
+*.pdb
+*.ilk
+*.suo
+*.ncb
+*.sdf
+*.opensdf
+*.ipch
+*.tlog
+*.lastbuildstate
+*.res
+*.aps
