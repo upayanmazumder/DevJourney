@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct Node
+{
     int data;
     struct Node *left;
     struct Node *right;
 } Node;
 
-Node *create_node(int data) {
+Node *create_node(int data)
+{
     Node *node = malloc(sizeof(Node));
     node->data = data;
     node->left = NULL;
@@ -15,41 +17,57 @@ Node *create_node(int data) {
     return node;
 }
 
-Node *insert(Node *root, int data) {
-    if (!root) {
+Node *insert(Node *root, int data)
+{
+    if (!root)
+    {
         return create_node(data);
     }
-    if (data < root->data) {
+    if (data < root->data)
+    {
         root->left = insert(root->left, data);
-    } else if (data > root->data) {
+    }
+    else if (data > root->data)
+    {
         root->right = insert(root->right, data);
     }
     return root;
 }
 
-Node *min_value_node(Node *node) {
+Node *min_value_node(Node *node)
+{
     Node *current = node;
-    while (current && current->left) {
+    while (current && current->left)
+    {
         current = current->left;
     }
     return current;
 }
 
-Node *delete_node(Node *root, int data) {
-    if (!root) {
+Node *delete_node(Node *root, int data)
+{
+    if (!root)
+    {
         return NULL;
     }
-    if (data < root->data) {
+    if (data < root->data)
+    {
         root->left = delete_node(root->left, data);
-    } else if (data > root->data) {
+    }
+    else if (data > root->data)
+    {
         root->right = delete_node(root->right, data);
-    } else {
-        if (!root->left) {
+    }
+    else
+    {
+        if (!root->left)
+        {
             Node *temp = root->right;
             free(root);
             return temp;
         }
-        if (!root->right) {
+        if (!root->right)
+        {
             Node *temp = root->left;
             free(root);
             return temp;
@@ -61,8 +79,10 @@ Node *delete_node(Node *root, int data) {
     return root;
 }
 
-void inorder(Node *root) {
-    if (!root) {
+void inorder(Node *root)
+{
+    if (!root)
+    {
         return;
     }
     inorder(root->left);
@@ -70,10 +90,12 @@ void inorder(Node *root) {
     inorder(root->right);
 }
 
-int main(void) {
+int main(void)
+{
     Node *root = NULL;
     int values[] = {50, 30, 70, 20, 40, 60, 80};
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 7; i++)
+    {
         root = insert(root, values[i]);
     }
     inorder(root);

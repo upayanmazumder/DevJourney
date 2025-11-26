@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct Node
+{
     int data;
     struct Node *left;
     struct Node *right;
 } Node;
 
-Node *create_node(int data) {
+Node *create_node(int data)
+{
     Node *node = malloc(sizeof(Node));
     node->data = data;
     node->left = NULL;
@@ -15,8 +17,10 @@ Node *create_node(int data) {
     return node;
 }
 
-void preorder(Node *root) {
-    if (!root) {
+void preorder(Node *root)
+{
+    if (!root)
+    {
         return;
     }
     printf("%d ", root->data);
@@ -24,8 +28,10 @@ void preorder(Node *root) {
     preorder(root->right);
 }
 
-void inorder(Node *root) {
-    if (!root) {
+void inorder(Node *root)
+{
+    if (!root)
+    {
         return;
     }
     inorder(root->left);
@@ -33,8 +39,10 @@ void inorder(Node *root) {
     inorder(root->right);
 }
 
-void postorder(Node *root) {
-    if (!root) {
+void postorder(Node *root)
+{
+    if (!root)
+    {
         return;
     }
     postorder(root->left);
@@ -42,7 +50,8 @@ void postorder(Node *root) {
     printf("%d ", root->data);
 }
 
-int main(void) {
+int main(void)
+{
     Node *root = create_node(1);
     root->left = create_node(2);
     root->right = create_node(3);
