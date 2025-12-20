@@ -1,48 +1,62 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct Node
+{
     int data;
     struct Node *next;
 } Node;
 
-Node *create_node(int data) {
+Node *create_node(int data)
+{
     Node *node = malloc(sizeof(Node));
     node->data = data;
     node->next = node;
     return node;
 }
 
-void insert_end(Node **head, int data) {
+void insert_end(Node **head, int data)
+{
     Node *node = create_node(data);
-    if (!*head) {
+    if (!*head)
+    {
         *head = node;
         return;
     }
     Node *tail = *head;
-    while (tail->next != *head) {
+    while (tail->next != *head)
+    {
         tail = tail->next;
     }
     tail->next = node;
     node->next = *head;
 }
 
-void delete_value(Node **head, int data) {
-    if (!*head) {
+void delete_value(Node **head, int data)
+{
+    if (!*head)
+    {
         return;
     }
     Node *current = *head;
     Node *previous = NULL;
-    do {
-        if (current->data == data) {
-            if (previous) {
+    do
+    {
+        if (current->data == data)
+        {
+            if (previous)
+            {
                 previous->next = current->next;
-            } else {
+            }
+            else
+            {
                 Node *tail = *head;
-                while (tail->next != *head) {
+                while (tail->next != *head)
+                {
                     tail = tail->next;
                 }
-                if (current->next == current) {
+                if (current->next == current)
+                {
                     *head = NULL;
                     free(current);
                     return;
@@ -58,20 +72,24 @@ void delete_value(Node **head, int data) {
     } while (current != *head);
 }
 
-void display(Node *head) {
-    if (!head) {
+void display(Node *head)
+{
+    if (!head)
+    {
         printf("\n");
         return;
     }
     Node *current = head;
-    do {
+    do
+    {
         printf("%d ", current->data);
         current = current->next;
     } while (current != head);
     printf("\n");
 }
 
-int main(void) {
+int main(void)
+{
     Node *head = NULL;
     insert_end(&head, 2);
     insert_end(&head, 4);
@@ -79,12 +97,15 @@ int main(void) {
     display(head);
     delete_value(&head, 4);
     display(head);
-    while (head) {
+    while (head)
+    {
         Node *tail = head;
-        while (tail->next != head) {
+        while (tail->next != head)
+        {
             tail = tail->next;
         }
-        if (head->next == head) {
+        if (head->next == head)
+        {
             free(head);
             break;
         }

@@ -1,39 +1,50 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct Node
+{
     int data;
     struct Node *next;
 } Node;
 
-Node *create_node(int data) {
+Node *create_node(int data)
+{
     Node *node = malloc(sizeof(Node));
     node->data = data;
     node->next = NULL;
     return node;
 }
 
-void insert_end(Node **head, int data) {
+void insert_end(Node **head, int data)
+{
     Node *node = create_node(data);
-    if (!*head) {
+    if (!*head)
+    {
         *head = node;
         return;
     }
     Node *current = *head;
-    while (current->next) {
+    while (current->next)
+    {
         current = current->next;
     }
     current->next = node;
 }
 
-void delete_value(Node **head, int data) {
+void delete_value(Node **head, int data)
+{
     Node *current = *head;
     Node *previous = NULL;
-    while (current) {
-        if (current->data == data) {
-            if (previous) {
+    while (current)
+    {
+        if (current->data == data)
+        {
+            if (previous)
+            {
                 previous->next = current->next;
-            } else {
+            }
+            else
+            {
                 *head = current->next;
             }
             free(current);
@@ -44,16 +55,19 @@ void delete_value(Node **head, int data) {
     }
 }
 
-void display(Node *head) {
+void display(Node *head)
+{
     Node *current = head;
-    while (current) {
+    while (current)
+    {
         printf("%d ", current->data);
         current = current->next;
     }
     printf("\n");
 }
 
-int main(void) {
+int main(void)
+{
     Node *head = NULL;
     insert_end(&head, 10);
     insert_end(&head, 20);
@@ -61,7 +75,8 @@ int main(void) {
     display(head);
     delete_value(&head, 20);
     display(head);
-    while (head) {
+    while (head)
+    {
         Node *temp = head;
         head = head->next;
         free(temp);
