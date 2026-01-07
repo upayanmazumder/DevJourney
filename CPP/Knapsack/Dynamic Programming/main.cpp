@@ -24,9 +24,7 @@ int main() {
                 dp[i][w] = 0;
             else if (wt[i-1] <= w)
                 dp[i][w] = max(
-                    dp[i-1][w],
-                    val[i-1] + dp[i-1][w - wt[i-1]]
-                );
+                    dp[i-1][w], val[i-1] + dp[i-1][w - wt[i-1]]);
             else
                 dp[i][w] = dp[i-1][w];
         }
