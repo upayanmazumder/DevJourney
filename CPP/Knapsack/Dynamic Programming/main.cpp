@@ -10,14 +10,13 @@ int main() {
     cin >> n >> W;
 
     int wt[100], val[100];
+    int dp[101][101];
 
     for (int i = 0; i < n; i++)
         cin >> wt[i];
 
     for (int i = 0; i < n; i++)
         cin >> val[i];
-
-    int dp[101][101];
 
     for (int i = 0; i <= n; i++) {
         for (int w = 0; w <= W; w++) {
