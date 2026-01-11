@@ -1,3 +1,4 @@
+; T1E3P2.asm - Transfer string from code space to 40H, then copy 40H->60H
 ORG 0000H
     MOV DPTR, #0200H
     MOV R0, #40H

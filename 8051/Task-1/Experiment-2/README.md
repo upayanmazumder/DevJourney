@@ -1,7 +1,13 @@
-Write and assemble a program to load following values (25H, 35H, 45H, 55H & 65H) into each of registers R0–R4 and then push each of these registers onto the stack. Single-step the program, and examine the stack and the SP register after the execution of each instruction.
-2. Write an 8051 assembly language program to:
-(a) Set SP = 0DH.
-(b) Put a different value in each of RAM locations 0DH, 0CH, 0BH, 0AH, 09H, and 08H.
-(c) POP each stack location into registers R0–R4. Use the simulator to single-step and examine the registers, the stack, and the stack pointer.
-3. Write and assemble a program to load values into each of registers R0–R4 and then push each of these registers onto the stack and pop them back. Single-step the program, and examine the stack and the SP register after the execution of each instruction.
-4. Write and assemble a program to add the following data and then use the simulator to examine the CY flag: 92H, 23H, 66H, 87H, F5H.
+# Experiment 2 — Stack Operations & Flag Testing
+
+This folder contains programs that demonstrate stack push/pop operations and a multi-add sequence to observe the carry flag.
+
+Programs:
+- `T1E2P1.asm` — Load values into R0–R4 and push them onto the stack.
+- `T1E2P2.asm` — Set `SP = 0DH`, write values to memory locations `08H`–`0DH`, then `POP` into R0–R4.
+- `T1E2P3.asm` — Push R0–R4 onto the stack and then pop them back to the same registers.
+- `T1E2P4.asm` — Add sequence `92H, 23H, 66H, 87H, F5H` into A and use `JNC/INC R7` to count carry occurrences.
+
+Usage:
+1. Assemble and single-step each program in the simulator.
+2. Inspect the stack region, `SP`, and registers after each instruction.

@@ -1,3 +1,4 @@
+; T1E4P2.asm - Sum 10 BCD bytes (decimal adjust) into R3:R2
 ORG 0000H
     MOV DPTR, #0200H
     MOV R0, #10

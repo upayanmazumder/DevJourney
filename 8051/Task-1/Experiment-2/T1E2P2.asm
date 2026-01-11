@@ -1,3 +1,5 @@
+; T1E2P2.asm - Stack pointer and POP example
+; Set SP = 0DH, write values to RAM 08H..0DH then POP into R0..R4
 ORG 0000H
 MOV SP, #0DH
 MOV 08H, #10H

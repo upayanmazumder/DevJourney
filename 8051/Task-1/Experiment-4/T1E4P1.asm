@@ -1,3 +1,4 @@
+; T1E4P1.asm - Sum 10 binary bytes from code space into R3:R2
 ORG 0000H
     MOV DPTR, #0200H
     MOV R0, #10

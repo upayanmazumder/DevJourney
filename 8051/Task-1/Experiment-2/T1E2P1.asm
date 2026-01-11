@@ -1,3 +1,5 @@
+; T1E2P1.asm - Push registers onto the stack
+; Load R0..R4 with values and push each register
 ORG 0000H
 MOV R0, #25H
 MOV R1, #35H

@@ -1,3 +1,4 @@
+; T1E3P1.asm - Transfer string from code space (0200H) to RAM at 40H
 ORG 0000H
     MOV A, #00H
     MOV DPTR, #0200H
