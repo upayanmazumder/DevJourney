@@ -1,0 +1,1 @@
+1. Write a program to get a byte of hex data from P1, convert it to decimal, and then to ASCII. For example, if P1 has FBH, which is equal to 251 in decimal, after conversion we will have 32H, 35H, and 31H. Place the ASCII result in RAM locations starting at 40H. Using a simulator, single-step the program and examine the data
