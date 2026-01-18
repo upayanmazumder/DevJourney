@@ -46,7 +46,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>Experiment-4</OutputName>
+          <OutputName>ALP Examples</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -382,9 +382,9 @@
               <FilePath>.\STARTUP.A51</FilePath>
             </File>
             <File>
-              <FileName>T1E4P2.asm</FileName>
+              <FileName>Eg-1.asm</FileName>
               <FileType>2</FileType>
-              <FilePath>.\T1E4P2.asm</FilePath>
+              <FilePath>.\Eg-1.asm</FilePath>
             </File>
           </Files>
         </Group>

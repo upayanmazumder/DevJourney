@@ -381,6 +381,11 @@
               <FileType>2</FileType>
               <FilePath>.\STARTUP.A51</FilePath>
             </File>
+            <File>
+              <FileName>T1E5P1.asm</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\T1E5P1.asm</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
