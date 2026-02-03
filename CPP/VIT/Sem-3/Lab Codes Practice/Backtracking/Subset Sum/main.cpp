@@ -2,7 +2,6 @@
 using namespace std;
 
 bool subsetSum(int arr[], int n, int sum) {
-    // Base cases
     if (sum == 0)
         return true;
     if (n == 0 || sum < 0)
