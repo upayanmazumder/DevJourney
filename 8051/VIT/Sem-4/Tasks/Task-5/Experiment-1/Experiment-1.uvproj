@@ -233,7 +233,7 @@
               <RCB>
                 <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <Size>0x10000</Size>
               </RCB>
               <RXB>
                 <Type>0</Type>
@@ -382,9 +382,9 @@
               <FilePath>.\STARTUP.A51</FilePath>
             </File>
             <File>
-              <FileName>T5E1P3.asm</FileName>
+              <FileName>T5E1P6.asm</FileName>
               <FileType>2</FileType>
-              <FilePath>.\T5E1P3.asm</FilePath>
+              <FilePath>.\T5E1P6.asm</FilePath>
             </File>
           </Files>
         </Group>
