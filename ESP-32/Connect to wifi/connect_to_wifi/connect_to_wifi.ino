@@ -2,8 +2,8 @@
 #include <WebServer.h>
 
 // Set your Wi-Fi credentials here
-const char* ssid = "Upayan"; // Hard-coded SSID
-const char* password = "";   // No password for the network
+const char* ssid = "Sonnet"; // Hard-coded SSID
+const char* password = "damnbro";   // No password for the network
 WebServer server(80);
 
 // Welcome page content (HTML and CSS) to be served by ESP32
