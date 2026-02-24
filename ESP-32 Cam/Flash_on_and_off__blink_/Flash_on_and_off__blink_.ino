@@ -1,7 +1,4 @@
-// Simple ESP32-CAM Test
-// Blinks the flash LED and prints to Serial
-
-#define LED_FLASH 4 // Onboard flash LED on ESP32-CAM (AI Thinker)
+#define LED_FLASH 4
 
 void setup()
 {

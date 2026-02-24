@@ -2,60 +2,60 @@
 
 #include <ESP32Servo.h>
 
-#define SENSOR_PIN 13  // Pin for the sensor
-const int servoPin = 12;  // Pin for the servo motor
+#define SENSOR_PIN 13
+const int servoPin = 12;
 
-Servo myServo;  // Create a Servo object
+Servo myServo;
 
-int currentAngle = 0;  // Initial servo position
-int step = 15;  // Step size for the servo rotation (15 degrees)
-unsigned long previousMillis = 0;  // Store the last time the servo angle was updated
-const long interval = 1000;  // Interval at which to update servo position (1000ms for 1 second)
+int currentAngle = 0;
+int step = 15;
+unsigned long previousMillis = 0;
+const long interval = 1000;
 
-bool obstaclePresent = false;  // Track the obstacle's presence
+bool obstaclePresent = false;
 
-void setup() {
-  Serial.begin(9600);  // Initialize serial communication at a baud rate of 9600
-  pinMode(SENSOR_PIN, INPUT);  // Set SENSOR_PIN (pin 18) as input
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(SENSOR_PIN, INPUT);
 
-  // Attach the servo to the defined pin
   myServo.attach(servoPin);
-  
-  // Start with the servo in the 0-degree position
+
   myServo.write(currentAngle);
   Serial.println("Servo initialized at 0 degrees");
 }
 
-void loop() {
-  // Check for obstacle presence
-  int state = digitalRead(SENSOR_PIN);  // Read the value from SENSOR_PIN
+void loop()
+{
 
-  // Detect changes in obstacle presence
-  if (state == LOW && !obstaclePresent) {
-    obstaclePresent = true;  // Obstacle detected
+  int state = digitalRead(SENSOR_PIN);
+
+  if (state == LOW && !obstaclePresent)
+  {
+    obstaclePresent = true;
     Serial.println("Obstacle detected, starting servo movement.");
-  } else if (state == HIGH && obstaclePresent) {
-    obstaclePresent = false;  // Obstacle no longer present
+  }
+  else if (state == HIGH && obstaclePresent)
+  {
+    obstaclePresent = false;
     Serial.println("Obstacle removed, stopping servo.");
   }
 
-  // Asynchronous servo movement when obstacle is present
-  if (obstaclePresent) {
+  if (obstaclePresent)
+  {
     unsigned long currentMillis = millis();
 
-    // Update the servo position every `interval` milliseconds (1 second)
-    if (currentMillis - previousMillis >= interval) {
+    if (currentMillis - previousMillis >= interval)
+    {
       previousMillis = currentMillis;
 
-      // Move the servo in steps of 15 degrees
       currentAngle += step;
 
-      // Reverse direction when limits are reached (0 to 180 degrees)
-      if (currentAngle >= 180 || currentAngle <= 0) {
-        step = -step;  // Reverse the step direction
+      if (currentAngle >= 180 || currentAngle <= 0)
+      {
+        step = -step;
       }
 
-      // Move the servo to the updated position
       myServo.write(currentAngle);
       Serial.print("Servo position: ");
       Serial.print(currentAngle);

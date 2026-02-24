@@ -1,12 +1,10 @@
 #include <WiFi.h>
 #include <WebServer.h>
 
-// Set your Wi-Fi credentials here
-const char* ssid = "Sonnet"; // Hard-coded SSID
-const char* password = "damnbro";   // No password for the network
+const char *ssid = "Solace";
+const char *password = "damnbro";
 WebServer server(80);
 
-// Welcome page content (HTML and CSS) to be served by ESP32
 const char welcomePage[] PROGMEM = R"rawliteral(
 <!DOCTYPE html>
 <html lang="en">
@@ -53,24 +51,25 @@ const char welcomePage[] PROGMEM = R"rawliteral(
 </html>
 )rawliteral";
 
-void setup() {
+void setup()
+{
   Serial.begin(115200);
   delay(10);
-  
-  // Connect to the hard-coded Wi-Fi network
+
   WiFi.mode(WIFI_STA);
   Serial.print("Connecting to Wi-Fi: ");
   Serial.println(ssid);
   WiFi.begin(ssid, password);
 
-  // Wait for connection
   waitForConnection();
 }
 
-void waitForConnection() {
+void waitForConnection()
+{
   Serial.println("Attempting to connect...");
   int attempts = 0;
-  while (WiFi.status() != WL_CONNECTED && attempts < 30) { // Try for 30 seconds
+  while (WiFi.status() != WL_CONNECTED && attempts < 30)
+  {
     delay(1000);
     Serial.print("Attempt ");
     Serial.print(attempts + 1);
@@ -78,45 +77,52 @@ void waitForConnection() {
     attempts++;
   }
 
-  if (WiFi.status() == WL_CONNECTED) {
+  if (WiFi.status() == WL_CONNECTED)
+  {
     Serial.println("\nConnected to Wi-Fi!");
     Serial.print("IP Address: ");
     Serial.println(WiFi.localIP());
     server.on("/", handleRoot);
     server.begin();
     Serial.println("Web server started. Open http://<ESP32_IP>/ in your browser.");
-  } else {
+  }
+  else
+  {
     Serial.println("\nFailed to connect to Wi-Fi. Please check your credentials.");
   }
 }
 
-void handleRoot() {
-  if (WiFi.status() == WL_CONNECTED) {
-    // Get ESP32 statistics
-    float voltage = getSupplyVoltage(); // Read the supply voltage
-    String html = welcomePage;
-    html.replace("%IP%", WiFi.localIP().toString()); // Insert the device's IP into the HTML page
-    html.replace("%VOLTAGE%", String(voltage, 2));   // Insert the voltage into the HTML page
-    html.replace("%HEAP%", String(ESP.getFreeHeap())); // Insert free heap memory
-    html.replace("%FREQ%", String(ESP.getCpuFreqMHz())); // Insert CPU frequency
-    html.replace("%TEMP%", String(temperatureRead()));   // Insert chip temperature
+void handleRoot()
+{
+  if (WiFi.status() == WL_CONNECTED)
+  {
 
-    server.send(200, "text/html", html); // Serve the welcome page with dynamic content
+    float voltage = getSupplyVoltage();
+    String html = welcomePage;
+    html.replace("%IP%", WiFi.localIP().toString());
+    html.replace("%VOLTAGE%", String(voltage, 2));
+    html.replace("%HEAP%", String(ESP.getFreeHeap()));
+    html.replace("%FREQ%", String(ESP.getCpuFreqMHz()));
+    html.replace("%TEMP%", String(temperatureRead()));
+
+    server.send(200, "text/html", html);
     Serial.println("Served the welcome page.");
-  } else {
+  }
+  else
+  {
     server.send(500, "text/plain", "WiFi not connected");
   }
 }
 
-// Function to read supply voltage (in volts)
-float getSupplyVoltage() {
-  // Read the voltage on the ADC (VUSB)
-  // Convert the reading to voltage (Assuming a 3.3V reference)
-  int adcValue = analogRead(35); // Connect VUSB to GPIO35
-  float voltage = (adcValue / 4095.0) * 3.3; // Scale the value to voltage
+float getSupplyVoltage()
+{
+
+  int adcValue = analogRead(35);
+  float voltage = (adcValue / 4095.0) * 3.3;
   return voltage;
 }
 
-void loop() {
+void loop()
+{
   server.handleClient();
 }
