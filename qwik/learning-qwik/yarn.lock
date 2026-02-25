@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@builder.io/qwik-city@^1.13.0":
-  version "1.18.0"
-  resolved "https://registry.yarnpkg.com/@builder.io/qwik-city/-/qwik-city-1.18.0.tgz#0ddfdca5256489607e5be2db6630c012cff09287"
-  integrity sha512-Xzsf3K0M+yFJPBZEhceRRsFUwZcFvZFs3H7TOHAgwFN70E1QSf3hk9OqHf3Ksgxd3HQoVga2g37zsMgGJ5OpEA==
+"@builder.io/qwik-city@^1.19.0":
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/@builder.io/qwik-city/-/qwik-city-1.19.0.tgz#72eab2cefb0760e73e6f5387c93d6b529caa94f5"
+  integrity sha512-TAXSDRYPXVX4cKKmvMReCDyjjGLnzkCLNQvVfcNPsK/9xSZwUR5AZF22c/XSLv6g17QnWHKSfVdZ1idtncl7LQ==
   dependencies:
     "@mdx-js/mdx" "^3.1.1"
     "@types/mdx" "^2.0.13"
@@ -1074,9 +1074,9 @@ acorn@^8.0.0, acorn@^8.9.0:
   integrity sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==
 
 ajv@^6.12.4:
-  version "6.12.6"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
-  integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
+  version "6.14.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.14.0.tgz#fd067713e228210636ebb08c60bd3765d6dbe73a"
+  integrity sha512-IWrosm/yrn43eiKqkfkHis7QioDleaXQHdDVPKg0FSwwd/DuvyX79TZnFOnYpB7dcsFAMmtFztZuXPDvSePkFw==
   dependencies:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
@@ -4180,9 +4180,9 @@ undici-types@~7.16.0:
   integrity sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==
 
 undici@*:
-  version "7.16.0"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-7.16.0.tgz#cb2a1e957726d458b536e3f076bf51f066901c1a"
-  integrity sha512-QEg3HPMll0o3t2ourKwOeUAZ159Kn9mx5pnzHRQO8+Wixmh88YdZRiIwat0iNzNNXn0yoEtXJqFpyW7eM8BV7g==
+  version "7.18.2"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-7.18.2.tgz#6cf724ef799a67d94fd55adf66b1e184176efcdf"
+  integrity sha512-y+8YjDFzWdQlSE9N5nzKMT3g4a5UBX1HKowfdXh0uvAnTaqqwqB92Jt4UXBAeKekDs5IaDKyJFR4X1gYVCgXcw==
 
 unified@^11.0.0:
   version "11.0.5"
