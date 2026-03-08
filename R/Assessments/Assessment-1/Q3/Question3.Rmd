@@ -1,0 +1,28 @@
+## Question 3 — Age bins for elected politicians
+
+Complete the table, find median bin, modal bin, and approximate mean.
+
+```{r age-bins}
+age_bins <- c("18-30","30-40","40-45","45-50","50-60","60-80")
+freq <- c(1,2,4,5,6,2)
+total <- sum(freq)
+rel_freq <- freq/total
+widths <- c(12,10,5,5,10,20)
+density <- freq/widths
+midpoints <- c(24,35,42.5,47.5,55,70)
+df_age <- data.frame(age_bins, freq, rel_freq = round(rel_freq, 3), width = widths, density = round(density, 3), midpoint = midpoints)
+df_age
+median_bin <- age_bins[which(cumsum(freq) >= (total+1)/2)[1]]
+modal_bin <- age_bins[which.max(freq)]
+mean_approx <- sum(midpoints * freq)/total
+median_bin
+modal_bin
+mean_approx
+```
+
+Answers:
+
+- Relative frequencies and frequency densities are in the table above.
+- Median age bin: `45-50`.
+- Modal age bin: `50-60`.
+- Approximate mean age: the grouped estimate shown above (numeric value).

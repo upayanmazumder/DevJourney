@@ -1,0 +1,53 @@
+## Question 1 — Student record dataset
+
+Create a synthetic student-record dataset with at least 30 observations and five variables. Summary statistics and graphs follow.
+
+```{r create-student-dataset}
+set.seed(123)
+n <- 30
+student <- data.frame(
+  ID = sprintf("S%03d", 1:n),
+  Age = sample(18:30, n, replace = TRUE),
+  Gender = sample(c("Male","Female","Other"), n, replace = TRUE, prob = c(0.45,0.45,0.10)),
+  GPA = round(runif(n, 2.0, 4.0), 2),
+  Attendance = round(runif(n, 60, 100), 1),
+  Major = sample(c("Math","CS","Physics","Chemistry","Biology"), n, replace = TRUE)
+)
+
+head(student)
+summary(student)
+```
+
+### Graphs
+
+```{r major-bar}
+ggplot(student, aes(x=Major)) +
+  geom_bar(fill="steelblue") +
+  theme_minimal() +
+  labs(title="Major distribution", y="Count")
+```
+
+Interpretation: the bar chart shows the count of students by major.
+
+```{r gpa-hist}
+ggplot(student, aes(x=GPA)) +
+  geom_histogram(bins=8, fill="#FB8072", color="black") +
+  labs(title="GPA distribution")
+```
+
+Interpretation: the histogram shows the GPA spread and central tendency.
+
+```{r age-gender-box}
+ggplot(student, aes(x=Gender, y=Age, fill=Gender)) +
+  geom_boxplot() +
+  labs(title="Age by Gender")
+```
+
+```{r gpa-attendance}
+ggplot(student, aes(x=Attendance, y=GPA)) +
+  geom_point() +
+  geom_smooth(method="lm", se=FALSE) +
+  labs(title="GPA vs Attendance")
+```
+
+Interpretation: the scatterplot inspects relationship between attendance and GPA.

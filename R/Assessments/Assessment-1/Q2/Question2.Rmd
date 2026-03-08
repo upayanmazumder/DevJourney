@@ -1,0 +1,26 @@
+## Question 2 — Temperature data (Met Office)
+
+Read the provided temperature data and answer the questions.
+
+```{r temperature-data}
+temperature <- read.csv("https://mpaldridge.github.io/math1710/data/met-office.csv")
+aug_col <- grep("^Aug|August", names(temperature), ignore.case = TRUE, value = TRUE)
+aug_col <- aug_col[1]
+median_aug <- median(temperature[[aug_col]], na.rm = TRUE)
+median_aug
+boxplot(temperature[[aug_col]], main = paste("Boxplot of", aug_col), ylab = "Temperature")
+```
+
+### (i) What was the median August temperature?
+
+The numeric value is printed above and the boxplot displays the distribution of August temperatures.
+
+```{r april-compare}
+apr_col <- grep("^Apr|April", names(temperature), ignore.case = TRUE, value = TRUE)[1]
+boxplot(temperature[1:68, apr_col], temperature[69:136, apr_col], names = c("Rows 1-68", "Rows 69-136"),
+        main = paste("April temperature: first 68 vs second 68"))
+```
+
+### (ii) Boxplot comparison and (iii) comment
+
+Compare the two April boxplots for differences in central tendency and spread; comment in the rendered document about any shift or changes in variability.

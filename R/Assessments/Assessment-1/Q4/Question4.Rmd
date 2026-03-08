@@ -1,0 +1,15 @@
+## Question 4 — Monthly exchange rates
+
+Compute median, mean and sample variance. Comment on mode.
+
+```{r exchange-rates}
+rates <- c(1.306, 1.301, 1.290, 1.266, 1.268, 1.302, 1.317, 1.304, 1.284, 1.268, 1.247, 1.215)
+median_rate <- median(rates)
+mean_rate <- mean(rates)
+sample_variance <- var(rates)
+median_rate
+mean_rate
+sample_variance
+```
+
+Comment: the mode is not an appropriate summary for these continuous exchange rates because exact repeated values are unlikely and the sample does not have a clear repeated value.
