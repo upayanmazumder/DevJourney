@@ -1,6 +1,6 @@
 ORG 0000H
 
-    MOV TMOD,#20H
+     MOV TMOD,#20H
     MOV TH1,#0FAH
     MOV TL1,#0FAH
     MOV SCON,#50H

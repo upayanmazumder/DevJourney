@@ -1,0 +1,105 @@
+ORG 0000H
+SJMP START
+
+ORG 0023H
+SJMP SERIAL_ISR
+
+
+START:
+    MOV TMOD,#21H
+    MOV TH1,#0FDH
+    MOV SCON,#50H
+    SETB TR1
+    SETB ES
+    SETB EA
+
+MAIN:
+    MOV A,R6
+    CJNE A,#01H,CHECK8
+    ACALL WAVE6
+    SJMP MAIN
+
+CHECK8:
+    CJNE A,#02H,CHECK10
+    ACALL WAVE8
+    SJMP MAIN
+
+CHECK10:
+    ACALL WAVE10
+    SJMP MAIN
+
+
+SERIAL_ISR:
+    JNB RI,EXIT_ISR
+    MOV A,SBUF
+    MOV R5,A
+    CLR RI
+
+    MOV A,R5
+    CLR C
+    SUBB A,#41H
+    JC CHECKLOW
+
+    MOV A,R5
+    CLR C
+    SUBB A,#5BH
+    JNC CHECKLOW
+    MOV R6,#01H
+    SJMP EXIT_ISR
+
+CHECKLOW:
+    MOV A,R5
+    CLR C
+    SUBB A,#61H
+    JC OTHER
+
+    MOV A,R5
+    CLR C
+    SUBB A,#7BH
+    JNC OTHER
+    MOV R6,#02H
+    SJMP EXIT_ISR
+
+OTHER:
+    MOV R6,#03H
+
+EXIT_ISR:
+    RETI
+
+
+WAVE6:
+    CPL P0.5
+    MOV TH0,#0FFH
+    MOV TL0,#0ADH
+    SETB TR0
+L6:
+    JNB TF0,L6
+    CLR TF0
+    CLR TR0
+    RET
+
+
+WAVE8:
+    CPL P1.3
+    MOV TH0,#0FFH
+    MOV TL0,#0C2H
+    SETB TR0
+L8:
+    JNB TF0,L8
+    CLR TF0
+    CLR TR0
+    RET
+
+
+WAVE10:
+    CPL P2.4
+    MOV TH0,#0FFH
+    MOV TL0,#0CEH
+    SETB TR0
+L10:
+    JNB TF0,L10
+    CLR TF0
+    CLR TR0
+    RET
+
+END

@@ -1,3 +1,16 @@
+---
+title: "Question 1 — Student record dataset"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4)
+library(ggplot2)
+library(dplyr)
+```
+
 ## Question 1 — Student record dataset
 
 Create a synthetic student-record dataset with at least 30 observations and five variables. Summary statistics and graphs follow.

@@ -1,4 +1,17 @@
-## Question 2 — Temperature data (Met Office)
+---
+title: "Question 2 — Temperature data"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4)
+library(ggplot2)
+library(dplyr)
+```
+
+## Question 2 — Temperature data 
 
 Read the provided temperature data and answer the questions.
 
