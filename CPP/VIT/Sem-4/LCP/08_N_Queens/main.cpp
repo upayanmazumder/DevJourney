@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 int n;
 vector<int> col;
@@ -6,8 +8,13 @@ vector<vector<string>> solutions;
 bool ok(int r, int c)
 {
     for (int i = 0; i < r; i++)
-        if (col[i] == c || abs(col[i] - c) == r - i)
+    {
+        int d = col[i] - c;
+        if (d < 0)
+            d = -d;
+        if (col[i] == c || d == r - i)
             return false;
+    }
     return true;
 }
 void place(int r)
@@ -29,8 +36,6 @@ void place(int r)
 }
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
     if (!(cin >> n))
         return 0;
     col.assign(n, -1);

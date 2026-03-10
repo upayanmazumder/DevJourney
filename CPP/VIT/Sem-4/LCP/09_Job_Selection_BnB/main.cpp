@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 struct Job
 {
@@ -22,7 +23,8 @@ void solve(int idx, int currProfit, vector<int> &slots)
     }
     if (currProfit + suffix[idx] <= bestProfit)
         return; // bound
-    for (int s = min(maxD, jobs[idx].d); s >= 1; --s)
+    int startS = (maxD < jobs[idx].d) ? maxD : jobs[idx].d;
+    for (int s = startS; s >= 1; --s)
     {
         if (slots[s] == -1)
         {
@@ -36,8 +38,6 @@ void solve(int idx, int currProfit, vector<int> &slots)
 }
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
     if (!(cin >> n))
         return 0;
     jobs.resize(n);
@@ -45,10 +45,23 @@ int main()
     for (int i = 0; i < n; i++)
     {
         cin >> jobs[i].id >> jobs[i].d >> jobs[i].p;
-        maxD = max(maxD, jobs[i].d);
+        if (jobs[i].d > maxD)
+            maxD = jobs[i].d;
     }
-    sort(jobs.begin(), jobs.end(), [](const Job &a, const Job &b)
-         { return a.p > b.p; });
+    // simple selection sort by profit (descending) to avoid <algorithm>
+    for (int i = 0; i < n; ++i)
+    {
+        int best = i;
+        for (int j = i + 1; j < n; ++j)
+            if (jobs[j].p > jobs[best].p)
+                best = j;
+        if (best != i)
+        {
+            Job tmp = jobs[i];
+            jobs[i] = jobs[best];
+            jobs[best] = tmp;
+        }
+    }
     suffix.assign(n + 1, 0);
     for (int i = n - 1; i >= 0; --i)
         suffix[i] = suffix[i + 1] + jobs[i].p;

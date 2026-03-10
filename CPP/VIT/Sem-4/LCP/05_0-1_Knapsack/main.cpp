@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+
     int n, W;
     if (!(cin >> n >> W))
         return 0;
@@ -18,7 +18,11 @@ int main()
         {
             dp[i][w] = dp[i - 1][w];
             if (wt[i - 1] <= w)
-                dp[i][w] = max(dp[i][w], dp[i - 1][w - wt[i - 1]] + val[i - 1]);
+            {
+                int cand = dp[i - 1][w - wt[i - 1]] + val[i - 1];
+                if (cand > dp[i][w])
+                    dp[i][w] = cand;
+            }
         }
     cout << dp[n][W] << "\n";
     int w = W;
@@ -31,9 +35,8 @@ int main()
             w -= wt[i - 1];
         }
     }
-    reverse(items.begin(), items.end());
-    for (int id : items)
-        cout << id << " ";
+    for (int k = (int)items.size() - 1; k >= 0; --k)
+        cout << items[k] << " ";
     cout << "\n";
     return 0;
 }

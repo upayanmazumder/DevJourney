@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <queue>
+#include <vector>
+#include <string>
 using namespace std;
 struct Node
 {
@@ -25,8 +28,6 @@ void printCodes(Node *root, string code)
 }
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
     int n;
     if (!(cin >> n))
         return 0;

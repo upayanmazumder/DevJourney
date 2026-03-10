@@ -1,21 +1,29 @@
 # Job Selection (Branch & Bound)
 
 Problem
-- Given jobs with deadlines (unit time) and profits, schedule jobs to maximize total profit. This implementation uses a branch-and-bound search with a simple upper bound (remaining profits) for pruning.
+- Given a set of jobs where each job takes unit time, each job has a deadline and profit. Schedule jobs (at most one per time slot) to maximize total profit while respecting deadlines.
 
-Algorithm
-- Sort jobs by profit descending. Use backtracking to try assigning jobs to latest available slot ≤ deadline. Prune branches where current profit + remaining profits <= best found.
+Common greedy baseline
+- A common greedy solution (for unit-time jobs) is to sort jobs by profit and, for each job, schedule it at the latest free slot before its deadline. That is often sufficient, but exploring alternatives or learning BnB is useful for study.
 
-Time complexity: exponential worst-case, pruning often helps for moderate n
-Space complexity: O(maxDeadline)
+Branch & Bound idea
+- Explore assignments with backtracking; keep an upper bound on the best achievable profit from remaining jobs to prune branches that cannot beat the current best.
 
-Input format (example):
+Complexity
+- Worst-case exponential, but pruning often makes it feasible for `n` up to a few dozens depending on deadlines.
+
+Worked example
 ```
-4
-1 4 20   # id deadline profit
+n = 4
+jobs: (id, deadline, profit)
+1 4 20
 2 1 10
 3 2 40
 4 2 30
 ```
+- The greedy method schedules highest-profit jobs first at latest possible slot. The BnB version explores candidate schedules and prunes subtrees whose optimistic bound ≤ current best.
 
-Code: [main.cpp](main.cpp)
+Notes
+- Useful to compare greedy vs branch-and-bound on small instances to see when pruning helps.
+
+Code: `main.cpp` — branch-and-bound implementation; prints best schedule and profit.

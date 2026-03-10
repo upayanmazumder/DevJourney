@@ -1,5 +1,19 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
+string rev(string s)
+{
+    int i = 0, j = (int)s.size() - 1;
+    while (i < j)
+    {
+        char t = s[i];
+        s[i] = s[j];
+        s[j] = t;
+        ++i;
+        --j;
+    }
+    return s;
+}
 string trimZ(const string &s)
 {
     size_t i = 0;
@@ -9,9 +23,9 @@ string trimZ(const string &s)
 }
 string addS(string a, string b)
 {
-    reverse(a.begin(), a.end());
-    reverse(b.begin(), b.end());
-    int n = max(a.size(), b.size()), carry = 0;
+    a = rev(a);
+    b = rev(b);
+    int n = (a.size() > b.size()) ? (int)a.size() : (int)b.size(), carry = 0;
     string r;
     for (int i = 0; i < n; i++)
     {
@@ -23,13 +37,13 @@ string addS(string a, string b)
     }
     if (carry)
         r.push_back(char('0' + carry));
-    reverse(r.begin(), r.end());
+    r = rev(r);
     return trimZ(r);
 }
 string subS(string a, string b)
 { // a>=b
-    reverse(a.begin(), a.end());
-    reverse(b.begin(), b.end());
+    a = rev(a);
+    b = rev(b);
     int n = a.size(), borrow = 0;
     string r;
     for (int i = 0; i < n; i++)
@@ -48,7 +62,7 @@ string subS(string a, string b)
     }
     while (r.size() > 1 && r.back() == '0')
         r.pop_back();
-    reverse(r.begin(), r.end());
+    r = rev(r);
     return trimZ(r);
 }
 string karatsuba(string x, string y)
@@ -62,7 +76,7 @@ string karatsuba(string x, string y)
         int p = (x[0] - '0') * (y[0] - '0');
         return to_string(p);
     }
-    int n = max(x.size(), y.size());
+    int n = (x.size() > y.size()) ? (int)x.size() : (int)y.size();
     if (n % 2)
         ++n;
     while (x.size() < n)
@@ -84,8 +98,7 @@ string karatsuba(string x, string y)
 }
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+
     string a, b;
     if (!(cin >> a >> b))
         return 0;

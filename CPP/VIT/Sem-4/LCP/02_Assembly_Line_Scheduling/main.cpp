@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+
     int n;
     if (!(cin >> n))
         return 0;
@@ -15,10 +15,11 @@ int main()
         cin >> a1[i];
     for (int i = 0; i < n; i++)
         cin >> a2[i];
-    vector<int> t1(max(0, n - 1)), t2(max(0, n - 1));
-    for (int i = 0; i < n - 1; i++)
+    int m = (n > 0) ? (n - 1) : 0;
+    vector<int> t1(m), t2(m);
+    for (int i = 0; i < m; i++)
         cin >> t1[i];
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < m; i++)
         cin >> t2[i];
     vector<int> f1(n), f2(n), from1(n), from2(n);
     f1[0] = e[0] + a1[0];

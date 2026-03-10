@@ -1,9 +1,24 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
+
+const long long INF = (1LL << 62);
+
+void printOrder(const vector<vector<int>> &s, int i, int j)
+{
+    if (i == j)
+    {
+        cout << "A" << i;
+        return;
+    }
+    cout << "(";
+    printOrder(s, i, s[i][j]);
+    cout << ",";
+    printOrder(s, s[i][j] + 1, j);
+    cout << ")";
+}
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
     int n;
     if (!(cin >> n))
         return 0;
@@ -17,7 +32,7 @@ int main()
         for (int i = 1; i <= n - len + 1; ++i)
         {
             int j = i + len - 1;
-            m[i][j] = LLONG_MAX;
+            m[i][j] = INF;
             for (int k = i; k < j; ++k)
             {
                 long long q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
@@ -30,9 +45,7 @@ int main()
         }
     }
     cout << m[1][n] << "\n";
-    function<void(int, int)> printOrder = [&](int i, int j)
-    { if(i==j) cout<<"A"<<i; else{ cout<<"("; printOrder(i, s[i][j]); cout<<","; printOrder(s[i][j]+1, j); cout<<")"; } };
-    printOrder(1, n);
+    printOrder(s, 1, n);
     cout << "\n";
     return 0;
 }

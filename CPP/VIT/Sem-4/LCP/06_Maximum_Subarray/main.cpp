@@ -1,11 +1,15 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <climits>
 using namespace std;
 struct Res
+
 {
     long long sum;
     int l, r;
 };
 Res maxCross(vector<long long> &a, int l, int m, int r)
+
 {
     long long left_sum = LLONG_MIN, sum = 0;
     int maxl = m;
@@ -48,8 +52,6 @@ Res maxSub(vector<long long> &a, int l, int r)
 }
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
     int n;
     if (!(cin >> n))
         return 0;
