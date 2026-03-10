@@ -17,4 +17,4 @@ Input format (example):
 30 120
 ```
 
-Code: [10_fractional_knapsack.cpp](10_fractional_knapsack.cpp)
+Code: [main.cpp](main.cpp)

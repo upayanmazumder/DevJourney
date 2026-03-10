@@ -20,4 +20,4 @@ Input format (example):
 2 1 2       # t2[1..n-1]
 ```
 
-Code: [02_assembly_line_scheduling.cpp](02_assembly_line_scheduling.cpp)
+Code: [main.cpp](main.cpp)

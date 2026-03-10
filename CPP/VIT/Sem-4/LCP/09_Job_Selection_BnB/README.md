@@ -18,4 +18,4 @@ Input format (example):
 4 2 30
 ```
 
-Code: [09_job_selection_bnb.cpp](09_job_selection_bnb.cpp)
+Code: [main.cpp](main.cpp)

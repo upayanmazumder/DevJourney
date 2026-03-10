@@ -15,6 +15,4 @@ ABCBDAB
 BDCABA
 ```
 
-Code: [04_lcs.cpp](04_lcs.cpp)
-
-Code: [04_lcs.cpp](04_lcs.cpp)
+Code: [main.cpp](main.cpp)

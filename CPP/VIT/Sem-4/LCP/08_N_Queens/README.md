@@ -11,4 +11,4 @@ Space complexity: O(N)
 
 Input: single integer N
 
-Code: [08_nqueens.cpp](08_nqueens.cpp)
+Code: [main.cpp](main.cpp)

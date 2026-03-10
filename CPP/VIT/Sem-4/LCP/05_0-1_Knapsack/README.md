@@ -16,4 +16,4 @@ Input format (example):
 1 4 5 7  # values
 ```
 
-Code: [05_knapsack.cpp](05_knapsack.cpp)
+Code: [main.cpp](main.cpp)

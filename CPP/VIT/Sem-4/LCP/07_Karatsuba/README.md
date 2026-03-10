@@ -15,4 +15,4 @@ Input format (example):
 87654321
 ```
 
-Code: [07_karatsuba.cpp](07_karatsuba.cpp)
+Code: [main.cpp](main.cpp)

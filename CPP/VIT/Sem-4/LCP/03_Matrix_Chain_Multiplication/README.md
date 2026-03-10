@@ -15,4 +15,4 @@ Input format (example):
 10 20 30 40   # dimensions p0 p1 p2 p3 (length = n+1)
 ```
 
-Code: [03_matrix_chain_multiplication.cpp](03_matrix_chain_multiplication.cpp)
+Code: [main.cpp](main.cpp)

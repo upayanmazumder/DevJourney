@@ -18,7 +18,7 @@ C 12
 D 13
 ```
 
-Code: [01_huffman.cpp](01_huffman.cpp)
+Code: [main.cpp](main.cpp)
 
 Sample
 - Compile and run the code; it prints the code for each symbol.

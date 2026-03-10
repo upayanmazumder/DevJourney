@@ -15,4 +15,4 @@ Input (example):
 -2 1 -3 4 -1 2 1 -5 4
 ```
 
-Code: [06_maximum_subarray_dac.cpp](06_maximum_subarray_dac.cpp)
+Code: [main.cpp](main.cpp)
