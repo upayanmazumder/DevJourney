@@ -1,0 +1,26 @@
+---
+title: "Q4 — Welch t-test (face-to-face vs distance)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+# Q4
+n1 <- 50; x1 <- 80.4; s1 <- 12.8
+n2 <- 100; x2 <- 74.3; s2 <- 20.5
+diff <- x1 - x2
+se <- sqrt(s1^2/n1 + s2^2/n2)
+tstat <- diff / se
+df_num <- (s1^2/n1 + s2^2/n2)^2
+df_den <- (s1^4/((n1^2)*(n1-1))) + (s2^4/((n2^2)*(n2-1)))
+df <- df_num/df_den
+p_value <- 2 * (1 - pt(abs(tstat), df))
+tstat; df; p_value
+
+xs <- seq(-4,4,length=400); ys <- dt(xs, df)
+plot(xs, ys, type='l', main='Q4: Welch t (approx)', ylab='Density')
+abline(v=tstat, col='red')
+```
+
+Compare p-value to 0.05.

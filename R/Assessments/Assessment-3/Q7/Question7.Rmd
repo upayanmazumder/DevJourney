@@ -1,0 +1,19 @@
+---
+title: "Q7 — Battery lifetimes: P(40 < mean < 48)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+# Q7
+mu <- 45; sigma <- 18; n <- 50
+se <- sigma/sqrt(n)
+z1 <- (40 - mu)/se; z2 <- (48 - mu)/se
+p_value <- pnorm(z2) - pnorm(z1)
+z1; z2; p_value
+
+xs <- seq(-4,4,length=400); ys <- dnorm(xs)
+plot(xs, ys, type='l', main='Q7: P(40 < mean < 48)', ylab='Density')
+polygon(xs[(xs>z1 & xs<z2)], ys[(xs>z1 & xs<z2)], col=rgb(0,1,0,0.3))
+```

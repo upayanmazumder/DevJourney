@@ -1,0 +1,24 @@
+---
+title: "Q3 — Two-sample Z-test (known sigma)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+# Q3
+n1 <- 1000; x1 <- 67.6; n2 <- 2000; x2 <- 68.0; sigma <- 5.5
+diff <- x1 - x2
+se <- sigma * sqrt(1/n1 + 1/n2)
+z <- diff / se
+p_value <- 2 * (1 - pnorm(abs(z)))
+z; p_value
+
+xs <- seq(-4,4,length=400); ys <- dnorm(xs)
+plot(xs, ys, type='l', main='Q3: Two-sample Z (two-sided)', ylab='Density')
+abline(v=c(-abs(z), abs(z)), col='red')
+polygon(c(xs[xs>abs(z)], max(xs), abs(z)), c(ys[xs>abs(z)], 0, 0), col=rgb(1,0,0,0.25))
+polygon(c(min(xs), xs[xs< -abs(z)], -abs(z)), c(0, ys[xs< -abs(z)], 0), col=rgb(1,0,0,0.25))
+```
+
+Decide using p-value at 1% level.

@@ -1,0 +1,46 @@
+1. A big company uses thousands of CFL lights every year. The brand that the company 
+has been using in the past has average life of 1200 hours. A new brand is offered to the 
+company  at  a  price  lower  than  they  are  paying  Fig.  10.5  35  for  the  old  brand. 
+Consequently, a sample of 100 CFL light of new brand Large Sample Tests is tested 
+which yields an average life of 1220 hours with standard deviation 90 hours. Should 
+the company accept the new brand at 5% level of significance? 
+ 
+2. A manufacturer of ball point pens claims that a certain pen manufactured by him has a 
+mean writing-life at least 460 A-4 size pages. A purchasing agent selects a sample of 
+100 pens and put them on the test. The mean writing-life of the sample found 453 A-4 
+size pages with standard deviation 25 A-4 size pages. Should the purchasing agent reject 
+the manufacturer’s claim at 1% level of significance? 
+ 
+3. In two samples of women from Punjab and Tamilnadu, the mean height of 1000 and 
+2000 women are 67.6 and 68.0 inches respectively. If population standard deviation of 
+Punjab and Tamilnadu are same and equal to 5.5 inches then, can the mean heights of 
+Punjab and Tamilnadu women be regarded as same at 1% level of significance? 
+ 
+4. A university conducts both face to face and distance mode classes for a particular course 
+indented both to be identical. A sample of 50 students of face-to-face mode yields 
+examination results mean and SD respectively as: 
+𝑋̅ 80.4, 𝑆1 =12.8  and other sample of 100 distance-mode students yields mean and SD 
+of their Large Sample Tests examination results in the same course respectively as: 𝑌̅ = 
+74.3, 𝑆2= 20.5. Are both educational methods statistically equal at 5% level? 
+ 
+For the below questions do the plotting we did as in lab class i.e., show the normally 
+distributed and plot the probability value. 
+ 
+5. Car servicing times have a mean of 80 minutes and a standard deviation of 20 . Find 
+the probability that the mean servicing times of 40 cars will exceed 83 minutes. 
+6. The masses of a particular variety of tomatoes, in grams, are assumed to be Normally 
+distributed with mean 162 and standard deviation 14. A random sample of 12 tomatoes 
+of this variety is selected. Determine the probability that the mean mass of this sample 
+will be between 160 and 165 grams. 
+7. The lifetimes of a certain brand of battery have a mean of 45 hours and a standard 
+deviation of 18. Find the probability that the mean lifetime of random sample of such 
+50 batteries will be between 40 and 48 hours. 
+8. Mini-cakes having a mean weight of 145 grams and standard deviation 9 grams are 
+packed in boxes of 12. A box of these mini-cakes is selected at random. If the weights 
+of these mini-cakes are Normally distributed, determine the probability that the mean 
+weight of the mini-cakes in the box will be greater than 150 grams. 
+9. The mean of a normal random variable X is 60 . The mean of 25 random observations 
+of X is denoted by X . Given that P X( < = 58.2 0.0668 ) , determine the variance of X. 
+10. The times taken to service a family size car have a mean of 95 minutes and a standard 
+deviation of 60 . Find the probability that the mean servicing time of 30 family size cars 
+will exceed 68 minutes. 

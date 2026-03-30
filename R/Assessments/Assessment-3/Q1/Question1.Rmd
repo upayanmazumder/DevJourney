@@ -1,0 +1,22 @@
+---
+title: "Q1 — CFL lights: Large-sample Z-test"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+# Q1
+n <- 100; xbar <- 1220; mu0 <- 1200; s <- 90
+se <- s / sqrt(n)
+z <- (xbar - mu0)/se
+p_value <- 1 - pnorm(z) # one-sided (greater)
+z; p_value
+
+xs <- seq(-4,4,length=400); ys <- dnorm(xs)
+plot(xs, ys, type='l', main='Q1: Z-test (one-sided)', ylab='Density')
+abline(v=z, col='red')
+polygon(c(z, xs[xs>z], max(xs)), c(0, ys[xs>z], 0), col=rgb(1,0,0,0.3))
+```
+
+Conclusion: compare p-value to 0.05 to decide.

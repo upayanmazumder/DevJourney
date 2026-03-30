@@ -1,0 +1,15 @@
+---
+title: "Q9 — Find variance from P(Xbar <= 58.2)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+# Q9
+n <- 25; xbar_obs <- 58.2; mu <- 60; p_obs <- 0.0668
+z <- qnorm(p_obs)
+sigma_est <- (xbar_obs - mu) * sqrt(n) / z
+var_est <- sigma_est^2
+z; sigma_est; var_est
+```
