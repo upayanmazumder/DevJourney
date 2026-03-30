@@ -1,52 +1,68 @@
 #include <iostream>
-#include <vector>
 #include <cstdio>
 using namespace std;
+
 int main()
 {
     int n;
     double W;
-    if (!(cin >> n >> W))
-        return 0;
-    vector<pair<double, double>> items(n);
+
+    cin >> n >> W;
+
+    double weight[100], value[100], ratio[100];
+
     for (int i = 0; i < n; i++)
-        cin >> items[i].first >> items[i].second; // weight, value
-    vector<int> idx(n);
-    for (int i = 0; i < n; ++i)
-        idx[i] = i;
-    // simple selection sort by value/weight ratio
-    for (int i = 0; i < n; ++i)
+    {
+        cin >> weight[i] >> value[i];
+        ratio[i] = value[i] / weight[i];
+    }
+
+    // selection sort by ratio (descending)
+    for (int i = 0; i < n; i++)
     {
         int best = i;
-        for (int j = i + 1; j < n; ++j)
+
+        for (int j = i + 1; j < n; j++)
         {
-            double ra = items[idx[j]].second / items[idx[j]].first;
-            double rb = items[idx[best]].second / items[idx[best]].first;
-            if (ra > rb)
+            if (ratio[j] > ratio[best])
                 best = j;
         }
+
         if (best != i)
         {
-            int t = idx[i];
-            idx[i] = idx[best];
-            idx[best] = t;
+            double t;
+
+            t = ratio[i];
+            ratio[i] = ratio[best];
+            ratio[best] = t;
+
+            t = weight[i];
+            weight[i] = weight[best];
+            weight[best] = t;
+
+            t = value[i];
+            value[i] = value[best];
+            value[best] = t;
         }
     }
+
     double total = 0;
-    for (int i = 0; i < n && W > 1e-12; ++i)
+
+    for (int i = 0; i < n && W > 0; i++)
     {
-        int id = idx[i];
-        if (items[id].first <= W)
+        if (weight[i] <= W)
         {
-            total += items[id].second;
-            W -= items[id].first;
+            total += value[i];
+            W -= weight[i];
         }
         else
         {
-            total += items[id].second * (W / items[id].first);
+            total += value[i] * (W / weight[i]);
             W = 0;
         }
     }
+
     printf("%.4f\n", total);
+
     return 0;
 }

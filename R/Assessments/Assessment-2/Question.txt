@@ -1,0 +1,38 @@
+Answer all the questions using R markdown and upload in VTOP.
+1. Create your own (Student Record) dataset and do the summary statistics and graphs
+with interpretation. Use at least 30 observations with five different variables.
+2. Read the temperature data into R by copying the command below.
+i. What was the median August temperature? Draw a boxplot of the August
+temperature.
+ii. Draw a boxplot comparing the April temperature for the first 68 years in the
+data set (rows 1 to 68) and the second 68 years in the data (rows 69 to 136).
+(Learn how to extract limited rows from a column of a data frame.)
+iii. Comment briefly on what you learn from the comparison.
+temperature <- read.csv("https://mpaldridge.github.io/math1710/data/met-office.csv")
+3. Consider the following data sets of the age of elected politicians on a local council.
+(The “18–30” bin, for example, means from one’s 18th birthday to the moment before
+one’s 30th birthday, so lasts 12 years.)
+Age
+(years) Frequency Relative
+frequency
+Frequency
+density
+18–30 1
+30–40 2
+40–45 4
+45–50 5
+50–60 6
+60–80 2
+Total 20 1 —
+(a) Complete the table by filling in the relative frequency and frequency densities.
+(b) What is the median age bin?
+(c) What is the modal age bin?
+(d) Calculate (the standard approximation of) the mean age of the politicians.
+4. The monthly average exchange rate for US dollars into British pounds over a 12-month
+period was:
+1.306, 1.301, 1.290, 1.266, 1.268, 1.302,1.317, 1.304, 1.284, 1.268, 1.247, 1.215.1.306,
+1.301, 1.290, 1.266, 1.268, 1.302,1.317, 1.304, 1.284, 1.268, 1.247, 1.215.
+(a) Calculate the median for this data.
+(b) Calculate the mean for this data.
+(c) Calculate the sample variance for this data.
+(d) Is the mode an appropriate summary statistic for this sort of data? Why/why not?

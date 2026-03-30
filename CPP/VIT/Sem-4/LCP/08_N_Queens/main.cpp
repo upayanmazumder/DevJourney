@@ -1,10 +1,11 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
+
 int n;
-vector<int> col;
-vector<vector<string>> solutions;
+int col[20];
+int solCount = 0;
+
 bool ok(int r, int c)
 {
     for (int i = 0; i < r; i++)
@@ -12,40 +13,57 @@ bool ok(int r, int c)
         int d = col[i] - c;
         if (d < 0)
             d = -d;
+
         if (col[i] == c || d == r - i)
             return false;
     }
     return true;
 }
+
+void printBoard()
+{
+    solCount++;
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (col[i] == j)
+                cout << "Q";
+            else
+                cout << ".";
+        }
+        cout << "\n";
+    }
+
+    cout << "\n";
+}
+
 void place(int r)
 {
     if (r == n)
     {
-        vector<string> board(n, string(n, '.'));
-        for (int i = 0; i < n; i++)
-            board[i][col[i]] = 'Q';
-        solutions.push_back(board);
+        printBoard();
         return;
     }
+
     for (int c = 0; c < n; c++)
+    {
         if (ok(r, c))
         {
             col[r] = c;
             place(r + 1);
         }
+    }
 }
+
 int main()
 {
-    if (!(cin >> n))
-        return 0;
-    col.assign(n, -1);
+    cin >> n;
+
     place(0);
-    cout << solutions.size() << "\n";
-    for (auto &bd : solutions)
-    {
-        for (auto &row : bd)
-            cout << row << "\n";
-        cout << "\n";
-    }
+
+    cout << "Total solutions: " << solCount << "\n";
+
     return 0;
 }
