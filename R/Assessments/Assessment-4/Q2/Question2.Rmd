@@ -1,0 +1,61 @@
+---
+title: "Question 2 - Binomial fit and goodness of fit"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+alpha <- 0.05
+```
+
+## Question
+
+Fit a binomial distribution for the frequency data and test goodness of fit.
+
+```{r data}
+# Given distribution
+x <- 0:4
+obs <- c(5, 20, 45, 20, 10)
+N <- sum(obs)
+
+# Since x ranges from 0 to 4, use Binomial(n = 4, p)
+n_binom <- 4
+mean_x <- sum(x * obs) / N
+p_hat <- mean_x / n_binom
+
+expected_prob <- dbinom(x, size = n_binom, prob = p_hat)
+expected <- N * expected_prob
+
+fit_table <- data.frame(
+  x = x,
+  Observed = obs,
+  Expected = round(expected, 4),
+  Expected_Prob = round(expected_prob, 4)
+)
+
+fit_table
+p_hat
+```
+
+## Goodness-of-fit test
+
+```{r gof-test}
+# Pearson chi-square statistic (manual, with parameter-estimation df adjustment)
+chi_sq <- sum((obs - expected)^2 / expected)
+df <- length(obs) - 1 - 1  # categories - 1 - estimated parameters (p)
+p_value <- pchisq(chi_sq, df = df, lower.tail = FALSE)
+
+c(chi_square = chi_sq, df = df, p_value = p_value)
+```
+
+```{r decision}
+if (p_value < alpha) {
+  cat("Decision: Reject H0 at 5% significance level.\n")
+  cat("Conclusion: The Binomial(4, p_hat) model is not an adequate fit.")
+} else {
+  cat("Decision: Fail to reject H0 at 5% significance level.\n")
+  cat("Conclusion: The Binomial(4, p_hat) model provides an adequate fit to the data.")
+}
+```

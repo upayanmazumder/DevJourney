@@ -1,0 +1,45 @@
+---
+title: "Question 5 - Paired t-test (IQ before vs after training)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+alpha <- 0.05
+```
+
+## Question
+
+IQ scores of 5 persons are measured before and after training. Test whether there is any change in IQ.
+
+```{r data}
+before <- c(110, 120, 123, 132, 125)
+after <- c(120, 118, 125, 136, 121)
+
+data.frame(Candidate = c("I", "II", "III", "IV", "V"),
+           IQ_Before = before,
+           IQ_After = after,
+           Difference = after - before)
+```
+
+## Hypotheses
+
+- H0: mean(After - Before) = 0
+- H1: mean(After - Before) != 0
+
+```{r paired-t-test}
+result <- t.test(after, before, paired = TRUE, alternative = "two.sided")
+result
+```
+
+```{r decision}
+if (result$p.value < alpha) {
+  cat("Decision: Reject H0 at 5% significance level.\n")
+  cat("Conclusion: There is a significant change in IQ after training.")
+} else {
+  cat("Decision: Fail to reject H0 at 5% significance level.\n")
+  cat("Conclusion: No significant change in IQ is detected after training.")
+}
+```

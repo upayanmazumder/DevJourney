@@ -1,0 +1,57 @@
+---
+title: "Question 1 - Latin Square Design ANOVA (Wheat varieties)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+alpha <- 0.05
+```
+
+## Question
+
+Analyze and interpret the output data for wheat varieties A, B, C and D under a Latin Square Design.
+
+```{r data}
+ls_df <- data.frame(
+  Row = factor(rep(c("R1", "R2", "R3", "R4"), each = 4)),
+  Column = factor(rep(c("C1", "C2", "C3", "C4"), times = 4)),
+  Variety = factor(c(
+    "C", "B", "A", "D",
+    "A", "D", "C", "B",
+    "B", "A", "D", "C",
+    "D", "C", "B", "A"
+  )),
+  Yield = c(
+    25, 23, 20, 20,
+    19, 19, 21, 18,
+    19, 14, 17, 20,
+    17, 20, 21, 15
+  )
+)
+
+ls_df
+aggregate(Yield ~ Variety, data = ls_df, FUN = mean)
+```
+
+## ANOVA for Latin Square Design
+
+```{r anova}
+fit <- aov(Yield ~ Row + Column + Variety, data = ls_df)
+anova_table <- summary(fit)
+anova_table
+```
+
+```{r decision}
+p_variety <- anova_table[[1]]["Variety", "Pr(>F)"]
+
+if (p_variety < alpha) {
+  cat("Decision: Reject H0 at 5% significance level.\n")
+  cat("Conclusion: Wheat variety has a significant effect on yield.")
+} else {
+  cat("Decision: Fail to reject H0 at 5% significance level.\n")
+  cat("Conclusion: No significant difference among variety means is detected.")
+}
+```

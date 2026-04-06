@@ -1,0 +1,61 @@
+---
+title: "Question 2 - One-way ANOVA (Oil filling machine efficiency)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+alpha <- 0.05
+```
+
+## Question
+
+Test equality of efficiency of filling machines A, B, C, D and E using the sampled tin weights.
+
+```{r data}
+machine_data <- list(
+  A = c(14.85, 15.00, 15.25, 15.10, 14.80),
+  B = c(14.28, 14.42),
+  C = c(14.16, 14.15, 14.19, 14.50),
+  D = c(15.25, 15.30, 15.10, 15.35, 15.00),
+  E = c(14.60, 14.84, 14.82, 14.74)
+)
+
+df <- stack(machine_data)
+names(df) <- c("Weight", "Machine")
+df$Machine <- factor(df$Machine)
+
+df
+aggregate(Weight ~ Machine, data = df, FUN = mean)
+```
+
+## One-way ANOVA
+
+```{r anova}
+fit <- aov(Weight ~ Machine, data = df)
+anova_table <- summary(fit)
+anova_table
+```
+
+```{r assumptions}
+shapiro.test(residuals(fit))
+bartlett.test(Weight ~ Machine, data = df)
+```
+
+```{r posthoc}
+TukeyHSD(fit)
+```
+
+```{r decision}
+p_machine <- anova_table[[1]]["Machine", "Pr(>F)"]
+
+if (p_machine < alpha) {
+  cat("Decision: Reject H0 at 5% significance level.\n")
+  cat("Conclusion: Machine means are not all equal; efficiency differs significantly.")
+} else {
+  cat("Decision: Fail to reject H0 at 5% significance level.\n")
+  cat("Conclusion: No significant difference in mean efficiency is detected across machines.")
+}
+```

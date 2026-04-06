@@ -1,0 +1,42 @@
+---
+title: "Question 4 - Paired t-test (Training effectiveness)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+alpha <- 0.05
+```
+
+## Question
+
+The prior and after-training scores of 10 candidates are given. Test whether training is effective.
+
+```{r data}
+prior <- c(84, 48, 36, 37, 54, 69, 83, 96, 90, 65)
+after <- c(90, 58, 56, 49, 62, 81, 84, 86, 84, 75)
+
+data.frame(Candidate = 1:10, Prior = prior, After = after, Improvement = after - prior)
+```
+
+## Hypotheses
+
+- H0: mean(After - Prior) <= 0
+- H1: mean(After - Prior) > 0 (training is effective)
+
+```{r paired-t-test}
+result <- t.test(after, prior, paired = TRUE, alternative = "greater")
+result
+```
+
+```{r decision}
+if (result$p.value < alpha) {
+  cat("Decision: Reject H0 at 5% significance level.\n")
+  cat("Conclusion: Training is effective (mean score increased significantly).")
+} else {
+  cat("Decision: Fail to reject H0 at 5% significance level.\n")
+  cat("Conclusion: Not enough evidence to claim training effectiveness.")
+}
+```

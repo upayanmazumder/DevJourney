@@ -1,0 +1,66 @@
+---
+title: "Question 4 - Worker efficiency with block and machine effects"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+alpha <- 0.05
+```
+
+## Question
+
+Compare the efficiency of workers A, B, C and D using the given block x machine layout.
+
+```{r data}
+# Data transcribed from the image exactly as shown
+# (Block I has A twice and no D in the provided table)
+df <- data.frame(
+  Block = factor(rep(c("I", "II", "III", "IV", "V", "VI"), each = 4)),
+  Machine = factor(rep(c("M1", "M2", "M3", "M4"), times = 6)),
+  Worker = factor(c(
+    "C", "A", "B", "A",
+    "A", "B", "C", "D",
+    "A", "C", "D", "B",
+    "A", "D", "C", "B",
+    "B", "C", "A", "D",
+    "D", "C", "A", "B"
+  )),
+  Yield = c(
+    22, 14, 12, 23,
+    16, 18, 20, 25,
+    15, 23, 28, 14,
+    17, 21, 19, 11,
+    18, 20, 13, 24,
+    18, 21, 10, 17
+  )
+)
+
+df
+table(df$Block, df$Worker)
+aggregate(Yield ~ Worker, data = df, FUN = mean)
+```
+
+## Analysis
+
+```{r models}
+# Compare reduced and full models to isolate worker effect
+reduced <- lm(Yield ~ Block + Machine, data = df)
+full <- lm(Yield ~ Block + Machine + Worker, data = df)
+comparison <- anova(reduced, full)
+comparison
+```
+
+```{r decision}
+p_worker <- comparison[2, "Pr(>F)"]
+
+if (p_worker < alpha) {
+  cat("Decision: Reject H0 at 5% significance level.\n")
+  cat("Conclusion: Worker efficiency differs significantly after adjusting for block and machine effects.")
+} else {
+  cat("Decision: Fail to reject H0 at 5% significance level.\n")
+  cat("Conclusion: No significant worker-efficiency difference is detected after adjustment.")
+}
+```

@@ -1,0 +1,55 @@
+---
+title: "Question 3 - One-way ANOVA (Training programs)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+alpha <- 0.05
+```
+
+## Question
+
+Compare the performance (tasks per minute) of trainees under four training programs using one-way ANOVA.
+
+```{r data}
+program_data <- list(
+  Program1 = c(9, 12, 14, 11, 13),
+  Program2 = c(10, 6, 9, 9, 10),
+  Program3 = c(12, 14, 11, 13, 11),
+  Program4 = c(9, 8, 11, 7, 8)
+)
+
+df <- stack(program_data)
+names(df) <- c("Score", "Program")
+df$Program <- factor(df$Program)
+
+df
+aggregate(Score ~ Program, data = df, FUN = mean)
+```
+
+## One-way ANOVA
+
+```{r anova}
+fit <- aov(Score ~ Program, data = df)
+anova_table <- summary(fit)
+anova_table
+```
+
+```{r posthoc}
+TukeyHSD(fit)
+```
+
+```{r decision}
+p_program <- anova_table[[1]]["Program", "Pr(>F)"]
+
+if (p_program < alpha) {
+  cat("Decision: Reject H0 at 5% significance level.\n")
+  cat("Conclusion: At least one training program has a different mean performance.")
+} else {
+  cat("Decision: Fail to reject H0 at 5% significance level.\n")
+  cat("Conclusion: No significant difference in mean performance among programs.")
+}
+```

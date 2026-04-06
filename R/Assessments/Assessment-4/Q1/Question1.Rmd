@@ -1,0 +1,56 @@
+---
+title: "Question 1 - Chi-square test (Gender vs Ice-cream flavor)"
+author: "Upayan Mazumder"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+alpha <- 0.05
+```
+
+## Question
+
+From the given contingency table, test whether gender and ice-cream flavor preference are associated.
+
+```{r data}
+# Frequencies read from the question image
+tbl <- matrix(
+  c(100, 120, 60,
+    350, 320, 150),
+  nrow = 2,
+  byrow = TRUE,
+  dimnames = list(
+    Gender = c("Men", "Women"),
+    Flavor = c("Chocolate", "Vanilla", "Strawberry")
+  )
+)
+
+tbl
+sum(tbl)  # Table total (image text mentions 920, but tabulated counts sum to 1100)
+```
+
+## Hypotheses
+
+- H0: Gender and flavor preference are independent.
+- H1: Gender and flavor preference are associated.
+
+## Chi-square test of independence
+
+```{r chi-square-test}
+chi_result <- chisq.test(tbl, correct = FALSE)
+chi_result
+chi_result$expected
+min(chi_result$expected)
+```
+
+```{r decision}
+if (chi_result$p.value < alpha) {
+  cat("Decision: Reject H0 at 5% significance level.\n")
+  cat("Conclusion: There is a significant association between gender and flavor preference.")
+} else {
+  cat("Decision: Fail to reject H0 at 5% significance level.\n")
+  cat("Conclusion: No significant association is detected between gender and flavor preference.")
+}
+```
