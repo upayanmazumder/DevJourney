@@ -18,15 +18,15 @@
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
-    "lint": "eslint \"src/**/*.ts*\"",
+    "lint": "eslint .",
     "preview": "qwik build preview && vite preview --open",
     "serve": "node server/entry.express",
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@builder.io/qwik": "^1.13.0",
-    "@builder.io/qwik-city": "^1.19.0",
+    "@builder.io/qwik": "^1.19.2",
+    "@builder.io/qwik-city": "^1.19.2",
     "@qwikest/icons": "^0.0.13",
     "@tailwindcss/vite": "^4.0.0",
     "@types/compression": "^1.7.2",
@@ -49,6 +49,12 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
-    "express": "4.20.0"
+    "express": "^5.2.1"
+  },
+  "resolutions": {
+    "minimatch": "^9.0.7",
+    "picomatch": "^4.0.4",
+    "undici": "^7.24.0",
+    "brace-expansion": "^2.0.3"
   }
 }
