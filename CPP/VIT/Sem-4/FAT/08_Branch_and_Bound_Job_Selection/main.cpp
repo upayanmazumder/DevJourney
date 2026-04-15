@@ -2,8 +2,8 @@
 
 using namespace std;
 
-const int MAX_JOBS = 50;
-const int MAX_NODES = 10000;
+const int MAX_JOBS = 20;
+const int MAX_DEADLINE = 20;
 
 struct Job
 {
@@ -12,70 +12,54 @@ struct Job
     int profit;
 };
 
-struct Node
-{
-    int level;
-    int profit;
-    int bound;
-    int slotOwner[MAX_JOBS + 1]; // slotOwner[t] = job index in sorted array, -1 if free
-    int chosen[MAX_JOBS];        // chosen[i] = 1 if job i selected, else 0
-};
+int n;
+int maxDeadline = 0;
+Job jobs[MAX_JOBS];
+int slotUsed[MAX_DEADLINE + 1];
+int currentChosen[MAX_JOBS];
+int bestChosen[MAX_JOBS];
+int bestProfit = 0;
 
-void copyNode(Node &to, const Node &from, int n, int maxDeadline)
+void sortJobsByProfitDesc(Job jobsArr[], int size)
 {
-    to.level = from.level;
-    to.profit = from.profit;
-    to.bound = from.bound;
-
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < size - 1; i++)
     {
-        to.chosen[i] = from.chosen[i];
-    }
-    for (int t = 1; t <= maxDeadline; t++)
-    {
-        to.slotOwner[t] = from.slotOwner[t];
-    }
-}
-
-void sortJobsByProfitDesc(Job *jobs, int n)
-{
-    // Bubble sort to avoid <algorithm>.
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - i - 1; j++)
+        for (int j = 0; j < size - i - 1; j++)
         {
-            if (jobs[j].profit < jobs[j + 1].profit)
+            if (jobsArr[j].profit < jobsArr[j + 1].profit)
             {
-                Job temp = jobs[j];
-                jobs[j] = jobs[j + 1];
-                jobs[j + 1] = temp;
+                Job temp = jobsArr[j];
+                jobsArr[j] = jobsArr[j + 1];
+                jobsArr[j + 1] = temp;
             }
         }
     }
 }
 
-int calculateBound(const Node &node, Job *jobs, int n, int maxDeadline)
+int calculateBound(int level, int currentProfit)
 {
-    int optimisticProfit = node.profit;
+    int optimisticProfit = currentProfit;
+    int tempSlot[MAX_DEADLINE + 1];
 
-    int tempSlots[MAX_JOBS + 1];
     for (int t = 1; t <= maxDeadline; t++)
     {
-        tempSlots[t] = node.slotOwner[t];
+        tempSlot[t] = slotUsed[t];
     }
 
-    // Greedy fill with remaining jobs to get an upper bound.
-    for (int i = node.level + 1; i < n; i++)
+    for (int i = level; i < n; i++)
     {
         int latest = jobs[i].deadline;
+
         if (latest > maxDeadline)
+        {
             latest = maxDeadline;
+        }
 
         for (int t = latest; t >= 1; t--)
         {
-            if (tempSlots[t] == -1)
+            if (tempSlot[t] == 0)
             {
-                tempSlots[t] = i;
+                tempSlot[t] = 1;
                 optimisticProfit += jobs[i].profit;
                 break;
             }
@@ -85,49 +69,54 @@ int calculateBound(const Node &node, Job *jobs, int n, int maxDeadline)
     return optimisticProfit;
 }
 
-bool tryScheduleJob(Node &node, int jobIndex, Job *jobs, int maxDeadline)
+void solve(int level, int currentProfit)
 {
-    int latest = jobs[jobIndex].deadline;
-    if (latest > maxDeadline)
-        latest = maxDeadline;
+    if (level == n)
+    {
+        if (currentProfit > bestProfit)
+        {
+            bestProfit = currentProfit;
+            for (int i = 0; i < n; i++)
+            {
+                bestChosen[i] = currentChosen[i];
+            }
+        }
+        return;
+    }
 
-    // Place the job in latest free slot <= deadline.
+    int bound = calculateBound(level, currentProfit);
+    if (bound <= bestProfit)
+    {
+        return;
+    }
+
+    int latest = jobs[level].deadline;
+    if (latest > maxDeadline)
+    {
+        latest = maxDeadline;
+    }
+
+    // Include this job if a slot is available.
     for (int t = latest; t >= 1; t--)
     {
-        if (node.slotOwner[t] == -1)
+        if (slotUsed[t] == 0)
         {
-            node.slotOwner[t] = jobIndex;
-            node.profit += jobs[jobIndex].profit;
-            node.chosen[jobIndex] = 1;
-            return true;
+            slotUsed[t] = 1;
+            currentChosen[level] = 1;
+            solve(level + 1, currentProfit + jobs[level].profit);
+            currentChosen[level] = 0;
+            slotUsed[t] = 0;
+            break;
         }
     }
 
-    return false;
-}
-
-int extractMaxBoundNode(Node *pq, int &pqSize)
-{
-    int bestIdx = 0;
-    for (int i = 1; i < pqSize; i++)
-    {
-        if (pq[i].bound > pq[bestIdx].bound)
-        {
-            bestIdx = i;
-        }
-    }
-
-    Node temp = pq[bestIdx];
-    pq[bestIdx] = pq[pqSize - 1];
-    pq[pqSize - 1] = temp;
-
-    pqSize--;
-    return pqSize; // index of extracted node after swap is pqSize
+    // Exclude this job.
+    currentChosen[level] = 0;
+    solve(level + 1, currentProfit);
 }
 
 int main()
 {
-    int n;
     cout << "Enter number of jobs (max " << MAX_JOBS << "): ";
     cin >> n;
 
@@ -136,9 +125,6 @@ int main()
         cout << "Invalid number of jobs.\n";
         return 0;
     }
-
-    Job jobs[MAX_JOBS];
-    int maxDeadline = 0;
 
     cout << "Enter each job as: id deadline profit\n";
     for (int i = 0; i < n; i++)
@@ -150,84 +136,26 @@ int main()
         }
     }
 
-    if (maxDeadline > MAX_JOBS)
+    if (maxDeadline > MAX_DEADLINE)
     {
-        maxDeadline = MAX_JOBS;
+        maxDeadline = MAX_DEADLINE;
     }
 
     sortJobsByProfitDesc(jobs, n);
 
-    Node bestNode;
-    bestNode.level = -1;
-    bestNode.profit = 0;
-    bestNode.bound = 0;
-    for (int i = 0; i < n; i++)
-    {
-        bestNode.chosen[i] = 0;
-    }
     for (int t = 1; t <= maxDeadline; t++)
     {
-        bestNode.slotOwner[t] = -1;
+        slotUsed[t] = 0;
     }
 
-    Node root = bestNode;
-    root.bound = calculateBound(root, jobs, n, maxDeadline);
-
-    Node pq[MAX_NODES];
-    int pqSize = 0;
-    pq[pqSize++] = root;
-
-    int bestProfit = 0;
-
-    while (pqSize > 0)
+    for (int i = 0; i < n; i++)
     {
-        int extractedIndex = extractMaxBoundNode(pq, pqSize);
-        Node current = pq[extractedIndex];
-
-        if (current.bound <= bestProfit)
-        {
-            continue;
-        }
-
-        int nextLevel = current.level + 1;
-        if (nextLevel >= n)
-        {
-            continue;
-        }
-
-        // Include next job branch.
-        Node includeNode;
-        copyNode(includeNode, current, n, maxDeadline);
-        includeNode.level = nextLevel;
-
-        if (tryScheduleJob(includeNode, nextLevel, jobs, maxDeadline))
-        {
-            includeNode.bound = calculateBound(includeNode, jobs, n, maxDeadline);
-
-            if (includeNode.profit > bestProfit)
-            {
-                bestProfit = includeNode.profit;
-                copyNode(bestNode, includeNode, n, maxDeadline);
-            }
-
-            if (includeNode.bound > bestProfit && pqSize < MAX_NODES)
-            {
-                pq[pqSize++] = includeNode;
-            }
-        }
-
-        // Exclude next job branch.
-        Node excludeNode;
-        copyNode(excludeNode, current, n, maxDeadline);
-        excludeNode.level = nextLevel;
-        excludeNode.chosen[nextLevel] = 0;
-        excludeNode.bound = calculateBound(excludeNode, jobs, n, maxDeadline);
-
-        if (excludeNode.bound > bestProfit && pqSize < MAX_NODES)
-        {
-            pq[pqSize++] = excludeNode;
-        }
+        currentChosen[i] = 0;
+        bestChosen[i] = 0;
     }
+
+    bestProfit = 0;
+    solve(0, 0);
 
     cout << "Maximum Profit = " << bestProfit << "\n";
     cout << "Selected Jobs (id, deadline, profit):\n";
@@ -235,7 +163,7 @@ int main()
     bool any = false;
     for (int i = 0; i < n; i++)
     {
-        if (bestNode.chosen[i] == 1)
+        if (bestChosen[i] == 1)
         {
             cout << jobs[i].id << " " << jobs[i].deadline << " " << jobs[i].profit << "\n";
             any = true;

@@ -3,7 +3,9 @@
 
 using namespace std;
 
-void computeLPS(const string &pattern, int *lps)
+const int MAX_LEN = 1000;
+
+void computeLPS(const string &pattern, int lps[])
 {
     int m = (int)pattern.length();
     int len = 0;
@@ -51,7 +53,13 @@ int main()
         return 0;
     }
 
-    int *lps = new int[m];
+    if (m > MAX_LEN)
+    {
+        cout << "Pattern too long. Max supported length is " << MAX_LEN << ".\n";
+        return 0;
+    }
+
+    int lps[MAX_LEN];
     computeLPS(pattern, lps);
 
     int i = 0; // text index
@@ -90,6 +98,5 @@ int main()
         cout << "Pattern not found.\n";
     }
 
-    delete[] lps;
     return 0;
 }

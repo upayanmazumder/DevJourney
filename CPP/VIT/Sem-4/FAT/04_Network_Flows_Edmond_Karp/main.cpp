@@ -2,16 +2,23 @@
 
 using namespace std;
 
-bool bfs(int **residual, int n, int source, int sink, int *parent)
+const int MAX_V = 30;
+const int INF = 1000000000;
+
+int n;
+int residual[MAX_V][MAX_V];
+int parentArr[MAX_V];
+
+bool bfs(int source, int sink)
 {
-    bool *visited = new bool[n];
+    bool visited[MAX_V];
     for (int i = 0; i < n; i++)
     {
         visited[i] = false;
-        parent[i] = -1;
+        parentArr[i] = -1;
     }
 
-    int *queue = new int[n];
+    int queue[MAX_V];
     int front = 0;
     int rear = 0;
 
@@ -27,21 +34,17 @@ bool bfs(int **residual, int n, int source, int sink, int *parent)
             if (!visited[v] && residual[u][v] > 0)
             {
                 queue[rear++] = v;
-                parent[v] = u;
+                parentArr[v] = u;
                 visited[v] = true;
 
                 if (v == sink)
                 {
-                    delete[] visited;
-                    delete[] queue;
                     return true;
                 }
             }
         }
     }
 
-    delete[] visited;
-    delete[] queue;
     return false;
 }
 
@@ -50,29 +53,26 @@ int minValue(int a, int b)
     return (a < b) ? a : b;
 }
 
-int edmondKarp(int **capacity, int n, int source, int sink)
+int edmondKarp(int capacity[][MAX_V], int source, int sink)
 {
-    int **residual = new int *[n];
     for (int i = 0; i < n; i++)
     {
-        residual[i] = new int[n];
         for (int j = 0; j < n; j++)
         {
             residual[i][j] = capacity[i][j];
         }
     }
 
-    int *parent = new int[n];
     int maxFlow = 0;
 
-    while (bfs(residual, n, source, sink, parent))
+    while (bfs(source, sink))
     {
-        int pathFlow = 1000000000;
+        int pathFlow = INF;
 
         int v = sink;
         while (v != source)
         {
-            int u = parent[v];
+            int u = parentArr[v];
             pathFlow = minValue(pathFlow, residual[u][v]);
             v = u;
         }
@@ -80,7 +80,7 @@ int edmondKarp(int **capacity, int n, int source, int sink)
         v = sink;
         while (v != source)
         {
-            int u = parent[v];
+            int u = parentArr[v];
             residual[u][v] -= pathFlow;
             residual[v][u] += pathFlow;
             v = u;
@@ -89,27 +89,21 @@ int edmondKarp(int **capacity, int n, int source, int sink)
         maxFlow += pathFlow;
     }
 
-    for (int i = 0; i < n; i++)
-    {
-        delete[] residual[i];
-    }
-    delete[] residual;
-    delete[] parent;
-
     return maxFlow;
 }
 
 int main()
 {
-    int n;
     cout << "Enter number of vertices: ";
     cin >> n;
 
-    int **capacity = new int *[n];
-    for (int i = 0; i < n; i++)
+    if (n <= 0 || n > MAX_V)
     {
-        capacity[i] = new int[n];
+        cout << "Invalid number of vertices. Max allowed is " << MAX_V << ".\n";
+        return 0;
     }
+
+    int capacity[MAX_V][MAX_V];
 
     cout << "Enter capacity matrix (" << n << " x " << n << "): \n";
     for (int i = 0; i < n; i++)
@@ -126,14 +120,8 @@ int main()
     cout << "Enter sink vertex (0 to " << n - 1 << "): ";
     cin >> sink;
 
-    int result = edmondKarp(capacity, n, source, sink);
+    int result = edmondKarp(capacity, source, sink);
     cout << "Maximum Flow = " << result << "\n";
-
-    for (int i = 0; i < n; i++)
-    {
-        delete[] capacity[i];
-    }
-    delete[] capacity;
 
     return 0;
 }

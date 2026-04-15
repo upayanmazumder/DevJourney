@@ -4,6 +4,9 @@
 
 using namespace std;
 
+const int MAX_N = 100;
+const int INF = 1000000000;
+
 void swapInt(int &a, int &b)
 {
     int temp = a;
@@ -11,7 +14,7 @@ void swapInt(int &a, int &b)
     b = temp;
 }
 
-int partitionArray(int *arr, int low, int high)
+int partitionArray(int arr[], int low, int high)
 {
     int pivot = arr[high];
     int i = low - 1;
@@ -29,14 +32,14 @@ int partitionArray(int *arr, int low, int high)
     return i + 1;
 }
 
-int randomizedPartition(int *arr, int low, int high)
+int randomizedPartition(int arr[], int low, int high)
 {
     int pivotIndex = low + (rand() % (high - low + 1));
     swapInt(arr[pivotIndex], arr[high]);
     return partitionArray(arr, low, high);
 }
 
-void randomizedQuickSort(int *arr, int low, int high)
+void randomizedQuickSort(int arr[], int low, int high)
 {
     if (low < high)
     {
@@ -52,7 +55,13 @@ void runQuickSort()
     cout << "Enter number of elements: ";
     cin >> n;
 
-    int *arr = new int[n];
+    if (n <= 0 || n > MAX_N)
+    {
+        cout << "Invalid size. Max allowed is " << MAX_N << ".\n";
+        return;
+    }
+
+    int arr[MAX_N];
     cout << "Enter elements:\n";
     for (int i = 0; i < n; i++)
     {
@@ -67,23 +76,21 @@ void runQuickSort()
         cout << arr[i] << " ";
     }
     cout << "\n";
-
-    delete[] arr;
 }
 
 void runAllPairsShortestPath()
 {
-    const int INF = 1000000000;
-
     int n;
     cout << "Enter number of vertices: ";
     cin >> n;
 
-    int **dist = new int *[n];
-    for (int i = 0; i < n; i++)
+    if (n <= 0 || n > MAX_N)
     {
-        dist[i] = new int[n];
+        cout << "Invalid number of vertices. Max allowed is " << MAX_N << ".\n";
+        return;
     }
+
+    int dist[MAX_N][MAX_N];
 
     cout << "Enter adjacency matrix (use " << INF << " for no direct edge):\n";
     for (int i = 0; i < n; i++)
@@ -129,12 +136,6 @@ void runAllPairsShortestPath()
         }
         cout << "\n";
     }
-
-    for (int i = 0; i < n; i++)
-    {
-        delete[] dist[i];
-    }
-    delete[] dist;
 }
 
 int main()

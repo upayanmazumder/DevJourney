@@ -2,6 +2,8 @@
 
 using namespace std;
 
+const int MAX_P = 100;
+
 struct Point
 {
     int x;
@@ -65,13 +67,13 @@ int main()
     cout << "Enter number of points: ";
     cin >> n;
 
-    if (n < 3)
+    if (n < 3 || n > MAX_P)
     {
-        cout << "Convex hull not possible (need at least 3 points).\n";
+        cout << "Invalid number of points. Enter 3 to " << MAX_P << ".\n";
         return 0;
     }
 
-    Point *points = new Point[n];
+    Point points[MAX_P];
     cout << "Enter points as x y:\n";
     for (int i = 0; i < n; i++)
     {
@@ -95,7 +97,7 @@ int main()
     sortByPolar(points + 1, n - 1);
 
     // Step 3: Build hull using a stack-like array.
-    Point *hull = new Point[n + 1];
+    Point hull[MAX_P + 1];
     int top = 0;
     hull[top++] = points[0];
     hull[top++] = points[1];
@@ -115,7 +117,5 @@ int main()
         cout << "(" << hull[i].x << ", " << hull[i].y << ")\n";
     }
 
-    delete[] points;
-    delete[] hull;
     return 0;
 }

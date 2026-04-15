@@ -2,20 +2,29 @@
 
 using namespace std;
 
-bool dfs(int u, int t, bool *visited, int *parent, int **residual, int n)
+const int MAX_V = 30;
+const int INF = 1000000000;
+
+int n;
+int residual[MAX_V][MAX_V];
+int parentArr[MAX_V];
+bool visited[MAX_V];
+
+bool dfs(int u, int sink)
 {
     visited[u] = true;
-    if (u == t)
+
+    if (u == sink)
     {
         return true;
     }
 
     for (int v = 0; v < n; v++)
     {
-        if (!visited[v] && residual[u][v] > 0)
+        if (visited[v] == false && residual[u][v] > 0)
         {
-            parent[v] = u;
-            if (dfs(v, t, visited, parent, residual, n))
+            parentArr[v] = u;
+            if (dfs(v, sink))
             {
                 return true;
             }
@@ -30,44 +39,39 @@ int minValue(int a, int b)
     return (a < b) ? a : b;
 }
 
-int fordFulkerson(int **capacity, int n, int source, int sink)
+int fordFulkerson(int capacity[][MAX_V], int source, int sink)
 {
-    int **residual = new int *[n];
     for (int i = 0; i < n; i++)
     {
-        residual[i] = new int[n];
         for (int j = 0; j < n; j++)
         {
             residual[i][j] = capacity[i][j];
         }
     }
 
-    int *parent = new int[n];
     int maxFlow = 0;
 
     while (true)
     {
-        bool *visited = new bool[n];
         for (int i = 0; i < n; i++)
         {
             visited[i] = false;
-            parent[i] = -1;
+            parentArr[i] = -1;
         }
 
-        bool pathFound = dfs(source, sink, visited, parent, residual, n);
-        delete[] visited;
+        bool pathFound = dfs(source, sink);
 
         if (!pathFound)
         {
             break;
         }
 
-        int pathFlow = 1000000000;
+        int pathFlow = INF;
         int v = sink;
 
         while (v != source)
         {
-            int u = parent[v];
+            int u = parentArr[v];
             pathFlow = minValue(pathFlow, residual[u][v]);
             v = u;
         }
@@ -75,7 +79,7 @@ int fordFulkerson(int **capacity, int n, int source, int sink)
         v = sink;
         while (v != source)
         {
-            int u = parent[v];
+            int u = parentArr[v];
             residual[u][v] -= pathFlow;
             residual[v][u] += pathFlow;
             v = u;
@@ -84,27 +88,21 @@ int fordFulkerson(int **capacity, int n, int source, int sink)
         maxFlow += pathFlow;
     }
 
-    for (int i = 0; i < n; i++)
-    {
-        delete[] residual[i];
-    }
-    delete[] residual;
-    delete[] parent;
-
     return maxFlow;
 }
 
 int main()
 {
-    int n;
     cout << "Enter number of vertices: ";
     cin >> n;
 
-    int **capacity = new int *[n];
-    for (int i = 0; i < n; i++)
+    if (n <= 0 || n > MAX_V)
     {
-        capacity[i] = new int[n];
+        cout << "Invalid number of vertices. Max allowed is " << MAX_V << ".\n";
+        return 0;
     }
+
+    int capacity[MAX_V][MAX_V];
 
     cout << "Enter capacity matrix (" << n << " x " << n << "): \n";
     for (int i = 0; i < n; i++)
@@ -121,14 +119,8 @@ int main()
     cout << "Enter sink vertex (0 to " << n - 1 << "): ";
     cin >> sink;
 
-    int result = fordFulkerson(capacity, n, source, sink);
+    int result = fordFulkerson(capacity, source, sink);
     cout << "Maximum Flow = " << result << "\n";
-
-    for (int i = 0; i < n; i++)
-    {
-        delete[] capacity[i];
-    }
-    delete[] capacity;
 
     return 0;
 }

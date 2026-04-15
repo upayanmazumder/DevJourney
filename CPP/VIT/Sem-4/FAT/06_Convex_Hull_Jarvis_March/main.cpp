@@ -2,6 +2,8 @@
 
 using namespace std;
 
+const int MAX_P = 100;
+
 struct Point
 {
     int x;
@@ -31,13 +33,13 @@ int main()
     cout << "Enter number of points: ";
     cin >> n;
 
-    if (n < 3)
+    if (n < 3 || n > MAX_P)
     {
-        cout << "Convex hull not possible (need at least 3 points).\n";
+        cout << "Invalid number of points. Enter 3 to " << MAX_P << ".\n";
         return 0;
     }
 
-    Point *points = new Point[n];
+    Point points[MAX_P];
     cout << "Enter points as x y:\n";
     for (int i = 0; i < n; i++)
     {
@@ -55,7 +57,7 @@ int main()
         }
     }
 
-    int *hullIndex = new int[n + 1];
+    int hullIndex[MAX_P + 1];
     int hullSize = 0;
 
     int p = left;
@@ -91,7 +93,5 @@ int main()
         cout << "(" << points[idx].x << ", " << points[idx].y << ")\n";
     }
 
-    delete[] points;
-    delete[] hullIndex;
     return 0;
 }
