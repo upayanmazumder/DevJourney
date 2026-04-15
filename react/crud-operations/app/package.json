@@ -8,8 +8,8 @@
 		"@testing-library/react": "^16.3.2",
 		"@testing-library/user-event": "^14.6.1",
 		"axios": "^1.15.0",
-		"react": "^19.2.5",
-		"react-dom": "^19.2.5",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
 		"react-scripts": "^5.0.1",
 		"web-vitals": "^5.2.0"
 	},
@@ -36,5 +36,14 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"pnpm": {
+		"overrides": {
+			"nth-check": "^2.0.1",
+			"serialize-javascript": "^7.0.5",
+			"underscore": "^1.13.8",
+			"postcss": "^8.4.31",
+			"webpack-dev-server": "^5.2.1"
+		}
 	}
 }
