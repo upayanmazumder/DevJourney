@@ -1,28 +1,21 @@
 # String Matching - KMP
 
-## Idea
+## Algorithm
 
-KMP avoids re-checking characters by using the LPS array (Longest Prefix which is also Suffix).
-When mismatch occurs, pattern index jumps using LPS instead of restarting from 0.
-
-## Input
-
-1. Text string
-2. Pattern string
-
-## Steps in code
-
-1. Build LPS array for pattern.
-2. Traverse text and pattern together.
-3. On match, move both indices.
-4. On mismatch:
-   - If pattern index is not zero, jump to `lps[j-1]`.
-   - Else move text index.
+1. Read text and pattern.
+2. Build LPS array for pattern.
+3. Start two indices: i for text, j for pattern.
+4. If characters match, move both i and j.
+5. If j reaches pattern length, report one match and set j = LPS[j-1].
+6. On mismatch:
+   - If j is not 0, set j = LPS[j-1].
+   - Else move i.
+7. Continue until end of text.
 
 ## Time Complexity
 
-- \(O(n + m)\)
+- O(n + m)
 
 ## Space Complexity
 
-- \(O(m)\) for LPS array
+- O(m)

@@ -1,28 +1,20 @@
 # Finding Convex Hull - Jarvis March
 
-## Idea
+## Algorithm
 
-Jarvis March (Gift Wrapping) starts from leftmost point and repeatedly selects the most counterclockwise point.
-It wraps around until it returns to start.
-
-## Input
-
-1. Number of points
-2. Points as `(x, y)`
-
-## Steps in code
-
-1. Find leftmost point.
-2. Add current hull point.
-3. Choose a candidate next point.
-4. Scan all points and replace candidate if a more counterclockwise point exists.
-5. Handle collinear case by taking farthest point.
-6. Continue until start point is reached.
+1. Find the leftmost point. This is the starting hull point.
+2. Add current point to hull.
+3. Assume any other point as next point.
+4. Check every point:
+ - if it is more counterclockwise, update next point
+ - if collinear, keep the farthest one
+5. Move to next point and repeat.
+6. Stop when you return to starting point.
 
 ## Time Complexity
 
-- \(O(nh)\), where \(h\) is number of hull points
+- O(nh), where h is number of hull points
 
 ## Space Complexity
 
-- \(O(h)\) for hull index list
+- O(h)

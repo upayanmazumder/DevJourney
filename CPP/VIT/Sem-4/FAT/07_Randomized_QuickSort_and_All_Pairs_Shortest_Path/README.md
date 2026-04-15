@@ -2,43 +2,31 @@
 
 ## Part A: Randomized Quick Sort
 
-### Idea
+### Algorithm
 
-Quick Sort picks a pivot and partitions array into smaller and greater elements.
-Randomized pivot helps avoid worst-case on already structured input.
-
-### Steps in code
-
-1. Pick random pivot index in range.
-2. Move pivot to end.
-3. Partition array around pivot.
-4. Recursively sort left and right parts.
+1. Pick a random pivot index between low and high.
+2. Swap pivot with last element.
+3. Partition array so smaller elements go left and larger go right.
+4. Recursively sort left part.
+5. Recursively sort right part.
 
 ### Complexity
 
-- Average: \(O(n \log n)\)
-- Worst: \(O(n^2)\)
+- Average: O(n log n)
+- Worst: O(n^2)
 
 ## Part B: All-Pairs Shortest Path (Floyd-Warshall)
 
-### Idea
+### Algorithm
 
-Floyd-Warshall tries every vertex as intermediate and relaxes all pairs `(i, j)`.
-
-### Steps in code
-
-1. Read adjacency matrix (`INF` for no direct edge).
-2. For each intermediate `k`, update all `dist[i][j]`.
-3. Print final shortest path matrix.
+1. Read adjacency matrix (use INF for no direct edge).
+2. For each k from 0 to n-1:
+ - for each i from 0 to n-1:
+ - for each j from 0 to n-1:
+ - update dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+3. Final matrix gives shortest distances between all pairs.
 
 ### Complexity
 
-- Time: \(O(n^3)\)
-- Space: \(O(n^2)\)
-
-## Program Flow
-
-A menu is provided:
-
-1. Randomized Quick Sort
-2. All-Pairs Shortest Path
+- Time: O(n^3)
+- Space: O(n^2)

@@ -1,30 +1,21 @@
 # Network Flows - Edmond Karp
 
-## Idea
+## Algorithm
 
-Edmond Karp is a specific Ford Fulkerson method that uses BFS to find the shortest augmenting path in terms of edges.
-This gives a polynomial time guarantee.
-
-## Input
-
-1. Number of vertices
-2. Capacity matrix
-3. Source index
-4. Sink index
-
-## Steps in code
-
-1. Build residual graph from capacity matrix.
-2. Use BFS to find augmenting path and parent array.
-3. Compute bottleneck flow in that path.
-4. Update residual capacities.
-5. Add bottleneck to max flow.
-6. Repeat until BFS cannot reach sink.
+1. Copy capacity matrix to residual matrix.
+2. Use BFS to find path from source to sink.
+3. If no path is found, stop.
+4. Find bottleneck flow (minimum residual capacity on path).
+5. Update residual graph:
+ - reduce forward edges
+ - increase backward edges
+6. Add bottleneck to max flow.
+7. Repeat from BFS step.
 
 ## Time Complexity
 
-- \(O(VE^2)\)
+- O(VE^2)
 
 ## Space Complexity
 
-- \(O(V^2)\) for residual matrix
+- O(V^2)
