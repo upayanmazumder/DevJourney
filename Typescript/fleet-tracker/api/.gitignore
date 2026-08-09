@@ -1,2 +1,3 @@
 dist
 fleet.db*
+.env
