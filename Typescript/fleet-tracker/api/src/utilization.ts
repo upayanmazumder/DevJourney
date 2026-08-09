@@ -1,4 +1,4 @@
-import { db } from "./db.js";
+import { pings as pingsCollection } from "./db.js";
 import type { Ping } from "./trips.js";
 import { GAP_CLOSE_MS } from "./trips.js";
 
@@ -24,19 +24,18 @@ function stateOf(p: Ping): State {
  * across a >30min gap) is attributed to "off" — no data is treated the
  * same as a dropped/parked vehicle, matching the trip gap-close rule.
  */
-export function computeUtilization(
+export async function computeUtilization(
   vehicleId: string,
   fromMs: number,
   toMs: number
-): Utilization {
-  const pings = db
-    .prepare(
-      `SELECT vehicle_id, timestamp, lat, lon, speed_kmph, ignition
-       FROM pings
-       WHERE vehicle_id = ? AND timestamp >= ? AND timestamp <= ?
-       ORDER BY timestamp ASC`
-    )
-    .all(vehicleId, new Date(fromMs).toISOString(), new Date(toMs).toISOString()) as Ping[];
+): Promise<Utilization> {
+  const pings = await pingsCollection
+    .find({
+      vehicle_id: vehicleId,
+      timestamp: { $gte: new Date(fromMs).toISOString(), $lte: new Date(toMs).toISOString() },
+    })
+    .sort({ timestamp: 1 })
+    .toArray();
 
   const totals: Record<State, number> = { driving: 0, idle: 0, off: 0 };
   const windowMs = toMs - fromMs;

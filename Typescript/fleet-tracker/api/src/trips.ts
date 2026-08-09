@@ -1,4 +1,4 @@
-import { db } from "./db.js";
+import { pings as pingsCollection } from "./db.js";
 import { haversineKm } from "./geo.js";
 
 export interface Ping {
@@ -24,20 +24,15 @@ export interface Trip {
 // force-close a trip, even if ignition never reported OFF (dropped uplink).
 export const GAP_CLOSE_MS = 30 * 60 * 1000;
 
-export function getPings(vehicleId: string): Ping[] {
-  return db
-    .prepare(
-      `SELECT vehicle_id, timestamp, lat, lon, speed_kmph, ignition
-       FROM pings WHERE vehicle_id = ? ORDER BY timestamp ASC`
-    )
-    .all(vehicleId) as Ping[];
+export async function getPings(vehicleId: string): Promise<Ping[]> {
+  return pingsCollection
+    .find({ vehicle_id: vehicleId })
+    .sort({ timestamp: 1 })
+    .toArray();
 }
 
-export function getAllVehicleIds(): string[] {
-  const rows = db.prepare(`SELECT DISTINCT vehicle_id FROM pings`).all() as {
-    vehicle_id: string;
-  }[];
-  return rows.map((r) => r.vehicle_id);
+export async function getAllVehicleIds(): Promise<string[]> {
+  return pingsCollection.distinct("vehicle_id");
 }
 
 function buildTrip(segment: Ping[]): Trip {

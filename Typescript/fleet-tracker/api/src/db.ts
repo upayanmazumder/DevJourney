@@ -1,18 +1,33 @@
-import Database from "better-sqlite3";
+import "dotenv/config";
+import { MongoClient, type Collection } from "mongodb";
+import type { Ping } from "./trips.js";
 
-export const db = new Database(process.env.DB_PATH ?? "fleet.db");
-db.pragma("journal_mode = WAL");
+const uri = process.env.MONGODB_URI;
+if (!uri) {
+  throw new Error("MONGODB_URI is not set (see api/.env)");
+}
 
-db.exec(`
-  CREATE TABLE IF NOT EXISTS pings (
-    vehicle_id  TEXT NOT NULL,
-    timestamp   TEXT NOT NULL,
-    lat         REAL NOT NULL,
-    lon         REAL NOT NULL,
-    speed_kmph  REAL NOT NULL,
-    ignition    TEXT NOT NULL CHECK (ignition IN ('ON', 'OFF')),
-    PRIMARY KEY (vehicle_id, timestamp)
-  );
+const dbName = process.env.MONGODB_DB ?? "fleet_tracker";
 
-  CREATE INDEX IF NOT EXISTS idx_pings_vehicle_ts ON pings (vehicle_id, timestamp);
-`);
+export const client = new MongoClient(uri);
+export const pings: Collection<Ping> = client.db(dbName).collection<Ping>("pings");
+
+let indexesReady: Promise<unknown> | null = null;
+
+/** (vehicle_id, timestamp) uniquely identifies a ping — enforces ingest
+ * idempotency and doubles as the sort/range index used by trips + utilization. */
+function ensureIndexes(): Promise<unknown> {
+  if (!indexesReady) {
+    indexesReady = pings.createIndex({ vehicle_id: 1, timestamp: 1 }, { unique: true });
+  }
+  return indexesReady;
+}
+
+export async function connectDb(): Promise<void> {
+  await client.connect();
+  await ensureIndexes();
+}
+
+export async function disconnectDb(): Promise<void> {
+  await client.close();
+}

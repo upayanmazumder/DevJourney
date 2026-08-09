@@ -1,4 +1,5 @@
-import { db } from "./db.js";
+import { MongoBulkWriteError } from "mongodb";
+import { pings as pingsCollection } from "./db.js";
 import type { Ping } from "./trips.js";
 
 export interface IngestResult {
@@ -45,32 +46,19 @@ function validatePing(raw: unknown, index: number): { ping: Ping } | { error: st
   };
 }
 
-const insertStmt = db.prepare(`
-  INSERT OR IGNORE INTO pings (vehicle_id, timestamp, lat, lon, speed_kmph, ignition)
-  VALUES (@vehicle_id, @timestamp, @lat, @lon, @speed_kmph, @ignition)
-`);
-
 /**
- * Bulk-insert pings. Idempotent: the (vehicle_id, timestamp) primary key
- * makes re-posting the same ping a no-op (counted as a duplicate, not an error).
- * Bad-data guard (speed>0 while ignition=OFF) is accepted as-is: trip
- * reconstruction ignores speed on OFF pings, so it can't distort a trip.
+ * Bulk-insert pings. Idempotent: the (vehicle_id, timestamp) unique index
+ * makes re-posting the same ping a no-op (counted as a duplicate, not an
+ * error). Bad-data guard (speed>0 while ignition=OFF) is accepted as-is:
+ * trip reconstruction ignores speed on OFF pings, so it can't distort a trip.
  */
-export function ingestPings(rawPings: unknown[]): IngestResult {
+export async function ingestPings(rawPings: unknown[]): Promise<IngestResult> {
   const result: IngestResult = {
     received: rawPings.length,
     inserted: 0,
     duplicates: 0,
     invalid: [],
   };
-
-  const insertMany = db.transaction((pings: Ping[]) => {
-    for (const ping of pings) {
-      const info = insertStmt.run(ping);
-      if (info.changes > 0) result.inserted++;
-      else result.duplicates++;
-    }
-  });
 
   const validPings: Ping[] = [];
   rawPings.forEach((raw, index) => {
@@ -82,7 +70,24 @@ export function ingestPings(rawPings: unknown[]): IngestResult {
     }
   });
 
-  insertMany(validPings);
+  if (validPings.length > 0) {
+    try {
+      const insertResult = await pingsCollection.insertMany(validPings, { ordered: false });
+      result.inserted = insertResult.insertedCount;
+      result.duplicates = validPings.length - insertResult.insertedCount;
+    } catch (err) {
+      if (err instanceof MongoBulkWriteError) {
+        const writeErrors = Array.isArray(err.writeErrors) ? err.writeErrors : [err.writeErrors];
+        const nonDuplicate = writeErrors.find((e) => e.code !== 11000);
+        if (nonDuplicate) throw err;
+        result.inserted = err.result.insertedCount;
+        result.duplicates = validPings.length - err.result.insertedCount;
+      } else {
+        throw err;
+      }
+    }
+  }
+
   return result;
 }
 
