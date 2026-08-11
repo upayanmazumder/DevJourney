@@ -49,12 +49,15 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "brace-expansion": "^2.0.3",
+    "express": "^5.2.1",
+    "picomatch": "^4.0.4"
   },
   "resolutions": {
+    "brace-expansion": "^2.0.3",
     "minimatch": "^9.0.7",
     "picomatch": "^4.0.4",
-    "undici": "^7.24.0",
-    "brace-expansion": "^2.0.3"
+    "sharp": "^0.35.3",
+    "undici": "^7.24.0"
   }
 }
