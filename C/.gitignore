@@ -1,6 +1,10 @@
 # Ignore the exe files
 *.exe
 
+# Ignore compiled binaries without an extension (gcc -o main main.c)
+main
+a.out
+
 # Ignore temporary code runner files
 tempCodeRunnerFile.c
 
