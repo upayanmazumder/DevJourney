@@ -11,5 +11,9 @@
   "description": "",
   "devDependencies": {
     "eslint": "^9.18.0"
+  },
+  "overrides": {
+    "js-yaml": "^4.3.2",
+    "@humanfs/node": "^0.16.8"
   }
 }
