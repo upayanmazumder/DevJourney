@@ -1,0 +1,100 @@
+JAVA LAB QUICK SHEET
+
+1. BOOTH'S ALGORITHM
+Gist (20 words): Multiplies signed binary integers efficiently by examining adjacent multiplier bits and reducing repeated additions through arithmetic shifts.
+Algo:
+1. Initialize accumulator A, multiplier Q, multiplicand M, and previous bit Q-1 to zero.
+2. For 32 iterations, inspect Q0 and Q-1.
+3. 10: subtract M; 01: add M; 00/11: do nothing.
+4. Arithmetic-right-shift the combined A,Q,Q-1.
+5. Output the combined signed result.
+
+2. EUCLID'S ALGORITHM
+Gist (20 words): Repeatedly replaces two numbers with divisor and remainder until the remainder becomes zero; the divisor is their greatest common divisor.
+Algo:
+1. Set a and b to the two numbers.
+2. While b is nonzero, replace (a,b) with (b,a mod b).
+3. Print a.
+
+3. KARATSUBA ALGORITHM
+Gist (20 words): Recursively multiplies large numbers using three products instead of four, reducing multiplication complexity compared with ordinary divide-and-conquer.
+Algo:
+1. Split each number into high and low halves.
+2. Compute ac, bd, and (a+b)(c+d).
+3. Derive cross term as (a+b)(c+d)-ac-bd.
+4. Combine using powers of ten.
+5. Recurse until single-digit multiplication.
+
+4. LONGEST SEQUENCE OF 1 AFTER FLIPPING A BIT
+Gist (20 words): Finds the longest run of ones obtainable by changing one zero bit into one using a single bit scan.
+Algo:
+1. Read the integer and inspect its 32 bits.
+2. Track the current run and the run before the latest zero.
+3. Treat one zero as flipped and combine adjacent runs.
+4. Keep the maximum, capped at 32.
+
+5. SWAP TWO NIBBLES IN A BYTE
+Gist (20 words): Exchanges the upper and lower four-bit halves of one byte using masking, shifting, and bitwise OR operations.
+Algo:
+1. Mask the lower nibble and shift it left four positions.
+2. Mask the upper nibble and shift it right four positions.
+3. OR both results.
+
+6. BLOCK SWAP ALGORITHM
+Gist (20 words): Rotates an array by swapping blocks, implemented here with equivalent three reversals for concise linear-time rotation.
+Algo:
+1. Reduce d modulo n.
+2. Reverse the first d elements.
+3. Reverse the remaining elements.
+4. Reverse the complete array.
+
+7. MAX PRODUCT SUBARRAY
+Gist (20 words): Tracks maximum and minimum products because negative values can exchange their roles and create the largest final product.
+Algo:
+1. Maintain maximum and minimum products ending at the current position.
+2. If current value is negative, swap maximum and minimum.
+3. Update both using current value and multiplication.
+4. Track the global maximum.
+
+8. MAXIMUM SUM OF HOURGLASS IN MATRIX
+Gist (20 words): Checks every 3x3 matrix window, sums its seven hourglass cells, and returns the largest sum found.
+Algo:
+1. Read the 6x6 matrix.
+2. Visit every possible top-left position from 0 to 3.
+3. Add the seven hourglass elements.
+4. Keep the maximum sum.
+
+9. MAX EQUILIBRIUM SUM
+Gist (20 words): Finds the largest sum where elements strictly left and right of one position have equal totals.
+Algo:
+1. Compute total array sum.
+2. Scan each element and remove it from the right sum.
+3. Compare left and right sums.
+4. If equal, update the maximum equilibrium sum.
+5. Add the current element to the left sum.
+
+10. LEADERS IN ARRAY
+Gist (20 words): An element is a leader when no element to its right is greater; scan backwards while tracking the maximum.
+Algo:
+1. Start from the last element.
+2. Track the maximum seen from the right.
+3. Store an element when it is at least that maximum.
+4. Reverse stored leaders for original order.
+
+11. MAJORITY ELEMENT
+Gist (20 words): Boyer-Moore voting finds a candidate, then verifies its frequency to ensure it actually exceeds half the array.
+Algo:
+1. Maintain a candidate and vote count.
+2. Reset candidate when count becomes zero.
+3. Increase votes for matches and decrease them otherwise.
+4. Count the candidate again.
+5. Print it only when its frequency exceeds n/2; otherwise print -1.
+
+12. LEXICOGRAPHICALLY FIRST PALINDROMIC STRING
+Gist (20 words): Counts characters, builds the smallest possible first half, places one odd character centrally, then mirrors it.
+Algo:
+1. Count every character.
+2. If more than one character has odd frequency, a palindrome is impossible.
+3. Append each character half its frequency in ascending character order.
+4. Place the only odd character in the middle.
+5. Append the reverse of the first half.
