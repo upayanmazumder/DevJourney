@@ -21,6 +21,15 @@ This repository is a collection of various pieces of code written in multiple la
 
 The purpose of this repository is to store and document the diverse range of code I have written as part of my learning journey. It serves as a personal reference and a showcase of my progress and exploration in various programming languages.
 
+## Formatting
+
+Run `./setup-hooks` once after cloning to enable the repository's pre-commit
+formatter. The hook formats staged Java, C/C++, Go, Python, and JavaScript/
+TypeScript/JSON/CSS/HTML/Markdown/YAML files, then stages the formatted files.
+Install `google-java-format`, `clang-format`, `gofmt`, `black`, and `prettier`
+to cover the corresponding languages. A missing formatter blocks the commit if
+you stage a file for that language.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.

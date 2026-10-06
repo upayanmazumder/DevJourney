@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Format staged source files with the standard formatter for each language.
+set -euo pipefail
+
+root=$(git rev-parse --show-toplevel)
+cd "$root"
+
+# Read staged paths safely, including paths containing whitespace.
+mapfile -d '' files < <(git diff --cached --name-only --diff-filter=ACMR -z)
+((${#files[@]})) || exit 0
+
+format() {
+    local tool=$1
+    shift
+    command -v "$tool" >/dev/null 2>&1 || {
+        printf 'format: required formatter not found: %s\n' "$tool" >&2
+        exit 1
+    }
+    "$tool" "$@"
+}
+
+java=() c=() cpp=() go=() python=() js=() web=()
+for file in "${files[@]}"; do
+    case "$file" in
+        *.java) java+=("$file") ;;
+        *.c|*.h) c+=("$file") ;;
+        *.cc|*.cpp|*.cxx|*.hpp|*.hh|*.hxx) cpp+=("$file") ;;
+        *.go) go+=("$file") ;;
+        *.py) python+=("$file") ;;
+        *.js|*.jsx|*.ts|*.tsx|*.json|*.css|*.html|*.md|*.yaml|*.yml) web+=("$file") ;;
+    esac
+done
+
+((${#java[@]} == 0)) || format google-java-format --replace "${java[@]}"
+((${#c[@]} == 0)) || format clang-format -i "${c[@]}"
+((${#cpp[@]} == 0)) || format clang-format -i "${cpp[@]}"
+((${#go[@]} == 0)) || format gofmt -w "${go[@]}"
+((${#python[@]} == 0)) || format black "${python[@]}"
+((${#web[@]} == 0)) || format prettier --write "${web[@]}"
+
+# Include formatter output in the commit; never silently leave unstaged formatting.
+git add -- "${files[@]}"
