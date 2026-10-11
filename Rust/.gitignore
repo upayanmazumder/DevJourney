@@ -1,0 +1,8 @@
+# Ignore Windows executables
+*.exe
+
+# Ignore compiled binaries without an extension (rustc main.rs)
+main
+
+# Ignore Cargo build output
+/target/
