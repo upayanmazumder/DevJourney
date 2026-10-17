@@ -1,0 +1,101 @@
+name: JS Projects Install & Build Check
+
+# Projects covered by a dedicated Docker Image CI workflow (learning-react,
+# learning-qwik, html.nodejs.dj.upayan.dev) already install and build on
+# every push/PR, so they are intentionally excluded from this matrix.
+
+on:
+  push:
+    branches: ['main']
+    paths:
+      - 'NodeJS/**'
+      - 'Typescript/**'
+      - 'astro/**'
+      - 'electronjs/**'
+      - 'nextjs/**'
+      - 'react/VIT/react-crud/**'
+      - 'react/crud-operations/**'
+      - 'react/last-practice/**'
+      - '.github/workflows/js-projects-install-check.yml'
+  pull_request:
+    branches: ['main']
+    paths:
+      - 'NodeJS/**'
+      - 'Typescript/**'
+      - 'astro/**'
+      - 'electronjs/**'
+      - 'nextjs/**'
+      - 'react/VIT/react-crud/**'
+      - 'react/crud-operations/**'
+      - 'react/last-practice/**'
+      - '.github/workflows/js-projects-install-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  install-and-build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - { path: 'NodeJS', manager: 'npm', build: false }
+          - {
+              path: 'NodeJS/crud-operations-mongodb',
+              manager: 'npm',
+              build: false,
+            }
+          - { path: 'NodeJS/my-rest-api', manager: 'npm', build: false }
+          - { path: 'NodeJS/rest-api', manager: 'npm', build: false }
+          - { path: 'Typescript/website', manager: 'npm', build: false }
+          - {
+              path: 'Typescript/fleet-tracker/api',
+              manager: 'npm',
+              build: true,
+            }
+          - {
+              path: 'Typescript/fleet-tracker/app',
+              manager: 'npm',
+              build: true,
+            }
+          - { path: 'astro/learning-astro', manager: 'npm', build: true }
+          - { path: 'electronjs', manager: 'npm', build: false }
+          - { path: 'nextjs/learning-nextjs', manager: 'pnpm', build: true }
+          - { path: 'react/VIT/react-crud/api', manager: 'npm', build: false }
+          - { path: 'react/VIT/react-crud/app', manager: 'npm', build: true }
+          - { path: 'react/crud-operations/api', manager: 'pnpm', build: false }
+          - { path: 'react/crud-operations/app', manager: 'pnpm', build: true }
+          - { path: 'react/last-practice/api', manager: 'pnpm', build: false }
+          - { path: 'react/last-practice/app', manager: 'pnpm', build: true }
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        if: matrix.project.manager == 'pnpm'
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: ${{ matrix.project.manager }}
+          cache-dependency-path: ${{ matrix.project.path }}/${{ matrix.project.manager == 'npm' && 'package-lock.json' || 'pnpm-lock.yaml' }}
+
+      - name: Install dependencies (npm)
+        if: matrix.project.manager == 'npm'
+        working-directory: ${{ matrix.project.path }}
+        run: npm ci
+
+      - name: Install dependencies (pnpm)
+        if: matrix.project.manager == 'pnpm'
+        working-directory: ${{ matrix.project.path }}
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        if: matrix.project.build
+        working-directory: ${{ matrix.project.path }}
+        run: ${{ matrix.project.manager }} run build

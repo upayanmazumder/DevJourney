@@ -3,19 +3,19 @@ name: Docker Image CI for learning-react
 on:
   push:
     paths:
-      - "react/learning-react/**"
-    branches: ["main"]
+      - 'react/learning-react/**'
+    branches: ['main']
   pull_request:
     paths:
-      - "react/learning-react/**"
-    branches: ["main"]
+      - 'react/learning-react/**'
+    branches: ['main']
 
 permissions:
   contents: read
   packages: write
 
 jobs:
-  build:
+  build-learning-react:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
