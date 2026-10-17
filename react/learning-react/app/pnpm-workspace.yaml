@@ -9,6 +9,8 @@ overrides:
   js-yaml@4: ^4.3.2
   nth-check: ^2.1.1
   postcss: ^8.5.23
+  proxy-addr: ^2.0.8
+  source-map-js: ^1.2.2
   qs: ^6.16.0
   serialize-javascript: ^7.0.5
   svgo: ^2.8.4
