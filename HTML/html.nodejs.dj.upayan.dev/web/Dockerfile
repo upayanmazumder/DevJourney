@@ -4,9 +4,12 @@ FROM node:latest
 # Create and change to the app directory
 WORKDIR /app
 
+# corepack is no longer shipped in Node >= 25; install pnpm directly
+RUN npm install -g pnpm@11
+
 # Copy package manifests and install dependencies
-COPY package*.json ./
-RUN npm install
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --frozen-lockfile
 
 # Copy the local code to the container image
 COPY . .
