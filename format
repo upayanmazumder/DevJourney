@@ -36,7 +36,11 @@ done
 ((${#cpp[@]} == 0)) || format clang-format -i "${cpp[@]}"
 ((${#go[@]} == 0)) || format gofmt -w "${go[@]}"
 ((${#python[@]} == 0)) || format black "${python[@]}"
-((${#web[@]} == 0)) || format prettier --write "${web[@]}"
+# Run prettier from each file's own directory so project-local configs and their
+# plugins resolve (a subproject may depend on a parser/plugin not installed at the repo root).
+for file in "${web[@]}"; do
+    (cd "$(dirname "$file")" && format prettier --write "$(basename "$file")")
+done
 
 # Include formatter output in the commit; never silently leave unstaged formatting.
 git add -- "${files[@]}"

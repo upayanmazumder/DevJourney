@@ -11,14 +11,12 @@ WORKDIR /usr/src/app
 # Create a stage for installing production dependencies.
 FROM base AS deps
 
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.yarn to speed up subsequent builds.
-# Leverage bind mounts to package.json and yarn.lock to avoid having to copy them
-# into this layer.
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=yarn.lock,target=yarn.lock \
-    --mount=type=cache,target=/root/.yarn \
-    yarn install --frozen-lockfile
+# corepack is no longer shipped in Node >= 25; install pnpm directly
+RUN npm install -g pnpm@11
+
+# Copy manifests so the dependency layer can be cached.
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --frozen-lockfile
 
 ################################################################################
 # Create a stage for building the application.
@@ -28,7 +26,7 @@ FROM deps AS build
 COPY . .
 
 # Run the build script.
-RUN yarn run build
+RUN pnpm run build
 
 ################################################################################
 # Create a new stage to run the application with minimal runtime dependencies
@@ -55,4 +53,4 @@ COPY --from=build /usr/src/app/server ./server
 EXPOSE 3000
 
 # Run the application.
-CMD ["yarn", "serve"]
+CMD ["node", "server/entry.express"]

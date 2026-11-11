@@ -1,0 +1,11 @@
+allowBuilds:
+  esbuild: true
+overrides:
+  "brace-expansion": "^2.1.7"
+  "js-yaml": "^4.3.2"
+  "minimatch": "^9.0.7"
+  "picomatch": "^4.0.4"
+  "qs": "^6.16.0"
+  "sharp": "^0.35.5"
+  "svgo": "^3.3.5"
+  "undici": "^7.29.1"
