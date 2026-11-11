@@ -40,40 +40,27 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - { path: 'NodeJS', manager: 'npm', build: false }
-          - {
-              path: 'NodeJS/crud-operations-mongodb',
-              manager: 'npm',
-              build: false,
-            }
-          - { path: 'NodeJS/my-rest-api', manager: 'npm', build: false }
-          - { path: 'NodeJS/rest-api', manager: 'npm', build: false }
-          - { path: 'Typescript/website', manager: 'npm', build: false }
-          - {
-              path: 'Typescript/fleet-tracker/api',
-              manager: 'npm',
-              build: true,
-            }
-          - {
-              path: 'Typescript/fleet-tracker/app',
-              manager: 'npm',
-              build: true,
-            }
-          - { path: 'astro/learning-astro', manager: 'npm', build: true }
-          - { path: 'electronjs', manager: 'npm', build: false }
-          - { path: 'nextjs/learning-nextjs', manager: 'pnpm', build: true }
-          - { path: 'react/VIT/react-crud/api', manager: 'npm', build: false }
-          - { path: 'react/VIT/react-crud/app', manager: 'npm', build: true }
-          - { path: 'react/crud-operations/api', manager: 'pnpm', build: false }
-          - { path: 'react/crud-operations/app', manager: 'pnpm', build: true }
-          - { path: 'react/last-practice/api', manager: 'pnpm', build: false }
-          - { path: 'react/last-practice/app', manager: 'pnpm', build: true }
+          - { path: 'NodeJS', build: false }
+          - { path: 'NodeJS/crud-operations-mongodb', build: false }
+          - { path: 'NodeJS/my-rest-api', build: false }
+          - { path: 'NodeJS/rest-api', build: false }
+          - { path: 'Typescript/website', build: false }
+          - { path: 'Typescript/fleet-tracker/api', build: true }
+          - { path: 'Typescript/fleet-tracker/app', build: true }
+          - { path: 'astro/learning-astro', build: true }
+          - { path: 'electronjs', build: false }
+          - { path: 'nextjs/learning-nextjs', build: true }
+          - { path: 'react/VIT/react-crud/api', build: false }
+          - { path: 'react/VIT/react-crud/app', build: true }
+          - { path: 'react/crud-operations/api', build: false }
+          - { path: 'react/crud-operations/app', build: true }
+          - { path: 'react/last-practice/api', build: false }
+          - { path: 'react/last-practice/app', build: true }
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up pnpm
-        if: matrix.project.manager == 'pnpm'
         uses: pnpm/action-setup@v4
         with:
           version: 11
@@ -82,20 +69,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: ${{ matrix.project.manager }}
-          cache-dependency-path: ${{ matrix.project.path }}/${{ matrix.project.manager == 'npm' && 'package-lock.json' || 'pnpm-lock.yaml' }}
+          cache: pnpm
+          cache-dependency-path: ${{ matrix.project.path }}/pnpm-lock.yaml
 
-      - name: Install dependencies (npm)
-        if: matrix.project.manager == 'npm'
-        working-directory: ${{ matrix.project.path }}
-        run: npm ci
-
-      - name: Install dependencies (pnpm)
-        if: matrix.project.manager == 'pnpm'
+      - name: Install dependencies
         working-directory: ${{ matrix.project.path }}
         run: pnpm install --frozen-lockfile
 
       - name: Build
         if: matrix.project.build
         working-directory: ${{ matrix.project.path }}
-        run: ${{ matrix.project.manager }} run build
+        run: pnpm run build
