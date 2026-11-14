@@ -59,8 +59,7 @@ jobs:
           google-java-format --version
           black --version
           clang-format --version
-          gofmt -h >/dev/null 2>&1 || true
-          prettier --version
+          ./node_modules/.bin/prettier --version
 
       - name: Check formatting
         run: ./format --all --check
