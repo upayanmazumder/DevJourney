@@ -1,4 +1,68 @@
 #!/usr/bin/env bash
+# Pre-commit hook.
+#  1. reject staged build artifacts and compiled binaries
+#  2. reject accidentally staged large files
+#  3. reject obvious credentials
+#  4. format staged files and re-stage the result
+# Bypass with: git commit --no-verify
 set -euo pipefail
+
 root=$(git rev-parse --show-toplevel)
-"$root/format"
+cd "$root"
+
+mapfile -d '' staged < <(git diff --cached --name-only --diff-filter=ACMR -z)
+((${#staged[@]})) || exit 0
+
+status=0
+
+# ---------------------------------------------------------------- 1. artifacts
+artifact_pattern='(^|/)(node_modules|dist|dist-ssr|build|out|\.next|\.turbo|coverage|\.cache|target|__pycache__|\.venv|venv)(/|$)'
+binary_pattern='\.(exe|dll|so|so\.[0-9.]+|dylib|o|obj|a|lib|class|jar|war|pyc|pyo|pdb|tsbuildinfo|log|tmp)$'
+for f in "${staged[@]}"; do
+    if [[ $f =~ $artifact_pattern ]] || [[ $f =~ $binary_pattern ]]; then
+        printf 'pre-commit: refusing to commit build artifact: %s\n' "$f" >&2
+        printf 'pre-commit: add it to .gitignore and run: git rm --cached "%s"\n' "$f" >&2
+        status=1
+    fi
+done
+
+# -------------------------------------------------------------- 2. large files
+max_bytes=$((10 * 1024 * 1024))
+for f in "${staged[@]}"; do
+    [ -f "$f" ] || continue
+    size=$(wc -c <"$f")
+    if ((size > max_bytes)); then
+        printf 'pre-commit: file larger than 10 MB (%s bytes): %s\n' "$size" "$f" >&2
+        printf 'pre-commit: use Git LFS or keep media out of the repository\n' >&2
+        status=1
+    fi
+done
+
+# ----------------------------------------------------------------- 3. secrets
+declare -a secret_patterns=(
+    '-----BEGIN [A-Z ]*PRIVATE KEY-----'
+    'AKIA[0-9A-Z]{16}'
+    'ghp_[A-Za-z0-9]{36}'
+    'github_pat_[A-Za-z0-9_]{22,}'
+    'xox[baprs]-[A-Za-z0-9-]{10,}'
+    'sk-[A-Za-z0-9]{32,}'
+)
+for f in "${staged[@]}"; do
+    [ -f "$f" ] || continue
+    case "$f" in
+        *.png | *.jpg | *.jpeg | *.gif | *.ico | *.ttf | *.otf | *.woff* | *.mp4 | *.pdf | *.blend* | *.zip) continue ;;
+    esac
+    for pattern in "${secret_patterns[@]}"; do
+        if grep -IqE -- "$pattern" "$f" 2>/dev/null; then
+            printf 'pre-commit: possible credential matching /%s/ in %s\n' "$pattern" "$f" >&2
+            status=1
+        fi
+    done
+done
+
+((status == 0)) || exit "$status"
+
+# --------------------------------------------------------------- 4. formatting
+if [ "${SKIP_FORMAT:-0}" != "1" ]; then
+    "$root/format"
+fi

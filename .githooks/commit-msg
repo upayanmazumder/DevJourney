@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Commit message hook: enforce Conventional Commits.
+# Format: <type>(<optional scope>): <subject>
+# Allowed types: build, chore, ci, deps, docs, feat, fix, perf, refactor, revert, style, test
+# Bypass with: git commit --no-verify
+set -euo pipefail
+
+msg_file=${1:?commit message file required}
+subject=$(head -n1 "$msg_file")
+
+# Allow merge commits, reverts and fixup/squash commits.
+case "$subject" in
+    "Merge "* | "Revert "* | "revert:"* | "fixup! "* | "squash! "* | "amend! "*) exit 0 ;;
+esac
+
+pattern='^(build|chore|ci|deps|docs|feat|fix|perf|refactor|revert|style|test)(\([a-zA-Z0-9._/-]+\))?!?: .+'
+
+if ! [[ $subject =~ $pattern ]]; then
+    cat >&2 <<'EOF'
+commit-msg: subject does not follow Conventional Commits.
+
+  <type>(<scope>): <subject>
+
+  types: build chore ci deps docs feat fix perf refactor revert style test
+  example: fix(qwik): pin vite to a supported range
+
+Rewrite with: git commit --amend
+EOF
+    exit 1
+fi
+
+if ((${#subject} > 100)); then
+    printf 'commit-msg: subject is %d characters, keep it under 100\n' "${#subject}" >&2
+    exit 1
+fi
+
+exit 0

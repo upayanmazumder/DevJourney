@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
+# Install the repository's Git hooks (pre-commit, commit-msg, pre-push).
 set -euo pipefail
 root=$(git rev-parse --show-toplevel)
+
+chmod +x "$root/.githooks/"* "$root/format" 2>/dev/null || true
 git -C "$root" config core.hooksPath .githooks
-printf 'Installed repository commit hooks.\n'
+
+printf 'Installed repository hooks from .githooks (core.hooksPath=.githooks)\n'
+printf '  pre-commit : artifact/secret guard + formatting\n'
+printf '  commit-msg : Conventional Commits check\n'
+printf '  pre-push   : frozen install + build for changed pnpm projects\n'

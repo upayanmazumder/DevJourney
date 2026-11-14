@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# Pre-push hook: run the same install + build checks CI runs, but only for the
+# projects touched by the commits being pushed.
+#
+# Each project is a directory with a package.json and a pnpm-lock.yaml.
+# Bypass with: git push --no-verify
+set -euo pipefail
+
+root=$(git rev-parse --show-toplevel)
+cd "$root"
+
+zero=$(git hash-object --stdin </dev/null | tr '0-9a-f' '0')
+declare -A projects=()
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [ "$local_sha" = "$zero" ] && continue # branch deletion
+    if [ "$remote_sha" = "$zero" ]; then
+        range="$local_sha"
+        changed=$(git diff-tree --no-commit-id --name-only -r "$local_sha")
+    else
+        range="$remote_sha..$local_sha"
+        changed=$(git diff --name-only "$range")
+    fi
+    [ -n "$changed" ] || continue
+
+    while read -r file; do
+        [ -n "$file" ] || continue
+        dir=$(dirname "$file")
+        while [ "$dir" != "." ] && [ "$dir" != "/" ]; do
+            if [ -f "$dir/pnpm-lock.yaml" ] && [ -f "$dir/package.json" ]; then
+                projects["$dir"]=1
+                break
+            fi
+            dir=$(dirname "$dir")
+        done
+    done <<<"$changed"
+done
+
+((${#projects[@]})) || {
+    echo "pre-push: no pnpm projects changed"
+    exit 0
+}
+
+command -v pnpm >/dev/null 2>&1 || {
+    echo "pre-push: pnpm not found; install it to run the local checks" >&2
+    exit 1
+}
+
+failed=()
+for dir in "${!projects[@]}"; do
+    printf '\npre-push: checking %s\n' "$dir"
+    if ! (cd "$dir" && CI=true pnpm install --frozen-lockfile >/dev/null 2>&1); then
+        echo "pre-push: lockfile out of date in $dir (run pnpm install there)" >&2
+        failed+=("$dir (install)")
+        continue
+    fi
+    if node -e "const s=require('./$dir/package.json').scripts||{}; process.exit(s.build?0:1)"; then
+        if ! (cd "$dir" && pnpm run build >/tmp/pre-push-build.log 2>&1); then
+            echo "pre-push: build failed in $dir (log: /tmp/pre-push-build.log)" >&2
+            tail -n 20 /tmp/pre-push-build.log >&2
+            failed+=("$dir (build)")
+        fi
+    fi
+done
+
+if ((${#failed[@]})); then
+    printf '\npre-push: failing projects: %s\n' "${failed[*]}" >&2
+    exit 1
+fi
+
+echo "pre-push: all changed projects install and build"
