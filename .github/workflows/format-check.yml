@@ -1,16 +1,16 @@
 name: Format Check
 
-# Verifies that files changed by the push/PR are formatted with the
-# repository's declared styles (.prettierrc.json, .clang-format,
-# pyproject.toml for black, gofmt, google-java-format).
-# Only changed files are checked, so the existing unformatted history does
-# not block contributions.
+# Verifies the whole tree against the repository's declared styles:
+# .prettierrc.json, .clang-format, pyproject.toml (black), gofmt and
+# google-java-format. The entire tree is checked because it is fully
+# formatted, so any drift - new or pre-existing - fails here.
 
 on:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -20,28 +20,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 11
 
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v7
         with:
           go-version: "stable"
           cache: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.x"
 
@@ -59,34 +57,10 @@ jobs:
           WRAPPER
           sudo chmod +x /usr/local/bin/google-java-format
           google-java-format --version
+          black --version
+          clang-format --version
+          gofmt -h >/dev/null 2>&1 || true
+          prettier --version
 
-      - name: Determine changed files
-        id: changed
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            base="${{ github.event.pull_request.base.sha }}"
-          else
-            base="${{ github.event.before }}"
-          fi
-          if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
-            base="HEAD~1"
-          fi
-          git diff --name-only --diff-filter=ACMR -z "$base" HEAD > /tmp/changed.z || true
-          count=$(tr -cd '\0' < /tmp/changed.z | wc -c)
-          echo "count=$count" >> "$GITHUB_OUTPUT"
-          tr '\0' '\n' < /tmp/changed.z
-
-      - name: Check formatting of changed files
-        if: steps.changed.outputs.count != '0'
-        env:
-          SKIP_FORMAT: "0"
-        run: |
-          mapfile -d '' files < /tmp/changed.z
-          existing=()
-          for f in "${files[@]}"; do [ -f "$f" ] && existing+=("$f"); done
-          if ((${#existing[@]} == 0)); then
-            echo 'No formattable files changed.'
-            exit 0
-          fi
-          git add -- "${existing[@]}"
-          ./format --check
+      - name: Check formatting
+        run: ./format --all --check

@@ -9,6 +9,7 @@ on:
     paths:
       - "react/learning-react/**"
     branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -19,10 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}

@@ -29,6 +29,7 @@ on:
       - "react/crud-operations/**"
       - "react/last-practice/**"
       - ".github/workflows/js-projects-install-check.yml"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -58,15 +59,15 @@ jobs:
           - { path: "react/last-practice/app", build: true }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 11
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: pnpm
