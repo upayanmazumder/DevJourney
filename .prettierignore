@@ -1,0 +1,55 @@
+# Dependencies
+node_modules
+**/node_modules
+.pnpm-store
+.yarn
+vendor
+
+# Lockfiles are generated, never hand-formatted
+**/package-lock.json
+**/pnpm-lock.yaml
+**/yarn.lock
+**/bun.lockb
+
+# Build output
+**/dist
+**/dist-ssr
+**/build
+**/out
+**/.next
+**/.turbo
+**/.svelte-kit
+**/coverage
+**/.cache
+**/*.tsbuildinfo
+**/.eslintcache
+
+# Third-party / vendor trees and binary assets
+Capture\ Cis\ Lite
+Godot/**/assets
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.ico
+**/*.svg
+**/*.ttf
+**/*.otf
+**/*.woff
+**/*.woff2
+**/*.mp4
+**/*.pdf
+**/*.blend
+**/*.blend1
+
+# Generated or machine-managed files
+**/*.d.ts
+**/CHANGELOG.md
+**/.github/FUNDING.yml
+
+# Simulation / HDL output
+**/qsim
+**/simulation
+**/work
+**/*.vcd
+**/*.wlf

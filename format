@@ -1,46 +1,148 @@
 #!/usr/bin/env bash
-# Format staged source files with the standard formatter for each language.
+# Format (or verify) source files with the standard formatter for each language.
+#
+# Usage:
+#   ./format                 # format staged files (used by the pre-commit hook)
+#   ./format --staged        # same as above, explicit
+#   ./format --check         # verify staged files, non-zero exit on drift (CI)
+#   ./format --all           # format every tracked file
+#   ./format --all --check   # verify every tracked file
+#
+# Prettier is executed from the nearest directory containing a package.json so
+# that project-local configs and plugins (e.g. prettier-plugin-tailwindcss in
+# qwik/learning-qwik) resolve correctly.
 set -euo pipefail
 
 root=$(git rev-parse --show-toplevel)
 cd "$root"
 
-# Read staged paths safely, including paths containing whitespace.
-mapfile -d '' files < <(git diff --cached --name-only --diff-filter=ACMR -z)
-((${#files[@]})) || exit 0
-
-format() {
-    local tool=$1
-    shift
-    command -v "$tool" >/dev/null 2>&1 || {
-        printf 'format: required formatter not found: %s\n' "$tool" >&2
-        exit 1
-    }
-    "$tool" "$@"
-}
-
-java=() c=() cpp=() go=() python=() js=() web=()
-for file in "${files[@]}"; do
-    case "$file" in
-        *.java) java+=("$file") ;;
-        *.c|*.h) c+=("$file") ;;
-        *.cc|*.cpp|*.cxx|*.hpp|*.hh|*.hxx) cpp+=("$file") ;;
-        *.go) go+=("$file") ;;
-        *.py) python+=("$file") ;;
-        *.js|*.jsx|*.ts|*.tsx|*.json|*.css|*.html|*.md|*.yaml|*.yml) web+=("$file") ;;
+mode=write
+scope=staged
+for arg in "$@"; do
+    case "$arg" in
+        --check) mode=check ;;
+        --write) mode=write ;;
+        --staged) scope=staged ;;
+        --all) scope=all ;;
+        -h | --help)
+            sed -n '2,15p' "$0"
+            exit 0
+            ;;
+        *)
+            printf 'format: unknown argument: %s\n' "$arg" >&2
+            exit 2
+            ;;
     esac
 done
 
-((${#java[@]} == 0)) || format google-java-format --replace "${java[@]}"
-((${#c[@]} == 0)) || format clang-format -i "${c[@]}"
-((${#cpp[@]} == 0)) || format clang-format -i "${cpp[@]}"
-((${#go[@]} == 0)) || format gofmt -w "${go[@]}"
-((${#python[@]} == 0)) || format black "${python[@]}"
-# Run prettier from each file's own directory so project-local configs and their
-# plugins resolve (a subproject may depend on a parser/plugin not installed at the repo root).
-for file in "${web[@]}"; do
-    (cd "$(dirname "$file")" && format prettier --write "$(basename "$file")")
+mapfile -d '' files < <(
+    if [ "$scope" = all ]; then
+        git ls-files -z
+    else
+        git diff --cached --name-only --diff-filter=ACMR -z
+    fi
+)
+
+((${#files[@]})) || exit 0
+
+# Skip paths that are generated, vendored, or binary.
+skip_path() {
+    case "$1" in
+        node_modules/* | */node_modules/*) return 0 ;;
+        dist/* | */dist/* | build/* | */build/*) return 0 ;;
+        .next/* | */.next/* | coverage/* | */coverage/*) return 0 ;;
+        */pnpm-lock.yaml | */package-lock.json | */yarn.lock) return 0 ;;
+        *) return 1 ;;
+    esac
+}
+
+java=() c=() cpp=() go=() python=() web=()
+for file in "${files[@]}"; do
+    [ -f "$file" ] || continue
+    skip_path "$file" && continue
+    case "$file" in
+        *.java) java+=("$file") ;;
+        *.c | *.h) c+=("$file") ;;
+        *.cc | *.cpp | *.cxx | *.hpp | *.hh | *.hxx) cpp+=("$file") ;;
+        *.go) go+=("$file") ;;
+        *.py) python+=("$file") ;;
+        *.js | *.jsx | *.ts | *.tsx | *.json | *.css | *.html | *.md | *.yaml | *.yml) web+=("$file") ;;
+    esac
 done
 
+require() {
+    command -v "$1" >/dev/null 2>&1 || {
+        printf 'format: required formatter not found: %s\n' "$1" >&2
+        printf 'format: install it or skip with SKIP_FORMAT=1\n' >&2
+        exit 1
+    }
+}
+
+if [ "${SKIP_FORMAT:-0}" != "1" ]; then
+    if ((${#web[@]})); then
+        require prettier
+        # Group files by the nearest ancestor that has a package.json, so each
+        # project's prettier config/plugins resolve from that project root.
+        declare -A groups=()
+        for file in "${web[@]}"; do
+            dir=$(dirname "$file")
+            base=""
+            while [ "$dir" != "." ] && [ "$dir" != "/" ]; do
+                if [ -f "$dir/package.json" ]; then base=$dir; break; fi
+                dir=$(dirname "$dir")
+            done
+            groups["${base:-.}"]+="$file"$'\n'
+        done
+        for base in "${!groups[@]}"; do
+            mapfile -t batch_tmp < <(printf '%s' "${groups[$base]}")
+            batch=()
+            for rel in "${batch_tmp[@]}"; do
+                [ -n "$rel" ] || continue
+                if [ "$base" = "." ]; then batch+=("$rel"); else batch+=("${rel#"$base"/}"); fi
+            done
+            ((${#batch[@]})) || continue
+            flags=(--config "$root/.prettierrc.json" --ignore-path "$root/.prettierignore")
+            [ "$mode" = check ] && flags+=(--check) || flags+=(--write)
+            (cd "$base" && prettier "${flags[@]}" "${batch[@]}")
+        done
+    fi
+
+    if ((${#java[@]})); then
+        require google-java-format
+        [ "$mode" = check ] && java_flags=(--dry-run --set-exit-if-changed) || java_flags=(--replace)
+        google-java-format "${java_flags[@]}" "${java[@]}"
+    fi
+
+    if ((${#c[@]})); then
+        require clang-format
+        [ "$mode" = check ] && clang_flags=(--dry-run --Werror) || clang_flags=(-i)
+        clang-format "${clang_flags[@]}" "${c[@]}"
+    fi
+
+    if ((${#cpp[@]})); then
+        require clang-format
+        [ "$mode" = check ] && clang_flags=(--dry-run --Werror) || clang_flags=(-i)
+        clang-format "${clang_flags[@]}" "${cpp[@]}"
+    fi
+
+    if ((${#go[@]})); then
+        require gofmt
+        [ "$mode" = check ] && gofmt_flags=(-l) || gofmt_flags=(-w)
+        out=$(gofmt "${gofmt_flags[@]}" "${go[@]}")
+        if [ "$mode" = check ] && [ -n "$out" ]; then
+            printf 'format: gofmt would reformat:\n%s\n' "$out" >&2
+            exit 1
+        fi
+    fi
+
+    if ((${#python[@]})); then
+        require black
+        [ "$mode" = check ] && black_flags=(--check --diff) || black_flags=()
+        black "${black_flags[@]}" "${python[@]}"
+    fi
+fi
+
 # Include formatter output in the commit; never silently leave unstaged formatting.
-git add -- "${files[@]}"
+if [ "$mode" = write ] && [ "$scope" = staged ]; then
+    git add -- "${files[@]}"
+fi

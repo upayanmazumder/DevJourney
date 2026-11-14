@@ -1,3 +1,39 @@
+# clang-format style for C, C++ and header files in this repository.
+# Reference: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+---
+Language: Cpp
+BasedOnStyle: LLVM
+Standard: c++17
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 100
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+BreakBeforeBraces: Attach
+IndentCaseLabels: true
+IndentWrappedFunctionNames: true
+PointerAlignment: Right
+SpaceAfterCStyleCast: false
+SpaceBeforeParens: ControlStatements
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+SortIncludes: CaseSensitive
+IncludeBlocks: Preserve
+---
+Language: C
 BasedOnStyle: LLVM
 IndentWidth: 4
+TabWidth: 4
+UseTab: Never
 ColumnLimit: 100
+BreakBeforeBraces: Attach
+IndentCaseLabels: true
+PointerAlignment: Right
+SpaceBeforeParens: ControlStatements
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+SortIncludes: CaseSensitive
+IncludeBlocks: Preserve
