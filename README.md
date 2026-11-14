@@ -31,7 +31,9 @@ CI rejects `package-lock.json`, `yarn.lock` and `bun.lock` if they appear.
 
 ### Formatting
 
-Styles are declared per language:
+`prettier` is pinned in the root `package.json`, so run `pnpm install` once at
+the repository root to get the exact version CI uses. Styles are declared per
+language:
 
 | Language                                | Config                                |
 | --------------------------------------- | ------------------------------------- |
@@ -42,8 +44,9 @@ Styles are declared per language:
 | Go                                      | `gofmt` (fixed style)                 |
 | Editors                                 | `.editorconfig`                       |
 
-`./format` formats staged files, `./format --check` verifies them (this is what
-CI runs), and `./format --all` formats every tracked file.
+`./format` formats staged files, `./format --check` verifies them, and
+`./format --all` formats every tracked file. CI runs `./format --all --check`
+over the whole tree, which is kept fully formatted.
 
 ### Git hooks
 
@@ -62,7 +65,7 @@ Bypass a hook with `--no-verify` only when necessary.
 | Workflow                                                     | Scope                                                                              |
 | ------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
 | Repository Guard                                             | tracked artifacts, pnpm-only lockfiles, `packageManager` presence, oversized files |
-| Format Check                                                 | formatting of the files changed by the push or PR                                  |
+| Format Check                                                 | formatting of the entire tree                                                      |
 | Unit Tests                                                   | Vitest suites of the Vite React apps                                               |
 | JS Projects Install & Build Check                            | frozen install and build for every non-Docker JS project                           |
 | Docker Image CI (learning-react, learning-qwik, html.nodejs) | image build per affected project                                                   |
