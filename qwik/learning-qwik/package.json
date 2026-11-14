@@ -26,10 +26,10 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@builder.io/qwik": "^1.19.2",
-    "@builder.io/qwik-city": "^1.19.2",
+    "@builder.io/qwik": "^1.20.4",
+    "@builder.io/qwik-city": "^1.20.4",
     "@qwikest/icons": "^0.0.13",
-    "@tailwindcss/vite": "^4.0.0",
+    "@tailwindcss/vite": "^4.3.5",
     "@types/compression": "^1.7.2",
     "@types/eslint": "8.56.10",
     "@types/express": "^4.17.19",
@@ -40,10 +40,11 @@
     "dotenv": "^16.3.2",
     "esbuild": "^0.28.1",
     "eslint": "8.57.0",
-    "eslint-plugin-qwik": "^1.13.0",
-    "prettier": "3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.0.0",
+    "eslint-plugin-qwik": "^1.20.4",
+    "picomatch": "^4.0.7",
+    "prettier": "^3.10.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4.3.5",
     "typescript": "5.4.5",
     "undici": "^7.29.1",
     "vite": "^7.3.6",
@@ -51,8 +52,7 @@
   },
   "dependencies": {
     "brace-expansion": "^2.1.7",
-    "express": "^5.2.1",
-    "picomatch": "^4.0.4"
+    "express": "^5.3.0"
   },
   "resolutions": {
     "brace-expansion": "^2.1.7",
