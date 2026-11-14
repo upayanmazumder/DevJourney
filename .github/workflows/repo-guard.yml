@@ -1,0 +1,88 @@
+name: Repository Guard
+
+# Structural checks that do not depend on installing dependencies:
+#   - no committed build output, compiled binaries or dependency trees
+#   - only pnpm lockfiles are tracked (no package-lock.json / yarn.lock)
+#   - every project with a pnpm lockfile declares packageManager pnpm
+#   - no files above the size limit are added
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reject committed build output and binaries
+        run: |
+          set -euo pipefail
+          pattern='(^|/)(node_modules|dist|dist-ssr|build|out|\.next|\.turbo|coverage|\.cache|target|__pycache__|\.venv|venv)(/|$)'
+          binary='\.(exe|dll|so|so\.[0-9.]+|dylib|o|obj|a|lib|class|jar|war|pyc|pyo|pdb|tsbuildinfo)$'
+          found=$(git ls-files | grep -E "$pattern|$binary" || true)
+          if [ -n "$found" ]; then
+            echo "Tracked build artifacts or compiled binaries found:"
+            echo "$found"
+            echo "Remove them with: git rm --cached <path>"
+            exit 1
+          fi
+          echo "No tracked build artifacts."
+
+      - name: Reject non-pnpm lockfiles
+        run: |
+          set -euo pipefail
+          found=$(git ls-files | grep -E '(^|/)(package-lock\.json|yarn\.lock|npm-shrinkwrap\.json|bun\.lockb?)$' || true)
+          if [ -n "$found" ]; then
+            echo "Non-pnpm lockfiles are tracked:"
+            echo "$found"
+            echo "This repository uses pnpm only."
+            exit 1
+          fi
+          echo "Only pnpm lockfiles are tracked."
+
+      - name: Verify packageManager declaration
+        run: |
+          set -euo pipefail
+          missing=()
+          while IFS= read -r manifest; do
+            dir=$(dirname "$manifest")
+            [ -f "$dir/pnpm-lock.yaml" ] || continue
+            if ! grep -q '"packageManager": "pnpm@' "$manifest"; then
+              missing+=("$manifest")
+            fi
+          done < <(git ls-files '*package.json')
+          if ((${#missing[@]})); then
+            echo "These manifests have a pnpm lockfile but no packageManager field:"
+            printf '%s\n' "${missing[@]}"
+            exit 1
+          fi
+          echo "All pnpm projects declare packageManager."
+
+      - name: Reject oversized files
+        run: |
+          set -euo pipefail
+          limit=$((10 * 1024 * 1024))
+          media='\.(mp4|mov|avi|mkv|webm|blend|blend1|pdf|zip|psd|wav|mp3|woff2?|ttf|otf)$'
+          bad=0
+          while IFS= read -r file; do
+            case "$file" in
+              *$'\n'*) continue ;;
+            esac
+            if [[ $file =~ $media ]]; then continue; fi
+            size=$(wc -c <"$file")
+            if ((size > limit)); then
+              echo "File exceeds 10 MB: $file ($size bytes)"
+              bad=1
+            fi
+          done < <(git ls-files)
+          exit $bad

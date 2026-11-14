@@ -1,0 +1,61 @@
+name: Unit Tests
+
+# Runs the Vitest suites of the Vite-based React apps.
+# Scoped: the matrix entries whose paths changed are still all executed,
+# which keeps the required check name stable and cheap (each suite < 2s).
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "react/crud-operations/app/**"
+      - "react/last-practice/app/**"
+      - "react/VIT/react-crud/app/**"
+      - "react/learning-react/app/**"
+      - ".github/workflows/unit-tests.yml"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "react/crud-operations/app/**"
+      - "react/last-practice/app/**"
+      - "react/VIT/react-crud/app/**"
+      - "react/learning-react/app/**"
+      - ".github/workflows/unit-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  vitest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - "react/crud-operations/app"
+          - "react/last-practice/app"
+          - "react/VIT/react-crud/app"
+          - "react/learning-react/app"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: ${{ matrix.project }}/pnpm-lock.yaml
+
+      - name: Install dependencies
+        working-directory: ${{ matrix.project }}
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        working-directory: ${{ matrix.project }}
+        run: pnpm test --run

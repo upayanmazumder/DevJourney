@@ -1,0 +1,77 @@
+name: Format Check
+
+# Verifies that files changed by the push/PR are formatted with the
+# repository's declared styles (.prettierrc.json, .clang-format,
+# pyproject.toml for black, gofmt, google-java-format).
+# Only changed files are checked, so the existing unformatted history does
+# not block contributions.
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  format-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "stable"
+          cache: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install formatters
+        run: |
+          npm install -g prettier@3
+          python -m pip install --quiet black clang-format==23.1.5
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq google-java-format
+
+      - name: Determine changed files
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            base="${{ github.event.pull_request.base.sha }}"
+          else
+            base="${{ github.event.before }}"
+          fi
+          if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
+            base="HEAD~1"
+          fi
+          git diff --name-only --diff-filter=ACMR "$base" HEAD > /tmp/changed.txt || true
+          echo "count=$(wc -l < /tmp/changed.txt)" >> "$GITHUB_OUTPUT"
+          cat /tmp/changed.txt
+
+      - name: Check formatting of changed files
+        if: steps.changed.outputs.count != '0'
+        env:
+          SKIP_FORMAT: "0"
+        run: |
+          mapfile -t files < /tmp/changed.txt
+          git add -- "${files[@]}"
+          ./format --check
