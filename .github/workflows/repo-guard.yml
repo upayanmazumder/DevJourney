@@ -74,15 +74,12 @@ jobs:
           limit=$((10 * 1024 * 1024))
           media='\.(mp4|mov|avi|mkv|webm|blend|blend1|pdf|zip|psd|wav|mp3|woff2?|ttf|otf)$'
           bad=0
-          while IFS= read -r file; do
-            case "$file" in
-              *$'\n'*) continue ;;
-            esac
+          while IFS= read -r -d '' file; do
             if [[ $file =~ $media ]]; then continue; fi
-            size=$(wc -c <"$file")
+            size=$(git cat-file -s ":$file")
             if ((size > limit)); then
-              echo "File exceeds 10 MB: $file ($size bytes)"
+              printf 'File exceeds 10 MB: %s (%s bytes)\n' "$file" "$size"
               bad=1
             fi
-          done < <(git ls-files)
+          done < <(git ls-files -z)
           exit $bad

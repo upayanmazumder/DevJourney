@@ -49,8 +49,16 @@ jobs:
         run: |
           npm install -g prettier@3
           python -m pip install --quiet black clang-format==23.1.5
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq google-java-format
+          # google-java-format is not packaged for apt; use the all-deps jar
+          # pinned to the same version developers run locally.
+          sudo curl -sSL -o /opt/google-java-format.jar \
+            https://repo1.maven.org/maven2/com/google/googlejavaformat/google-java-format/1.37.0/google-java-format-1.37.0-all-deps.jar
+          sudo tee /usr/local/bin/google-java-format >/dev/null <<'WRAPPER'
+          #!/bin/sh
+          exec java -jar /opt/google-java-format.jar "$@"
+          WRAPPER
+          sudo chmod +x /usr/local/bin/google-java-format
+          google-java-format --version
 
       - name: Determine changed files
         id: changed
@@ -63,15 +71,22 @@ jobs:
           if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
             base="HEAD~1"
           fi
-          git diff --name-only --diff-filter=ACMR "$base" HEAD > /tmp/changed.txt || true
-          echo "count=$(wc -l < /tmp/changed.txt)" >> "$GITHUB_OUTPUT"
-          cat /tmp/changed.txt
+          git diff --name-only --diff-filter=ACMR -z "$base" HEAD > /tmp/changed.z || true
+          count=$(tr -cd '\0' < /tmp/changed.z | wc -c)
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          tr '\0' '\n' < /tmp/changed.z
 
       - name: Check formatting of changed files
         if: steps.changed.outputs.count != '0'
         env:
           SKIP_FORMAT: "0"
         run: |
-          mapfile -t files < /tmp/changed.txt
-          git add -- "${files[@]}"
+          mapfile -d '' files < /tmp/changed.z
+          existing=()
+          for f in "${files[@]}"; do [ -f "$f" ] && existing+=("$f"); done
+          if ((${#existing[@]} == 0)); then
+            echo 'No formattable files changed.'
+            exit 0
+          fi
+          git add -- "${existing[@]}"
           ./format --check
