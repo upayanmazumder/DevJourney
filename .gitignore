@@ -1,3 +1,118 @@
+# --- Editor / OS ---
 .vscode
-.venv
+.idea
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Node.js / JS toolchains ---
 node_modules
+.pnpm-store
+.npm
+.yarn
+.pnp.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output (Vite, Next, Astro, CRA, Gatsby)
+dist
+dist-ssr
+build
+out
+.next
+.turbo
+.svelte-kit
+.vercel
+.netlify
+storybook-static
+*.local
+
+# Test / coverage artifacts
+coverage
+.nyc_output
+playwright-report
+test-results
+*.lcov
+
+# TypeScript / incremental caches
+*.tsbuildinfo
+.eslintcache
+.cache
+.parcel-cache
+.rollup.cache
+
+# Python
+.venv
+venv
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.ipynb_checkpoints
+
+# C / C++ build output
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.exe
+*.dll
+*.out
+*.pdb
+*.dSYM/
+a.out
+
+# Java / Kotlin
+*.class
+*.jar
+*.war
+*.kotlin_module
+build/classes
+
+# Rust
+target
+
+# Go
+*.test
+vendor/
+
+# HDL / FPGA / simulation output
+*.qpf
+*.qsf
+db/
+incremental_db/
+simulation/
+work/
+*.vcd
+*.wlf
+transcript
+modelsim.ini
+*.vho
+*.sdo
+
+# Godot
+.godot/
+*.translation
+export.cfg
+export_presets.cfg
+.mono/
+
+# Logs and temp
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
