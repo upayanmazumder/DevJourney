@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 int main() {
     int x, y, res;
@@ -9,8 +9,8 @@ int main() {
 
     printf("Enter [num1] [operation] [num2]: ");
     scanf("%d %c %d", &x, &mode, &y);
-    
-    switch(*m) {
+
+    switch (*m) {
         case '+':
             res = x + y;
             break;
@@ -27,7 +27,7 @@ int main() {
             valid = false;
             break;
     }
-    
+
     if (valid)
         printf("%d %c %d = %d", x, mode, y, res);
     else

@@ -1,7 +1,7 @@
-a=float(input("Enter no. 1: "))
-b=float(input("Enter no. 2: "))
-c=float(input("Enter no. 3: "))
-d=float(input("Enter no. 4: "))
+a = float(input("Enter no. 1: "))
+b = float(input("Enter no. 2: "))
+c = float(input("Enter no. 3: "))
+d = float(input("Enter no. 4: "))
 
 greatest = a
 if b > greatest:

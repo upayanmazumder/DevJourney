@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class Forest {
@@ -14,9 +14,7 @@ public:
         annualRainfall = length * width * rainfallInMM;
     }
 
-    void displayRainfall() {
-        cout << fixed << setprecision(2) << annualRainfall << " mm" << endl;
-    }
+    void displayRainfall() { cout << fixed << setprecision(2) << annualRainfall << " mm" << endl; }
 };
 
 int main() {

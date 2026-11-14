@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class Tenant {
@@ -14,7 +14,8 @@ class RentEligibility : public Tenant {
     double rentPercentage;
 
 public:
-    RentEligibility(double income, double percentage) : Tenant(income), rentPercentage(percentage) {}
+    RentEligibility(double income, double percentage)
+        : Tenant(income), rentPercentage(percentage) {}
 
     void checkEligibility() {
         if (monthlyIncome >= 15000.0) {

@@ -34,6 +34,7 @@ Code constraints :
 0.00 ≤ double values ≤ 10.00
 
 Sample test cases :
+
 #### Input 1:
 
 ```

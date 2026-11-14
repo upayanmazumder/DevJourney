@@ -6,22 +6,18 @@ private:
     double balance;
 
 public:
-    BankAccount(double initialBalance) {
-        balance = (initialBalance >= 0) ? initialBalance : 0;
-    }
+    BankAccount(double initialBalance) { balance = (initialBalance >= 0) ? initialBalance : 0; }
 
-    void deposit(double amount) {
-        balance += amount;
-    }
+    void deposit(double amount) { balance += amount; }
 
     void withdraw(double amount) {
-        if (amount <= balance) balance -= amount;
-        else cout << "Insufficient balance!\n";
+        if (amount <= balance)
+            balance -= amount;
+        else
+            cout << "Insufficient balance!\n";
     }
 
-    void displayBalance() {
-        cout << "Balance: $" << balance << endl;
-    }
+    void displayBalance() { cout << "Balance: $" << balance << endl; }
 };
 
 int main() {

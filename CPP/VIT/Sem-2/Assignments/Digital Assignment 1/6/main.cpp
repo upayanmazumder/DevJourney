@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 using namespace std;
 
 struct Person {
@@ -16,7 +16,7 @@ int main() {
     vector<Person> people(n);
 
     for (int i = 0; i < n; ++i) {
-        cout << i + 1 << "th person ->" << endl; 
+        cout << i + 1 << "th person ->" << endl;
         cout << "\tName: ";
         cin >> ws;
         getline(cin, people[i].name);
@@ -32,7 +32,7 @@ int main() {
         }
     }
 
-    cout << youngest.name << " is youngest at " << youngest.age << " years" <<  endl;
+    cout << youngest.name << " is youngest at " << youngest.age << " years" << endl;
 
     return 0;
 }

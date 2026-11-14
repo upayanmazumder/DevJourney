@@ -32,6 +32,7 @@ In this scenario, the test cases fall under the following constraints:
 1 ≤ N ≤ 10
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -42,7 +43,7 @@ Output 1 :
 Input 2 :
 4
 12.21
-58.62 
+58.62
 63.43
 78.14
 Output 2 :

@@ -18,17 +18,14 @@ public:
         year = obj.year;
     }
 
-    void display() {
-        cout << "Brand: " << brand << ", Year: " << year << endl;
-    }
+    void display() { cout << "Brand: " << brand << ", Year: " << year << endl; }
 };
 
 int main() {
     Car car1("Tesla", 2022);
-    Car car2 = car1;  // Copying car1 into car2
+    Car car2 = car1; // Copying car1 into car2
 
     car1.display();
     car2.display();
     return 0;
 }
-    

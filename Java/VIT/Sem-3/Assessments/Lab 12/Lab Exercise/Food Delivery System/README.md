@@ -16,6 +16,7 @@ Weight surcharge:
 
 No surcharge for orders ≤ 5 kg
 Rs.4 for above 5 kg
+
 #### Input:
 
 ```
@@ -52,6 +53,7 @@ Code constraints :
 1 ≤ base delivery fee ≤ 100 (base delivery fee in Rs.)
 
 Sample test cases :
+
 #### Input 1:
 
 ```

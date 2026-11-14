@@ -44,6 +44,7 @@ Code constraints :
 1 ≤ Length of the input string ≤ 50 characters
 
 Sample test cases :
+
 #### Input 1:
 
 ```

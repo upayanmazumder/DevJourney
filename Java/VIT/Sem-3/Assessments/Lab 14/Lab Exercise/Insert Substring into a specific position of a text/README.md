@@ -34,6 +34,7 @@ Code constraints :
 The input string consists of printable ASCII characters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

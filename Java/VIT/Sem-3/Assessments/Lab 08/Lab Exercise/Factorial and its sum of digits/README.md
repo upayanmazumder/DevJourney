@@ -34,6 +34,7 @@ The given test cases fall under the following constraints:
 0 ≤ n ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

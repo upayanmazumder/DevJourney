@@ -2,8 +2,7 @@
 #include <string>
 using namespace std;
 
-string trim(const string &s)
-{
+string trim(const string &s) {
     int i = 0;
     while (i < s.size() && s[i] == '0')
         i++;
@@ -12,8 +11,7 @@ string trim(const string &s)
     return s.substr(i);
 }
 
-string add(string a, string b)
-{
+string add(string a, string b) {
     if (a.size() < b.size())
         swap(a, b);
 
@@ -23,8 +21,7 @@ string add(string a, string b)
     int i = a.size() - 1;
     int j = b.size() - 1;
 
-    while (i >= 0 || j >= 0 || carry)
-    {
+    while (i >= 0 || j >= 0 || carry) {
         int sum = carry;
 
         if (i >= 0)
@@ -47,19 +44,16 @@ string sub(string a, string b) // assume a >= b
     int i = a.size() - 1;
     int j = b.size() - 1;
 
-    while (i >= 0)
-    {
+    while (i >= 0) {
         int diff = (a[i] - '0') - borrow;
 
         if (j >= 0)
             diff -= (b[j] - '0');
 
-        if (diff < 0)
-        {
+        if (diff < 0) {
             diff += 10;
             borrow = 1;
-        }
-        else
+        } else
             borrow = 0;
 
         res = char('0' + diff) + res;
@@ -71,23 +65,20 @@ string sub(string a, string b) // assume a >= b
     return trim(res);
 }
 
-string shift(string s, int k)
-{
+string shift(string s, int k) {
     if (s == "0")
         return s;
     return s + string(k, '0');
 }
 
-string karatsuba(string x, string y)
-{
+string karatsuba(string x, string y) {
     x = trim(x);
     y = trim(y);
 
     if (x == "0" || y == "0")
         return "0";
 
-    if (x.size() == 1 && y.size() == 1)
-    {
+    if (x.size() == 1 && y.size() == 1) {
         int p = (x[0] - '0') * (y[0] - '0');
         return to_string(p);
     }
@@ -121,8 +112,7 @@ string karatsuba(string x, string y)
     return trim(res);
 }
 
-int main()
-{
+int main() {
     string a, b;
     cin >> a >> b;
 

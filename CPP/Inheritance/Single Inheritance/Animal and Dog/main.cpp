@@ -4,17 +4,13 @@ using namespace std;
 // Base class
 class Animal {
 public:
-    void eat() {
-        cout << "Eating...\n";
-    }
+    void eat() { cout << "Eating...\n"; }
 };
 
 // Derived class
 class Dog : public Animal {
 public:
-    void bark() {
-        cout << "Barking...\n";
-    }
+    void bark() { cout << "Barking...\n"; }
 };
 
 int main() {

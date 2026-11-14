@@ -1,30 +1,24 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
-class PalindromeChecker
-{
+class PalindromeChecker {
     string str;
 
 public:
     PalindromeChecker(string s) : str(s) {}
 
-    bool isPalindrome()
-    {
+    bool isPalindrome() {
         string temp = str;
         reverse(temp.begin(), temp.end());
         return temp == str;
     }
 
-    ~PalindromeChecker()
-    {
-        cout << "Destructor called. Object destroyed." << endl;
-    }
+    ~PalindromeChecker() { cout << "Destructor called. Object destroyed." << endl; }
 };
 
-int main()
-{
+int main() {
     string input;
     getline(cin, input);
 

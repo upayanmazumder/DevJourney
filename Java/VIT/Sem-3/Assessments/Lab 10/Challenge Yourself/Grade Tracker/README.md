@@ -72,6 +72,7 @@ The test cases fall under the following constraints:
 0 ≤ bonus ≤ 20
 
 Sample test cases :
+
 #### Input 1:
 
 ```

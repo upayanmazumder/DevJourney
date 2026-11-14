@@ -38,6 +38,7 @@ The string S will contain only printable ASCII characters, including spaces.
 characters are case-sensitive.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

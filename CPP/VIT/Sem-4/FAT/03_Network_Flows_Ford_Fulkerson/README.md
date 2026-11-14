@@ -12,7 +12,7 @@
 
 ## Time Complexity
 
-- O(E * maxFlow) for integer capacities (common bound)
+- O(E \* maxFlow) for integer capacities (common bound)
 
 ## Space Complexity
 

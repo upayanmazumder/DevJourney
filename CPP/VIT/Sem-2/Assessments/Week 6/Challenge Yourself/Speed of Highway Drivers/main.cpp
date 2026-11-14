@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -21,9 +21,7 @@ public:
         displaySpeed();
     }
 
-    void displaySpeed() {
-        cout << fixed << setprecision(2) << (distance / time) << " mph" << endl;
-    }
+    void displaySpeed() { cout << fixed << setprecision(2) << (distance / time) << " mph" << endl; }
 };
 
 int main() {

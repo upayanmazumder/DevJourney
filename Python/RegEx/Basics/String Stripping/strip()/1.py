@@ -1,5 +1,5 @@
-text = '*P***ython***'
-print(text.strip('*'))
+text = "*P***ython***"
+print(text.strip("*"))
 
 # Output:
 #####################

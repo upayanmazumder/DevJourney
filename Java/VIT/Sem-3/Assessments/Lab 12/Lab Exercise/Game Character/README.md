@@ -22,6 +22,7 @@ an integer representing either strength (for Warrior) or magic power (for Wizard
 ```
 
 The program dynamically instantiates the chosen character, execute the attack and defend actions, and display the corresponding messages.
+
 #### Input:
 
 ```
@@ -64,6 +65,7 @@ Code constraints :
 1 ≤ M, N ≤ 107
 
 Sample test cases :
+
 #### Input 1:
 
 ```

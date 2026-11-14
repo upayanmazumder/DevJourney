@@ -15,6 +15,7 @@ department (String)
 salary (Double)
 Serializes the employee records into a file named "employees.ser".
 Deserializes the records from the file and prints employees' earnings above a given threshold.
+
 #### Input:
 
 ```
@@ -55,6 +56,7 @@ jaThe given test cases fall under the following constraints:
 10000.00 ≤ X ≤ 5000000.00
 
 Sample test cases :
+
 #### Input 1:
 
 ```

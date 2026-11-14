@@ -1,6 +1,6 @@
-#include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -12,20 +12,18 @@ public:
 
 class PowerAB : public Expression {
     double a, b;
+
 public:
     PowerAB(double a, double b) : a(a), b(b) {}
-    double evaluate() override {
-        return pow(a, b);
-    }
+    double evaluate() override { return pow(a, b); }
 };
 
 class PowerBA : public Expression {
     double a, b;
+
 public:
     PowerBA(double a, double b) : a(a), b(b) {}
-    double evaluate() override {
-        return pow(b, a);
-    }
+    double evaluate() override { return pow(b, a); }
 };
 
 int main() {

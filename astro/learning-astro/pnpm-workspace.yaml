@@ -1,9 +1,9 @@
 allowBuilds:
   esbuild: true
 overrides:
-  'devalue': '^5.9.2'
-  'js-yaml': '^4.3.2'
-  'sharp': '^0.35.5'
-  'svgo': '^4.1.0'
-  'undici': '^8.12.2'
-  'zod': '^4.6.6'
+  "devalue": "^5.9.2"
+  "js-yaml": "^4.3.2"
+  "sharp": "^0.35.5"
+  "svgo": "^4.1.0"
+  "undici": "^8.12.2"
+  "zod": "^4.6.6"

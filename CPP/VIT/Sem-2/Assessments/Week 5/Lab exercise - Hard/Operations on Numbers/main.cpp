@@ -1,18 +1,15 @@
 #include <iostream>
 using namespace std;
 
-class Operation
-{
+class Operation {
 public:
     int a, b;
     Operation(int x, int y) : a(x), b(y) {}
-    void compute()
-    {
+    void compute() {
         cout << "Addition: " << a + b << "\n";
         cout << "Difference: " << a - b << "\n";
         cout << "Product: " << a * b << "\n";
-        if (b == 0)
-        {
+        if (b == 0) {
             cout << "Division by zero not possible";
             return;
         }
@@ -21,8 +18,7 @@ public:
     }
 };
 
-int main()
-{
+int main() {
     int x, y;
     cin >> x >> y;
     Operation op(x, y);

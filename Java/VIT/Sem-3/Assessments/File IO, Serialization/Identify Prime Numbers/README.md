@@ -36,6 +36,7 @@ Code constraints :
 1 ≤ numbers ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

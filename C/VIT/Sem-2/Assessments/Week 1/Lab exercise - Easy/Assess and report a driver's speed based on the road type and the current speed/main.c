@@ -1,10 +1,10 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int main() {
-    int type,speed,max;
-    scanf("%d",&type);
-    scanf("%d",&speed);
-    switch(type) {
+    int type, speed, max;
+    scanf("%d", &type);
+    scanf("%d", &speed);
+    switch (type) {
         case 1:
             max = 25;
             break;
@@ -15,7 +15,7 @@ int main() {
             max = 55;
             break;
     }
-    
+
     if (speed < max) {
         printf("Below");
     } else if (speed > max) {

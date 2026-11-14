@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int gcd(int a, int b) {
-    while (b != 0 ) {
+    while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
@@ -17,9 +17,9 @@ int main() {
     int *sum = (int *)malloc(sizeof(int));
     *sum = 0;
     for (int i = 1; i < *N; i++) {
-        if((*N) % i == 0) {
+        if ((*N) % i == 0) {
             int cd = *N / i;
-            if (gcd(i,cd) == 1) {
+            if (gcd(i, cd) == 1) {
                 *sum = *sum + i;
             }
         }
@@ -29,5 +29,4 @@ int main() {
     } else {
         printf("%d is not a unitary perfect number.", *N);
     }
-    
 }

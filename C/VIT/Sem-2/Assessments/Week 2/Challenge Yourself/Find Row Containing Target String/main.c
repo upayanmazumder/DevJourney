@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
-{
+int main() {
     int n;
     scanf("%d\n", &n);
     char arr[n][30];
@@ -14,10 +13,8 @@ int main()
 
     scanf("\n%s", str);
 
-    for (int i = 0; i < n; i++)
-    {
-        if (strcmp(str, arr[i]) == 0)
-        {
+    for (int i = 0; i < n; i++) {
+        if (strcmp(str, arr[i]) == 0) {
             a = 1;
             b = i + 1;
             break;

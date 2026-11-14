@@ -36,6 +36,7 @@ Code constraints :
 1 ≤ array elements ≤ 1000
 
 Sample test cases :
+
 #### Input 1:
 
 ```

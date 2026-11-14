@@ -56,6 +56,7 @@ The given test cases fall under the following constraints:
 1 ≤ s ≤ 10000
 
 Sample test cases :
+
 #### Input 1:
 
 ```

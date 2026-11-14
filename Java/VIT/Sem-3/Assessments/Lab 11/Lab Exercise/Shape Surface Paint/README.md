@@ -6,14 +6,15 @@
 
 A painter needs to determine the cost to paint different shapes based on their surface area. The program should be designed to handle the area of a sphere and calculate the total painting cost using the following formulas:
 
-Area of sphere: Area = 4 * pi * r² where pi = 3.14
-Total painting cost: Cost = cost per square meter * area of sphere
+Area of sphere: Area = 4 _ pi _ r² where pi = 3.14
+Total painting cost: Cost = cost per square meter \* area of sphere
 
 The program will consist of three classes:
 
 Shape class: This class should set the shape type and radius.
 Area class: This class should extend Shape to calculate the area.
 Cost class: This class should extend Area to calculate the total painting cost.
+
 #### Input:
 
 ```
@@ -44,6 +45,7 @@ The given test cases fall under the following constraints:
 1.0 ≤ cost ≤ 10.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

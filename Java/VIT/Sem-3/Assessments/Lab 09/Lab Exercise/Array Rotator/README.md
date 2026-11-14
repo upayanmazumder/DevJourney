@@ -6,6 +6,7 @@
 
 Goutham is given the task of developing a program that efficiently shuffles the elements of an array. He wants to create an ArrayRotator class with a constructor that takes an array and the number of positions to rotate to the right. Users input the array size and elements, specify the rotating positions, and print the rearranged sequence.
 Assist Goutham in developing the program.
+
 #### Input:
 
 ```
@@ -15,6 +16,7 @@ format :
 The first line of input consists of an integer N, representing the elements of the array.
 The second line consists of N space-separated integers representing the array elements.
 The third line consists of an integer M, representing the number of positions to rotate.
+
 #### Output:
 
 ```
@@ -29,6 +31,7 @@ The given test cases fall under the following constraints:
 1 ≤ array elements ≤ 100
 M < N
 Sample test cases :
+
 #### Input 1:
 
 ```

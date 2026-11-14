@@ -32,6 +32,7 @@ The given test cases fall under the following constraints:
 The string s contains uppercase, lowercase, numbers, and space with at most 20 characters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

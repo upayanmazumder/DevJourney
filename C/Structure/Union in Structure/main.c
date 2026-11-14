@@ -15,6 +15,6 @@ int main() {
 
     printf("Employee ID: %d\n", e1.empId);
     printf("Salary: %d\n", e1.pay.salary);
-    
+
     return 0;
 }

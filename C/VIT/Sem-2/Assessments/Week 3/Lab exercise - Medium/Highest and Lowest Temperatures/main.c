@@ -4,11 +4,11 @@
 void findMaxMin(int *arr, int n, int *max, int *min) {
     *max = *arr;
     *min = *arr;
-    for (int i = 1; i < n ; i ++) {
-        if(*(arr + i) > *max) {
+    for (int i = 1; i < n; i++) {
+        if (*(arr + i) > *max) {
             *max = *(arr + i);
         }
-        if(*(arr+i) < *min) {
+        if (*(arr + i) < *min) {
             *min = *(arr + i);
         }
     }
@@ -17,7 +17,7 @@ int main() {
     int n;
     scanf("%d", &n);
     int *temperatures = (int *)malloc(n * sizeof(int));
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         scanf("%d", (temperatures + i));
     }
     int maxTemp, minTemp;

@@ -38,6 +38,7 @@ Code constraints :
 1 ≤ N ≤ 1000
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -52,10 +53,10 @@ Fan
 1000
 100
 Output 1 :
-Name Deposit Cost Per Day  
-Laptop 10000.0 250.0  
-Light 1000.0 50.0  
-Fan 1000.0 100.0  
+Name Deposit Cost Per Day
+Laptop 10000.0 250.0
+Light 1000.0 50.0
+Fan 1000.0 100.0
 Input 2 :
 5
 smartwatch
@@ -74,12 +75,12 @@ dress
 100
 25
 Output 2 :
-Name Deposit Cost Per Day  
-smartwatch 10043.0 450.0  
-bag 4000.0 50.0  
-charger 1000.0 100.0  
-ironbox 5000.0 50.0  
-dress 100.0 25.0  
+Name Deposit Cost Per Day
+smartwatch 10043.0 450.0
+bag 4000.0 50.0
+charger 1000.0 100.0
+ironbox 5000.0 50.0
+dress 100.0 25.0
 Note :
 The program will be evaluated only after the “Submit Code” is clicked.
 Extra spaces and new line characters in the program output will result in the failure of the test case.

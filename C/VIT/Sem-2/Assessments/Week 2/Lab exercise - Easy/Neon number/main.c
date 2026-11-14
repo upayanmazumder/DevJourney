@@ -1,13 +1,11 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
     int N, x, r, sum;
     scanf("%d", &N);
     x = N * N;
 
-    while (x > 0)
-    {
+    while (x > 0) {
         r = x % 10;
         sum += r;
         x /= 10;

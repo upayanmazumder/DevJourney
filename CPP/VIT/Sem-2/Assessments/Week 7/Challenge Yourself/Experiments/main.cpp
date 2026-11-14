@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -12,6 +12,7 @@ public:
 class ChemistryExperiment : public Experiment {
 private:
     double reactantA, reactantB;
+
 public:
     ChemistryExperiment(double a, double b) : reactantA(a), reactantB(b) {}
     void analyzeResults() override {
@@ -22,10 +23,13 @@ public:
 class PhysicsExperiment : public Experiment {
 private:
     double initialVelocity, acceleration, time;
+
 public:
-    PhysicsExperiment(double u, double a, double t) : initialVelocity(u), acceleration(a), time(t) {}
+    PhysicsExperiment(double u, double a, double t)
+        : initialVelocity(u), acceleration(a), time(t) {}
     void analyzeResults() override {
-        cout << fixed << setprecision(2) << (initialVelocity + (acceleration * time)) << " m/s" << endl;
+        cout << fixed << setprecision(2) << (initialVelocity + (acceleration * time)) << " m/s"
+             << endl;
     }
 };
 

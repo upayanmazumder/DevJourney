@@ -1,7 +1,7 @@
-import { component$ } from "@builder.io/qwik";
-import { Link, type DocumentHead } from "@builder.io/qwik-city";
-import { HiArrowRightOutline } from "@qwikest/icons/heroicons";
-import styles from "./home.module.css";
+import { component$ } from '@builder.io/qwik';
+import { Link, type DocumentHead } from '@builder.io/qwik-city';
+import { HiArrowRightOutline } from '@qwikest/icons/heroicons';
+import styles from './home.module.css';
 // import { HiArrowRightOutline } from "@qwikest/icons/heroicons";
 
 export default component$(() => {
@@ -14,7 +14,7 @@ export default component$(() => {
         <div class="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
           <div class={styles.shape} />
           <p class="text-xl text-gray-800 md:text-3xl md:leading-normal">
-            <strong>Welcome to LRDQwik.</strong> This is the example for the{" "}
+            <strong>Welcome to LRDQwik.</strong> This is the example for the{' '}
             <Link
               href="https://www.learn-qwik.com/learn/"
               target="_blank"
@@ -22,14 +22,14 @@ export default component$(() => {
             >
               Qwik Learn Course
             </Link>
-            , brought to you by{" "}
+            , brought to you by{' '}
             <Link
               href="https://www.lareponsedev.com/"
               target="_blank"
               class="text-blue-500"
             >
               LaReponseDev
-            </Link>{" "}
+            </Link>{' '}
             .
           </p>
           <Link
@@ -49,11 +49,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: 'Welcome to Qwik',
   meta: [
     {
-      name: "description",
-      content: "Qwik site description",
+      name: 'description',
+      content: 'Qwik site description',
     },
   ],
 };

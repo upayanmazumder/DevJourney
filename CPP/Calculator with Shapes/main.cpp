@@ -14,20 +14,17 @@ public:
 
 class Triangle : public Shape {
 public:
-    void area() override {
-        cout << "Area of Triangle: " << (0.5 * base * height) << endl;
-    }
+    void area() override { cout << "Area of Triangle: " << (0.5 * base * height) << endl; }
 };
 
 class Rectangle : public Shape {
 public:
-    void area() override {
-        cout << "Area of Rectangle: " << (base * height) << endl;
-    }
+    void area() override { cout << "Area of Rectangle: " << (base * height) << endl; }
 };
 
 class Calculator {
     int value;
+
 public:
     Calculator() : value(0) {}
 
@@ -53,11 +50,8 @@ public:
 
     friend Calculator operator+(Calculator c1, Calculator c2);
 
-    void show() {
-        cout << "Final Value: " << value << endl;
-    }
+    void show() { cout << "Final Value: " << value << endl; }
 };
-
 
 Calculator operator+(Calculator c1, Calculator c2) {
     Calculator temp;
@@ -80,7 +74,7 @@ int main() {
     result.show();
 
     cout << "\n===== RUNTIME POLYMORPHISM (Virtual Functions) =====" << endl;
-    Shape* s;
+    Shape *s;
 
     Triangle t;
     s = &t;

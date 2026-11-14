@@ -11,20 +11,20 @@ int main() {
     float sum, avg;
     scanf("%d", &n);
     struct Marks stu[10];
-    
+
     for (i = 0; i < n; i++) {
         scanf("%d %s", &stu[i].rollNo, stu[i].name);
         for (j = 0; j < 5; j++) {
-            scanf("%d",&stu[i].m[j]);
+            scanf("%d", &stu[i].m[j]);
         }
     }
-    
+
     for (i = 0; i < n; i++) {
         sum = 0;
         for (j = 0; j < 5; j++) {
             sum += stu[i].m[j];
         }
         avg = sum / 5;
-        printf("%.2f ",avg);
+        printf("%.2f ", avg);
     }
 }

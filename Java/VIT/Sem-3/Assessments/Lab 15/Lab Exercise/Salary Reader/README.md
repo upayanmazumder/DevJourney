@@ -48,6 +48,7 @@ The given testcases fall under the following constraints:
 1 ≤ Salary, Bonus ≤ 100000
 
 Sample test cases :
+
 #### Input 1:
 
 ```

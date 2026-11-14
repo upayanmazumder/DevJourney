@@ -1,15 +1,13 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-class Temperature
-{
+class Temperature {
 public:
     float temp;
     Temperature(float t) : temp(t) {}
 };
 
-int main()
-{
+int main() {
     float f, c;
     std::cin >> f >> c;
 

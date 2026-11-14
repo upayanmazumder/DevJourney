@@ -3,10 +3,10 @@
 ```plaintext
 Print the given pattern,
 *       *
-  *   *  
-    *    
-    *    
-    *    
-    *    
+  *   *
+    *
+    *
+    *
+    *
     *
 ```

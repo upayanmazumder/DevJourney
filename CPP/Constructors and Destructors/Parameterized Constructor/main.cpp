@@ -12,9 +12,7 @@ public:
         year = y;
     }
 
-    void display() {
-        cout << "Brand: " << brand << ", Year: " << year << endl;
-    }
+    void display() { cout << "Brand: " << brand << ", Year: " << year << endl; }
 };
 
 int main() {

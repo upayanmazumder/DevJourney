@@ -8,7 +8,7 @@ int max(int a, int b) {
 int main() {
     int n, W;
     cin >> n >> W;
-    
+
     int wt[100], val[100];
     int dp[101][101];
 

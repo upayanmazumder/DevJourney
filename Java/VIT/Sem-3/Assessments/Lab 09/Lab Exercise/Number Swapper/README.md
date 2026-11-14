@@ -40,6 +40,7 @@ The given test cases fall under the following constraints:
 -100 ≤ num2 ≤ 1000
 
 Sample test cases :
+
 #### Input 1:
 
 ```

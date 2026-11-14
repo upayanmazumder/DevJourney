@@ -46,6 +46,7 @@ Code constraints :
 length of the input string ≤ 100 characters
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -59,6 +60,7 @@ Input 2 :
 
 F. Scott Fitzgerald
 1925
+
 #### Output 2:
 
 ```
@@ -74,6 +76,7 @@ Ambedkar: A Life
 ```
 
 2022
+
 #### Output 4:
 
 ```

@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-template <size_t N>
-int calculateCompatibilityScore(int (&profile1)[N], int (&profile2)[N]) {
+template <size_t N> int calculateCompatibilityScore(int (&profile1)[N], int (&profile2)[N]) {
     int score = 0;
     for (size_t i = 0; i < N; ++i) {
         if (profile1[i] == profile2[i]) {

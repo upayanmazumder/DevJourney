@@ -52,6 +52,7 @@ The given test cases fall under the following constraints:
 1 ≤ days ≤ 365
 
 Sample test cases :
+
 #### Input 1:
 
 ```

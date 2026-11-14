@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-template <typename T1, typename T2>
-class PairDerived {
+template <typename T1, typename T2> class PairDerived {
     T1 first;
     T2 second;
 
@@ -12,7 +11,7 @@ public:
         second = b;
     }
 
-    void display(const string& message) {
+    void display(const string &message) {
         cout << message << endl;
         cout << "First: " << first << endl;
         cout << "Second: " << second << endl;

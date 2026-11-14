@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class SimpleInterest {
@@ -17,9 +17,7 @@ public:
         simpleInterest = (principal * rate * time) / 100;
     }
 
-    void display() {
-        cout << fixed << setprecision(2) << simpleInterest << endl;
-    }
+    void display() { cout << fixed << setprecision(2) << simpleInterest << endl; }
 };
 
 int main() {

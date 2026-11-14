@@ -70,6 +70,7 @@ The given test cases fall under the following constraints:
 1 ≤ enemyDamage ≤ 500
 
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -1,48 +1,40 @@
 #include <iostream>
 using namespace std;
-class node
-{
+class node {
     int data;
     node *next;
 
 public:
     node *head = NULL;
-    void insertbeg(int val)
-    {
+    void insertbeg(int val) {
         node *newnode = new node();
         newnode->data = val;
         newnode->next = NULL;
         if (head == NULL)
             head = newnode;
-        else
-        {
+        else {
             newnode->next = head;
             head = newnode;
         }
     }
-    void insertend(int val)
-    {
+    void insertend(int val) {
         node *newnode = new node();
         newnode->data = val;
         newnode->next = NULL;
-        if (head == NULL)
-        {
+        if (head == NULL) {
             head = newnode;
             return;
         }
         node *temp = head;
-        while (temp->next != NULL)
-        {
+        while (temp->next != NULL) {
             temp = temp->next;
         }
 
         temp->next = newnode;
     }
-    void deletebeg()
-    {
+    void deletebeg() {
         node *temp;
-        if (head == NULL)
-        {
+        if (head == NULL) {
             cout << " the list is empty. u can't delete";
             return;
         }
@@ -51,16 +43,13 @@ public:
         cout << "the deleted item is " << temp->data;
         delete (temp);
     }
-    void deleteend()
-    {
+    void deleteend() {
         node *prev = NULL, *temp = head;
-        if (head == NULL)
-        {
+        if (head == NULL) {
             cout << " the list is empty. u can't delete";
             return;
         }
-        while (temp->next != NULL)
-        {
+        while (temp->next != NULL) {
             prev = temp;
             temp = temp->next;
         }
@@ -73,25 +62,21 @@ public:
         delete (temp);
     }
 
-    void display()
-    {
+    void display() {
         node *temp = head;
         if (head == NULL)
             cout << "The list is empty\n";
-        while (temp != NULL)
-        {
+        while (temp != NULL) {
             cout << temp->data << " ";
             temp = temp->next;
         }
     }
-    void insertmiddle(int val)
-    {
+    void insertmiddle(int val) {
         int n;
         node *newnode = new node();
         newnode->data = val;
         newnode->next = NULL;
-        if (head == NULL)
-        {
+        if (head == NULL) {
             head = newnode;
             return;
         }
@@ -99,37 +84,31 @@ public:
         cin >> n;
         node *temp = head;
         int count = 1;
-        while (count < n && temp->next != NULL)
-        {
+        while (count < n && temp->next != NULL) {
             temp = temp->next;
             count++;
         }
-        if (count < n)
-        {
+        if (count < n) {
             cout << "insertion cannot be done in this position\n";
             return;
         }
         newnode->next = temp->next;
         temp->next = newnode;
     }
-    void deletemiddle()
-    {
+    void deletemiddle() {
         int delval;
         node *prev = NULL, *temp = head;
-        if (head == NULL)
-        {
+        if (head == NULL) {
             cout << " the list is empty. u can't delete";
             return;
         }
         cout << "enter the node value that u want to delete";
         cin >> delval;
-        while (temp->data != delval && temp->next != NULL)
-        {
+        while (temp->data != delval && temp->next != NULL) {
             prev = temp;
             temp = temp->next;
         }
-        if (temp->data != delval)
-        {
+        if (temp->data != delval) {
             cout << "there is no such node in the list";
             return;
         }
@@ -144,45 +123,42 @@ public:
         delete (temp);
     }
 };
-int main()
-{
+int main() {
     int choice, val;
     node obj;
-    do
-    {
+    do {
 
         cout << "enter ur choice 1-insert in the beg 2-insert at the end .......";
         cin >> choice;
-        switch (choice)
-        {
-        case 1:
-            cout << "enter the value u want to insert";
-            cin >> val;
-            obj.insertbeg(val);
-            break;
-        case 2:
-            cout << "enter the value u want to insert";
-            cin >> val;
-            obj.insertend(val);
-            break;
-        case 3:
-            cout << "enter the value u want to insert";
-            cin >> val;
-            obj.insertmiddle(val);
-            break;
+        switch (choice) {
+            case 1:
+                cout << "enter the value u want to insert";
+                cin >> val;
+                obj.insertbeg(val);
+                break;
+            case 2:
+                cout << "enter the value u want to insert";
+                cin >> val;
+                obj.insertend(val);
+                break;
+            case 3:
+                cout << "enter the value u want to insert";
+                cin >> val;
+                obj.insertmiddle(val);
+                break;
 
-        case 4:
-            obj.deletebeg();
-            break;
-        case 5:
-            obj.deleteend();
-            break;
-        case 6:
-            obj.deletemiddle();
-            break;
-        case 7:
-            obj.display();
-            break;
+            case 4:
+                obj.deletebeg();
+                break;
+            case 5:
+                obj.deleteend();
+                break;
+            case 6:
+                obj.deletemiddle();
+                break;
+            case 7:
+                obj.display();
+                break;
         }
     } while (choice != 8);
 }

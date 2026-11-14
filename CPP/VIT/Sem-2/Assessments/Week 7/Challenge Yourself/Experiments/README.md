@@ -6,9 +6,9 @@ Sharon wants to design a program to analyze experimental results.
 
 Create a base class, Experiment, with a pure virtual function analyzeResults(). Implement two derived classes, ChemistryExperiment and PhysicsExperiment, to analyze chemistry and physics experiments, respectively.
 
-For the chemistry experiment, calculate the value: Product = Reactant A * Reactant B
+For the chemistry experiment, calculate the value: Product = Reactant A \* Reactant B
 
-For the physics experiment, calculate the value: Final Velocity = Initial Velocity + (Acceleration * Time)
+For the physics experiment, calculate the value: Final Velocity = Initial Velocity + (Acceleration \* Time)
 
 ### Input format :
 

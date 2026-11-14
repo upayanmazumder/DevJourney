@@ -36,6 +36,7 @@ In this scenario, the test cases fall under the following constraints
 1 ≤ elements ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

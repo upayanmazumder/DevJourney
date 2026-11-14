@@ -42,6 +42,7 @@ The given test cases fall under the following constraints:
 10,000.0 ≤ monthly salary ≤ 2,00,000.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

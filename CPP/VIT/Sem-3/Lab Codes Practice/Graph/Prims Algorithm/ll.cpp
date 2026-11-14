@@ -5,36 +5,30 @@ using namespace std;
 constexpr int V = 5;
 constexpr int INF = 9999;
 
-struct Node
-{
+struct Node {
     int vertex;
     int weight;
     Node *next;
 };
 
-struct Graph
-{
+struct Graph {
     Node *adjList[V];
 };
 
-Node *createNode(int vertex, int weight)
-{
+Node *createNode(int vertex, int weight) {
     Node *newNode = new Node{vertex, weight, nullptr};
     return newNode;
 }
 
-Graph createGraph()
-{
+Graph createGraph() {
     Graph graph{};
-    for (int i = 0; i < V; ++i)
-    {
+    for (int i = 0; i < V; ++i) {
         graph.adjList[i] = nullptr;
     }
     return graph;
 }
 
-void addEdge(Graph &graph, int src, int dest, int weight)
-{
+void addEdge(Graph &graph, int src, int dest, int weight) {
     Node *newNode = createNode(dest, weight);
     newNode->next = graph.adjList[src];
     graph.adjList[src] = newNode;
@@ -44,14 +38,11 @@ void addEdge(Graph &graph, int src, int dest, int weight)
     graph.adjList[dest] = newNode;
 }
 
-int minKey(const int key[V], const int mstSet[V])
-{
+int minKey(const int key[V], const int mstSet[V]) {
     int min = INF;
     int minIndex = -1;
-    for (int v = 0; v < V; ++v)
-    {
-        if (!mstSet[v] && key[v] < min)
-        {
+    for (int v = 0; v < V; ++v) {
+        if (!mstSet[v] && key[v] < min) {
             min = key[v];
             minIndex = v;
         }
@@ -59,14 +50,12 @@ int minKey(const int key[V], const int mstSet[V])
     return minIndex;
 }
 
-void prim(const Graph &graph)
-{
+void prim(const Graph &graph) {
     int parent[V];
     int key[V];
     int mstSet[V];
 
-    for (int i = 0; i < V; ++i)
-    {
+    for (int i = 0; i < V; ++i) {
         key[i] = INF;
         mstSet[i] = 0;
     }
@@ -74,18 +63,15 @@ void prim(const Graph &graph)
     key[0] = 0;
     parent[0] = -1;
 
-    for (int count = 0; count < V - 1; ++count)
-    {
+    for (int count = 0; count < V - 1; ++count) {
         int u = minKey(key, mstSet);
         mstSet[u] = 1;
 
         Node *temp = graph.adjList[u];
-        while (temp)
-        {
+        while (temp) {
             int v = temp->vertex;
             int weight = temp->weight;
-            if (!mstSet[v] && weight < key[v])
-            {
+            if (!mstSet[v] && weight < key[v]) {
                 key[v] = weight;
                 parent[v] = u;
             }
@@ -94,19 +80,15 @@ void prim(const Graph &graph)
     }
 
     cout << "Edge \tWeight\n";
-    for (int i = 1; i < V; ++i)
-    {
+    for (int i = 1; i < V; ++i) {
         cout << parent[i] << " - " << i << " \t" << key[i] << '\n';
     }
 }
 
-void freeGraph(Graph &graph)
-{
-    for (int i = 0; i < V; ++i)
-    {
+void freeGraph(Graph &graph) {
+    for (int i = 0; i < V; ++i) {
         Node *current = graph.adjList[i];
-        while (current)
-        {
+        while (current) {
             Node *temp = current;
             current = current->next;
             delete temp;
@@ -115,8 +97,7 @@ void freeGraph(Graph &graph)
     }
 }
 
-int main()
-{
+int main() {
     Graph graph = createGraph();
 
     addEdge(graph, 0, 1, 2);

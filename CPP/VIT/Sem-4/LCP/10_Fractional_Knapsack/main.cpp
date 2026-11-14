@@ -1,9 +1,8 @@
-#include <iostream>
 #include <cstdio>
+#include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     int n;
     double W;
 
@@ -11,25 +10,21 @@ int main()
 
     double weight[100], value[100], ratio[100];
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cin >> weight[i] >> value[i];
         ratio[i] = value[i] / weight[i];
     }
 
     // selection sort by ratio (descending)
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         int best = i;
 
-        for (int j = i + 1; j < n; j++)
-        {
+        for (int j = i + 1; j < n; j++) {
             if (ratio[j] > ratio[best])
                 best = j;
         }
 
-        if (best != i)
-        {
+        if (best != i) {
             double t;
 
             t = ratio[i];
@@ -48,15 +43,11 @@ int main()
 
     double total = 0;
 
-    for (int i = 0; i < n && W > 0; i++)
-    {
-        if (weight[i] <= W)
-        {
+    for (int i = 0; i < n && W > 0; i++) {
+        if (weight[i] <= W) {
             total += value[i];
             W -= weight[i];
-        }
-        else
-        {
+        } else {
             total += value[i] * (W / weight[i]);
             W = 0;
         }

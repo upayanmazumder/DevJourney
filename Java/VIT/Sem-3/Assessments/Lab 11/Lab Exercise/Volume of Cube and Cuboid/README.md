@@ -42,6 +42,7 @@ The test cases will fall under the following constraints:
 1.00 ≤ side ≤ 50.00
 
 Sample test cases :
+
 #### Input 1:
 
 ```

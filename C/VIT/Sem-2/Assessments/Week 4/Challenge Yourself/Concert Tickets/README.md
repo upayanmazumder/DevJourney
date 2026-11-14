@@ -26,9 +26,9 @@ Explanation:
 
 Discounts Applied: 5% student discount and 10% group discount (since members > 5).
 
-Calculation: Individual price with discounts = 900 * (1 - 0.05) * (1 - 0.10) = Rs. 769.5.
+Calculation: Individual price with discounts = 900 _ (1 - 0.05) _ (1 - 0.10) = Rs. 769.5.
 
-Total Ticket Cost: Multiply individual price by the number of members (100 * 769.5) = Rs. 76950.00.
+Total Ticket Cost: Multiply individual price by the number of members (100 \* 769.5) = Rs. 76950.00.
 
 Input:
 
@@ -46,7 +46,7 @@ Explanation:
 
 Discounts Applied: 10% group discount (since members > 5).
 
-Calculation: Individual price with discounts = 900 * (1 - 0.10) = Rs. 810.0
+Calculation: Individual price with discounts = 900 \* (1 - 0.10) = Rs. 810.0
 
 Total Ticket Cost: Multiply individual price by the number of members (6\* 810.0) = Rs. 4860.00.
 

@@ -1,9 +1,9 @@
 l = []
-for i in range(2): # For each set
+for i in range(2):  # For each set
     N = int(input(f"How many elements in set {i+1}: "))
     li = []
     for j in range(N):  # For each set element
-        x=eval(input(f"Set {i+1} >> Element {j+1}: "))
+        x = eval(input(f"Set {i+1} >> Element {j+1}: "))
         li.append(x)
     l.append(set(li))
 

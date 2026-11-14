@@ -33,6 +33,7 @@ A String, representing the hall name
 A String, representing the contact number
 A double, representing the cost per day
 A String, representing the owner’s name
+
 #### Output:
 
 ```
@@ -53,6 +54,7 @@ Code constraints :
 1 ≤ n ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -60,19 +62,19 @@ Sample test cases :
 SDH hall
 12345
 12000.0
-Jane  
+Jane
 XUV hall
 24680
 15000.0
-Jack  
+Jack
 SRT hall
 13579
 20000.0
-John  
+John
 Output 1 :
-SDH hall 12345 12000.0 Jane  
-XUV hall 24680 15000.0 Jack  
-SRT hall 13579 20000.0 John  
+SDH hall 12345 12000.0 Jane
+XUV hall 24680 15000.0 Jack
+SRT hall 13579 20000.0 John
 Input 2 :
 2
 Bliss hall

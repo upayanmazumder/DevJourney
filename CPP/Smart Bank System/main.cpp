@@ -15,6 +15,7 @@ private:
     string accHolder;
     float balance;
     static int totalAccounts;
+
 public:
     Account() {
         accNo = 0;
@@ -37,13 +38,9 @@ public:
         totalAccounts++;
     }
 
-    ~Account() {
-        cout << "Account " << accNo << " closed." << endl;
-    }
+    ~Account() { cout << "Account " << accNo << " closed." << endl; }
 
-    void deposit(float amt = 500) {
-        balance += amt;
-    }
+    void deposit(float amt = 500) { balance += amt; }
 
     void withdraw(float amt) {
         if (amt <= balance)
@@ -53,20 +50,17 @@ public:
     }
 
     void showDetails() const {
-        cout << "Account No: " << accNo << "\nHolder: " << accHolder << "\nBalance: ₹" << balance << endl;
+        cout << "Account No: " << accNo << "\nHolder: " << accHolder << "\nBalance: ₹" << balance
+             << endl;
     }
 
-    static void showTotalAccounts() {
-        cout << "Total Accounts: " << totalAccounts << endl;
-    }
+    static void showTotalAccounts() { cout << "Total Accounts: " << totalAccounts << endl; }
 
     friend void showBalance(const Account &a);
 
     friend class LoanManager;
 
-    virtual void welcomeMessage() const {
-        cout << "Welcome, valued customer!" << endl;
-    }
+    virtual void welcomeMessage() const { cout << "Welcome, valued customer!" << endl; }
 };
 
 int Account::totalAccounts = 0;
@@ -75,13 +69,9 @@ class PremiumAccount : public Account {
 public:
     PremiumAccount(int accNo, string name, float bal) : Account(accNo, name, bal) {}
 
-    void premiumBenefits() {
-        cout << "You get cashback and free insurance!" << endl;
-    }
+    void premiumBenefits() { cout << "You get cashback and free insurance!" << endl; }
 
-    void welcomeMessage() const override {
-        cout << "Welcome, premium customer!" << endl;
-    }
+    void welcomeMessage() const override { cout << "Welcome, premium customer!" << endl; }
 };
 
 void showBalance(const Account &a) {

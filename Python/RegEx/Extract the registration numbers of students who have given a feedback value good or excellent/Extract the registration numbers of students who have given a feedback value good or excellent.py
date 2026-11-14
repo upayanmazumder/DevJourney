@@ -9,7 +9,7 @@ s = """
 6.24BKT6666 - University is good.
 """
 
-pattern = r'(\d{2}[A-Z]{3}\d{4}) - University is (good|excellent)'
+pattern = r"(\d{2}[A-Z]{3}\d{4}) - University is (good|excellent)"
 matches = re.findall(pattern, s)
 registration_numbers = [match[0] for match in matches]
 print(registration_numbers)

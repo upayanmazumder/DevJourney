@@ -9,7 +9,7 @@ List of Mail-id:
 5.Ram, ram_phd@gmail.com, ram@vit.ac.in
 """
 
-linesPat = r'[a-z0-9]+@vit.ac.in'
-lines = re.findall(linesPat,string)
+linesPat = r"[a-z0-9]+@vit.ac.in"
+lines = re.findall(linesPat, string)
 
 print(lines)

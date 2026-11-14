@@ -10,7 +10,7 @@ Write a program using a class Rectangle and a constructor to calculate the area 
 
 Formula:
 
-area of the rectangle = width * height
+area of the rectangle = width \* height
 
 #### Input:
 
@@ -36,6 +36,7 @@ The given test cases fall under the following constraints:
 1.0 ≤ width, height ≤ 100.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

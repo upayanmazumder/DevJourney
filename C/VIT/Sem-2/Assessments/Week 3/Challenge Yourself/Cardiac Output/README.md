@@ -4,7 +4,7 @@
 
 Nial is working on a health monitoring system and needs your assistance in creating a program using pointers to calculate the cardiac output based on heart rate and stroke volume.
 
-Write a program that inputs heart rate (in beats per minute) and stroke volume (in milliliters per minute) and calculates the cardiac output using the formula: heart rate * stroke volume.
+Write a program that inputs heart rate (in beats per minute) and stroke volume (in milliliters per minute) and calculates the cardiac output using the formula: heart rate \* stroke volume.
 
 Note: Convert the cardiac output to liters per minute.
 

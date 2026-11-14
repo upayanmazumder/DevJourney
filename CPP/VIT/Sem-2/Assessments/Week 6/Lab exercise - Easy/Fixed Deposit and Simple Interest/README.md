@@ -10,8 +10,8 @@ class SimpleInterest - Derived from FixedDeposit class, prints the maturity amou
 
 Formulas used:
 
-Maturity Amount = P * (1 + (R/100)) ^ T where the power value is calculated using pow() function from the math library.
-Simple Interest = P * N * R/100
+Maturity Amount = P _ (1 + (R/100)) ^ T where the power value is calculated using pow() function from the math library.
+Simple Interest = P _ N \* R/100
 
 where P - principal, R - interest rate, and N - time period in years.
 

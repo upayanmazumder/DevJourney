@@ -5,4 +5,4 @@ while n > 0:
     dC += 1
     n //= 10
 
-print("Digit Count:",dC)
+print("Digit Count:", dC)

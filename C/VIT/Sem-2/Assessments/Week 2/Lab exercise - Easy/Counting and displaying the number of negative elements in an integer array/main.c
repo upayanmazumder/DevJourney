@@ -1,23 +1,17 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
     int n, a[10], i, c = 0;
     scanf("%d", &n);
-    for (i = 0; i < n; i++)
-    {
+    for (i = 0; i < n; i++) {
         scanf("%d", &a[i]);
-        if (a[i] < 0)
-        {
+        if (a[i] < 0) {
             c++;
         }
     }
-    if (c > 0)
-    {
+    if (c > 0) {
         printf("Total negative elements in array = %d", c);
-    }
-    else
-    {
+    } else {
         printf("No negative elements in the array");
     }
 }

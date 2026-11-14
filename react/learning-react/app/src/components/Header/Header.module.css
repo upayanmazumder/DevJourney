@@ -6,7 +6,9 @@
   background-color: var(--color-card);
   color: var(--color-text);
   border-bottom: 1px solid var(--color-border);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .logo {
@@ -27,7 +29,9 @@
   text-decoration: none;
   color: var(--color-text);
   font-weight: 500;
-  transition: color 0.3s ease, border-bottom 0.2s ease;
+  transition:
+    color 0.3s ease,
+    border-bottom 0.2s ease;
 }
 
 .navLink:hover {

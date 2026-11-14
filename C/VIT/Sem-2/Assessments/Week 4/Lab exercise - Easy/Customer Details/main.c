@@ -10,7 +10,7 @@ void printCustomersWithLowBalance(struct Customer customer[], int n) {
     int i;
     bool found = false;
     for (i = 0; i < n; i++) {
-        if (customer[i].balance < 200)  {
+        if (customer[i].balance < 200) {
             printf("%s\n", customer[i].name);
             found = true;
         }
@@ -26,7 +26,7 @@ void addBalanceForHighBalanceCustomers(struct Customer customer[], int n) {
     for (i = 0; i < n; i++) {
         if (customer[i].balance > 1000) {
             customer[i].balance += 100;
-            printf("%s Rs.%.2f\n", customer[i].name,customer[i].balance);
+            printf("%s Rs.%.2f\n", customer[i].name, customer[i].balance);
             found = true;
         }
     }
@@ -38,12 +38,12 @@ void addBalanceForHighBalanceCustomers(struct Customer customer[], int n) {
 int main() {
     int i, n;
     struct Customer customer[15];
-    
+
     scanf("%d", &n);
     for (i = 0; i < n; i++) {
         scanf("%s %d %f", customer[i].name, &customer[i].number, &customer[i].balance);
     }
-    
+
     printf("Customers: ");
     printCustomersWithLowBalance(customer, n);
     printf("Incremented balance: ");

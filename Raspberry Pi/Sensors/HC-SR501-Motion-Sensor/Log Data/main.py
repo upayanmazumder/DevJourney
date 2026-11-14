@@ -9,9 +9,11 @@ PIR_GPIO_PIN = 17
 motion_count = 0
 last_motion_time = None
 
+
 def log(msg):
     timestamp = datetime.now().strftime("[%Y-%m-%d %H:%M:%S]")
     print(f"{timestamp} {msg}")
+
 
 try:
     log("Initializing PIR sensor...")

@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-int findSumOfMaxMinDigits (int *num) {
+int findSumOfMaxMinDigits(int *num) {
     int minDigit = 9, maxDigit = 0, digit;
     int n = *num;
     while (n) {
         digit = n % 10;
-        if (digit > maxDigit ) {
+        if (digit > maxDigit) {
             maxDigit = digit;
         }
-        if (digit < minDigit ) {
+        if (digit < minDigit) {
             minDigit = digit;
         }
         n /= 10;
@@ -23,6 +23,6 @@ int main() {
         printf("Invalid input");
     } else {
         int result = findSumOfMaxMinDigits(&n);
-        printf("%d\n",result);
+        printf("%d\n", result);
     }
 }

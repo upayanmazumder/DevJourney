@@ -8,6 +8,7 @@ Ram is working on a Java program to calculate the Euclidean distance between two
 Additionally, the class should make use of a constructor to initialize the coordinates and perform the distance calculation.
 Formula :
 ￼
+
 #### Input:
 
 ```
@@ -18,6 +19,7 @@ The first line contains an integer x1, representing the x-coordinate of the fir
 The second line contains an integer y1, representing the y-coordinate of the first point.
 The third line contains an integer x2, representing the x-coordinate of the second point.
 The fourth line contains an integer y2, representing the y-coordinate of the second point.
+
 #### Output:
 
 ```
@@ -30,6 +32,7 @@ Code constraints :
 The given test cases fall under the following constraints:
 -1000 ≤ x1, y1, x2, y2 ≤ 1000
 Sample test cases :
+
 #### Input 1:
 
 ```

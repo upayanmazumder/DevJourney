@@ -3,13 +3,9 @@ using namespace std;
 
 class Num {
 public:
-    void Tell(int x) {
-        cout << "Integer";
-    }
+    void Tell(int x) { cout << "Integer"; }
 
-    void Tell(float x) {
-        cout << "Float";
-    }
+    void Tell(float x) { cout << "Float"; }
 };
 
 int main() {

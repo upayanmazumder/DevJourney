@@ -11,7 +11,8 @@ void enqueue(int x) {
         printf("Overflow\n");
         return;
     }
-    if (front == -1) front = 0;
+    if (front == -1)
+        front = 0;
     rear++;
     queue[rear] = x;
 }

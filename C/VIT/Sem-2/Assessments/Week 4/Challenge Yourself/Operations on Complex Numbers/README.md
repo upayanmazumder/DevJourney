@@ -15,7 +15,7 @@ Formulas for reference:
 
 Addition of Complex Numbers: (a + bi) + (c + di) = (a + c) + (b + d)i
 Subtraction of Complex Numbers: (a + bi) - (c + di) = (a - c) + (b - d)i
-Multiplication of Complex Numbers: (a + bi) * (c + di) = (ac - bd) + (ad + bc)i
+Multiplication of Complex Numbers: (a + bi) \* (c + di) = (ac - bd) + (ad + bc)i
 Modulus (Magnitude) of a Complex Number (a + bi) = √a2 + b2
 
 ### Input format :

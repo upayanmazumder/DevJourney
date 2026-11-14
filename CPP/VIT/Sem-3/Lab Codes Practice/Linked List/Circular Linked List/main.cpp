@@ -1,61 +1,47 @@
 #include <iostream>
 using namespace std;
 
-struct Node
-{
+struct Node {
     int data;
     Node *next;
 };
 
-Node *createNode(int data)
-{
+Node *createNode(int data) {
     Node *node = new Node{data, nullptr};
     node->next = node;
     return node;
 }
 
-void insertEnd(Node *&head, int data)
-{
+void insertEnd(Node *&head, int data) {
     Node *node = createNode(data);
-    if (!head)
-    {
+    if (!head) {
         head = node;
         return;
     }
     Node *tail = head;
-    while (tail->next != head)
-    {
+    while (tail->next != head) {
         tail = tail->next;
     }
     tail->next = node;
     node->next = head;
 }
 
-void deleteValue(Node *&head, int data)
-{
-    if (!head)
-    {
+void deleteValue(Node *&head, int data) {
+    if (!head) {
         return;
     }
     Node *current = head;
     Node *previous = nullptr;
-    do
-    {
-        if (current->data == data)
-        {
-            if (previous)
-            {
+    do {
+        if (current->data == data) {
+            if (previous) {
                 previous->next = current->next;
-            }
-            else
-            {
+            } else {
                 Node *tail = head;
-                while (tail->next != head)
-                {
+                while (tail->next != head) {
                     tail = tail->next;
                 }
-                if (current->next == current)
-                {
+                if (current->next == current) {
                     delete current;
                     head = nullptr;
                     return;
@@ -71,31 +57,25 @@ void deleteValue(Node *&head, int data)
     } while (current != head);
 }
 
-void display(const Node *head)
-{
-    if (!head)
-    {
+void display(const Node *head) {
+    if (!head) {
         cout << '\n';
         return;
     }
     const Node *current = head;
-    do
-    {
+    do {
         cout << current->data << ' ';
         current = current->next;
     } while (current != head);
     cout << '\n';
 }
 
-void clearList(Node *&head)
-{
-    if (!head)
-    {
+void clearList(Node *&head) {
+    if (!head) {
         return;
     }
     Node *current = head->next;
-    while (current != head)
-    {
+    while (current != head) {
         Node *temp = current;
         current = current->next;
         delete temp;
@@ -104,8 +84,7 @@ void clearList(Node *&head)
     head = nullptr;
 }
 
-int main()
-{
+int main() {
     Node *head = nullptr;
     insertEnd(head, 2);
     insertEnd(head, 4);

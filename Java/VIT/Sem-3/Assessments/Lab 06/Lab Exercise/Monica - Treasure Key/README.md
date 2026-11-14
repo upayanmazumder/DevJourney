@@ -36,6 +36,7 @@ Code constraints :
 The input 2D array should be a square matrix.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

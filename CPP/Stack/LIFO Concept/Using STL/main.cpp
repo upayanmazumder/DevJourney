@@ -9,7 +9,7 @@ int main() {
     st.push(2);
     st.push(3);
 
-    while(!st.empty()) {
+    while (!st.empty()) {
         cout << st.top() << " ";
         st.pop();
     }

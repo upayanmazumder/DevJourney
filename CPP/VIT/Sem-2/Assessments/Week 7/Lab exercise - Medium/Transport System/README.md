@@ -6,9 +6,9 @@ Design a program for a transport system operation. Create a base class Transport
 
 The program takes input for the number of transport systems and their operations, then outputs the time taken in seconds for each operation.
 
-For TransportA: Time Taken = abs(start location - destination) * 2
+For TransportA: Time Taken = abs(start location - destination) \* 2
 
-For TransportB: Time Taken = abs(start location - destination) * 3
+For TransportB: Time Taken = abs(start location - destination) \* 3
 
 ### Input format :
 

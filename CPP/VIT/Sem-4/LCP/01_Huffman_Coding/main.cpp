@@ -1,16 +1,14 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 using namespace std;
 
-struct Node
-{
+struct Node {
     string sym;
     int freq;
     Node *l, *r;
 
-    Node(string s, int f)
-    {
+    Node(string s, int f) {
         sym = s;
         freq = f;
         l = nullptr;
@@ -18,13 +16,11 @@ struct Node
     }
 };
 
-void printCodes(Node *root, string code)
-{
+void printCodes(Node *root, string code) {
     if (!root)
         return;
 
-    if (!root->l && !root->r)
-    {
+    if (!root->l && !root->r) {
         cout << root->sym << ": " << code << "\n";
         return;
     }
@@ -33,34 +29,29 @@ void printCodes(Node *root, string code)
     printCodes(root->r, code + "1");
 }
 
-int findMin(vector<Node *> &nodes)
-{
+int findMin(vector<Node *> &nodes) {
     int idx = 0;
-    for (int i = 1; i < nodes.size(); i++)
-    {
+    for (int i = 1; i < nodes.size(); i++) {
         if (nodes[i]->freq < nodes[idx]->freq)
             idx = i;
     }
     return idx;
 }
 
-int main()
-{
+int main() {
     int n;
     cin >> n;
 
     vector<Node *> nodes;
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         string s;
         int f;
         cin >> s >> f;
         nodes.push_back(new Node(s, f));
     }
 
-    while (nodes.size() > 1)
-    {
+    while (nodes.size() > 1) {
         int i1 = findMin(nodes);
         Node *a = nodes[i1];
         nodes.erase(nodes.begin() + i1);

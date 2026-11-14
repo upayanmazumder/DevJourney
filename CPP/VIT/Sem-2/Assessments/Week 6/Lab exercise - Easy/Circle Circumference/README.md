@@ -10,8 +10,8 @@ Help him write the program and display the calculated circumferences using two c
 
 Formulas
 
-Circumference using class 1 = 2 * 3.14159 * radius
-Circumference using class 2 = 23.14 * radius
+Circumference using class 1 = 2 _ 3.14159 _ radius
+Circumference using class 2 = 23.14 \* radius
 
 Refer to the below class diagram:
 

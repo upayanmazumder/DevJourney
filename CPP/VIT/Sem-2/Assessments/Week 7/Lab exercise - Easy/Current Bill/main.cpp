@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class currentBill {
@@ -12,27 +12,21 @@ class Fan : public currentBill {
 public:
     int watts, hours;
     Fan(int w, int h) : watts(w), hours(h) {}
-    double amount() override {
-        return (watts * hours) / 1000.0 * 1.5;
-    }
+    double amount() override { return (watts * hours) / 1000.0 * 1.5; }
 };
 
 class Light : public currentBill {
 public:
     int watts, hours;
     Light(int w, int h) : watts(w), hours(h) {}
-    double amount() override {
-        return (watts * hours) / 1000.0 * 1.5;
-    }
+    double amount() override { return (watts * hours) / 1000.0 * 1.5; }
 };
 
 class TV : public currentBill {
 public:
     int watts, hours;
     TV(int w, int h) : watts(w), hours(h) {}
-    double amount() override {
-        return (watts * hours) / 1000.0 * 1.5;
-    }
+    double amount() override { return (watts * hours) / 1000.0 * 1.5; }
 };
 
 int main() {

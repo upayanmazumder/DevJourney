@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -16,9 +16,7 @@ public:
 
     Car(double fc, double fe) : Vehicle(fc), fuelEfficiency(fe) {}
 
-    double calculateRange() {
-        return fuelCapacity * fuelEfficiency;
-    }
+    double calculateRange() { return fuelCapacity * fuelEfficiency; }
 };
 
 class ElectricCar : public Car {
@@ -28,9 +26,7 @@ private:
 public:
     ElectricCar(double fc, double fe, double bc) : Car(fc, fe), batteryCapacity(bc) {}
 
-    double calculateElectricRange() {
-        return batteryCapacity * fuelEfficiency;
-    }
+    double calculateElectricRange() { return batteryCapacity * fuelEfficiency; }
 };
 
 int main() {
@@ -47,8 +43,10 @@ int main() {
     ElectricCar electricCar(fuelCap, batteryEff, batteryCap);
 
     // Print results
-    cout << "Car Estimated Range: " << fixed << setprecision(1) << fuelCar.calculateRange() << " miles" << endl;
-    cout << "Electric Car Estimated Range: " << fixed << setprecision(1) << electricCar.calculateElectricRange() << " miles" << endl;
+    cout << "Car Estimated Range: " << fixed << setprecision(1) << fuelCar.calculateRange()
+         << " miles" << endl;
+    cout << "Electric Car Estimated Range: " << fixed << setprecision(1)
+         << electricCar.calculateElectricRange() << " miles" << endl;
 
     return 0;
 }

@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "../../utils.h"
+#include <stdio.h>
 
 // Binary Search
 int binarySearch(int arr[], int n, int key) {
@@ -18,7 +18,7 @@ int binarySearch(int arr[], int n, int key) {
 
 int main() {
     int arr[] = {10, 20, 30, 40, 50, 60};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int n = sizeof(arr) / sizeof(arr[0]);
     int key = 40;
 
     int idx = binarySearch(arr, n, key);

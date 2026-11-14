@@ -3,24 +3,18 @@ using namespace std;
 
 class Vehicle {
 public:
-    void start() {
-        cout << "Vehicle is starting...\n";
-    }
+    void start() { cout << "Vehicle is starting...\n"; }
 };
 
 // Derived classes
 class Car : public Vehicle {
 public:
-    void drive() {
-        cout << "Car is driving...\n";
-    }
+    void drive() { cout << "Car is driving...\n"; }
 };
 
 class Bike : public Vehicle {
 public:
-    void ride() {
-        cout << "Bike is riding...\n";
-    }
+    void ride() { cout << "Bike is riding...\n"; }
 };
 
 int main() {

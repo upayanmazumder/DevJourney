@@ -1,8 +1,8 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 void Growth(double *N, double *M, double *T, double *predictedPopulation) {
-    *predictedPopulation = (*N)*exp((*M)*(*T));
+    *predictedPopulation = (*N) * exp((*M) * (*T));
 }
 
 int main() {

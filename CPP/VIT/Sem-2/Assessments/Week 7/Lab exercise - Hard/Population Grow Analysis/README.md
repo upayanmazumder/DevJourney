@@ -8,7 +8,7 @@ She wants to write a program that calculates the growth rate of a population bas
 
 Help Sharon write a program that includes a base class Popul and a derived class Birth. Popul has a virtual function calcRate() to initialize the initial and final sizes. Class Birth inherits from Popul, overriding calcRate() to calculate the growth rate based on births.
 
-Note: Growth Rate = (1000 * (final polulation - initial population) / initial population)
+Note: Growth Rate = (1000 \* (final polulation - initial population) / initial population)
 
 ### Input format :
 

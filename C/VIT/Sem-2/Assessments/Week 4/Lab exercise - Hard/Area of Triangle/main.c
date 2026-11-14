@@ -1,12 +1,13 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 struct Triangle {
-    double side1, side2,side3;
+    double side1, side2, side3;
 };
 
 int isValidTriangle(struct Triangle t) {
-    return (t.side1+t.side2>t.side3) && (t.side1+t.side3>t.side2) && (t.side2 + t.side3 > t.side1);
+    return (t.side1 + t.side2 > t.side3) && (t.side1 + t.side3 > t.side2) &&
+           (t.side2 + t.side3 > t.side1);
 }
 
 double calculateArea(struct Triangle t) {
@@ -18,7 +19,7 @@ int main() {
     struct Triangle t;
     scanf("%lf %lf %lf", &t.side1, &t.side2, &t.side3);
     if (isValidTriangle(t)) {
-        printf("%.1lf\n",calculateArea(t));
+        printf("%.1lf\n", calculateArea(t));
     } else {
         printf("Invalid Triangle");
     }

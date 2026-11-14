@@ -4,7 +4,7 @@
 
 Lea is learning pointer arithmetic. Her teacher tasked her with writing a program to calculate the sum of an arithmetic progression (AP) based on the initial term (a1), the common difference (d), and the number of terms (n). Help her by writing the code using pointer arithmetic.
 
-Formula: Sum of AP = (n * (2 * a1 + (n - 1) * d)) / 2.
+Formula: Sum of AP = (n _ (2 _ a1 + (n - 1) \* d)) / 2.
 
 ### Input format :
 

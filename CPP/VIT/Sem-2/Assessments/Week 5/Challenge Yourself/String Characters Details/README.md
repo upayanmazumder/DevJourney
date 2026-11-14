@@ -16,9 +16,9 @@ Function specifications
 
 int length (const char\* str1) - To find the length of the string
 
-void count (const char * str1) - To count the total number of alphabets, digits, or special characters
+void count (const char \* str1) - To count the total number of alphabets, digits, or special characters
 
-void occur (const char * str1) - To count all occurrences of a character
+void occur (const char \* str1) - To count all occurrences of a character
 
 ### Input format :
 
@@ -64,7 +64,7 @@ Occurrence of r is 2
 Occurrence of ! is 1
 Occurrence of n is 1
 Occurrence of g is 1
-Occurrence of * is 1
+Occurrence of \* is 1
 Occurrence of 1 is 1
 Occurrence of 2 is 1
 Occurrence of 3 is 1

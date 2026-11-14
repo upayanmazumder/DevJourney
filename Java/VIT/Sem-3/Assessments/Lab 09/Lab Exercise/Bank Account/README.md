@@ -10,6 +10,7 @@ Savings Account: 5% annual interest
 Checking Account: 2% annual interest
 Other Account Types: 1% annual interest
 The program should use the BankAccount class to initialize the balance and account type using a constructor and determine the applicable interest rate. The calculated interest should be displayed with one decimal precision.
+
 #### Input:
 
 ```
@@ -18,6 +19,7 @@ format :
 
 The first line contains a double representing the initial balance.
 The second line contains a string representing the account type (Savings, Checking, or Other).
+
 #### Output:
 
 ```
@@ -31,6 +33,7 @@ The given test cases fall under the following constraints:
 1.0 ≤ Initial Balance ≤ 100000.0
 Account Type will be one of: Savings, Checking, Other (case-sensitive)
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -1,24 +1,23 @@
 class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        String x = "water";
-        String y = "Kool-Aid";
-        String temp;
+    String x = "water";
+    String y = "Kool-Aid";
+    String temp;
 
-        System.out.println("Pre-swap x: " + x);
-        System.out.println("Pre-swap y: " + y);
+    System.out.println("Pre-swap x: " + x);
+    System.out.println("Pre-swap y: " + y);
 
-        System.out.println("Swapping...");
+    System.out.println("Swapping...");
 
-        temp = x;
-        x = y;
-        y = temp;
+    temp = x;
+    x = y;
+    y = temp;
 
-        System.out.println("Swapped!");
+    System.out.println("Swapped!");
 
-        System.out.println("Post-swap x: " + x);
-        System.out.println("Post-swap y: " + y);
-
-    }
+    System.out.println("Post-swap x: " + x);
+    System.out.println("Post-swap y: " + y);
+  }
 }

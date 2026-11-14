@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-void merge(int arr[], int l, int m, int r)
-{
+void merge(int arr[], int l, int m, int r) {
     int n1 = m - l + 1;
     int n2 = r - m;
 
@@ -13,8 +12,7 @@ void merge(int arr[], int l, int m, int r)
         R[j] = arr[m + 1 + j];
 
     int i = 0, j = 0, k = l;
-    while (i < n1 && j < n2)
-    {
+    while (i < n1 && j < n2) {
         if (L[i] <= R[j])
             arr[k++] = L[i++];
         else
@@ -26,10 +24,8 @@ void merge(int arr[], int l, int m, int r)
         arr[k++] = R[j++];
 }
 
-void mergeSort(int arr[], int l, int r)
-{
-    if (l < r)
-    {
+void mergeSort(int arr[], int l, int r) {
+    if (l < r) {
         int m = l + (r - l) / 2;
         mergeSort(arr, l, m);
         mergeSort(arr, m + 1, r);
@@ -37,15 +33,13 @@ void mergeSort(int arr[], int l, int r)
     }
 }
 
-void printArray(int arr[], int n)
-{
+void printArray(int arr[], int n) {
     for (int i = 0; i < n; i++)
         printf("%d ", arr[i]);
     printf("\n");
 }
 
-int main()
-{
+int main() {
     int arr[] = {64, 25, 12, 22, 11};
     int n = sizeof(arr) / sizeof(arr[0]);
 

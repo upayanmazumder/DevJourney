@@ -1,24 +1,24 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import axios from "@/lib/axios";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from 'react';
+import axios from '@/lib/axios';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select';
 import {
   Table,
   TableBody,
@@ -26,10 +26,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Separator } from "@/components/ui/separator";
+} from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Separator } from '@/components/ui/separator';
 
 interface Trip {
   vehicle_id: string;
@@ -79,9 +79,9 @@ export default function Home() {
   const [summary, setSummary] = useState<FleetSummary | null>(null);
   const [summaryError, setSummaryError] = useState<string | null>(null);
 
-  const [vehicleId, setVehicleId] = useState("V1");
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
+  const [vehicleId, setVehicleId] = useState('V1');
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
 
   const [trips, setTrips] = useState<Trip[] | null>(null);
   const [tripsError, setTripsError] = useState<string | null>(null);
@@ -91,19 +91,19 @@ export default function Home() {
   const [utilizationError, setUtilizationError] = useState<string | null>(null);
   const [utilizationLoading, setUtilizationLoading] = useState(false);
 
-  const [pingVehicleId, setPingVehicleId] = useState("V1");
-  const [pingTimestamp, setPingTimestamp] = useState("");
-  const [pingLat, setPingLat] = useState("12.9716");
-  const [pingLon, setPingLon] = useState("77.5946");
-  const [pingSpeed, setPingSpeed] = useState("0");
-  const [pingIgnition, setPingIgnition] = useState<"ON" | "OFF">("ON");
+  const [pingVehicleId, setPingVehicleId] = useState('V1');
+  const [pingTimestamp, setPingTimestamp] = useState('');
+  const [pingLat, setPingLat] = useState('12.9716');
+  const [pingLon, setPingLon] = useState('77.5946');
+  const [pingSpeed, setPingSpeed] = useState('0');
+  const [pingIgnition, setPingIgnition] = useState<'ON' | 'OFF'>('ON');
   const [ingestResult, setIngestResult] = useState<IngestResult | null>(null);
   const [ingestError, setIngestError] = useState<string | null>(null);
   const [ingestLoading, setIngestLoading] = useState(false);
 
   const loadSummary = () => {
     axios
-      .get<FleetSummary>("/fleet/summary")
+      .get<FleetSummary>('/fleet/summary')
       .then((res) => {
         setSummary(res.data);
         setSummaryError(null);
@@ -120,7 +120,9 @@ export default function Home() {
     setTripsLoading(true);
     setTripsError(null);
     axios
-      .get<{ vehicle_id: string; trips: Trip[] }>(`/vehicles/${encodeURIComponent(vehicleId)}/trips`)
+      .get<{ vehicle_id: string; trips: Trip[] }>(
+        `/vehicles/${encodeURIComponent(vehicleId)}/trips`,
+      )
       .then((res) => setTrips(res.data.trips))
       .catch((err) => setTripsError(err.response?.data?.error ?? err.message))
       .finally(() => setTripsLoading(false));
@@ -128,39 +130,44 @@ export default function Home() {
 
   const fetchUtilization = () => {
     if (!vehicleId || !from || !to) {
-      setUtilizationError("vehicle, from and to are required");
+      setUtilizationError('vehicle, from and to are required');
       return;
     }
     setUtilizationLoading(true);
     setUtilizationError(null);
     axios
-      .get<Utilization>(`/vehicles/${encodeURIComponent(vehicleId)}/utilization`, {
-        params: {
-          from: new Date(from).toISOString(),
-          to: new Date(to).toISOString(),
+      .get<Utilization>(
+        `/vehicles/${encodeURIComponent(vehicleId)}/utilization`,
+        {
+          params: {
+            from: new Date(from).toISOString(),
+            to: new Date(to).toISOString(),
+          },
         },
-      })
+      )
       .then((res) => setUtilization(res.data))
-      .catch((err) => setUtilizationError(err.response?.data?.error ?? err.message))
+      .catch((err) =>
+        setUtilizationError(err.response?.data?.error ?? err.message),
+      )
       .finally(() => setUtilizationLoading(false));
   };
 
   const submitPing = () => {
     if (!pingVehicleId || !pingTimestamp) {
-      setIngestError("vehicle id and timestamp are required");
+      setIngestError('vehicle id and timestamp are required');
       return;
     }
     const lat = Number(pingLat);
     const lon = Number(pingLon);
     const speed_kmph = Number(pingSpeed);
     if (Number.isNaN(lat) || Number.isNaN(lon) || Number.isNaN(speed_kmph)) {
-      setIngestError("lat, lon and speed must be numbers");
+      setIngestError('lat, lon and speed must be numbers');
       return;
     }
     setIngestLoading(true);
     setIngestError(null);
     axios
-      .post<IngestResult>("/telemetry", [
+      .post<IngestResult>('/telemetry', [
         {
           vehicle_id: pingVehicleId,
           timestamp: new Date(pingTimestamp).toISOString(),
@@ -207,13 +214,16 @@ export default function Home() {
             <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
               <Stat label="Vehicles" value={summary.vehicle_count} />
               <Stat label="Total trips" value={summary.total_trips} />
-              <Stat label="Total distance (km)" value={summary.total_distance_km} />
+              <Stat
+                label="Total distance (km)"
+                value={summary.total_distance_km}
+              />
               <Stat
                 label="Most active"
                 value={
                   summary.most_active_vehicle
                     ? `${summary.most_active_vehicle.vehicle_id} (${summary.most_active_vehicle.distance_km} km)`
-                    : "—"
+                    : '—'
                 }
               />
             </dl>
@@ -224,7 +234,9 @@ export default function Home() {
       <Card>
         <CardHeader>
           <CardTitle>Vehicle lookup</CardTitle>
-          <CardDescription>Trips and utilization for a single vehicle.</CardDescription>
+          <CardDescription>
+            Trips and utilization for a single vehicle.
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="flex flex-wrap items-end gap-3">
@@ -256,14 +268,14 @@ export default function Home() {
               />
             </div>
             <Button onClick={fetchTrips} disabled={tripsLoading || !vehicleId}>
-              {tripsLoading ? "Loading…" : "Get trips"}
+              {tripsLoading ? 'Loading…' : 'Get trips'}
             </Button>
             <Button
               variant="secondary"
               onClick={fetchUtilization}
               disabled={utilizationLoading || !vehicleId}
             >
-              {utilizationLoading ? "Loading…" : "Get utilization"}
+              {utilizationLoading ? 'Loading…' : 'Get utilization'}
             </Button>
           </div>
 
@@ -288,19 +300,34 @@ export default function Home() {
                 <TableBody>
                   {trips.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={6} className="text-center text-muted-foreground">
+                      <TableCell
+                        colSpan={6}
+                        className="text-center text-muted-foreground"
+                      >
                         No trips for this vehicle.
                       </TableCell>
                     </TableRow>
                   )}
                   {trips.map((t) => (
                     <TableRow key={t.start_time}>
-                      <TableCell className="font-mono text-xs">{t.start_time}</TableCell>
-                      <TableCell className="font-mono text-xs">{t.end_time}</TableCell>
-                      <TableCell className="text-right tabular-nums">{t.duration_min}</TableCell>
-                      <TableCell className="text-right tabular-nums">{t.distance_km}</TableCell>
-                      <TableCell className="text-right tabular-nums">{t.avg_speed}</TableCell>
-                      <TableCell className="text-right tabular-nums">{t.max_speed}</TableCell>
+                      <TableCell className="font-mono text-xs">
+                        {t.start_time}
+                      </TableCell>
+                      <TableCell className="font-mono text-xs">
+                        {t.end_time}
+                      </TableCell>
+                      <TableCell className="text-right tabular-nums">
+                        {t.duration_min}
+                      </TableCell>
+                      <TableCell className="text-right tabular-nums">
+                        {t.distance_km}
+                      </TableCell>
+                      <TableCell className="text-right tabular-nums">
+                        {t.avg_speed}
+                      </TableCell>
+                      <TableCell className="text-right tabular-nums">
+                        {t.max_speed}
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -322,7 +349,9 @@ export default function Home() {
                     Driving
                   </dt>
                   <dd>
-                    <Badge className="text-sm">{utilization.driving_pct}%</Badge>
+                    <Badge className="text-sm">
+                      {utilization.driving_pct}%
+                    </Badge>
                   </dd>
                 </div>
                 <div className="space-y-1">
@@ -414,7 +443,7 @@ export default function Home() {
               <Label htmlFor="pingIgnition">Ignition</Label>
               <Select
                 value={pingIgnition}
-                onValueChange={(v) => setPingIgnition(v as "ON" | "OFF")}
+                onValueChange={(v) => setPingIgnition(v as 'ON' | 'OFF')}
               >
                 <SelectTrigger id="pingIgnition" className="w-24">
                   <SelectValue />
@@ -426,7 +455,7 @@ export default function Home() {
               </Select>
             </div>
             <Button onClick={submitPing} disabled={ingestLoading}>
-              {ingestLoading ? "Sending…" : "POST /telemetry"}
+              {ingestLoading ? 'Sending…' : 'POST /telemetry'}
             </Button>
           </div>
 
@@ -438,9 +467,13 @@ export default function Home() {
           {ingestResult && (
             <div className="space-y-2 text-sm">
               <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="outline">received {ingestResult.received}</Badge>
+                <Badge variant="outline">
+                  received {ingestResult.received}
+                </Badge>
                 <Badge>inserted {ingestResult.inserted}</Badge>
-                <Badge variant="secondary">duplicates {ingestResult.duplicates}</Badge>
+                <Badge variant="secondary">
+                  duplicates {ingestResult.duplicates}
+                </Badge>
               </div>
               {ingestResult.invalid.length > 0 && (
                 <ul className="list-disc space-y-1 pl-5 text-destructive">

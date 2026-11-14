@@ -14,7 +14,7 @@ Total cost of electronic product = cost + warranty cost
 
 Total cost of clothing product = cost + material cost
 
-Profit margin = ((price - cost) / price) * 100.
+Profit margin = ((price - cost) / price) \* 100.
 
 #### Input:
 
@@ -56,6 +56,7 @@ In this scenario, the test cases fall under the following constraints:
 1.0 ≤ warranty, material cost ≤ 160.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -70,6 +71,7 @@ Profit Margin: 37.39
 Clothing Product:
 Total Cost: 45.60
 Profit Margin: 66.18
+
 #### Input 2:
 
 ```

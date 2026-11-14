@@ -6,7 +6,7 @@ Lisa loves building toy houses using blocks. She has a special set of blocks tha
 
 Implement a program that has a class named House and takes the dimensions of a toy house (length, width, and height) as public attributes and calculates the total surface area (TSA) of the house without the roof.
 
-Formula: TSA = 2 * [(Width * Height) + (Width * Height) + (Height * Length) + (Height * Length)]
+Formula: TSA = 2 _ [(Width _ Height) + (Width _ Height) + (Height _ Length) + (Height \* Length)]
 
 ### Input format :
 

@@ -52,6 +52,7 @@ jaIn this scenario, the test cases fall under the following constraints:
 50.0 ≤ c ≤ 1000.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

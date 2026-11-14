@@ -1,18 +1,14 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
     int T;
     scanf("%d", &T);
-    while (T--)
-    {
+    while (T--) {
         int N;
         scanf("%d", &N);
         int matrix[N][N];
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < N; j++)
-            {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 scanf("%d", &matrix[i][j]);
             }
         }
@@ -22,24 +18,15 @@ int main()
         b = 0;
         c = 0;
         d = 0;
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = 0; j < N; j++)
-            {
-                if (i < mid && j < mid)
-                {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (i < mid && j < mid) {
                     a += matrix[i][j];
-                }
-                else if (i < mid && j >= mid)
-                {
+                } else if (i < mid && j >= mid) {
                     b += matrix[i][j];
-                }
-                else if (i >= mid && j < mid)
-                {
+                } else if (i >= mid && j < mid) {
                     c += matrix[i][j];
-                }
-                else
-                {
+                } else {
                     d += matrix[i][j];
                 }
             }

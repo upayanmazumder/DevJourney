@@ -11,6 +11,7 @@ Help Paul to achieve this by implementing the class FibonacciCalculator.This cla
 Calculating the nth Fibonacci number.
 Checking if the Fibonacci number is even or odd.
 Calculating the sum of digits of the Fibonacci number.
+
 #### Input:
 
 ```
@@ -41,6 +42,7 @@ The given test cases fall under the following constraints:
 The calculated Fibonacci number will fit within the range of a 64-bit integer.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

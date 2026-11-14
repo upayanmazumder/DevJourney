@@ -4,31 +4,27 @@ using namespace std;
 
 const int MAX_P = 100;
 
-struct Point
-{
+struct Point {
     int x;
     int y;
 };
 
 Point p0;
 
-void swapPoint(Point &a, Point &b)
-{
+void swapPoint(Point &a, Point &b) {
     Point temp = a;
     a = b;
     b = temp;
 }
 
-long long distSq(const Point &a, const Point &b)
-{
+long long distSq(const Point &a, const Point &b) {
     long long dx = (long long)a.x - b.x;
     long long dy = (long long)a.y - b.y;
     return dx * dx + dy * dy;
 }
 
 // Returns: 0 -> collinear, 1 -> clockwise, 2 -> counterclockwise
-int orientation(const Point &a, const Point &b, const Point &c)
-{
+int orientation(const Point &a, const Point &b, const Point &c) {
     long long val = ((long long)b.y - a.y) * ((long long)c.x - b.x) -
                     ((long long)b.x - a.x) * ((long long)c.y - b.y);
     if (val == 0)
@@ -36,57 +32,46 @@ int orientation(const Point &a, const Point &b, const Point &c)
     return (val > 0) ? 1 : 2;
 }
 
-bool comesBefore(const Point &a, const Point &b)
-{
+bool comesBefore(const Point &a, const Point &b) {
     int o = orientation(p0, a, b);
-    if (o == 0)
-    {
+    if (o == 0) {
         return distSq(p0, a) < distSq(p0, b);
     }
     return (o == 2);
 }
 
-void sortByPolar(Point *points, int n)
-{
+void sortByPolar(Point *points, int n) {
     // Simple bubble sort to avoid using <algorithm>.
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - i - 1; j++)
-        {
-            if (!comesBefore(points[j], points[j + 1]))
-            {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (!comesBefore(points[j], points[j + 1])) {
                 swapPoint(points[j], points[j + 1]);
             }
         }
     }
 }
 
-int main()
-{
+int main() {
     int n;
     cout << "Enter number of points: ";
     cin >> n;
 
-    if (n < 3 || n > MAX_P)
-    {
+    if (n < 3 || n > MAX_P) {
         cout << "Invalid number of points. Enter 3 to " << MAX_P << ".\n";
         return 0;
     }
 
     Point points[MAX_P];
     cout << "Enter points as x y:\n";
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cin >> points[i].x >> points[i].y;
     }
 
     // Step 1: Find bottom-most (and left-most in tie) point.
     int minIdx = 0;
-    for (int i = 1; i < n; i++)
-    {
+    for (int i = 1; i < n; i++) {
         if (points[i].y < points[minIdx].y ||
-            (points[i].y == points[minIdx].y && points[i].x < points[minIdx].x))
-        {
+            (points[i].y == points[minIdx].y && points[i].x < points[minIdx].x)) {
             minIdx = i;
         }
     }
@@ -102,18 +87,15 @@ int main()
     hull[top++] = points[0];
     hull[top++] = points[1];
 
-    for (int i = 2; i < n; i++)
-    {
-        while (top >= 2 && orientation(hull[top - 2], hull[top - 1], points[i]) != 2)
-        {
+    for (int i = 2; i < n; i++) {
+        while (top >= 2 && orientation(hull[top - 2], hull[top - 1], points[i]) != 2) {
             top--;
         }
         hull[top++] = points[i];
     }
 
     cout << "Convex Hull Points (counterclockwise):\n";
-    for (int i = 0; i < top; i++)
-    {
+    for (int i = 0; i < top; i++) {
         cout << "(" << hull[i].x << ", " << hull[i].y << ")\n";
     }
 

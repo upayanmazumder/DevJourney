@@ -10,6 +10,7 @@ You are required to build a Java program that:
 
 Uses a TreeMap<Character, Integer> to count how many times each character appears in the message.
 Ignores spaces and considers only alphabets (case-sensitive).
+
 #### Output:
 
 ```
@@ -50,6 +51,7 @@ HH:MM will always be a valid 24-hour time
 Descriptions do not contain spaces
 
 Sample test cases :
+
 #### Input 1:
 
 ```

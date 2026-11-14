@@ -27,13 +27,13 @@ Formulas used:
 
 For Television:
 
-Screen size in cm = screen size in inches * 2.54
+Screen size in cm = screen size in inches \* 2.54
 
-Pixel Density = (resolution width * resolution height) / (screen size in cm * screen size in cm)
+Pixel Density = (resolution width _ resolution height) / (screen size in cm _ screen size in cm)
 
 For Refrigerator:
 
-Capacity in Cubic Feet = capacity in liters * 0.0353
+Capacity in Cubic Feet = capacity in liters \* 0.0353
 
 Energy Efficiency = Energy consumption in KWh / capacity cubic feet
 

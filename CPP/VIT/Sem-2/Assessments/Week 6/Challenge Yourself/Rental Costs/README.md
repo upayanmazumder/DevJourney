@@ -12,7 +12,7 @@ Rental class - Derived from Car and Truck class and displays the rental costs fo
 Formulas:
 
 Car rental cost = 0.1*X + 2.0*Y
-Truck rental cost = 1.5 * (0.1*A + 2.0*B)
+Truck rental cost = 1.5 * (0.1*A + 2.0\*B)
 
 Where X - Mileage covered by the Car; Y - Fuel consumed by the Car; A - Mileage covered by the Truck; B - Fuel consumed by the Truck.
 

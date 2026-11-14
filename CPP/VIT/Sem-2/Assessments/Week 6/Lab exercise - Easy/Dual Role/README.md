@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-Robin wants to create a program to manage an individual's dual roles as a student and an employee. The monthly income is calculated based on her age. As a student, a stipend of age * 100 is received, and as an employee, a salary of age * 500 is received.
+Robin wants to create a program to manage an individual's dual roles as a student and an employee. The monthly income is calculated based on her age. As a student, a stipend of age _ 100 is received, and as an employee, a salary of age _ 500 is received.
 
 The program consists of four classes:
 

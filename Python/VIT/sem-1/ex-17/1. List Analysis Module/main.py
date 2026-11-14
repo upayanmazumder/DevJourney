@@ -21,14 +21,14 @@ print("""
 """)
 
 choice = input("Enter your choice: ")
-if choice == 'a':
+if choice == "a":
     print("Total elements in list:", a.count_elements(l))
-elif choice == 'b':
+elif choice == "b":
     res = a.count_elements_by_type(l)
     print(f"The list has {res[0]} integers, {res[1]} floats and {res[2]} strings")
-elif choice == 'c':
+elif choice == "c":
     print("Unique elements in list:", a.extract_uniques(l))
-elif choice == 'd':
+elif choice == "d":
     print("Duplicate elements in list:", a.extract_duplicates(l))
 else:
     print("Invalid choice")

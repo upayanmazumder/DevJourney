@@ -1,22 +1,17 @@
 #include <iostream>
 using namespace std;
 
-class Wall
-{
+class Wall {
 private:
     double length, height;
 
 public:
     Wall(double l, double h) : length(l), height(h) {}
 
-    double calculateArea()
-    {
-        return length * height;
-    }
+    double calculateArea() { return length * height; }
 };
 
-int main()
-{
+int main() {
     double length1, height1, length2, height2;
 
     cin >> length1 >> height1 >> length2 >> height2;

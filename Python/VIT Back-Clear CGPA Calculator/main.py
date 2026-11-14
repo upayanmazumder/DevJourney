@@ -2,14 +2,15 @@ import re
 
 # Grade points mapping
 grade_points = {
-    'S': 10,
-    'A': 9,
-    'B': 8,
-    'C': 7,
-    'D': 6,
-    'E': 5,
-    'F': 0  # F is ignored for current CGPA
+    "S": 10,
+    "A": 9,
+    "B": 8,
+    "C": 7,
+    "D": 6,
+    "E": 5,
+    "F": 0,  # F is ignored for current CGPA
 }
+
 
 def parse_semester(input_lines):
     sem_credits = 0.0
@@ -28,15 +29,15 @@ def parse_semester(input_lines):
         # find credit (usually 4th float from left)
         credit = None
         grade = None
-        floats = [float(p) for p in parts if re.match(r'^\d+(\.\d+)?$', p)]
+        floats = [float(p) for p in parts if re.match(r"^\d+(\.\d+)?$", p)]
         if floats:
             credit = floats[-1]
-        grade_match = re.findall(r'\b([SABCDEF])\b', line)
+        grade_match = re.findall(r"\b([SABCDEF])\b", line)
         if grade_match:
             grade = grade_match[-1]
 
         if credit is not None and grade:
-            if grade == 'F':
+            if grade == "F":
                 failed_credits += credit
             else:
                 sem_credits += credit
@@ -44,6 +45,7 @@ def parse_semester(input_lines):
 
     gpa = sem_weighted / sem_credits if sem_credits > 0 else 0
     return sem_credits, sem_weighted, failed_credits, gpa
+
 
 def main():
     n = int(input("Enter number of semesters: "))
@@ -64,7 +66,9 @@ def main():
                 lines.append(line)
         sem_credits, sem_weighted, failed_credits, gpa = parse_semester(lines)
         semester_data.append((sem_credits, sem_weighted, failed_credits))
-        print(f"[OK] Semester {i+1} GPA: {gpa:.2f} | Total Credits: {sem_credits:.1f} | Failed Credits: {failed_credits:.1f}")
+        print(
+            f"[OK] Semester {i+1} GPA: {gpa:.2f} | Total Credits: {sem_credits:.1f} | Failed Credits: {failed_credits:.1f}"
+        )
 
     # calculate original CGPA ignoring failed courses
     total_credits = sum(s[0] for s in semester_data)
@@ -84,11 +88,12 @@ def main():
     print("\nIf failed courses are cleared as:\n")
     print("| Grade | CGPA After Clearing |")
     print("|-------|--------------------|")
-    for grade in ['S', 'A', 'B', 'C', 'D', 'E']:
+    for grade in ["S", "A", "B", "C", "D", "E"]:
         new_weighted = total_weighted + total_failed * grade_points[grade]
         new_total_credits = total_credits + total_failed
         new_cgpa = new_weighted / new_total_credits
         print(f"| {grade} ({grade_points[grade]}) | {new_cgpa:.2f} |")
+
 
 if __name__ == "__main__":
     main()

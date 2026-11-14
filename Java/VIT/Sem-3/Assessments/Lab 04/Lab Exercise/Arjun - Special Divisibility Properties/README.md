@@ -50,6 +50,7 @@ Code constraints :
 10 ≤ n1, n2 ≤ 103
 
 Sample test cases :
+
 #### Input 1:
 
 ```

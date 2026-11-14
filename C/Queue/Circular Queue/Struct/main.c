@@ -1,79 +1,62 @@
 #include <stdio.h>
 #define MAX 5
 
-typedef struct
-{
+typedef struct {
     int data[MAX];
     int front;
     int rear;
 } CircularQueue;
 
-void init(CircularQueue *q)
-{
+void init(CircularQueue *q) {
     q->front = -1;
     q->rear = -1;
 }
 
-int isFull(CircularQueue *q)
-{
+int isFull(CircularQueue *q) {
     return (q->front == (q->rear + 1) % MAX);
 }
 
-int isEmpty(CircularQueue *q)
-{
+int isEmpty(CircularQueue *q) {
     return q->front == -1;
 }
 
-void insert(CircularQueue *q, int item)
-{
-    if (isFull(q))
-    {
+void insert(CircularQueue *q, int item) {
+    if (isFull(q)) {
         printf("Overflow\n");
         return;
     }
-    if (isEmpty(q))
-    {
+    if (isEmpty(q)) {
         q->front = q->rear = 0;
-    }
-    else
-    {
+    } else {
         q->rear = (q->rear + 1) % MAX;
     }
     q->data[q->rear] = item;
     printf("%d inserted\n", item);
 }
 
-void delete(CircularQueue *q)
-{
-    if (isEmpty(q))
-    {
+void delete(CircularQueue *q) {
+    if (isEmpty(q)) {
         printf("Underflow\n");
         return;
     }
     int item = q->data[q->front];
     printf("%d deleted\n", item);
-    if (q->front == q->rear)
-    {
+    if (q->front == q->rear) {
         // last element removed, reset queue
         q->front = q->rear = -1;
-    }
-    else
-    {
+    } else {
         q->front = (q->front + 1) % MAX;
     }
 }
 
-void display(CircularQueue *q)
-{
-    if (isEmpty(q))
-    {
+void display(CircularQueue *q) {
+    if (isEmpty(q)) {
         printf("Queue is empty\n");
         return;
     }
     printf("Queue elements: ");
     int i = q->front;
-    while (1)
-    {
+    while (1) {
         printf("%d ", q->data[i]);
         if (i == q->rear)
             break;
@@ -82,8 +65,7 @@ void display(CircularQueue *q)
     printf("\n");
 }
 
-int main()
-{
+int main() {
     CircularQueue q;
     init(&q);
 

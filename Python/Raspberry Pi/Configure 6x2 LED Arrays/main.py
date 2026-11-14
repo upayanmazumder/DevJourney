@@ -1,13 +1,16 @@
 import time
 import pins
 
+
 def main():
     """Main function to handle user interaction."""
     try:
         pins.startup_sequence()
         while True:
-            user_input = input("Enter pin position (e.g., 1A, 2B) to toggle or 'q' to quit: ").upper()
-            if user_input == 'Q':
+            user_input = input(
+                "Enter pin position (e.g., 1A, 2B) to toggle or 'q' to quit: "
+            ).upper()
+            if user_input == "Q":
                 break
             elif user_input in pins.PIN_CONFIG:
                 pins.set_pin(user_input, True)
@@ -20,6 +23,7 @@ def main():
     finally:
         pins.cleanup()
         print("GPIO cleaned up. Goodbye!")
+
 
 if __name__ == "__main__":
     main()

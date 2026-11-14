@@ -4,9 +4,9 @@
 
 John is driving a car with an initial velocity (in m/s) that suddenly accelerates at a constant rate (in m/s2) for a certain time (in seconds). He wants to write a program that calculates and displays the final velocity of the car.
 
-Help John calculate the final velocity by overloading the * operator in the Acceleration class.
+Help John calculate the final velocity by overloading the \* operator in the Acceleration class.
 
-Formula: Final velocity = Initial velocity + (Acceleration * time)
+Formula: Final velocity = Initial velocity + (Acceleration \* time)
 
 ### Input format :
 

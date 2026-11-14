@@ -36,6 +36,7 @@ Code constraints :
 s and words[i] consist of lowercase English letters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

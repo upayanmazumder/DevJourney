@@ -68,6 +68,7 @@ The given test cases fall under the following constraints:
 0 ≤ seconds ≤ 59
 
 Sample test cases :
+
 #### Input 1:
 
 ```

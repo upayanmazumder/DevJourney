@@ -6,10 +6,8 @@ int n;
 int col[20];
 int solCount = 0;
 
-bool ok(int r, int c)
-{
-    for (int i = 0; i < r; i++)
-    {
+bool ok(int r, int c) {
+    for (int i = 0; i < r; i++) {
         int d = col[i] - c;
         if (d < 0)
             d = -d;
@@ -20,14 +18,11 @@ bool ok(int r, int c)
     return true;
 }
 
-void printBoard()
-{
+void printBoard() {
     solCount++;
 
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             if (col[i] == j)
                 cout << "Q";
             else
@@ -39,26 +34,21 @@ void printBoard()
     cout << "\n";
 }
 
-void place(int r)
-{
-    if (r == n)
-    {
+void place(int r) {
+    if (r == n) {
         printBoard();
         return;
     }
 
-    for (int c = 0; c < n; c++)
-    {
-        if (ok(r, c))
-        {
+    for (int c = 0; c < n; c++) {
+        if (ok(r, c)) {
             col[r] = c;
             place(r + 1);
         }
     }
 }
 
-int main()
-{
+int main() {
     cin >> n;
 
     place(0);

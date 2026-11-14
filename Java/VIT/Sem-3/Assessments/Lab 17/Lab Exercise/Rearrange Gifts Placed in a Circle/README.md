@@ -40,6 +40,7 @@ Code constraints :
 Valid indices to swap - 0 ≤ a, b < n
 
 Sample test cases :
+
 #### Input 1:
 
 ```

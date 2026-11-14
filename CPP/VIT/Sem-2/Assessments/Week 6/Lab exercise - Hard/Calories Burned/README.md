@@ -16,21 +16,21 @@ Cycling class: This class represents a cycling exercise. It also inherits from t
 
 Note: The formula for calculating calories burned in Cardio exercise is:
 
-caloriesPerMinute = 8 * intensity * weight / 200
+caloriesPerMinute = 8 _ intensity _ weight / 200
 
-totalCaloriesBurned = caloriesPerMinute * duration
+totalCaloriesBurned = caloriesPerMinute \* duration
 
 The formula for calculating calories burned in Weightlifting exercise is:
 
-caloriesPerRep = 5 * weight / 100
+caloriesPerRep = 5 \* weight / 100
 
-totalCaloriesBurned = caloriesPerRep * repetitions * duration
+totalCaloriesBurned = caloriesPerRep _ repetitions _ duration
 
 The formula for calculating calories burned in Cycling exercise is:
 
-caloriesPerMinute = 10 * speed * weight / 500
+caloriesPerMinute = 10 _ speed _ weight / 500
 
-totalCaloriesBurned = caloriesPerMinute * duration
+totalCaloriesBurned = caloriesPerMinute \* duration
 
 ### Input format :
 

@@ -1,9 +1,9 @@
-n=int(input("Enter a number: "))
-i=0   
+n = int(input("Enter a number: "))
+i = 0
 while n:
-    i+=1
-    n=n//10
-if i<3:
+    i += 1
+    n = n // 10
+if i < 3:
     print(f"The number has {i} digits")
 
 else:

@@ -1,11 +1,11 @@
 // Basic Class & Object
-// Create a class Person with attributes name and age. 
+// Create a class Person with attributes name and age.
 // Add a function display() to print the details.
-// Include a constructor that initializes the name and age values, 
+// Include a constructor that initializes the name and age values,
 // and a destructor that prints "Object destroyed".
 
-#include <iostream>
 #include <cstring>
+#include <iostream>
 using namespace std;
 
 class Person {
@@ -20,13 +20,9 @@ public:
     }
 
     // Destructor
-    ~Person() {
-        cout << "\nObject destroyed";
-    }
+    ~Person() { cout << "\nObject destroyed"; }
 
-    void display() {
-        cout << "Name: " << name << "\nAge: " << age;
-    }
+    void display() { cout << "Name: " << name << "\nAge: " << age; }
 };
 
 int main() {

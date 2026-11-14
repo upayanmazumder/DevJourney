@@ -21,6 +21,7 @@ The next 3 × n lines contain details of the books:
 Book ID (integer)
 Title (String)
 Author (String)
+
 #### Output:
 
 ```
@@ -49,6 +50,7 @@ Titles and authors will have a maximum length of 100 characters.
 Book IDs are unique.
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -62,6 +64,7 @@ Summary of Books:
 ```
 
 1. [BookId: 1] Title: Harry Potter, Author: J.K. Rowling
+
 #### Input 2:
 
 ```

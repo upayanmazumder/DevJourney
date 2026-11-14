@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 double calculateTotalPrice(double price) {
@@ -30,7 +30,8 @@ int main() {
             double price, discount;
             int quantity;
             cin >> price >> quantity >> discount;
-            cout << fixed << setprecision(2) << calculateTotalPrice(price, quantity, discount) << endl;
+            cout << fixed << setprecision(2) << calculateTotalPrice(price, quantity, discount)
+                 << endl;
         } else if (choice == 4) {
             break;
         } else {

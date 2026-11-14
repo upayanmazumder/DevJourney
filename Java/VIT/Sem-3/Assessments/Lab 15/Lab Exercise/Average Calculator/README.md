@@ -34,6 +34,7 @@ The given test cases fall under the following constraints:
 1 ≤ input integers ≤ 50
 
 Sample test cases :
+
 #### Input 1:
 
 ```

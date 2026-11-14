@@ -6,6 +6,6 @@ void greet() {
 
 int main() {
     void (*ptr)() = greet; // Function pointer
-    ptr(); // Call function using pointer
+    ptr();                 // Call function using pointer
     return 0;
 }

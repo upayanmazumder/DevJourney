@@ -1,9 +1,10 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class BankAccount {
     static float rate;
+
 public:
     static void setInterestRate(float r) { rate = r; }
     static void calculateInterest(float balance) {

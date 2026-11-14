@@ -7,7 +7,7 @@ s1 = set(l1)
 s2 = set(l2)
 
 # Find intersection set
-sI=s1.intersection(s2)
+sI = s1.intersection(s2)
 
 # Unique elements of set 1
 for i in s1:

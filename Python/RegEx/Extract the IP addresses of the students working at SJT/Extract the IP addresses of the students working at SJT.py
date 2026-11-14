@@ -1,6 +1,6 @@
 import re
 
-s="""
+s = """
 24BCE5002 is working @PRP233 10.0.0.233
 24BAI5567 is working @SJT201 11.3.6.23
 23BKT3356 is working @SJT417 100.20.21.67
@@ -9,6 +9,6 @@ s="""
 24BKT6666 is working @SJT201 11.3.6.24
 """
 
-SJTpat = r'SJT\d{2,3} (\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})'
-SJTStudents = re.findall(SJTpat,s)
+SJTpat = r"SJT\d{2,3} (\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})"
+SJTStudents = re.findall(SJTpat, s)
 print(SJTStudents)

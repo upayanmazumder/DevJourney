@@ -9,7 +9,7 @@ vDay = 50000
 bDay = 15000
 
 # Calculate total expenditure
-totExp = mDay +vDay + bDay
+totExp = mDay + vDay + bDay
 
 if totExp > giftT:
     print("John's expenditure on gifts has exceeded the allotted amount.")

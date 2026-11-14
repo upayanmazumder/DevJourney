@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -9,9 +9,7 @@ protected:
 
 public:
     virtual double calculatePrice() = 0;
-    void addPrice(double price) {
-        prices.push_back(price);
-    }
+    void addPrice(double price) { prices.push_back(price); }
 };
 
 class Appetizer : public MenuItem {

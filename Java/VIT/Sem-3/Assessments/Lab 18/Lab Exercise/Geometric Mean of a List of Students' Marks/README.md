@@ -24,7 +24,7 @@ Geometric mean of the list: 2.61
 
 The geometric mean is calculated as the nth root of the product of all numbers.
 
-Geometric Mean = (1.0 * 2.0 * 3.0 * 4.0 * 5.0)^(1.0 / 5) ≈ 2.61.
+Geometric Mean = (1.0 _ 2.0 _ 3.0 _ 4.0 _ 5.0)^(1.0 / 5) ≈ 2.61.
 
 Note: Use Math.pow() to calculate the power value.
 
@@ -56,15 +56,16 @@ In this scenario, the test cases will fall under the following constraints:
 0.0 ≤ marks ≤ 100.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```
-5 
+5
 1.0 2.0 3.0 4.0 5.0
 Output 1 :
 Geometric mean of the list: 2.61
 Input 2 :
-3 
+3
 4.5 6.7 8.9
 Output 2 :
 Geometric mean of the list: 6.45
@@ -93,6 +94,6 @@ instruction
 // You are using Javaclass MathUtility {    //Type your code here}
 Footer Snippet
 12345678910
-public class Main {    public static void main(String[] args) {        Scanner input = new Scanner(System.in);        List<Double> numbersList = new ArrayList<>();        MathUtility utility = new MathUtility();        int n = input.nextInt();        for (int i = 0; i < n; i++) {  
+public class Main {    public static void main(String[] args) {        Scanner input = new Scanner(System.in);        List<Double> numbersList = new ArrayList<>();        MathUtility utility = new MathUtility();        int n = input.nextInt();        for (int i = 0; i < n; i++) {
 Provide Custom Input
 ```

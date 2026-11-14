@@ -8,22 +8,18 @@ public:
 
 class Plus : public MathSymbol {
 public:
-    int doOperation(int a, int b) {
-        return a + b;
-    }
+    int doOperation(int a, int b) { return a + b; }
 };
 
 class Minus : public MathSymbol {
 public:
-    int doOperation(int a, int b) {
-        return a - b;
-    }
+    int doOperation(int a, int b) { return a - b; }
 };
 
 int main() {
     int a, b;
     cout << "Enter 1st number: ";
-    cin >> a ;
+    cin >> a;
     cout << "Enter 2nd number: ";
     cin >> b;
     Plus p;

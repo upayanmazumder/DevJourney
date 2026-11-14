@@ -2,19 +2,15 @@ import pandas as p
 import numpy as n
 
 # The Pandas Dataframe
-data = {
-    'Registration Number': [],
-    'Student Name': [],
-    'Registered Credits': []
-}
+data = {"Registration Number": [], "Student Name": [], "Registered Credits": []}
 x = 5
 for student in range(x):
     regNo = input("Enter Registration Number: ")
     name = input("Enter Student Name: ")
     credits = float(input("Enter Registered Credits: "))
-    data['Registration Number'].append(regNo)
-    data['Student Name'].append(name)
-    data['Registered Credits'].append(credits)
+    data["Registration Number"].append(regNo)
+    data["Student Name"].append(name)
+    data["Registered Credits"].append(credits)
 
 df = p.DataFrame(data)
 print("Pandas DataFrame:\n", df)

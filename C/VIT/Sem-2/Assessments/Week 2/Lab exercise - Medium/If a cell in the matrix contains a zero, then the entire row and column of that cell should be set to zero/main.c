@@ -1,52 +1,37 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
     int i, j, k, a[8][8], r, c;
     bool zeroC, zeroE;
     scanf("%d %d", &r, &c);
-    for (i = 0; i < r; i++)
-    {
-        for (j = 0; j < c; j++)
-        {
+    for (i = 0; i < r; i++) {
+        for (j = 0; j < c; j++) {
             scanf("%d", &a[i][j]);
         }
     }
 
-    for (i = 0; i < r; i++)
-    {
+    for (i = 0; i < r; i++) {
         zeroE = false;
-        for (j = 0; j < c; j++)
-        {
-            if (a[i][j] == 0)
-            {
+        for (j = 0; j < c; j++) {
+            if (a[i][j] == 0) {
                 zeroE = true;
                 break;
             }
         }
-        for (j = 0; j < c; j++)
-        {
-            if (zeroE)
-            {
+        for (j = 0; j < c; j++) {
+            if (zeroE) {
                 printf("0 ");
-            }
-            else
-            {
+            } else {
                 zeroC = false;
-                for (k = 0; k < r; k++)
-                {
-                    if (a[k][j] == 0)
-                    {
+                for (k = 0; k < r; k++) {
+                    if (a[k][j] == 0) {
                         zeroC = true;
                         break;
                     }
                 }
-                if (zeroC)
-                {
+                if (zeroC) {
                     printf("0 ");
-                }
-                else
-                {
+                } else {
                     printf("%d ", a[i][j]);
                 }
             }

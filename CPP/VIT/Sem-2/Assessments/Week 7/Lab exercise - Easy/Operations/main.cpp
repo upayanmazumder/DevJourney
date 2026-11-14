@@ -12,6 +12,7 @@ public:
 
 class operationsDerived : public operationsBase {
     int a, b;
+
 public:
     operationsDerived(int x, int y) : a(x), b(y) {}
     void addition() override { cout << (a + b) << " "; }

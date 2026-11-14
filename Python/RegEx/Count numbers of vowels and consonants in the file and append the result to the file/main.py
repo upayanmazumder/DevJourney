@@ -6,11 +6,11 @@ with open("file.txt", "r") as content:
     Consonants = 0
 
     for line in content:
-        vCount = len(re.findall(r'[aeiouAEIOU]',line))
-        cCount = len(re.findall(r'[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]',line))
+        vCount = len(re.findall(r"[aeiouAEIOU]", line))
+        cCount = len(re.findall(r"[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]", line))
         Vowels += vCount
         Consonants += cCount
 
-with open("file.txt",'a') as content:
+with open("file.txt", "a") as content:
     res = f"\nVowels => {Vowels}\nConsonants => {Consonants}"
     content.write(res)

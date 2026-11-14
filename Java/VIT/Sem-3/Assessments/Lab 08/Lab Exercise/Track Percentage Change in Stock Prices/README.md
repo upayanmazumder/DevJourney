@@ -8,7 +8,7 @@ Meera, a talented developer, is working on a project to help stock traders track
 
 Formula:
 
-Percentage change = ((currentPrice - previousPrice) / previousPrice) * 100
+Percentage change = ((currentPrice - previousPrice) / previousPrice) \* 100
 
 Class Definition
 

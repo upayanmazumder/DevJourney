@@ -9,9 +9,7 @@ protected:
 public:
     Time(int h, int m) : hours(h), minutes(m) {}
 
-    virtual void display() const {
-        cout << "Time: " << hours << "h " << minutes << "m" << endl;
-    }
+    virtual void display() const { cout << "Time: " << hours << "h " << minutes << "m" << endl; }
 
     virtual ~Time() {}
 };
@@ -20,18 +18,14 @@ class TimeToSeconds : public Time {
 public:
     TimeToSeconds(int h, int m) : Time(h, m) {}
 
-    void display() const override {
-        cout << (hours * 3600 + minutes * 60) << " seconds" << endl;
-    }
+    void display() const override { cout << (hours * 3600 + minutes * 60) << " seconds" << endl; }
 };
 
 class TimeToMinutes : public Time {
 public:
     TimeToMinutes(int h, int m) : Time(h, m) {}
 
-    void display() const override {
-        cout << (hours * 60 + minutes) << " minutes" << endl;
-    }
+    void display() const override { cout << (hours * 60 + minutes) << " minutes" << endl; }
 };
 
 int main() {

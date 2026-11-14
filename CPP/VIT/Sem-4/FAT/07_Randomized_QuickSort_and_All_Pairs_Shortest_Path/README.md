@@ -21,9 +21,11 @@
 
 1. Read adjacency matrix (use INF for no direct edge).
 2. For each k from 0 to n-1:
- - for each i from 0 to n-1:
- - for each j from 0 to n-1:
- - update dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+
+- for each i from 0 to n-1:
+- for each j from 0 to n-1:
+- update dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+
 3. Final matrix gives shortest distances between all pairs.
 
 ### Complexity

@@ -25,6 +25,7 @@ where,
 id represents integer, unique employee ID
 name represents Single-word string, employee name
 salary represents Double, employee salary
+
 #### Output:
 
 ```
@@ -43,6 +44,7 @@ The given test cases fall under the following constraints:
 Salary is a positive number.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

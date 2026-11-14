@@ -6,6 +6,7 @@
 
 In a customer loyalty program, reward points are logged in a sorted array as customers make transactions. Occasionally, due to system errors, duplicate entries for the same transaction may appear. To ensure accurate reward calculations, it's crucial to remove these duplicates from the list.
 Write a program to process the array of reward points, removing any duplicates while preserving the order of unique entries. The program should then display the cleaned list of unique reward points and the total count of these unique points.
+
 #### Input:
 
 ```
@@ -14,6 +15,7 @@ format :
 
 The first line of input consists of an integer N, representing the number of reward points.
 The second line consists of N space-separated integers, representing the reward points in sorted order.
+
 #### Output:
 
 ```
@@ -28,6 +30,7 @@ haThe given test cases fall under the following constraints:
 1 ≤ N ≤ 12
 1 ≤ reward points ≤ 500
 Sample test cases :
+
 #### Input 1:
 
 ```

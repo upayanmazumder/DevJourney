@@ -10,7 +10,7 @@ Principal class - stores the price as a protected attribute
 InterestRate class - stores interest rate as a protected attribute
 Loan class - calculates total interest
 
-Note: Total Interest = price * interest rate * years.
+Note: Total Interest = price _ interest rate _ years.
 
 ### Input format :
 

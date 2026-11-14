@@ -36,6 +36,7 @@ The given testcases fall under the following constraints:
 1 ≤ Number of characters in a line ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

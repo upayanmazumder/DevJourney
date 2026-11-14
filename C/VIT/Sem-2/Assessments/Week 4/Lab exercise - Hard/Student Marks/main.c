@@ -33,9 +33,10 @@ int main() {
     struct Student students[n];
 
     for (int i = 0; i < n; i++) {
-        scanf("%s %d %d %d %d", students[i].name, &students[i].age, 
-              &students[i].marks.C, &students[i].marks.DS, &students[i].marks.Physics);
-        students[i].totalMarks = students[i].marks.C + students[i].marks.DS + students[i].marks.Physics;
+        scanf("%s %d %d %d %d", students[i].name, &students[i].age, &students[i].marks.C,
+              &students[i].marks.DS, &students[i].marks.Physics);
+        students[i].totalMarks =
+            students[i].marks.C + students[i].marks.DS + students[i].marks.Physics;
     }
 
     sortStudents(students, n);

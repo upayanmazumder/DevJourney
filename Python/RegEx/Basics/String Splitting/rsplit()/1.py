@@ -1,7 +1,7 @@
-text = 'python is easy'
+text = "python is easy"
 print(text.rsplit())
-text = 'python*is*easy'
-print(text.rsplit('*'))
+text = "python*is*easy"
+print(text.rsplit("*"))
 
 # Output:
 #####################

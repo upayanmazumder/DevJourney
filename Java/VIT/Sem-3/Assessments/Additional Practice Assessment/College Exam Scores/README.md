@@ -29,6 +29,7 @@ The roll number (rno) of the student.
 The marks in subject 1 (mark1).
 The marks in subject 2 (mark2).
 The marks in subject 3 (mark3).
+
 #### Output:
 
 ```
@@ -49,6 +50,7 @@ Code constraints :
 1 ≤ rno, mark1, mark2, mark3 ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

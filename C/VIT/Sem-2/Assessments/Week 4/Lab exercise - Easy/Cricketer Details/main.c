@@ -26,10 +26,12 @@ int main() {
     scanf("%d", &N);
     struct cricketer players[N];
     for (int i = 0; i < N; i++) {
-        scanf("%s %d %d %f", players[i].name, &players[i].age, &players[i].matches, &players[i].avgRuns);
+        scanf("%s %d %d %f", players[i].name, &players[i].age, &players[i].matches,
+              &players[i].avgRuns);
     }
     sortCricketers(players, N);
-    for(int i = 0; i < N; i++) {
-        printf("%s %d %d %.2f\n", players[i].name, players[i].age, players[i].matches, players[i].avgRuns);
+    for (int i = 0; i < N; i++) {
+        printf("%s %d %d %.2f\n", players[i].name, players[i].age, players[i].matches,
+               players[i].avgRuns);
     }
 }

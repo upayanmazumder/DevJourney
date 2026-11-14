@@ -1,4 +1,4 @@
-//  Write a program that allocates memory dynamically for a string, 
+//  Write a program that allocates memory dynamically for a string,
 // takes user input, and prints the string.
 
 #include <stdio.h>

@@ -7,18 +7,18 @@ public:
     Node *left, *right;
 };
 
-Node* heap[100];
+Node *heap[100];
 int heapSize = 0;
 
-Node* newNode(int f) {
-    Node* temp = new Node();
+Node *newNode(int f) {
+    Node *temp = new Node();
     temp->freq = f;
     temp->left = temp->right = NULL;
     return temp;
 }
 
-void swap(Node* &a, Node* &b) {
-    Node* t = a;
+void swap(Node *&a, Node *&b) {
+    Node *t = a;
     a = b;
     b = t;
 }
@@ -32,8 +32,8 @@ void heapifyUp(int i) {
 
 void heapifyDown(int i) {
     int smallest = i;
-    int l = 2*i + 1;
-    int r = 2*i + 2;
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
 
     if (l < heapSize && heap[l]->freq < heap[smallest]->freq)
         smallest = l;
@@ -47,21 +47,21 @@ void heapifyDown(int i) {
     }
 }
 
-void insert(Node* node) {
+void insert(Node *node) {
     heap[heapSize] = node;
     heapifyUp(heapSize);
     heapSize++;
 }
 
-Node* extractMin() {
-    Node* root = heap[0];
+Node *extractMin() {
+    Node *root = heap[0];
     heap[0] = heap[heapSize - 1];
     heapSize--;
     heapifyDown(0);
     return root;
 }
 
-void printCodes(Node* root, int arr[], int top) {
+void printCodes(Node *root, int arr[], int top) {
     if (root->left) {
         arr[top] = 0;
         printCodes(root->left, arr, top + 1);
@@ -91,10 +91,10 @@ int main() {
         insert(newNode(freq[i]));
 
     while (heapSize > 1) {
-        Node* left = extractMin();
-        Node* right = extractMin();
+        Node *left = extractMin();
+        Node *right = extractMin();
 
-        Node* parent = newNode(left->freq + right->freq);
+        Node *parent = newNode(left->freq + right->freq);
         parent->left = left;
         parent->right = right;
 

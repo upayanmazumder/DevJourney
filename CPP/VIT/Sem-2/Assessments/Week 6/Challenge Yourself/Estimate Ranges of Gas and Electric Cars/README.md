@@ -14,8 +14,8 @@ The program calculates the estimated range for both types of cars.
 
 Formulas
 
-Car range = Fuel efficiency * Fuel capacity
-Electric car range = Battery capacity * Fuel efficiency
+Car range = Fuel efficiency _ Fuel capacity
+Electric car range = Battery capacity _ Fuel efficiency
 
 ### Input format :
 

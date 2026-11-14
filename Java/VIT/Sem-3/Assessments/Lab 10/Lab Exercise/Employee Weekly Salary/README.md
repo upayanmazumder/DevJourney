@@ -29,6 +29,7 @@ Calculation:
 The first 40 hours are paid normally: 40 × 10 = 400.00
 The extra 5 hours are paid at 1.5 times the hourly rate: 5 × (10×1.5) = 5 × 15 = 75.00
 Total salary: 400.00 + 75.00 = 475.00
+
 #### Input:
 
 ```
@@ -61,6 +62,7 @@ The given test cases fall under the following constraints:
 The name of the employee should be a non-empty string.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

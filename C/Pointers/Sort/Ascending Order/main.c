@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 int main() {
     int n;
@@ -23,8 +23,7 @@ int main() {
         }
     }
 
-    for(i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         printf("%d ", *(ptr + i));
     }
-
 }

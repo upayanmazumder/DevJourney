@@ -1,15 +1,11 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
-    class Finder {
-    public:
-    int findMin(int a, int b, int c) {
-    return min(a, min(b, c));
-    }
-    double findMin(double x, double y, double z) {
-        return min(x, min(y, z));
-    }
+class Finder {
+public:
+    int findMin(int a, int b, int c) { return min(a, min(b, c)); }
+    double findMin(double x, double y, double z) { return min(x, min(y, z)); }
 };
 
 int main() {

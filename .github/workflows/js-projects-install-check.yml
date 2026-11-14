@@ -6,29 +6,29 @@ name: JS Projects Install & Build Check
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
     paths:
-      - 'NodeJS/**'
-      - 'Typescript/**'
-      - 'astro/**'
-      - 'electronjs/**'
-      - 'nextjs/**'
-      - 'react/VIT/react-crud/**'
-      - 'react/crud-operations/**'
-      - 'react/last-practice/**'
-      - '.github/workflows/js-projects-install-check.yml'
+      - "NodeJS/**"
+      - "Typescript/**"
+      - "astro/**"
+      - "electronjs/**"
+      - "nextjs/**"
+      - "react/VIT/react-crud/**"
+      - "react/crud-operations/**"
+      - "react/last-practice/**"
+      - ".github/workflows/js-projects-install-check.yml"
   pull_request:
-    branches: ['main']
+    branches: ["main"]
     paths:
-      - 'NodeJS/**'
-      - 'Typescript/**'
-      - 'astro/**'
-      - 'electronjs/**'
-      - 'nextjs/**'
-      - 'react/VIT/react-crud/**'
-      - 'react/crud-operations/**'
-      - 'react/last-practice/**'
-      - '.github/workflows/js-projects-install-check.yml'
+      - "NodeJS/**"
+      - "Typescript/**"
+      - "astro/**"
+      - "electronjs/**"
+      - "nextjs/**"
+      - "react/VIT/react-crud/**"
+      - "react/crud-operations/**"
+      - "react/last-practice/**"
+      - ".github/workflows/js-projects-install-check.yml"
 
 permissions:
   contents: read
@@ -40,22 +40,22 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - { path: 'NodeJS', build: false }
-          - { path: 'NodeJS/crud-operations-mongodb', build: false }
-          - { path: 'NodeJS/my-rest-api', build: false }
-          - { path: 'NodeJS/rest-api', build: false }
-          - { path: 'Typescript/website', build: false }
-          - { path: 'Typescript/fleet-tracker/api', build: true }
-          - { path: 'Typescript/fleet-tracker/app', build: true }
-          - { path: 'astro/learning-astro', build: true }
-          - { path: 'electronjs', build: false }
-          - { path: 'nextjs/learning-nextjs', build: true }
-          - { path: 'react/VIT/react-crud/api', build: false }
-          - { path: 'react/VIT/react-crud/app', build: true }
-          - { path: 'react/crud-operations/api', build: false }
-          - { path: 'react/crud-operations/app', build: true }
-          - { path: 'react/last-practice/api', build: false }
-          - { path: 'react/last-practice/app', build: true }
+          - { path: "NodeJS", build: false }
+          - { path: "NodeJS/crud-operations-mongodb", build: false }
+          - { path: "NodeJS/my-rest-api", build: false }
+          - { path: "NodeJS/rest-api", build: false }
+          - { path: "Typescript/website", build: false }
+          - { path: "Typescript/fleet-tracker/api", build: true }
+          - { path: "Typescript/fleet-tracker/app", build: true }
+          - { path: "astro/learning-astro", build: true }
+          - { path: "electronjs", build: false }
+          - { path: "nextjs/learning-nextjs", build: true }
+          - { path: "react/VIT/react-crud/api", build: false }
+          - { path: "react/VIT/react-crud/app", build: true }
+          - { path: "react/crud-operations/api", build: false }
+          - { path: "react/crud-operations/app", build: true }
+          - { path: "react/last-practice/api", build: false }
+          - { path: "react/last-practice/app", build: true }
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

@@ -30,6 +30,7 @@ The given test cases fall under the following constraints:
 The input string consists of printable ASCII characters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

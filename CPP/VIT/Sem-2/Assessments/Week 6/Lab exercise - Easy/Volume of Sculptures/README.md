@@ -10,7 +10,7 @@ Inherit from the Circle class to create a derived class named Cylinder. The Cyli
 
 Implement a volume() method inside the Cylinder class to calculate the volume of the cylinder.
 
-Formula: Volume = 3.14 * radius2 * height.
+Formula: Volume = 3.14 _ radius2 _ height.
 
 ### Input format :
 

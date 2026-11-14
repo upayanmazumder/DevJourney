@@ -30,6 +30,7 @@ Code constraints :
 1 <= integer and double value <= 107
 
 Sample test cases :
+
 #### Input 1:
 
 ```

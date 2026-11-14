@@ -14,18 +14,14 @@ class TemperatureData : public WeatherData {
 public:
     TemperatureData(double temp) : WeatherData(temp) {}
 
-    string classifyTemperature() {
-        return (value > 30.0) ? "Hot" : "Cool";
-    }
+    string classifyTemperature() { return (value > 30.0) ? "Hot" : "Cool"; }
 };
 
 class HumidityData : public WeatherData {
 public:
     HumidityData(double humidity) : WeatherData(humidity) {}
 
-    string classifyHumidity() {
-        return (value > 60.0) ? "Humid" : "Dry";
-    }
+    string classifyHumidity() { return (value > 60.0) ? "Humid" : "Dry"; }
 };
 
 class MonitoringStation : public TemperatureData, public HumidityData {
@@ -34,7 +30,8 @@ public:
         : TemperatureData(temp), HumidityData(humidity) {}
 
     void displayWeatherCondition() {
-        cout << "Weather Condition: " << classifyTemperature() << " and " << classifyHumidity() << endl;
+        cout << "Weather Condition: " << classifyTemperature() << " and " << classifyHumidity()
+             << endl;
     }
 };
 

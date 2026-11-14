@@ -43,8 +43,7 @@ char peek(Stack *s) {
 }
 
 int isMatchingPair(char open, char close) {
-    return (open == '(' && close == ')') ||
-           (open == '{' && close == '}') ||
+    return (open == '(' && close == ')') || (open == '{' && close == '}') ||
            (open == '[' && close == ']');
 }
 
@@ -57,8 +56,7 @@ int isBalanced(char *expr) {
 
         if (ch == '(' || ch == '{' || ch == '[') {
             push(&s, ch);
-        } 
-        else if (ch == ')' || ch == '}' || ch == ']') {
+        } else if (ch == ')' || ch == '}' || ch == ']') {
             if (isEmpty(&s) || !isMatchingPair(pop(&s), ch)) {
                 return 0;
             }

@@ -5,6 +5,7 @@ class Room2;
 
 class Room1 {
     float length, breadth;
+
 public:
     Room1() {
         cout << "Enter Room1 details in m\n";
@@ -18,6 +19,7 @@ public:
 
 class Room2 {
     float length, breadth;
+
 public:
     Room2(float l, float b) {
         length = l;

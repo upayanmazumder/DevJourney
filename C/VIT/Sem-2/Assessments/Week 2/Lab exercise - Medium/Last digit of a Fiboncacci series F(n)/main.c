@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
     int n, res;
     int fiboLastDigit(int);
     scanf("%d", &n);
@@ -9,11 +8,9 @@ int main()
     printf("%d", res);
 }
 
-int fiboLastDigit(int x)
-{
+int fiboLastDigit(int x) {
     int i = 0, j = -1, k = 1, sum = 0;
-    for (i = 0; i <= x; i++)
-    {
+    for (i = 0; i <= x; i++) {
         sum = j + k;
         j = k;
         k = sum;

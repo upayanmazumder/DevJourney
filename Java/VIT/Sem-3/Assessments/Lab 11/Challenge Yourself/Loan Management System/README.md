@@ -26,6 +26,7 @@ Interest Payment for a month ( Interest Payment = Remaining Principal × r )
 Principal Payment ( Principal Payment = Monthly Payment − Interest Payment )
 Remaining Balance after each month ( Remaining Balance = Previous Balance − Principal Payment )
 Total Interest Paid ( Total Interest Paid = ∑ Interest Payment over all months )
+
 #### Input:
 
 ```
@@ -78,6 +79,7 @@ Follow the method overriding concept.
 1 < c < 10.
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -100,6 +102,7 @@ Remaining Balance: 0.00
 
 Total Interest Paid: 1251.73
 Monthly Payment: 50625.86
+
 #### Input 2:
 
 ```

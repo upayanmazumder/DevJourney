@@ -6,8 +6,10 @@
 2. Sort all other points by polar angle with respect to p0.
 3. Put first two sorted points into hull stack.
 4. For each next point:
- - while top two points and current point do not make a left turn, pop stack
- - push current point
+
+- while top two points and current point do not make a left turn, pop stack
+- push current point
+
 5. Remaining stack points are convex hull points.
 
 ## Time Complexity

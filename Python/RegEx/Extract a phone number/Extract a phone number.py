@@ -2,5 +2,5 @@
 import re
 
 s = str(input("Enter statement: "))
-res =  re.findall(r'[6-9]\d{9}',s)
+res = re.findall(r"[6-9]\d{9}", s)
 print(res)

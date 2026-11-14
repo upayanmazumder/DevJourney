@@ -7,8 +7,7 @@ bool subsetSum(int arr[], int n, int sum) {
     if (n == 0 || sum < 0)
         return false;
 
-    return subsetSum(arr, n - 1, sum) ||
-           subsetSum(arr, n - 1, sum - arr[n - 1]);
+    return subsetSum(arr, n - 1, sum) || subsetSum(arr, n - 1, sum - arr[n - 1]);
 }
 
 int main() {

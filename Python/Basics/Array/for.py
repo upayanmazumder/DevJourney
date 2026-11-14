@@ -7,7 +7,7 @@ average = 0
 
 # Get the numbers from the user and calculate sum
 for i in range(num_of_numbers):
-    number = int(input("Enter " + str(i+1) + "th number: "))
+    number = int(input("Enter " + str(i + 1) + "th number: "))
     total_sum += number
 
 # Calculate average

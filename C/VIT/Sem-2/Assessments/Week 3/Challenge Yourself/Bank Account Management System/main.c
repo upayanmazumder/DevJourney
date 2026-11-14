@@ -22,13 +22,13 @@ int main() {
     int balance = 0, choice, amount;
     while (1) {
         scanf("%d", &choice);
-        
+
         if (choice == 4) {
             printf("Exiting program.");
             break;
         }
-        
-        switch(choice) {
+
+        switch (choice) {
             case 1:
                 scanf("%d", &amount);
                 deposit(&balance, amount);

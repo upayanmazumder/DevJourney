@@ -7,6 +7,6 @@ int main() {
     for (int i = 0; i < 3; i++) {
         printf("%d ", *(ptr + i)); // Using pointer arithmetic
     }
-    
+
     return 0;
 }

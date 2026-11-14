@@ -60,6 +60,7 @@ In this scenario, The test cases will fall under the following constraints:
 0.1 ≤ budget ≤ 5000.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

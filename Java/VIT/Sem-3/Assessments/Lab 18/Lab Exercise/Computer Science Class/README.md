@@ -44,6 +44,7 @@ The given test cases fall under the following constraints:
 0 ≤ index < n
 
 Sample test cases :
+
 #### Input 1:
 
 ```

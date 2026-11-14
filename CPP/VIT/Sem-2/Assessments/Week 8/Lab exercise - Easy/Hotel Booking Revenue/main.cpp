@@ -1,10 +1,9 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <vector>
 using namespace std;
 
-template <typename T>
-T calculateTotal(vector<T>& arr) {
+template <typename T> T calculateTotal(vector<T> &arr) {
     T total = 0;
     for (T val : arr) {
         total += val;

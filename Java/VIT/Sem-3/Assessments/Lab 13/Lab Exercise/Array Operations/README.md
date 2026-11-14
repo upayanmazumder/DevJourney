@@ -42,6 +42,7 @@ The given test cases fall under the following constraints:
 1 ≤ array elements ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int length(const char* str1) {
+int length(const char *str1) {
     int len = 0;
     while (str1[len] != '\0') {
         len++;
@@ -8,7 +8,7 @@ int length(const char* str1) {
     return len;
 }
 
-void count(const char* str1) {
+void count(const char *str1) {
     int alphabets = 0, numbers = 0, specialChars = 0;
     for (int i = 0; str1[i] != '\0'; i++) {
         if ((str1[i] >= 'A' && str1[i] <= 'Z') || (str1[i] >= 'a' && str1[i] <= 'z'))
@@ -23,15 +23,15 @@ void count(const char* str1) {
     printf("Special characters: %d\n", specialChars);
 }
 
-void occur(const char* str1) {
-    int freq[128] = {0};  
-    char uniqueChars[50]; 
+void occur(const char *str1) {
+    int freq[128] = {0};
+    char uniqueChars[50];
     int uniqueIndex = 0;
 
     for (int i = 0; str1[i] != '\0'; i++) {
         char ch = str1[i];
-        if (freq[(int)ch] == 0) { 
-            uniqueChars[uniqueIndex++] = ch; 
+        if (freq[(int)ch] == 0) {
+            uniqueChars[uniqueIndex++] = ch;
         }
         freq[(int)ch]++;
     }
@@ -42,8 +42,8 @@ void occur(const char* str1) {
 }
 
 int main() {
-    char message[51];  
-    scanf("%50[^\n]", message);  
+    char message[51];
+    scanf("%50[^\n]", message);
 
     printf("Length: %d\n", length(message));
     count(message);

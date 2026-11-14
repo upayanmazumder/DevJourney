@@ -30,6 +30,7 @@ The given test cases fall under the following constraints:
 1 ≤ age ≤ 50
 
 Sample test cases :
+
 #### Input 1:
 
 ```

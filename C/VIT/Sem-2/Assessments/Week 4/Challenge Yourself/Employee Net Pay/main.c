@@ -10,15 +10,16 @@ struct employee {
 };
 
 int main() {
-    int i, n, j = 0, k = 0; 
+    int i, n, j = 0, k = 0;
     float da, hra, cca, pf, li, np;
     scanf("%d", &n);
     char rich[n][50];
     struct employee e[n];
     for (i = 0; i < n; i++) {
-        scanf("%d %s %d %s %f", &e[i].number, e[i].name, &e[i].age, e[i].designation, &e[i].basic_pay);
+        scanf("%d %s %d %s %f", &e[i].number, e[i].name, &e[i].age, e[i].designation,
+              &e[i].basic_pay);
     }
-    
+
     for (i = 0; i < n; i++) {
         da = 0.5 * e[i].basic_pay;
         hra = 0.2 * e[i].basic_pay;

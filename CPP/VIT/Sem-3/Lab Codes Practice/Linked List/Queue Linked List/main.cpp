@@ -2,23 +2,19 @@
 
 using namespace std;
 
-struct Node
-{
+struct Node {
     int data;
     Node *next;
 };
 
-struct Queue
-{
+struct Queue {
     Node *front;
     Node *rear;
 };
 
-void enqueue(Queue &queue, int data)
-{
+void enqueue(Queue &queue, int data) {
     Node *node = new Node{data, nullptr};
-    if (!queue.rear)
-    {
+    if (!queue.rear) {
         queue.front = node;
         queue.rear = node;
         return;
@@ -27,44 +23,36 @@ void enqueue(Queue &queue, int data)
     queue.rear = node;
 }
 
-int dequeue(Queue &queue)
-{
-    if (!queue.front)
-    {
+int dequeue(Queue &queue) {
+    if (!queue.front) {
         return -1;
     }
     Node *temp = queue.front;
     int value = temp->data;
     queue.front = temp->next;
-    if (!queue.front)
-    {
+    if (!queue.front) {
         queue.rear = nullptr;
     }
     delete temp;
     return value;
 }
 
-void display(const Queue &queue)
-{
+void display(const Queue &queue) {
     const Node *current = queue.front;
-    while (current)
-    {
+    while (current) {
         cout << current->data << ' ';
         current = current->next;
     }
     cout << '\n';
 }
 
-void clearQueue(Queue &queue)
-{
-    while (queue.front)
-    {
+void clearQueue(Queue &queue) {
+    while (queue.front) {
         dequeue(queue);
     }
 }
 
-int main()
-{
+int main() {
     Queue queue{nullptr, nullptr};
     enqueue(queue, 10);
     enqueue(queue, 20);

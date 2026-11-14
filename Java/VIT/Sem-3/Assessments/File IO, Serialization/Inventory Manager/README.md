@@ -47,6 +47,7 @@ Unit price: 0.0 ≤ price ≤ 100000.0
 Stock quantity: 0 ≤ quantity ≤ 1000
 
 Sample test cases :
+
 #### Input 1:
 
 ```

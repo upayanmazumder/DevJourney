@@ -1,6 +1,6 @@
 import re
 
-result = re.match(r'NG','NG Swetha NG Swetha')
+result = re.match(r"NG", "NG Swetha NG Swetha")
 print(result)
 print(result.group())
 print(result.span())

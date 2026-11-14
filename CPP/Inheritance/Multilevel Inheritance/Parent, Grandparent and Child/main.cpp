@@ -3,23 +3,17 @@ using namespace std;
 
 class Grandparent {
 public:
-    void displayGrandparent() {
-        cout << "This is Grandparent\n";
-    }
+    void displayGrandparent() { cout << "This is Grandparent\n"; }
 };
 
 class Parent : public Grandparent {
 public:
-    void displayParent() {
-        cout << "This is Parent\n";
-    }
+    void displayParent() { cout << "This is Parent\n"; }
 };
 
 class Child : public Parent {
 public:
-    void displayChild() {
-        cout << "This is Child\n";
-    }
+    void displayChild() { cout << "This is Child\n"; }
 };
 
 int main() {

@@ -44,6 +44,7 @@ The given test cases fall under the following constraints:
 There is at least one odd and one even digit in the input array given
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -51,15 +52,15 @@ Sample test cases :
 9 2 11 4 8
 Output 1 :
 Even numbers:
-2 4 8 
+2 4 8
 Odd numbers:
-9 11 
+9 11
 Input 2 :
 10
 6 2 4 3 7 13 11 10 15 22
 Output 2 :
 Even numbers:
-6 2 4 10 22 
+6 2 4 10 22
 Odd numbers:
-3 7 13 11 15 
+3 7 13 11 15
 ```

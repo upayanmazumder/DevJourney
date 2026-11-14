@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ public:
     English(int population, int engSpeakers) : Language(population), englishSpeakers(engSpeakers) {}
 
     void EnglishPercentageStatus() {
-        double percentage = (double) englishSpeakers / totalPopulation * 100;
+        double percentage = (double)englishSpeakers / totalPopulation * 100;
         cout << "English Percentage: " << fixed << setprecision(1) << percentage << "%" << endl;
         if (percentage >= 75) {
             cout << "English is Majority!" << endl;
@@ -34,7 +34,7 @@ public:
     Spanish(int population, int spnSpeakers) : Language(population), spanishSpeakers(spnSpeakers) {}
 
     void SpanishPercentageStatus() {
-        double percentage = (double) spanishSpeakers / totalPopulation * 100;
+        double percentage = (double)spanishSpeakers / totalPopulation * 100;
         cout << "Spanish Percentage: " << fixed << setprecision(1) << percentage << "%" << endl;
         if (percentage >= 75) {
             cout << "Spanish is Majority!" << endl;
@@ -46,7 +46,7 @@ public:
 
 int main() {
     int totalPop, engPop, spnPop;
-    
+
     cin >> totalPop >> engPop >> spnPop;
 
     English englishObj(totalPop, engPop);

@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<math.h>
+#include <math.h>
+#include <stdio.h>
 
 double calculateHypotenuse(double *a, double *b) {
     return sqrt((*a) * (*a) + (*b) * (*b));

@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include <ctype.h>
-#include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX 100
 
@@ -15,23 +15,43 @@ typedef struct {
     int top;
 } CharStack;
 
-void initIntStack(IntStack *s) { s->top = -1; }
-void initCharStack(CharStack *s) { s->top = -1; }
+void initIntStack(IntStack *s) {
+    s->top = -1;
+}
+void initCharStack(CharStack *s) {
+    s->top = -1;
+}
 
-int isEmptyInt(IntStack *s) { return s->top == -1; }
-int isEmptyChar(CharStack *s) { return s->top == -1; }
+int isEmptyInt(IntStack *s) {
+    return s->top == -1;
+}
+int isEmptyChar(CharStack *s) {
+    return s->top == -1;
+}
 
-void pushInt(IntStack *s, int val) { s->data[++(s->top)] = val; }
-void pushChar(CharStack *s, char val) { s->data[++(s->top)] = val; }
+void pushInt(IntStack *s, int val) {
+    s->data[++(s->top)] = val;
+}
+void pushChar(CharStack *s, char val) {
+    s->data[++(s->top)] = val;
+}
 
-int popInt(IntStack *s) { return s->data[(s->top)--]; }
-char popChar(CharStack *s) { return s->data[(s->top)--]; }
+int popInt(IntStack *s) {
+    return s->data[(s->top)--];
+}
+char popChar(CharStack *s) {
+    return s->data[(s->top)--];
+}
 
-char peekChar(CharStack *s) { return s->data[s->top]; }
+char peekChar(CharStack *s) {
+    return s->data[s->top];
+}
 
 int precedence(char op) {
-    if (op == '+' || op == '-') return 1;
-    if (op == '*' || op == '/') return 2;
+    if (op == '+' || op == '-')
+        return 1;
+    if (op == '*' || op == '/')
+        return 2;
     return 0;
 }
 
@@ -47,10 +67,18 @@ int evaluatePostfix(char *expr) {
             int val2 = popInt(&s);
             int val1 = popInt(&s);
             switch (token[0]) {
-                case '+': pushInt(&s, val1 + val2); break;
-                case '-': pushInt(&s, val1 - val2); break;
-                case '*': pushInt(&s, val1 * val2); break;
-                case '/': pushInt(&s, val1 / val2); break;
+                case '+':
+                    pushInt(&s, val1 + val2);
+                    break;
+                case '-':
+                    pushInt(&s, val1 - val2);
+                    break;
+                case '*':
+                    pushInt(&s, val1 * val2);
+                    break;
+                case '/':
+                    pushInt(&s, val1 / val2);
+                    break;
             }
         }
         token = strtok(NULL, " ");
@@ -68,11 +96,9 @@ void infixToPostfix(char *infix, char *postfix) {
         if (isdigit(token[0])) {
             strcat(postfix, token);
             strcat(postfix, " ");
-        }
-        else if (token[0] == '(') {
+        } else if (token[0] == '(') {
             pushChar(&s, '(');
-        }
-        else if (token[0] == ')') {
+        } else if (token[0] == ')') {
             while (!isEmptyChar(&s) && peekChar(&s) != '(') {
                 char op = popChar(&s);
                 char temp[2] = {op, '\0'};
@@ -80,8 +106,7 @@ void infixToPostfix(char *infix, char *postfix) {
                 strcat(postfix, " ");
             }
             popChar(&s); // remove '('
-        }
-        else { // operator
+        } else {         // operator
             while (!isEmptyChar(&s) && precedence(peekChar(&s)) >= precedence(token[0])) {
                 char op = popChar(&s);
                 char temp[2] = {op, '\0'};

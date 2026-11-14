@@ -10,7 +10,7 @@ virtual double calculateAmount()
 
 Create a class called wooden that extends ItemType with a number of items and cost as its private attributes. Obtain the data members and override the virtual function.
 
-amount = number of items * cost
+amount = number of items \* cost
 
 Create a class for electronics that extends ItemType with cost as its private attribute. Obtain the data member and override the virtual function.
 

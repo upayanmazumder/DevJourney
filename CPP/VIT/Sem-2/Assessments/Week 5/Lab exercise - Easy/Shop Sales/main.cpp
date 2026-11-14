@@ -1,31 +1,25 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
-class Shop
-{
+class Shop {
     static double totalSales;
 
 public:
-    static void addSale(double amount)
-    {
-        totalSales += amount;
-    }
+    static void addSale(double amount) { totalSales += amount; }
 
-    static void displayTotalSales()
-    {
-        std::cout << "Total Sales: " << std::fixed << std::setprecision(2) << totalSales << std::endl;
+    static void displayTotalSales() {
+        std::cout << "Total Sales: " << std::fixed << std::setprecision(2) << totalSales
+                  << std::endl;
     }
 };
 
 double Shop::totalSales = 0.0;
 
-int main()
-{
+int main() {
     int n;
     std::cin >> n;
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         double salesAmount;
         std::cin >> salesAmount;
         Shop::addSale(salesAmount);

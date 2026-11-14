@@ -1,32 +1,26 @@
 #include <iostream>
 using namespace std;
 
-void naiveSearch(string text, string pattern)
-{
+void naiveSearch(string text, string pattern) {
     int n = text.length();
     int m = pattern.length();
 
-    for (int i = 0; i <= n - m; i++)
-    {
+    for (int i = 0; i <= n - m; i++) {
         int j;
 
-        for (j = 0; j < m; j++)
-        {
-            if (text[i + j] != pattern[j])
-            {
+        for (j = 0; j < m; j++) {
+            if (text[i + j] != pattern[j]) {
                 break;
             }
         }
 
-        if (j == m)
-        {
+        if (j == m) {
             cout << "Pattern found at index " << i << endl;
         }
     }
 }
 
-int main()
-{
+int main() {
     string text = "ABABDABACDABABCABAB";
     string pattern = "ABABCABAB";
 

@@ -7,6 +7,7 @@
 Alex is a treasure hunter who collects valuable items during their quests. Each item has a specific point value, and Alex wants to maximize their score by strategically removing items one at a time.
 The rule is simple: Alex removes the item with the highest point value in each step until no items are left, summing the values of the removed items to calculate the maximum score.
 Help Alex to complete his task.
+
 #### Input:
 
 ```
@@ -15,6 +16,7 @@ format :
 
 The first line of input consists of an integer N, representing the size of the array.
 The second line of input consists of N space-separated integers, representing the point values of the items.
+
 #### Output:
 
 ```
@@ -26,6 +28,7 @@ Refer to the sample output for formatting specifications.
 Code constraints :
 1 ≤ N ≤ 20
 Sample test cases :
+
 #### Input 1:
 
 ```

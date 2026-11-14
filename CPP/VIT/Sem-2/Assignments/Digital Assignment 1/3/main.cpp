@@ -1,6 +1,6 @@
+#include <cmath>
 #include <iostream>
 #include <string>
-#include <cmath>
 using namespace std;
 
 class Person {
@@ -46,9 +46,7 @@ public:
         }
     }
 
-    float getBalance() {
-        return balance;
-    }
+    float getBalance() { return balance; }
 };
 
 class Loan : virtual public Person {

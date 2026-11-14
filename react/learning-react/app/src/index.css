@@ -1,8 +1,8 @@
 /* Font face */
 @font-face {
-  font-family: "RedHatDisplay";
-  src: url("../public/fonts/RedHatDisplay-VariableFont_wght.ttf")
-    format("truetype");
+  font-family: 'RedHatDisplay';
+  src: url('../public/fonts/RedHatDisplay-VariableFont_wght.ttf')
+    format('truetype');
   font-weight: 100 900;
   font-display: swap;
 }
@@ -16,10 +16,11 @@
 
 /* Light Theme Variables */
 :root {
-  --font-body: "RedHatDisplay", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", sans-serif;
-  --font-code: "source-code-pro", Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  --font-body:
+    'RedHatDisplay', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    sans-serif;
+  --font-code:
+    'source-code-pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
 
   --color-bg: #ffffff;
   --color-text: #111111;
@@ -36,7 +37,7 @@
 }
 
 /* Dark Theme Override */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-bg: #0f0f0f;
   --color-text: #f2f2f2;
   --color-muted: #999999;
@@ -56,7 +57,9 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-bg);
   color: var(--color-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   line-height: 1.6;
 }
 
@@ -83,7 +86,9 @@ code {
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px var(--color-shadow);
   padding: 1.25rem;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* Button */

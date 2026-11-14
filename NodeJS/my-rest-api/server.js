@@ -6,61 +6,61 @@ const PORT = 3000;
 const users = [];
 
 const limiter = RateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // max 100 requests per windowMs
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // max 100 requests per windowMs
 });
 
 app.use(limiter);
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-  });
-
-app.get('/users', (req,res) => {
-    res.json(users);
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.post('/users', (req,res) => {
-    const user = req.body;
-    users.push(user);
-    res.status(201).json(user);
-})
+app.get('/users', (req, res) => {
+  res.json(users);
+});
 
-app.get('/users/:id', (req,res) => {
-    const {id} = req.params;
-    const user = users.find(u => u.id === parseInt(id));
+app.post('/users', (req, res) => {
+  const user = req.body;
+  users.push(user);
+  res.status(201).json(user);
+});
 
-    if (!user) {
-        return res.status(404).json({error: 'User not found!'})
-    }
+app.get('/users/:id', (req, res) => {
+  const { id } = req.params;
+  const user = users.find((u) => u.id === parseInt(id));
 
-    res.json(user);
-})
+  if (!user) {
+    return res.status(404).json({ error: 'User not found!' });
+  }
 
-app.put('/users/:id', (req,res) => (req,res) => {
-    const {id} = req.params;
-    const userIndex = users.findIndex(u => u.id === parseInt(id));
+  res.json(user);
+});
 
-    if (userIndex === -1) {
-        return res.status(404).json({ error: 'User not found' });
-    }
+app.put('/users/:id', (req, res) => (req, res) => {
+  const { id } = req.params;
+  const userIndex = users.findIndex((u) => u.id === parseInt(id));
 
-    users[userIndex] = { ...users[userIndex], ...req.body };
-    res.json(users[userIndex]);
-})
+  if (userIndex === -1) {
+    return res.status(404).json({ error: 'User not found' });
+  }
 
-app.delete('/users/:id', (req,res) => {
-    const {id} = req.params;
-    const userIndex = users.findIndex(u => u.id === parseInt(id));
+  users[userIndex] = { ...users[userIndex], ...req.body };
+  res.json(users[userIndex]);
+});
 
-    if (userIndex === -1) {
-        return res.status(404).json({error: 'User not found'});
-    }
+app.delete('/users/:id', (req, res) => {
+  const { id } = req.params;
+  const userIndex = users.findIndex((u) => u.id === parseInt(id));
 
-    users.splice(userIndex, 1);
-    res.status(204).end();
-})
+  if (userIndex === -1) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  users.splice(userIndex, 1);
+  res.status(204).end();
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

@@ -7,6 +7,6 @@ String = """
 University.
 """
 
-linesPat = r'.*VIT.*'
-lines = re.findall(linesPat,String)
+linesPat = r".*VIT.*"
+lines = re.findall(linesPat, String)
 print(f"{len(lines)} students")

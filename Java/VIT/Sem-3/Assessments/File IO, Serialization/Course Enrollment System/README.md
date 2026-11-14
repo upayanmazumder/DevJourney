@@ -10,6 +10,7 @@ Reads student details from the user.
 Validates the inputs.
 Serializes and deserializes the student information.
 Prints the student’s details in the specified format.
+
 #### Input:
 
 ```
@@ -47,6 +48,7 @@ Student ID: Must be a positive integer.
 Enrolled Courses: A non-empty list of comma-separated courses.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

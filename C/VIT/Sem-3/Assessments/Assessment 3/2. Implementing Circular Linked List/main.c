@@ -1,20 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node
-{
+typedef struct Node {
     int data;
     struct Node *next;
 } Node;
 
 Node *head = NULL;
 
-void insEnd(int v)
-{
+void insEnd(int v) {
     Node *nn = (Node *)malloc(sizeof(Node));
     nn->data = v;
-    if (!head)
-    {
+    if (!head) {
         head = nn;
         nn->next = head;
         return;
@@ -26,17 +23,14 @@ void insEnd(int v)
     nn->next = head;
 }
 
-void insAfterPos(int pos, int value)
-{
-    if (!head)
-    {
+void insAfterPos(int pos, int value) {
+    if (!head) {
         insEnd(value);
         return;
     }
     Node *t = head;
     int i = 1;
-    while (i < pos && t->next != head)
-    {
+    while (i < pos && t->next != head) {
         t = t->next;
         i++;
     }
@@ -46,14 +40,11 @@ void insAfterPos(int pos, int value)
     t->next = nn;
 }
 
-void delNode(int value)
-{
+void delNode(int value) {
     if (!head)
         return;
-    if (head->data == value)
-    {
-        if (head->next == head)
-        {
+    if (head->data == value) {
+        if (head->next == head) {
             free(head);
             head = NULL;
             return;
@@ -69,10 +60,8 @@ void delNode(int value)
     }
     Node *prev = head;
     Node *curr = head->next;
-    while (curr != head)
-    {
-        if (curr->data == value)
-        {
+    while (curr != head) {
+        if (curr->data == value) {
             prev->next = curr->next;
             free(curr);
             return;
@@ -82,14 +71,12 @@ void delNode(int value)
     }
 }
 
-void revList()
-{
+void revList() {
     if (!head || head->next == head)
         return;
     Node *prev = NULL, *curr = head, *next = NULL;
     Node *start = head;
-    do
-    {
+    do {
         next = curr->next;
         curr->next = prev;
         prev = curr;
@@ -99,30 +86,25 @@ void revList()
     head = prev;
 }
 
-void printList()
-{
-    if (!head)
-    {
+void printList() {
+    if (!head) {
         printf("\n");
         return;
     }
     Node *t = head;
-    do
-    {
+    do {
         printf("%d ", t->data);
         t = t->next;
     } while (t != head);
     printf("\n");
 }
 
-int main()
-{
+int main() {
     int n;
     if (scanf("%d", &n) != 1)
         return 0;
 
-    for (int i = 0; i < n; ++i)
-    {
+    for (int i = 0; i < n; ++i) {
         int v;
         scanf("%d", &v);
         insEnd(v);
@@ -134,18 +116,15 @@ int main()
 
     int *rest = NULL, restCap = 0, restSize = 0;
     int x;
-    while (scanf("%d", &x) == 1)
-    {
-        if (restSize == restCap)
-        {
+    while (scanf("%d", &x) == 1) {
+        if (restSize == restCap) {
             restCap = restCap ? restCap * 2 : 8;
             rest = realloc(rest, restCap * sizeof(int));
         }
         rest[restSize++] = x;
     }
 
-    if (restSize == 0)
-    {
+    if (restSize == 0) {
 
         printList();
         printList();
@@ -158,19 +137,15 @@ int main()
     int delVal = rest[restSize - 1];
 
     int m, startIdx;
-    if (restSize >= 2 && rest[0] == restSize - 2)
-    {
+    if (restSize >= 2 && rest[0] == restSize - 2) {
         m = rest[0];
         startIdx = 1;
-    }
-    else
-    {
+    } else {
         m = restSize - 1;
         startIdx = 0;
     }
 
-    for (int i = 0; i < m; ++i)
-    {
+    for (int i = 0; i < m; ++i) {
         insEnd(rest[startIdx + i]);
     }
 

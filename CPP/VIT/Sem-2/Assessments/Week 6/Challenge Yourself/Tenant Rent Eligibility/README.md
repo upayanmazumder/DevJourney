@@ -6,7 +6,7 @@ Develop a program that consists of two classes: Tenant and RentEligibility. The 
 
 If the tenant's monthly income is at least Rs. 15,000, the tenant is considered eligible for rent, compute and display the rental amount. If the tenant is not eligible, print an appropriate message.
 
-Note: Rental amount = (rent percentage / 100) * monthly income.
+Note: Rental amount = (rent percentage / 100) \* monthly income.
 
 ### Input format :
 

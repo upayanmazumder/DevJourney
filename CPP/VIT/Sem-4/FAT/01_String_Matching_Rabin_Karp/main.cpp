@@ -3,8 +3,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     string text, pattern;
     cout << "Enter text: ";
     getline(cin, text);
@@ -14,8 +13,7 @@ int main()
     int n = (int)text.length();
     int m = (int)pattern.length();
 
-    if (m == 0 || m > n)
-    {
+    if (m == 0 || m > n) {
         cout << "No valid match possible.\n";
         return 0;
     }
@@ -24,55 +22,45 @@ int main()
     const int MOD = 101;
 
     int power = 1;
-    for (int i = 0; i < m - 1; i++)
-    {
+    for (int i = 0; i < m - 1; i++) {
         power = (power * BASE) % MOD;
     }
 
     int patternHash = 0;
     int windowHash = 0;
 
-    for (int i = 0; i < m; i++)
-    {
+    for (int i = 0; i < m; i++) {
         patternHash = (patternHash * BASE + pattern[i]) % MOD;
         windowHash = (windowHash * BASE + text[i]) % MOD;
     }
 
     bool found = false;
 
-    for (int start = 0; start <= n - m; start++)
-    {
-        if (patternHash == windowHash)
-        {
+    for (int start = 0; start <= n - m; start++) {
+        if (patternHash == windowHash) {
             bool same = true;
-            for (int j = 0; j < m; j++)
-            {
-                if (text[start + j] != pattern[j])
-                {
+            for (int j = 0; j < m; j++) {
+                if (text[start + j] != pattern[j]) {
                     same = false;
                     break;
                 }
             }
 
-            if (same)
-            {
+            if (same) {
                 cout << "Pattern found at index " << start << "\n";
                 found = true;
             }
         }
 
-        if (start < n - m)
-        {
+        if (start < n - m) {
             windowHash = (BASE * (windowHash - text[start] * power) + text[start + m]) % MOD;
-            if (windowHash < 0)
-            {
+            if (windowHash < 0) {
                 windowHash += MOD;
             }
         }
     }
 
-    if (!found)
-    {
+    if (!found) {
         cout << "Pattern not found.\n";
     }
 

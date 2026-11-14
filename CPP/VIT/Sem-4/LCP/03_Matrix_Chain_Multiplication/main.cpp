@@ -3,10 +3,8 @@ using namespace std;
 
 const long long INF = (1LL << 62);
 
-void printOrder(int s[100][100], int i, int j)
-{
-    if (i == j)
-    {
+void printOrder(int s[100][100], int i, int j) {
+    if (i == j) {
         cout << "A" << i;
         return;
     }
@@ -18,8 +16,7 @@ void printOrder(int s[100][100], int i, int j)
     cout << ")";
 }
 
-int main()
-{
+int main() {
     int n;
 
     if (!(cin >> n))
@@ -36,22 +33,15 @@ int main()
     for (int i = 1; i <= n; i++)
         m[i][i] = 0;
 
-    for (int len = 2; len <= n; len++)
-    {
-        for (int i = 1; i <= n - len + 1; i++)
-        {
+    for (int len = 2; len <= n; len++) {
+        for (int i = 1; i <= n - len + 1; i++) {
             int j = i + len - 1;
             m[i][j] = INF;
 
-            for (int k = i; k < j; k++)
-            {
-                long long q =
-                    m[i][k] +
-                    m[k + 1][j] +
-                    p[i - 1] * p[k] * p[j];
+            for (int k = i; k < j; k++) {
+                long long q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
 
-                if (q < m[i][j])
-                {
+                if (q < m[i][j]) {
                     m[i][j] = q;
                     s[i][j] = k;
                 }

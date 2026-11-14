@@ -3,17 +3,13 @@ using namespace std;
 
 class Car {
 private:
-    string brand;  // Not accessible outside the class
+    string brand; // Not accessible outside the class
 
 public:
     int year;
 
-    void setBrand(string b) {
-        brand = b;
-    }
-    void display() {
-        cout << "Brand: " << brand << ", Year: " << year << endl;
-    }
+    void setBrand(string b) { brand = b; }
+    void display() { cout << "Brand: " << brand << ", Year: " << year << endl; }
 };
 
 int main() {

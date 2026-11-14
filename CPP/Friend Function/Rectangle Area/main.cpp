@@ -6,7 +6,10 @@ private:
     int width, height;
 
 public:
-    Rectangle(int w, int h) { width = w; height = h; }
+    Rectangle(int w, int h) {
+        width = w;
+        height = h;
+    }
     friend int area(Rectangle r);
 };
 

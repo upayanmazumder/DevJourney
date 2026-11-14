@@ -33,6 +33,7 @@ Address (String)
 Mail ID (String)
 Mobile Number (String)
 Basic Pay (double)
+
 #### Output:
 
 ```
@@ -83,6 +84,7 @@ Mobile number should be 10 digits
 Employee type must match one of the four valid types
 
 Sample test cases :
+
 #### Input 1:
 
 ```

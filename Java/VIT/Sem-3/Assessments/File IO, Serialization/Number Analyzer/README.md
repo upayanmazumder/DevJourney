@@ -40,6 +40,7 @@ Code constraints :
 1 ≤ each integer ≤ 1000
 
 Sample test cases :
+
 #### Input 1:
 
 ```

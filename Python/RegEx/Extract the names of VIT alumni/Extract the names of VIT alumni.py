@@ -7,10 +7,10 @@ String = """
 University.
 """
 
-resPat = r'\d.+VIT'
-res = re.findall(resPat,String)
+resPat = r"\d.+VIT"
+res = re.findall(resPat, String)
 
-namesPat = r'[A-Z][a-z]+'
+namesPat = r"[A-Z][a-z]+"
 names = []
 for line in res:
     name = re.search(namesPat, line)

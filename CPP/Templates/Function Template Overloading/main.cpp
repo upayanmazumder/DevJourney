@@ -1,13 +1,11 @@
 #include <iostream>
 using namespace std;
 
-template<class X>
-void fun(X a, X b) {
+template <class X> void fun(X a, X b) {
     cout << "Same type: " << a + b << endl;
 }
 
-template<class X, class Y>
-void fun(X a, Y b) {
+template <class X, class Y> void fun(X a, Y b) {
     cout << "Different types: " << a + b << endl;
 }
 

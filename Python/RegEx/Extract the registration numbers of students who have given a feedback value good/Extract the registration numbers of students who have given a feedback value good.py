@@ -9,6 +9,6 @@ s = """
 6.24BKT6666 - University is good.
 """
 
-goodPat = r'(\d{2}[A-Z]{3}\d{4}) - University is good'
+goodPat = r"(\d{2}[A-Z]{3}\d{4}) - University is good"
 good = re.findall(goodPat, s)
 print(good)

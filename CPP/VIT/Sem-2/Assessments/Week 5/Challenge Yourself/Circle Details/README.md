@@ -15,9 +15,9 @@ void displayDetails(): Displays the circle's radius, area, and circumference.
 
 Formula:
 
-Area = 3.14159 * radius * radius
+Area = 3.14159 _ radius _ radius
 
-Circumference = 2 * 3.14159 * radius
+Circumference = 2 _ 3.14159 _ radius
 
 ### Input format :
 

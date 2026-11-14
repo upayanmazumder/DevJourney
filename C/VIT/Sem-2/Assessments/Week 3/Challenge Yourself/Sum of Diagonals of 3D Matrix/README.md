@@ -59,5 +59,4 @@ Refer to the sample output for the formatting specifications.
 
 Error
 Whitelist
-Set 1:
-\*
+Set 1: \*

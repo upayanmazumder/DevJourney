@@ -6,16 +6,15 @@ Yasmin is a student studying various animals and their unique characteristics. S
 
 ### Conditions:
 
-- **For Deer (Mode 'D' or 'd')**: Distance = speed of sound * time taken, where the speed of sound in air is 343 meters per second.
-- **For Bear (Mode 'B' or 'b')**: Weight = footprint size * average weight, where the average weight per square inch for a bear is 5.0 pounds.
-- **For Bird (Mode 'F' or 'f')**: Altitude = flying pattern * distance covered (in meters).
+- **For Deer (Mode 'D' or 'd')**: Distance = speed of sound \* time taken, where the speed of sound in air is 343 meters per second.
+- **For Bear (Mode 'B' or 'b')**: Weight = footprint size \* average weight, where the average weight per square inch for a bear is 5.0 pounds.
+- **For Bird (Mode 'F' or 'f')**: Altitude = flying pattern \* distance covered (in meters).
 
 Write a program to help Yasmin analyze the characteristics of animals based on the given inputs using switch and break statements.
 
 ### Input format:
 
 - The first line of input consists of a character, representing the type of animal 'D/d' for deer, 'B/b' for bear, 'F/f' for bird.
-
   - If the choice is 'D' or 'd':
     - The second line of input consists of a floating-point value T, representing the time taken from the deer's location to the observer.
   - If the choice is 'B' or 'b':

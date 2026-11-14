@@ -8,7 +8,7 @@ John is planning a long road trip and wants to calculate the distance his car ca
 
 To do this, you are tasked with creating a program that calculates the travel distance of a car based on its speed and fuel capacity. The calculation is simple and follows the formula:
 
-Travel Distance = Speed * Fuel Capacity
+Travel Distance = Speed \* Fuel Capacity
 
 You need to model this system using a Vehicle class and a Car class. The Vehicle class will have attributes for the speed and fuel capacity, while the Car class will inherit from the Vehicle class and include a method to calculate the travel distance.
 
@@ -44,6 +44,7 @@ The given test cases fall under the following constraints:
 1.0 ≤ fuel capacity ≤ 400.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -13,11 +13,11 @@ Alex wants to generate a number pattern based on a specified number of rows. Wri
 ### Output
 
 ```
-        1 
-      2 3 2 
-    3 4 5 4 3 
-  4 5 6 7 6 5 4 
-5 6 7 8 9 8 7 6 5 
+        1
+      2 3 2
+    3 4 5 4 3
+  4 5 6 7 6 5 4
+5 6 7 8 9 8 7 6 5
 ```
 
 ### Input format
@@ -47,11 +47,11 @@ Refer to the sample output for the formatting specifications.
 #### Output 1
 
 ```
-        1 
-      2 3 2 
-    3 4 5 4 3 
-  4 5 6 7 6 5 4 
-5 6 7 8 9 8 7 6 5 
+        1
+      2 3 2
+    3 4 5 4 3
+  4 5 6 7 6 5 4
+5 6 7 8 9 8 7 6 5
 ```
 
 #### Input 2
@@ -63,8 +63,8 @@ Refer to the sample output for the formatting specifications.
 #### Output 2
 
 ```
-      1 
-    2 3 2 
-  3 4 5 4 3 
-4 5 6 7 6 5 4 
+      1
+    2 3 2
+  3 4 5 4 3
+4 5 6 7 6 5 4
 ```

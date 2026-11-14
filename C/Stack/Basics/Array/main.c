@@ -4,48 +4,39 @@
 int stack[MAX];
 int top = -1;
 
-int isEmpty()
-{
+int isEmpty() {
     return top == -1;
 }
 
-int isFull()
-{
+int isFull() {
     return top == MAX - 1;
 }
 
-void push(int val)
-{
-    if (isFull())
-    {
+void push(int val) {
+    if (isFull()) {
         printf("Stack Overflow\n");
         return;
     }
     stack[++top] = val;
 }
 
-int pop()
-{
-    if (isEmpty())
-    {
+int pop() {
+    if (isEmpty()) {
         printf("Stack Underflow\n");
         return -1;
     }
     return stack[top--];
 }
 
-int peek()
-{
-    if (isEmpty())
-    {
+int peek() {
+    if (isEmpty()) {
         printf("Stack is empty\n");
         return -1;
     }
     return stack[top];
 }
 
-int main()
-{
+int main() {
     push(10);
     push(20);
     push(30);

@@ -4,12 +4,13 @@ def fib(n):
     elif n == 1:
         return 1
     else:
-        return fib(n-1) + fib(n-2)
+        return fib(n - 1) + fib(n - 2)
+
 
 l = []
 n = int(input("How many numbers: "))
 
 for i in range(n):
     l.append(fib(i))
-    
+
 print(l)

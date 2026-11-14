@@ -3,7 +3,7 @@ nums = []
 # Populate the list
 for i in range(10):
     n = int(input(f"Enter number {i+1}: "))
-    while n<=0:
+    while n <= 0:
         print("Please enter a positive number!")
         n = int(input(f"Enter number {i+1}: "))
     nums.append(n)

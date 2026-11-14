@@ -3,17 +3,7 @@ amount = int(input("Enter the amount: "))
 
 # Dictionary to store the count of each denomination
 # Key: denomination value, Value: count of notes of that denomination
-notes = {
-    500: 0,
-    200: 0,
-    100: 0,
-    50: 0,
-    20: 0,
-    10: 0,
-    5: 0,
-    2: 0,
-    1: 0
-}
+notes = {500: 0, 200: 0, 100: 0, 50: 0, 20: 0, 10: 0, 5: 0, 2: 0, 1: 0}
 
 # Loop through each denomination in the dictionary
 for note in notes:

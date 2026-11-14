@@ -1,21 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node
-{
+struct Node {
     int data;
     struct Node *next;
 };
 
 struct Node *head = NULL;
 
-void insertBeg(int val)
-{
+void insertBeg(int val) {
     struct Node *newNode = malloc(sizeof(struct Node));
     newNode->data = val;
 
-    if (head == NULL)
-    {
+    if (head == NULL) {
         newNode->next = newNode;
         head = newNode;
         return;
@@ -30,13 +27,11 @@ void insertBeg(int val)
     head = newNode;
 }
 
-void insertEnd(int val)
-{
+void insertEnd(int val) {
     struct Node *newNode = malloc(sizeof(struct Node));
     newNode->data = val;
 
-    if (head == NULL)
-    {
+    if (head == NULL) {
         newNode->next = newNode;
         head = newNode;
         return;
@@ -50,13 +45,11 @@ void insertEnd(int val)
     newNode->next = head;
 }
 
-void insertPos(int val, int pos)
-{
+void insertPos(int val, int pos) {
     struct Node *newNode = malloc(sizeof(struct Node));
     newNode->data = val;
 
-    if (pos == 1)
-    {
+    if (pos == 1) {
         insertBeg(val);
         return;
     }
@@ -64,14 +57,12 @@ void insertPos(int val, int pos)
     struct Node *temp = head;
     int count = 1;
 
-    while (count < pos - 1 && temp->next != head)
-    {
+    while (count < pos - 1 && temp->next != head) {
         temp = temp->next;
         count++;
     }
 
-    if (count < pos - 1)
-    {
+    if (count < pos - 1) {
         printf("Position out of range\n");
         free(newNode);
         return;
@@ -81,10 +72,8 @@ void insertPos(int val, int pos)
     temp->next = newNode;
 }
 
-void deleteBeg()
-{
-    if (head == NULL)
-    {
+void deleteBeg() {
+    if (head == NULL) {
         printf("List is empty\n");
         return;
     }
@@ -95,12 +84,9 @@ void deleteBeg()
     while (last->next != head)
         last = last->next;
 
-    if (head->next == head)
-    {
+    if (head->next == head) {
         head = NULL;
-    }
-    else
-    {
+    } else {
         head = head->next;
         last->next = head;
     }
@@ -109,28 +95,22 @@ void deleteBeg()
     free(temp);
 }
 
-void deleteEnd()
-{
-    if (head == NULL)
-    {
+void deleteEnd() {
+    if (head == NULL) {
         printf("List is empty\n");
         return;
     }
 
     struct Node *temp = head, *prev = NULL;
 
-    while (temp->next != head)
-    {
+    while (temp->next != head) {
         prev = temp;
         temp = temp->next;
     }
 
-    if (temp == head)
-    {
+    if (temp == head) {
         head = NULL;
-    }
-    else
-    {
+    } else {
         prev->next = head;
     }
 
@@ -138,18 +118,15 @@ void deleteEnd()
     free(temp);
 }
 
-void deletePos(int pos)
-{
-    if (head == NULL)
-    {
+void deletePos(int pos) {
+    if (head == NULL) {
         printf("List is empty\n");
         return;
     }
 
     struct Node *temp = head;
 
-    if (pos == 1)
-    {
+    if (pos == 1) {
         deleteBeg();
         return;
     }
@@ -157,15 +134,13 @@ void deletePos(int pos)
     struct Node *prev = NULL;
     int count = 1;
 
-    while (count < pos && temp->next != head)
-    {
+    while (count < pos && temp->next != head) {
         prev = temp;
         temp = temp->next;
         count++;
     }
 
-    if (count < pos)
-    {
+    if (count < pos) {
         printf("Position out of range\n");
         return;
     }
@@ -175,29 +150,24 @@ void deletePos(int pos)
     free(temp);
 }
 
-void display()
-{
-    if (head == NULL)
-    {
+void display() {
+    if (head == NULL) {
         printf("List is empty\n");
         return;
     }
 
     struct Node *temp = head;
-    do
-    {
+    do {
         printf("%d ", temp->data);
         temp = temp->next;
     } while (temp != head);
     printf("\n");
 }
 
-int main()
-{
+int main() {
     int choice, val, pos;
 
-    do
-    {
+    do {
         printf("\n--- Circular Linked List Menu ---\n");
         printf("1. Insert at Beginning\n");
         printf("2. Insert at End\n");
@@ -210,42 +180,41 @@ int main()
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        switch (choice)
-        {
-        case 1:
-            printf("Enter value: ");
-            scanf("%d", &val);
-            insertBeg(val);
-            break;
-        case 2:
-            printf("Enter value: ");
-            scanf("%d", &val);
-            insertEnd(val);
-            break;
-        case 3:
-            printf("Enter value and position: ");
-            scanf("%d%d", &val, &pos);
-            insertPos(val, pos);
-            break;
-        case 4:
-            deleteBeg();
-            break;
-        case 5:
-            deleteEnd();
-            break;
-        case 6:
-            printf("Enter position to delete: ");
-            scanf("%d", &pos);
-            deletePos(pos);
-            break;
-        case 7:
-            display();
-            break;
-        case 8:
-            printf("Exiting...\n");
-            break;
-        default:
-            printf("Invalid choice!\n");
+        switch (choice) {
+            case 1:
+                printf("Enter value: ");
+                scanf("%d", &val);
+                insertBeg(val);
+                break;
+            case 2:
+                printf("Enter value: ");
+                scanf("%d", &val);
+                insertEnd(val);
+                break;
+            case 3:
+                printf("Enter value and position: ");
+                scanf("%d%d", &val, &pos);
+                insertPos(val, pos);
+                break;
+            case 4:
+                deleteBeg();
+                break;
+            case 5:
+                deleteEnd();
+                break;
+            case 6:
+                printf("Enter position to delete: ");
+                scanf("%d", &pos);
+                deletePos(pos);
+                break;
+            case 7:
+                display();
+                break;
+            case 8:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid choice!\n");
         }
     } while (choice != 8);
 

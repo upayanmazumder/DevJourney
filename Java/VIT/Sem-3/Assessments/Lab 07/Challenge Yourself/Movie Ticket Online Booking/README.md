@@ -18,6 +18,7 @@ Age-Based Discount:
 If age < 12: Apply 50% discount on total price.
 If age ≥ 60: Apply a 30% discount on the total price.
 Others: No discount.
+
 #### Input:
 
 ```
@@ -28,6 +29,7 @@ The first line of input contains a String, representing the customer's name.
 The second line contains an int, representing the age of the customer.
 The third line contains a String, representing the time slot (Morning or Evening).
 The fourth line contains a String, representing the ticket type (Premium or Standard).
+
 #### Output:
 
 ```
@@ -43,6 +45,7 @@ The given testcases fall under the following constraints:
 Time slot must be "Morning" or "Evening" (case-insensitive)
 Ticket type must be "Premium" or "Standard" (case-insensitive)
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -10,13 +10,9 @@ public:
         imag = i;
     }
 
-    Complex operator + (Complex const &obj) {
-        return Complex(real + obj.real, imag + obj.imag);
-    }
+    Complex operator+(Complex const &obj) { return Complex(real + obj.real, imag + obj.imag); }
 
-    void display() {
-        cout << real << " + " << imag << "i" << endl;
-    }
+    void display() { cout << real << " + " << imag << "i" << endl; }
 };
 
 int main() {

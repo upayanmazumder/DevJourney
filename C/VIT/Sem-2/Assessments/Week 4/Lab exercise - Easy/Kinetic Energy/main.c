@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define KINETIC_ENERGY(m,v) (0.5 *(m)*(v)*(v))
+#define KINETIC_ENERGY(m, v) (0.5 * (m) * (v) * (v))
 
 union Car {
     double mass;

@@ -6,6 +6,7 @@
 
 Sharon is creating a program that finds the first repeated element in an integer array. The program should efficiently identify the first element that appears more than once in the given array. If no such element is found, it should appropriately display a message.
 Help Sharon to complete the program.
+
 #### Input:
 
 ```
@@ -14,6 +15,7 @@ format :
 
 The first line of input consists of an integer n, representing the number of elements in the array.
 The second line consists of n space-separated integers, representing the array elements.
+
 #### Output:
 
 ```
@@ -28,6 +30,7 @@ The given test cases fall under the following constraints:
 1 ≤ n ≤ 50
 1 ≤ array elements ≤ 100
 Sample test cases :
+
 #### Input 1:
 
 ```

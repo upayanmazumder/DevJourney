@@ -47,6 +47,7 @@ Code constraints :
 The input string contains only lowercase or uppercase alphabetic characters and spaces.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

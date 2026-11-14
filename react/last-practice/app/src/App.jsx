@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
-import api from "./shared/api";
+import React, { useState, useEffect } from 'react';
+import api from './shared/api';
 
 export default function App() {
   const schema = {
-    regNo: "",
-    name: "",
-    course: "",
-    cat1: "",
-    cat2: "",
-    da1: "",
-    da2: "",
-    quiz: "",
-    fat: "",
+    regNo: '',
+    name: '',
+    course: '',
+    cat1: '',
+    cat2: '',
+    da1: '',
+    da2: '',
+    quiz: '',
+    fat: '',
     convert: {
       cat1: '',
       cat2: '',
       da1: '',
       da2: '',
       quiz: '',
-      fat: ''
-    }
+      fat: '',
+    },
   };
 
   const [users, setUsers] = useState([]);
@@ -32,7 +32,7 @@ export default function App() {
     da1: (val) => (val / 10) * 10,
     da2: (val) => (val / 10) * 10,
     quiz: (val) => (val / 10) * 10,
-    fat: (val) => (val / 100) * 40
+    fat: (val) => (val / 100) * 40,
   };
 
   const patterns = {
@@ -44,29 +44,29 @@ export default function App() {
     da1: /^([0-9]|10)(\.[0-9]{1,2})?$/,
     da2: /^([0-9]|10)(\.[0-9]{1,2})?$/,
     quiz: /^([0-9]|10)(\.[0-9]{1,2})?$/,
-    fat: /^([0-9]{1,2}|100)(\.[0-9]{1,2})?$/
+    fat: /^([0-9]{1,2}|100)(\.[0-9]{1,2})?$/,
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setUser(prev => {
+    setUser((prev) => {
       const updatedUser = {
         ...prev,
-        [name]: value
+        [name]: value,
       };
 
       if (convert[name]) {
         updatedUser.convert = {
           ...prev.convert,
-          [name]: convert[name](parseFloat(value) || 0).toFixed(2)
+          [name]: convert[name](parseFloat(value) || 0).toFixed(2),
         };
       }
 
       return updatedUser;
     });
 
-    setFormErrors(prev => ({ ...prev, [name]: "" })); // Clear error on change
+    setFormErrors((prev) => ({ ...prev, [name]: '' })); // Clear error on change
   };
 
   const validateForm = () => {
@@ -112,7 +112,9 @@ export default function App() {
         onChange={handleChange}
         style={{ borderColor: formErrors[name] ? 'red' : undefined }}
       />
-      {formErrors[name] && <small style={{ color: 'red' }}>{formErrors[name]}</small>}
+      {formErrors[name] && (
+        <small style={{ color: 'red' }}>{formErrors[name]}</small>
+      )}
     </>
   );
 
@@ -120,15 +122,15 @@ export default function App() {
     <>
       <h2>Fill</h2>
       <form onSubmit={addUser}>
-        {renderInput("RegNo", "regNo")}
-        {renderInput("Name", "name")}
-        {renderInput("Course", "course")}
-        {renderInput("CAT1", "cat1")}
-        {renderInput("CAT2", "cat2")}
-        {renderInput("DA1", "da1")}
-        {renderInput("DA2", "da2")}
-        {renderInput("Quiz", "quiz")}
-        {renderInput("FAT", "fat")}
+        {renderInput('RegNo', 'regNo')}
+        {renderInput('Name', 'name')}
+        {renderInput('Course', 'course')}
+        {renderInput('CAT1', 'cat1')}
+        {renderInput('CAT2', 'cat2')}
+        {renderInput('DA1', 'da1')}
+        {renderInput('DA2', 'da2')}
+        {renderInput('Quiz', 'quiz')}
+        {renderInput('FAT', 'fat')}
         <button type="submit">Submit</button>
       </form>
 
@@ -144,10 +146,11 @@ export default function App() {
 
       <h2>List</h2>
       <div>
-        {users.map(user => (
+        {users.map((user) => (
           <div key={user.id}>
             <p>
-              {user.regNo} {user.name} {user.course} {user.cat1} {user.cat2} {user.da1} {user.da2} {user.quiz} {user.fat}
+              {user.regNo} {user.name} {user.course} {user.cat1} {user.cat2}{' '}
+              {user.da1} {user.da2} {user.quiz} {user.fat}
             </p>
           </div>
         ))}

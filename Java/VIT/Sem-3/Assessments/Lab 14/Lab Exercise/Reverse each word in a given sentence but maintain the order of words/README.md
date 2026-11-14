@@ -34,6 +34,7 @@ The maximum length of the string is 100.
 The string contains spaces, lowercase and uppercase letters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

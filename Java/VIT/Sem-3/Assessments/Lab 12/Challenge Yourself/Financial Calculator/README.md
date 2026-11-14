@@ -14,7 +14,7 @@ Compound Intrest = P(1+Rate/100)n - P
 
 Future Value = P(1+Rate/100)n
 
-Loan/Month = (Loan Amount * Monthly Interest)/(1-(1+Monthly Interest)n
+Loan/Month = (Loan Amount \* Monthly Interest)/(1-(1+Monthly Interest)n
 
 Monthly Loan Payment (EMI) = P×r / (1 − (1+r)-n)
 
@@ -69,6 +69,7 @@ The given test cases fall under the following constraints:
 1 ≤ Duration ≤ 50﻿
 
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -17,6 +17,7 @@ The input consists of three parameters in separate lines:
 A string representing the student's name.
 An integer representing the student's age.
 An integer representing the student's grade.
+
 #### Output:
 
 ```
@@ -39,6 +40,7 @@ The given test cases fall under the following constraints:
 The name is a non-empty string.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -20,7 +20,7 @@ Output:
 
 Explanation:
 
-Total Product = 2 * 3 * 4 = 24
+Total Product = 2 _ 3 _ 4 = 24
 
 Modify each element in the array by dividing the total product by its original value.
 

@@ -6,7 +6,7 @@ Create a program that calculates and prints the areas of two walls. Define a cla
 
 Formula:
 
-Area = length * height
+Area = length \* height
 
 ### Input format :
 

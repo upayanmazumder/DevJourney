@@ -8,7 +8,7 @@ John is developing a car loan calculator and has structured his program using tw
 
 The Loan class implements these interfaces, taking principal and annual interest rates as parameters. User input is solicited for these values, and the program ensures their validity before performing calculations. If input values are invalid (less than or equal to zero), an error message is displayed.
 
-Note: Total interest = principal * interest rate * years
+Note: Total interest = principal _ interest rate _ years
 
 #### Input:
 
@@ -44,6 +44,7 @@ In this scenario, the test cases fall under the following constraints:
 0 < N < 25
 
 Sample test cases :
+
 #### Input 1:
 
 ```

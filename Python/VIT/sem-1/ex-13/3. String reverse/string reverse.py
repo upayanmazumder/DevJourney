@@ -6,6 +6,6 @@ textR = []
 
 for i in range(len(chars)):
     textR.insert(0, chars[i])
-    
+
 for char in textR:
-    print(char, end='')
+    print(char, end="")

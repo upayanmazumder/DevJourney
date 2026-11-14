@@ -1,37 +1,30 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 using namespace std;
 
-inline bool isArmstrong(int number)
-{
+inline bool isArmstrong(int number) {
     int sum = 0, temp = number, d = log10(number) + 1;
-    while (temp)
-    {
+    while (temp) {
         sum += pow(temp % 10, d);
         temp /= 10;
     }
     return sum == number;
 }
 
-inline void printFactors(int number)
-{
+inline void printFactors(int number) {
     for (int i = 1; i <= number; i++)
         if (number % i == 0)
             cout << i << " ";
     cout << endl;
 }
 
-int main()
-{
+int main() {
     int n;
     cin >> n;
-    if (isArmstrong(n))
-    {
+    if (isArmstrong(n)) {
         cout << n << " is an Armstrong number." << endl;
         printFactors(n);
-    }
-    else
-    {
+    } else {
         cout << n << " is not an Armstrong number." << endl;
     }
     return 0;

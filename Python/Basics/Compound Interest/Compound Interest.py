@@ -1,10 +1,9 @@
+P = int(input("Enter Principal Amount: "))
+R = int(input("Enter Rate of Interest: "))
+t = int(input("Enter time: "))
 
-P=int(input("Enter Principal Amount: "))
-R=int(input("Enter Rate of Interest: "))
-t=int(input("Enter time: "))
+A = P * (1 + R / 100) ** t
 
-A=P * (1 + R/100)**t
+CI = A - P
 
-CI=A-P
-
-print(f'Compound interest is {CI}')
+print(f"Compound interest is {CI}")

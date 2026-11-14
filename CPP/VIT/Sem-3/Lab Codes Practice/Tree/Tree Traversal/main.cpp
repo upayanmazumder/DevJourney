@@ -2,22 +2,18 @@
 
 using namespace std;
 
-struct Node
-{
+struct Node {
     int data;
     Node *left;
     Node *right;
 };
 
-Node *createNode(int data)
-{
+Node *createNode(int data) {
     return new Node{data, nullptr, nullptr};
 }
 
-void preorder(const Node *root)
-{
-    if (!root)
-    {
+void preorder(const Node *root) {
+    if (!root) {
         return;
     }
     cout << root->data << ' ';
@@ -25,10 +21,8 @@ void preorder(const Node *root)
     preorder(root->right);
 }
 
-void inorder(const Node *root)
-{
-    if (!root)
-    {
+void inorder(const Node *root) {
+    if (!root) {
         return;
     }
     inorder(root->left);
@@ -36,10 +30,8 @@ void inorder(const Node *root)
     inorder(root->right);
 }
 
-void postorder(const Node *root)
-{
-    if (!root)
-    {
+void postorder(const Node *root) {
+    if (!root) {
         return;
     }
     postorder(root->left);
@@ -47,10 +39,8 @@ void postorder(const Node *root)
     cout << root->data << ' ';
 }
 
-void clearTree(Node *&root)
-{
-    if (!root)
-    {
+void clearTree(Node *&root) {
+    if (!root) {
         return;
     }
     clearTree(root->left);
@@ -59,8 +49,7 @@ void clearTree(Node *&root)
     root = nullptr;
 }
 
-int main()
-{
+int main() {
     Node *root = createNode(1);
     root->left = createNode(2);
     root->right = createNode(3);

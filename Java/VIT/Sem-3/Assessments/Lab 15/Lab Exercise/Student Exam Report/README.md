@@ -48,6 +48,7 @@ The given testcases fall under the following constraints:
 0 ≤ Each subject mark ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

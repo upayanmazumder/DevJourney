@@ -8,11 +8,9 @@ private:
 public:
     Time(int h, int m) : hours(h), minutes(m) {}
 
-    void display() {
-        cout << hours << "h " << minutes << "m " << endl;
-    }
+    void display() { cout << hours << "h " << minutes << "m " << endl; }
 
-    Time& operator++() {
+    Time &operator++() {
         minutes++;
         if (minutes == 60) {
             minutes = 0;

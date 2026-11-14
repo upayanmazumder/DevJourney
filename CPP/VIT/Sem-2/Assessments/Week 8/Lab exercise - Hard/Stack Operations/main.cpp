@@ -2,13 +2,11 @@
 #include <vector>
 using namespace std;
 
-template <typename T>
-class StackDerived {
+template <typename T> class StackDerived {
     vector<T> stack;
+
 public:
-    void push(T value) {
-        stack.push_back(value);
-    }
+    void push(T value) { stack.push_back(value); }
 
     void pop() {
         if (stack.empty()) {
@@ -26,9 +24,7 @@ public:
         cout << endl;
     }
 
-    bool isEmpty() {
-        return stack.empty();
-    }
+    bool isEmpty() { return stack.empty(); }
 };
 
 int main() {

@@ -24,6 +24,7 @@ Create another class called Substaff that extends the Manager class and implemen
 In the Substaff class:
 
 Implement the bonus(double basicSalary) method to calculate the bonus as 50% of the basic salary.
+
 #### Input:
 
 ```
@@ -50,6 +51,7 @@ Code constraints :
 1000.00 ≤ Basic Salary ≤ 100000.00
 
 Sample test cases :
+
 #### Input 1:
 
 ```

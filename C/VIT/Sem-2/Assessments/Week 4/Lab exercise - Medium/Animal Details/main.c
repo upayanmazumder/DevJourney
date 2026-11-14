@@ -9,7 +9,7 @@ struct Animal {
 
 void toLowerCase(char *str) {
     for (int i = 0; str[i]; i++) {
-        if(str[i] >= 'A' && str[i] <= 'Z') {
+        if (str[i] >= 'A' && str[i] <= 'Z') {
             str[i] += 32;
         }
     }
@@ -21,15 +21,15 @@ int main() {
     struct Animal animals[n];
     struct Animal *ptr = animals;
     for (int i = 0; i < n; i++) {
-        scanf("%s %d %s", (ptr + i) -> name, &(ptr + i) -> count, (ptr + i) -> location);
+        scanf("%s %d %s", (ptr + i)->name, &(ptr + i)->count, (ptr + i)->location);
     }
     int found = 0;
-    for (int i = 0; i <n; i++) {
+    for (int i = 0; i < n; i++) {
         char tempLocation[50];
-        strcpy(tempLocation, (ptr + i) -> location);
+        strcpy(tempLocation, (ptr + i)->location);
         toLowerCase(tempLocation);
-        if(strcmp(tempLocation, "india") == 0) {
-            printf("%s %d %s\n", (ptr + i) -> name, (ptr + i) -> count, (ptr + i) -> location);
+        if (strcmp(tempLocation, "india") == 0) {
+            printf("%s %d %s\n", (ptr + i)->name, (ptr + i)->count, (ptr + i)->location);
             found = 1;
         }
     }

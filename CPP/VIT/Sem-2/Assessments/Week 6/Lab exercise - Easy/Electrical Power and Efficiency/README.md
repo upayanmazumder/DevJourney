@@ -8,11 +8,11 @@ Write a program to help him accomplish the task.
 
 Formulas
 
-Power = Voltage * Current
+Power = Voltage \* Current
 
-Useful Power = Power * Efficiency
+Useful Power = Power \* Efficiency
 
-Wasted Power = Power * (1.0 - Efficiency)
+Wasted Power = Power \* (1.0 - Efficiency)
 
 ### Input format :
 

@@ -44,6 +44,7 @@ The given test cases fall under the following specifications:
 1 ≤ Length of the String ≤ 50
 
 Sample test cases :
+
 #### Input 1:
 
 ```

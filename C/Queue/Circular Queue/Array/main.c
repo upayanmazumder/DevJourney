@@ -4,65 +4,50 @@
 int queue[MAX];
 int front = -1, rear = -1;
 
-int isFull()
-{
+int isFull() {
     return (front == (rear + 1) % MAX);
 }
 
-int isEmpty()
-{
+int isEmpty() {
     return front == -1;
 }
 
-void insert(int item)
-{
-    if (isFull())
-    {
+void insert(int item) {
+    if (isFull()) {
         printf("Overflow\n");
         return;
     }
-    if (isEmpty())
-    {
+    if (isEmpty()) {
         front = rear = 0;
-    }
-    else
-    {
+    } else {
         rear = (rear + 1) % MAX;
     }
     queue[rear] = item;
     printf("%d inserted\n", item);
 }
 
-void delete()
-{
-    if (isEmpty())
-    {
+void delete() {
+    if (isEmpty()) {
         printf("Underflow\n");
         return;
     }
     int item = queue[front];
     printf("%d deleted\n", item);
-    if (front == rear)
-    {
+    if (front == rear) {
         front = rear = -1;
-    }
-    else
-    {
+    } else {
         front = (front + 1) % MAX;
     }
 }
 
-void display()
-{
-    if (isEmpty())
-    {
+void display() {
+    if (isEmpty()) {
         printf("Queue is empty\n");
         return;
     }
     printf("Queue elements: ");
     int i = front;
-    while (1)
-    {
+    while (1) {
         printf("%d ", queue[i]);
         if (i == rear)
             break;
@@ -71,8 +56,7 @@ void display()
     printf("\n");
 }
 
-int main()
-{
+int main() {
     insert(10);
     insert(20);
     insert(30);

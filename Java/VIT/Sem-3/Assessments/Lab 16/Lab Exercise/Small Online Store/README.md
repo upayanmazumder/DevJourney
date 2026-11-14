@@ -21,6 +21,7 @@ The next nx3 lines contain the details of each product:
 The first line contains an integer product_id.
 The second line contains a string product_name.
 The third line contains a double cost representing the cost of the product.
+
 #### Output:
 
 ```
@@ -49,6 +50,7 @@ The given test cases fall under the following constraints:
 1.0 ≤ cost ≤ 10000000.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

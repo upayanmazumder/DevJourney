@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void calculateCardiacOutput(double *heartRate, double *strokeVolume, double *cardiacOutput ) {
+void calculateCardiacOutput(double *heartRate, double *strokeVolume, double *cardiacOutput) {
     *cardiacOutput = (*heartRate * *strokeVolume) / 1000.0;
 }
 

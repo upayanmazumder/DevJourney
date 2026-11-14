@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -15,9 +15,7 @@ class BudgetTravel : public TravelPlan {
 public:
     double baseExpense;
 
-    BudgetTravel(int d, double b) : TravelPlan(d, b) {
-        baseExpense = 1.2 * (budget / days);
-    }
+    BudgetTravel(int d, double b) : TravelPlan(d, b) { baseExpense = 1.2 * (budget / days); }
 };
 
 class SoloTravel : public BudgetTravel {
@@ -25,7 +23,7 @@ private:
     double lodgingExpense, foodExpense;
 
 public:
-    SoloTravel(int d, double b, double l, double f) 
+    SoloTravel(int d, double b, double l, double f)
         : BudgetTravel(d, b), lodgingExpense(l), foodExpense(f) {}
 
     void calculateExpense() {

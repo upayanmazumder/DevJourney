@@ -1,10 +1,11 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class Vehicle {
 protected:
     double fuelEfficiency, maxCapacity;
+
 public:
     Vehicle(double fe, double mc) : fuelEfficiency(fe), maxCapacity(mc) {}
 };
@@ -13,22 +14,16 @@ class Car : public Vehicle {
 public:
     Car(double fe, double mc) : Vehicle(fe, mc) {}
 
-    double calculateMaxRange() {
-        return fuelEfficiency * maxCapacity;
-    }
+    double calculateMaxRange() { return fuelEfficiency * maxCapacity; }
 };
 
 class EmilyCar : public Car {
 public:
     EmilyCar(double fe, double mc) : Car(fe, mc) {}
 
-    double calculatePayloadCapacity() {
-        return 0.8 * maxCapacity;
-    }
+    double calculatePayloadCapacity() { return 0.8 * maxCapacity; }
 
-    double calculateFullyLoadedWeight() {
-        return calculatePayloadCapacity() + calculateMaxRange();
-    }
+    double calculateFullyLoadedWeight() { return calculatePayloadCapacity() + calculateMaxRange(); }
 
     void displayCalculations() {
         cout << fixed << setprecision(2);

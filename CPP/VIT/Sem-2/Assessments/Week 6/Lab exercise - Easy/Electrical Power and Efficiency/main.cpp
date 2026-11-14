@@ -1,10 +1,11 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class P {
 protected:
     double v, c, power;
+
 public:
     P(double v, double c) : v(v), c(c) { power = v * c; }
     double getPower() { return power; }
@@ -12,6 +13,7 @@ public:
 
 class PE : public P {
     double e;
+
 public:
     PE(double v, double c, double e) : P(v, c), e(e) {}
     void display() {

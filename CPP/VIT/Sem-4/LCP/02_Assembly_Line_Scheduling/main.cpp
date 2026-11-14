@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int main()
-{
+int main() {
 
     int n;
     if (!(cin >> n))
@@ -24,25 +23,18 @@ int main()
     vector<int> f1(n), f2(n), from1(n), from2(n);
     f1[0] = e[0] + a1[0];
     f2[0] = e[1] + a2[0];
-    for (int i = 1; i < n; i++)
-    {
-        if (f1[i - 1] + a1[i] <= f2[i - 1] + t2[i - 1] + a1[i])
-        {
+    for (int i = 1; i < n; i++) {
+        if (f1[i - 1] + a1[i] <= f2[i - 1] + t2[i - 1] + a1[i]) {
             f1[i] = f1[i - 1] + a1[i];
             from1[i] = 0;
-        }
-        else
-        {
+        } else {
             f1[i] = f2[i - 1] + t2[i - 1] + a1[i];
             from1[i] = 1;
         }
-        if (f2[i - 1] + a2[i] <= f1[i - 1] + t1[i - 1] + a2[i])
-        {
+        if (f2[i - 1] + a2[i] <= f1[i - 1] + t1[i - 1] + a2[i]) {
             f2[i] = f2[i - 1] + a2[i];
             from2[i] = 1;
-        }
-        else
-        {
+        } else {
             f2[i] = f1[i - 1] + t1[i - 1] + a2[i];
             from2[i] = 0;
         }
@@ -50,20 +42,16 @@ int main()
     int bestLine;
     int bestTime1 = f1[n - 1] + x[0];
     int bestTime2 = f2[n - 1] + x[1];
-    if (bestTime1 <= bestTime2)
-    {
+    if (bestTime1 <= bestTime2) {
         cout << bestTime1 << "\n";
         bestLine = 0;
-    }
-    else
-    {
+    } else {
         cout << bestTime2 << "\n";
         bestLine = 1;
     }
     vector<int> path(n);
     path[n - 1] = bestLine;
-    for (int i = n - 1; i > 0; i--)
-    {
+    for (int i = n - 1; i > 0; i--) {
         path[i - 1] = (path[i] == 0) ? from1[i] : from2[i];
     }
     for (int i = 0; i < n; i++)

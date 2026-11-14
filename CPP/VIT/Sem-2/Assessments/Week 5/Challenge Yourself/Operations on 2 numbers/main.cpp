@@ -6,7 +6,7 @@ private:
     int num1, num2;
 
 public:
-    void get();  
+    void get();
     void sum();
     void difference();
     void product();

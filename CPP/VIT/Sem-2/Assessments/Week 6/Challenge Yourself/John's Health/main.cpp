@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -10,9 +10,7 @@ protected:
 public:
     BMI(double w, double h) : weight(w), height(h) {}
 
-    double calculateBMI() {
-        return weight / (height * height);
-    }
+    double calculateBMI() { return weight / (height * height); }
 };
 
 class BloodPressure {
@@ -25,8 +23,7 @@ public:
 
 class Health : public BMI, public BloodPressure {
 public:
-    Health(double w, double h, int sys, int dia)
-        : BMI(w, h), BloodPressure(sys, dia) {}
+    Health(double w, double h, int sys, int dia) : BMI(w, h), BloodPressure(sys, dia) {}
 
     void assessHealth() {
         double bmi = calculateBMI();
@@ -34,7 +31,8 @@ public:
 
         if (bmi < 18.5 && systolic < 90 && diastolic < 60)
             cout << "Health Status: Underweight with Low Blood Pressure" << endl;
-        else if (bmi >= 18.5 && bmi < 24.9 && systolic >= 90 && systolic <= 120 && diastolic >= 60 && diastolic <= 80)
+        else if (bmi >= 18.5 && bmi < 24.9 && systolic >= 90 && systolic <= 120 &&
+                 diastolic >= 60 && diastolic <= 80)
             cout << "Health Status: Healthy Weight with Normal Blood Pressure" << endl;
         else if (bmi >= 25.0 && bmi < 29.9 && systolic > 120 && diastolic > 80)
             cout << "Health Status: Overweight with High Blood Pressure" << endl;

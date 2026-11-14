@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 typedef struct {
     float real, imag;
@@ -49,5 +49,4 @@ int main() {
     printf("%.2f + %.2fi\n", prod.real, prod.imag);
     printf("%.2f\n", mod1);
     printf("%.2f\n", mod2);
-    
 }

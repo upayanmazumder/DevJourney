@@ -10,9 +10,9 @@ The calculatePrice method in the SeniorCitizenTicket class overrides the same me
 
 Formula:
 
-regular price = distance * 0.05
+regular price = distance \* 0.05
 
-senior discounted price = regular price * 0.9
+senior discounted price = regular price \* 0.9
 
 ## Example
 
@@ -26,7 +26,7 @@ Senior Citizen Ticket Price: 5.4
 
 ### Explanation
 
-Since the passenger's age is 65, which is greater than 60, the person is a senior citizen. The regular ticket price is calculated as 120 * 0.05 = 6.0. The discounted price is then calculated as 90% of the regular price, i.e., 6.0 * 0.9 = 5.4
+Since the passenger's age is 65, which is greater than 60, the person is a senior citizen. The regular ticket price is calculated as 120 _ 0.05 = 6.0. The discounted price is then calculated as 90% of the regular price, i.e., 6.0 _ 0.9 = 5.4
 
 #### Input:
 
@@ -56,6 +56,7 @@ The given test cases fall under the following constraints:
 30 ≤ age ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

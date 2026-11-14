@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class Rectangle
-{
+class Rectangle {
     int l, w;
     static int count;
 
@@ -14,19 +13,16 @@ public:
 
 int Rectangle::count = 0;
 
-int main()
-{
+int main() {
     int n, x, y;
     cin >> n;
     Rectangle *rects[n];
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cin >> x >> y;
         rects[i] = new Rectangle(x, y);
     }
     cout << "Total number of rectangles: " << Rectangle::getCount() << endl;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cout << "Area of rectangle " << i + 1 << ": " << rects[i]->getArea() << endl;
         delete rects[i];
     }

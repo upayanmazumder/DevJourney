@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     int n, W;
 
     if (!(cin >> n >> W))
@@ -21,14 +20,11 @@ int main()
     int dp[101][101] = {0};
 
     // Build DP table
-    for (int i = 1; i <= n; i++)
-    {
-        for (int w = 0; w <= W; w++)
-        {
+    for (int i = 1; i <= n; i++) {
+        for (int w = 0; w <= W; w++) {
             dp[i][w] = dp[i - 1][w];
 
-            if (wt[i - 1] <= w)
-            {
+            if (wt[i - 1] <= w) {
                 int candidate = dp[i - 1][w - wt[i - 1]] + val[i - 1];
 
                 if (candidate > dp[i][w])
@@ -44,10 +40,8 @@ int main()
     int items[100];
     int count = 0;
 
-    for (int i = n; i >= 1; i--)
-    {
-        if (dp[i][w] != dp[i - 1][w])
-        {
+    for (int i = n; i >= 1; i--) {
+        if (dp[i][w] != dp[i - 1][w]) {
             items[count++] = i - 1;
             w -= wt[i - 1];
         }

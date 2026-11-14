@@ -7,7 +7,7 @@ Create a program for an online store that sells electronics and clothing. Calcul
 class Product:
 
 Attributes: string name, double price, int quantity
-Method: double calculateCost() - Returns total cost (price * quantity)
+Method: double calculateCost() - Returns total cost (price \* quantity)
 
 class Electronics (Derived from class Product):
 

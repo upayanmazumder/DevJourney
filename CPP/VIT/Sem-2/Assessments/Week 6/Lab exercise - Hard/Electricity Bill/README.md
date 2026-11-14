@@ -4,7 +4,7 @@
 
 Ajay is assigned with designing a program with an ElectricityBill class that utilizes multiple inheritance, inheriting attributes from Consumption, Rate, and ConnectionType classes. This program calculates the total cost of electricity consumption based on consumed units and connection type, which can be either residential or commercial, each with its respective rate.
 
-Note: Total Electricity Consumption Cost = Units * rate where units can be residential or commercial.
+Note: Total Electricity Consumption Cost = Units \* rate where units can be residential or commercial.
 
 ### Input format :
 

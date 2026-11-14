@@ -86,6 +86,7 @@ The given test cases fall under the following constraints:
 0 ≤ amount ≤ balance (Withdrawal amount must be non-negative and not exceed the available balance)
 
 Sample test cases :
+
 #### Input 1:
 
 ```

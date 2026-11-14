@@ -8,8 +8,8 @@ Write a program that can determine the annual rainfall for square and rectangula
 
 Create a class Forest and utilize constructor overloading in the Forest class to handle two types of forests:
 
-For Square Forest: annual rainfall = sideLength * sideLength * rainfallinmm
-For Rectangular Forest: annual rainfall = length * width * rainfallinmm
+For Square Forest: annual rainfall = sideLength _ sideLength _ rainfallinmm
+For Rectangular Forest: annual rainfall = length _ width _ rainfallinmm
 
 ### Input format :
 

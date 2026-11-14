@@ -34,16 +34,17 @@ The given test cases fall under the following constraints:
 1 ≤ input integers ≤ 1000
 
 Sample test cases :
+
 #### Input 1:
 
 ```
-12 34 
+12 34
 56 78 63
 Output 1 :
 Sum of two integers: 46
 Sum of three integers: 197
 Input 2 :
-523 178 
+523 178
 481 989 124
 Output 2 :
 Sum of two integers: 701

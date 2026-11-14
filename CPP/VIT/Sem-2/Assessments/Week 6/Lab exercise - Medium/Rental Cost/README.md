@@ -8,8 +8,8 @@ Create a base class Vehicle and derived classes Car and Motorcycle.
 
 The rental cost is calculated differently for each vehicle type.
 
-Car rental cost = daily rental rate * number of days
-Motorcycle rental cost = daily rental rate * number of days * 0.8 (Applying the 20% discount for motorcycles)
+Car rental cost = daily rental rate _ number of days
+Motorcycle rental cost = daily rental rate _ number of days \* 0.8 (Applying the 20% discount for motorcycles)
 
 ### Input format :
 

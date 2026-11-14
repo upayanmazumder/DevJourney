@@ -8,6 +8,7 @@ David is working on a warehouse inventory management system. He needs to create 
 Addition: Insert a new product ID at a specified index.
 Deletion: Remove a product ID from a given index in the original array (not the newly added array).
 Your task is to implement this functionality and display the product inventory after both operations.
+
 #### Input:
 
 ```
@@ -19,6 +20,7 @@ The second line contains n space-separated integers, representing the initial 
 The third line contains an integer indexA, representing the position where a new product ID should be inserted.
 The fourth line contains an integer productA, representing the new product ID to insert.
 The fifth line contains an integer indexD, representing the index from which a product ID should be deleted.
+
 #### Output:
 
 ```
@@ -35,6 +37,7 @@ In this scenario, the test cases will fall under the following constraints:
 1 ≤ elements ≤ 100
 index starts from 0
 Sample test cases :
+
 #### Input 1:
 
 ```

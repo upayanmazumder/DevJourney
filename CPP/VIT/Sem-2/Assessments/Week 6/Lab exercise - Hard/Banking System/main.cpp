@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class Account {
@@ -8,7 +8,8 @@ protected:
     double balance;
 
 public:
-    Account(string accNum, double initialBalance) : accountNumber(accNum), balance(initialBalance) {}
+    Account(string accNum, double initialBalance)
+        : accountNumber(accNum), balance(initialBalance) {}
 
     void deposit(double amount) {
         balance += amount;
@@ -24,9 +25,7 @@ public:
         }
     }
 
-    double getBalance() {
-        return balance;
-    }
+    double getBalance() { return balance; }
 };
 
 class SavingsAccount : public Account {

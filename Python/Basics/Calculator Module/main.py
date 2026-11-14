@@ -13,27 +13,28 @@ print("""
 """)
 
 
-def getChoice(x,y):
+def getChoice(x, y):
     choice = int(input("Enter choice: "))
     if choice >= 1 and choice <= 6:
         if choice == 1:
-            res = c.add(x,y)
+            res = c.add(x, y)
         elif choice == 2:
-            res = c.subtract(x,y)
+            res = c.subtract(x, y)
         elif choice == 3:
-            res = c.product(x,y)
+            res = c.product(x, y)
         elif choice == 4:
-            res = c.divide(x,y)
+            res = c.divide(x, y)
         elif choice == 5:
-            res = c.modulo(x,y)
+            res = c.modulo(x, y)
 
         if choice >= 1 and choice <= 5:
             print(res)
-            getChoice(x,y)
+            getChoice(x, y)
         else:
-            print("Stopping program")    
+            print("Stopping program")
     else:
         print("Invalid Choice!")
-        getChoice(x,y)
+        getChoice(x, y)
 
-getChoice(x,y)
+
+getChoice(x, y)

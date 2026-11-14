@@ -1,19 +1,19 @@
 // App.js
-import React, { useEffect, useState } from "react";
-import api from "./shared/axios";
-import "./App.css";
+import React, { useEffect, useState } from 'react';
+import api from './shared/axios';
+import './App.css';
 
 export default function App() {
   const [student, setStudent] = useState({
-    regNo: "",
-    name: "",
-    course: "",
-    cat1: "",
-    cat2: "",
-    da1: "",
-    da2: "",
-    quiz: "",
-    fat: ""
+    regNo: '',
+    name: '',
+    course: '',
+    cat1: '',
+    cat2: '',
+    da1: '',
+    da2: '',
+    quiz: '',
+    fat: '',
   });
 
   const [students, setStudents] = useState([]);
@@ -24,7 +24,7 @@ export default function App() {
     da1: (val) => (val / 10) * 10,
     da2: (val) => (val / 10) * 10,
     quiz: (val) => (val / 10) * 10,
-    fat: (val) => (val / 100) * 40
+    fat: (val) => (val / 100) * 40,
   };
 
   const getConverted = (key) => {
@@ -42,32 +42,32 @@ export default function App() {
     const newEntry = {
       ...student,
       converted: {
-        cat1: getConverted("cat1"),
-        cat2: getConverted("cat2"),
-        da1: getConverted("da1"),
-        da2: getConverted("da2"),
-        quiz: getConverted("quiz"),
-        fat: getConverted("fat"),
-      }
+        cat1: getConverted('cat1'),
+        cat2: getConverted('cat2'),
+        da1: getConverted('da1'),
+        da2: getConverted('da2'),
+        quiz: getConverted('quiz'),
+        fat: getConverted('fat'),
+      },
     };
 
-    await api.post("/students", newEntry);
+    await api.post('/students', newEntry);
     setStudent({
-      regNo: "",
-      name: "",
-      course: "",
-      cat1: "",
-      cat2: "",
-      da1: "",
-      da2: "",
-      quiz: "",
-      fat: ""
+      regNo: '',
+      name: '',
+      course: '',
+      cat1: '',
+      cat2: '',
+      da1: '',
+      da2: '',
+      quiz: '',
+      fat: '',
     });
     fetchStudents();
   };
 
   const fetchStudents = async () => {
-    const res = await api.get("/students");
+    const res = await api.get('/students');
     setStudents(res.data);
   };
 
@@ -76,7 +76,8 @@ export default function App() {
   }, []);
 
   const getInternal = (converted) => {
-    const internal = parseFloat(converted.cat1) +
+    const internal =
+      parseFloat(converted.cat1) +
       parseFloat(converted.cat2) +
       parseFloat(converted.da1) +
       parseFloat(converted.da2) +
@@ -88,7 +89,17 @@ export default function App() {
     <div className="App">
       <h2>Student Marks Entry</h2>
       <form onSubmit={handleSubmit}>
-        {["regNo", "name", "course", "cat1", "cat2", "da1", "da2", "quiz", "fat"].map((field) => (
+        {[
+          'regNo',
+          'name',
+          'course',
+          'cat1',
+          'cat2',
+          'da1',
+          'da2',
+          'quiz',
+          'fat',
+        ].map((field) => (
           <div key={field}>
             <input
               name={field}
@@ -97,7 +108,7 @@ export default function App() {
               onChange={handleChange}
               required
             />
-            {["cat1", "cat2", "da1", "da2", "quiz", "fat"].includes(field) && (
+            {['cat1', 'cat2', 'da1', 'da2', 'quiz', 'fat'].includes(field) && (
               <p>Converted: {getConverted(field)}</p>
             )}
           </div>
@@ -113,7 +124,8 @@ export default function App() {
           return (
             <li key={i}>
               <b>{s.name}</b> ({s.regNo})<br />
-              Internals: {internal} {internal < 30 && "(+5 bonus)"}<br />
+              Internals: {internal} {internal < 30 && '(+5 bonus)'}
+              <br />
               Final Internals: {finalInternal.toFixed(2)} <br />
               FAT: {s.fat} (converted: {s.converted.fat})
             </li>
@@ -126,12 +138,17 @@ export default function App() {
         {students
           .filter((s) => s.converted.cat1 < 15 && s.converted.cat2 < 15)
           .map((s, i) => {
-            const cat1 = Math.min(15, parseFloat(s.converted.cat1) + 5).toFixed(2);
-            const cat2 = Math.min(15, parseFloat(s.converted.cat2) + 5).toFixed(2);
+            const cat1 = Math.min(15, parseFloat(s.converted.cat1) + 5).toFixed(
+              2,
+            );
+            const cat2 = Math.min(15, parseFloat(s.converted.cat2) + 5).toFixed(
+              2,
+            );
             return (
               <li key={i}>
                 <b>{s.name}</b> ({s.regNo})<br />
-                Original CAT1: {s.converted.cat1}, Updated: {cat1}<br />
+                Original CAT1: {s.converted.cat1}, Updated: {cat1}
+                <br />
                 Original CAT2: {s.converted.cat2}, Updated: {cat2}
               </li>
             );

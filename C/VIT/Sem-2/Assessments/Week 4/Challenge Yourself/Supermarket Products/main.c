@@ -11,7 +11,9 @@ struct Product {
 void displayByProductNumber(struct Product products[], int n, int search_product_number) {
     for (int i = 0; i < n; i++) {
         if (products[i].product_number == search_product_number) {
-            printf("Product details of the searched product number\n %d %.2f %d %s\n", products[i].product_number, products[i].cost_per_product, products[i].num_items, products[i].expiry_date);
+            printf("Product details of the searched product number\n %d %.2f %d %s\n",
+                   products[i].product_number, products[i].cost_per_product, products[i].num_items,
+                   products[i].expiry_date);
             return;
         }
     }
@@ -20,7 +22,9 @@ void displayByProductNumber(struct Product products[], int n, int search_product
 void displayAboveCost(struct Product products[], int n, float search_cost) {
     for (int i = 0; i < n; i++) {
         if (products[i].cost_per_product == search_cost) {
-            printf("\nProduct details of the searched product cost\n %d %.2f %d %s\n", products[i].product_number, products[i].cost_per_product, products[i].num_items, products[i].expiry_date);
+            printf("\nProduct details of the searched product cost\n %d %.2f %d %s\n",
+                   products[i].product_number, products[i].cost_per_product, products[i].num_items,
+                   products[i].expiry_date);
             return;
         }
     }
@@ -29,7 +33,9 @@ void displayAboveCost(struct Product products[], int n, float search_cost) {
 void displayByExpiryDate(struct Product products[], int n, char search_expiry_date[]) {
     for (int i = 0; i < n; i++) {
         if (strcmp(products[i].expiry_date, search_expiry_date) == 0) {
-            printf("\nProduct with the searched expiry date\n %d %.2f %d %s\n", products[i].product_number, products[i].cost_per_product, products[i].num_items, products[i].expiry_date);
+            printf("\nProduct with the searched expiry date\n %d %.2f %d %s\n",
+                   products[i].product_number, products[i].cost_per_product, products[i].num_items,
+                   products[i].expiry_date);
             return;
         }
     }
@@ -40,7 +46,8 @@ int main() {
     scanf("%d", &n);
     struct Product products[MAX_PRODUCT];
     for (int i = 0; i < n; i++) {
-        scanf("%d %f %d %s", &products[i].product_number, &products[i].cost_per_product, &products[i].num_items, products[i].expiry_date);
+        scanf("%d %f %d %s", &products[i].product_number, &products[i].cost_per_product,
+              &products[i].num_items, products[i].expiry_date);
     }
     int search_product_number;
     float search_cost;

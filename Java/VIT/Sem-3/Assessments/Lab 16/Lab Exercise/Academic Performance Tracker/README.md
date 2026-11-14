@@ -13,6 +13,7 @@ Note:
 "Excellent" for scores of 90 or above
 "Good" for scores above 70
 "Needs Improvement" for scores below 70.
+
 #### Input:
 
 ```
@@ -39,6 +40,7 @@ The string s contains uppercase, lowercase, numbers, and spaces with at most 30 
 0 ≤ Score ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

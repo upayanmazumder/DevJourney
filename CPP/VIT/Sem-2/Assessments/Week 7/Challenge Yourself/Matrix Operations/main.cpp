@@ -59,20 +59,20 @@ int main() {
     cin >> rows1 >> cols1;
     Matrix mat1(rows1, cols1);
     mat1.input();
-    
+
     cin >> rows2 >> cols2;
     Matrix mat2(rows2, cols2);
     mat2.input();
-    
+
     if (cols1 == rows2) {
         cout << "Matrix product: ";
         mat1.multiply(mat2).print();
     } else {
         cout << "Matrix multiplication not possible" << endl;
     }
-    
+
     cout << "Transpose of the first matrix: ";
     mat1.transpose().print();
-    
+
     return 0;
 }

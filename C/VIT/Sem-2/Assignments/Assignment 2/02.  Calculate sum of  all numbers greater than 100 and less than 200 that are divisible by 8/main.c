@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 int main() {
-    int i, sum=0;
+    int i, sum = 0;
 
-    for(i = 101;i < 200;i++) {
-        if (i % 8 == 0 ) {
+    for (i = 101; i < 200; i++) {
+        if (i % 8 == 0) {
             sum += i;
         }
     }
-    printf("Sum is %d",sum);
+    printf("Sum is %d", sum);
 }

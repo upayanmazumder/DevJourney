@@ -15,6 +15,7 @@ Note:
 "Summer" for months 6, 7, and 8.
 "Fall" for months 9, 10, and 11.
 "Invalid month" for any month outside the valid range of 1 to 12.
+
 #### Input:
 
 ```
@@ -39,6 +40,7 @@ Code constraints :
 The string contains numbers separated by space with at most 5 characters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -34,6 +34,7 @@ The given testcases fall under the following constraints:
 The string contains lowercase and uppercase with at most 80 characters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

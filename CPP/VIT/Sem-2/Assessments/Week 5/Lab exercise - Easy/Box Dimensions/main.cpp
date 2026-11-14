@@ -2,27 +2,22 @@
 using namespace std;
 
 class Box {
-    private:
-        int length;
+private:
+    int length;
 
-    public:
-        Box() : length(0) {}
+public:
+    Box() : length(0) {}
 
-        void get()
-        {
-            cin >> length;
-        }
+    void get() { cin >> length; }
 
-        friend int printVolume(Box b);
+    friend int printVolume(Box b);
 };
 
-int printVolume(Box b)
-{
+int printVolume(Box b) {
     return b.length * b.length * b.length;
 }
 
-int main()
-{
+int main() {
     Box b;
     b.get();
     cout << printVolume(b) << endl;

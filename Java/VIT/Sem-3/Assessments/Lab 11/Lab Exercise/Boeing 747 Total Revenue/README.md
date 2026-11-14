@@ -14,7 +14,7 @@ Boeing747: This class will extend Indigo and include a method to calculate the t
 
 Teena needs to calculate the total revenue using the formula:
 
-Total Revenue = ticket cost * seat availability
+Total Revenue = ticket cost \* seat availability
 
 Help Teena implement this system for calculating the revenue of her airline.
 
@@ -50,6 +50,7 @@ The given test cases fall under the following constraints:
 10 ≤ seat availability ≤ 300
 
 Sample test cases :
+
 #### Input 1:
 
 ```

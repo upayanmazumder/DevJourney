@@ -38,6 +38,7 @@ Code constraints :
 1.0 ≤ quantity ≤ 100.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

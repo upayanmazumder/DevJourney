@@ -6,6 +6,7 @@
 
 Mason is participating in a coding challenge where he must manipulate an integer array. His task is to replace every element in the array with the next greatest element to its right. The last element of the array remains unchanged, as there is no element to its right.
 Your job is to help Mason write a program that performs this transformation and outputs the modified array.
+
 #### Input:
 
 ```
@@ -14,6 +15,7 @@ format :
 
 The first line of input contains an integer n representing the number of elements in the array.
 The second line of input contains n space-separated integers representing the elements of the array.
+
 #### Output:
 
 ```
@@ -27,6 +29,7 @@ The given testcases fall under the following constraints:
 1 ≤ n ≤ 100
 −10⁹ ≤ arr[i] ≤ 10⁹
 Sample test cases :
+
 #### Input 1:
 
 ```

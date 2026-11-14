@@ -1,8 +1,8 @@
-text = 'Python is easy'
+text = "Python is easy"
 print(text.split())
-print(text.split(' '))
-print(text.split('is'))
-print(text.split('*'))
+print(text.split(" "))
+print(text.split("is"))
+print(text.split("*"))
 
 # Output:
 #####################

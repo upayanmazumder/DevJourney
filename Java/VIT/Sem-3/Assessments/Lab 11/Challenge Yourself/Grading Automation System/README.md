@@ -62,6 +62,7 @@ The length of the student's name will be at most 20 characters.
 The name can contain lowercase or uppercase letters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

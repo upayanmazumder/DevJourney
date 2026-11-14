@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class Person {
@@ -25,11 +25,13 @@ class TeachingAssistant : public Student, public Employee {
 public:
     TeachingAssistant(string n, int a) : Person(n, a), Student(n, a), Employee(n, a) {}
     void displayIncome(char type) {
-        if (type == 'S') 
-            cout << name << "'s Income: Rs. " << fixed << setprecision(2) << calculateStipend() << endl;
-        else if (type == 'E') 
-            cout << name << "'s Income: Rs. " << fixed << setprecision(2) << calculateSalary() << endl;
-        else 
+        if (type == 'S')
+            cout << name << "'s Income: Rs. " << fixed << setprecision(2) << calculateStipend()
+                 << endl;
+        else if (type == 'E')
+            cout << name << "'s Income: Rs. " << fixed << setprecision(2) << calculateSalary()
+                 << endl;
+        else
             cout << "Invalid status!" << endl;
     }
 };

@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "../../utils.h"
+#include <stdio.h>
 
 // Linear Search
 int linearSearch(int arr[], int n, int key) {
@@ -12,7 +12,7 @@ int linearSearch(int arr[], int n, int key) {
 
 int main() {
     int arr[] = {10, 23, 45, 70, 11, 15};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int n = sizeof(arr) / sizeof(arr[0]);
     int key = 70;
 
     int idx = linearSearch(arr, n, key);

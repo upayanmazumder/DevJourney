@@ -45,6 +45,7 @@ In this scenario, the test cases fall under the following constraints:
 The string s contains uppercase, lowercase, and special characters to at most 20 characters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -54,15 +55,15 @@ Email address is valid!
 Input 2 :
 john.doe.example.com
 Output 2 :
-Error: Invalid email format. 
+Error: Invalid email format.
 Input 3 :
 @example.com
 Output 3 :
-Error: Invalid email format. 
+Error: Invalid email format.
 Input 4 :
 johndoe@
 Output 4 :
-Error: Invalid email format. 
+Error: Invalid email format.
 Input 5 :
 johnNMdoe@example.com
 Output 5 :

@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 using namespace std;
 
 class Transport {
@@ -33,8 +33,8 @@ int main() {
         int start, destination;
         cin >> transportType >> start >> destination;
 
-        Transport* transport = nullptr;
-        
+        Transport *transport = nullptr;
+
         if (transportType == 'P' || transportType == 'p') {
             transport = new TransportA();
         } else if (transportType == 'F' || transportType == 'f') {

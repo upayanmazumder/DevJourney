@@ -5,29 +5,21 @@ using namespace std;
 
 const int MAX_LEN = 1000;
 
-void computeLPS(const string &pattern, int lps[])
-{
+void computeLPS(const string &pattern, int lps[]) {
     int m = (int)pattern.length();
     int len = 0;
     lps[0] = 0;
 
     int i = 1;
-    while (i < m)
-    {
-        if (pattern[i] == pattern[len])
-        {
+    while (i < m) {
+        if (pattern[i] == pattern[len]) {
             len++;
             lps[i] = len;
             i++;
-        }
-        else
-        {
-            if (len != 0)
-            {
+        } else {
+            if (len != 0) {
                 len = lps[len - 1];
-            }
-            else
-            {
+            } else {
                 lps[i] = 0;
                 i++;
             }
@@ -35,8 +27,7 @@ void computeLPS(const string &pattern, int lps[])
     }
 }
 
-int main()
-{
+int main() {
     string text, pattern;
 
     cout << "Enter text: ";
@@ -47,14 +38,12 @@ int main()
     int n = (int)text.length();
     int m = (int)pattern.length();
 
-    if (m == 0 || m > n)
-    {
+    if (m == 0 || m > n) {
         cout << "No valid match possible.\n";
         return 0;
     }
 
-    if (m > MAX_LEN)
-    {
+    if (m > MAX_LEN) {
         cout << "Pattern too long. Max supported length is " << MAX_LEN << ".\n";
         return 0;
     }
@@ -66,35 +55,26 @@ int main()
     int j = 0; // pattern index
     bool found = false;
 
-    while (i < n)
-    {
-        if (text[i] == pattern[j])
-        {
+    while (i < n) {
+        if (text[i] == pattern[j]) {
             i++;
             j++;
         }
 
-        if (j == m)
-        {
+        if (j == m) {
             cout << "Pattern found at index " << (i - j) << "\n";
             found = true;
             j = lps[j - 1];
-        }
-        else if (i < n && text[i] != pattern[j])
-        {
-            if (j != 0)
-            {
+        } else if (i < n && text[i] != pattern[j]) {
+            if (j != 0) {
                 j = lps[j - 1];
-            }
-            else
-            {
+            } else {
                 i++;
             }
         }
     }
 
-    if (!found)
-    {
+    if (!found) {
         cout << "Pattern not found.\n";
     }
 

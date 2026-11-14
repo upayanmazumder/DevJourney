@@ -1,11 +1,14 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 double calculateRoomCharges(int t, int n) {
-    if (t == 1) return 100.0 * n;
-    if (t == 2) return 150.0 * n;
-    if (t == 3) return 250.0 * n;
+    if (t == 1)
+        return 100.0 * n;
+    if (t == 2)
+        return 150.0 * n;
+    if (t == 3)
+        return 250.0 * n;
     return -1;
 }
 

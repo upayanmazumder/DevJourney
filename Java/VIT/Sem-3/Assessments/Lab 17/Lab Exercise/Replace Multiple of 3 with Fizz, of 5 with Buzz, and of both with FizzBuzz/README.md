@@ -39,6 +39,7 @@ Code constraints :
 1 ≤ N ≤ 50
 
 Sample test cases :
+
 #### Input 1:
 
 ```

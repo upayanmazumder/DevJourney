@@ -1,18 +1,17 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class Student {
     int id;
     double weight;
+
 public:
     Student(int i, double w) : id(i), weight(w) {}
 
     friend Student operator++(Student &s);
 
-    void display() {
-        cout << id << " " << fixed << setprecision(2) << weight << " " << endl;
-    }
+    void display() { cout << id << " " << fixed << setprecision(2) << weight << " " << endl; }
 };
 
 Student operator++(Student &s) {

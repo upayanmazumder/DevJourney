@@ -11,7 +11,7 @@ Discount Calculation:
 If Kathir's age is less than 18, he will receive a 10% discount on Basic tickets.
 If Kathir's age is 18 or older, he will receive a 5% discount on VIP tickets.
 
-Formulas Used: Total Cost = Discounted Price * Number of Tickets, where Discounted Price = Original Price - (Original Price * Discount Percentage)
+Formulas Used: Total Cost = Discounted Price _ Number of Tickets, where Discounted Price = Original Price - (Original Price _ Discount Percentage)
 
 ### Input format :
 

@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -13,23 +13,21 @@ class Wooden : public ItemType {
 private:
     int noOfItems;
     double cost;
+
 public:
     Wooden(int n, double c) : noOfItems(n), cost(c) {}
 
-    double calculateAmount() override {
-        return noOfItems * cost;
-    }
+    double calculateAmount() override { return noOfItems * cost; }
 };
 
 class Electronics : public ItemType {
 private:
     double cost;
+
 public:
     Electronics(double c) : cost(c) {}
 
-    double calculateAmount() override {
-        return cost * 0.8;
-    }
+    double calculateAmount() override { return cost * 0.8; }
 };
 
 int main() {
@@ -42,14 +40,12 @@ int main() {
         cin >> noOfItems >> cost;
         Wooden wooden(noOfItems, cost);
         cout << fixed << setprecision(2) << wooden.calculateAmount();
-    } 
-    else if (choice == 2) {
+    } else if (choice == 2) {
         double cost;
         cin >> cost;
         Electronics electronics(cost);
         cout << fixed << setprecision(2) << electronics.calculateAmount();
-    } 
-    else {
+    } else {
         cout << "Invalid choice.";
     }
 

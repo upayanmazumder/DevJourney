@@ -16,9 +16,7 @@ public:
         return Distance(feet + d.feet + extraFeet, totalInches % 12);
     }
 
-    void display() {
-        cout << feet << " feet " << inches << " inches" << endl;
-    }
+    void display() { cout << feet << " feet " << inches << " inches" << endl; }
 };
 
 int main() {

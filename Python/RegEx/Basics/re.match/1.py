@@ -1,15 +1,15 @@
 import re
 
-result = re.match(r'NG','NG Swetha NG Swetha')
+result = re.match(r"NG", "NG Swetha NG Swetha")
 print(result)
 
-result = re.match('NG','NG Swetha')
+result = re.match("NG", "NG Swetha")
 print(result)
 
-result = re.match('NG','Swetha')
+result = re.match("NG", "Swetha")
 print(result)
 
-result = re.match('NG','Swetha NG Swetha')
+result = re.match("NG", "Swetha NG Swetha")
 print(result)
 
 # Output:

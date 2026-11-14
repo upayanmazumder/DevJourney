@@ -36,6 +36,7 @@ Code constraints :
 1 ≤ Son's age ≤ 60
 
 Sample test cases :
+
 #### Input 1:
 
 ```

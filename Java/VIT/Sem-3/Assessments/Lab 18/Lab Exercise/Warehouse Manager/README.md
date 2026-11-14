@@ -12,6 +12,7 @@ Insert a Product: Sarah adds a new product to the inventory.
 Delete a Product: Sarah removes a product from the inventory when it’s sold or discontinued.
 Display the Inventory: Sarah checks all the products currently available in the inventory.
 Search for a Product: Sarah searches for a specific product in the inventory to check if it’s available.
+
 #### Input:
 
 ```
@@ -52,6 +53,7 @@ Code constraints :
 1 ≤ string length ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -119,6 +121,7 @@ apple has been removed from the list.
 Items in the list:
 banana
 apple not found in the list.
+
 #### Output:
 
 Testcase 2 - Failed
@@ -134,4 +137,5 @@ car has been removed from the list.
 Items in the list:
 bus
 bus is found in the list.
+
 #### Output:

@@ -1,56 +1,51 @@
 class Programmer extends Employee {
-    Programmer() {
-    }
+  Programmer() {}
 
-    void processSalary() {
-        da = 0.97 * bp;
-        hra = 0.10 * bp;
-        pf = 0.12 * bp;
-        staffClub = 0.001 * bp;
-        gross = bp + da + hra;
-        net = gross - (pf + staffClub);
-    }
+  void processSalary() {
+    da = 0.97 * bp;
+    hra = 0.10 * bp;
+    pf = 0.12 * bp;
+    staffClub = 0.001 * bp;
+    gross = bp + da + hra;
+    net = gross - (pf + staffClub);
+  }
 }
 
 class AssistantProfessor extends Employee {
-    AssistantProfessor() {
-    }
+  AssistantProfessor() {}
 
-    void processSalary() {
-        da = 0.97 * bp;
-        hra = 0.10 * bp;
-        pf = 0.12 * bp;
-        staffClub = 0.001 * bp;
-        gross = bp + da + hra;
-        net = gross - (pf + staffClub);
-    }
+  void processSalary() {
+    da = 0.97 * bp;
+    hra = 0.10 * bp;
+    pf = 0.12 * bp;
+    staffClub = 0.001 * bp;
+    gross = bp + da + hra;
+    net = gross - (pf + staffClub);
+  }
 }
 
 class AssociateProfessor extends Employee {
-    AssociateProfessor() {
-    }
+  AssociateProfessor() {}
 
-    void processSalary() {
-        da = 0.97 * bp;
-        hra = 0.10 * bp;
-        pf = 0.12 * bp;
-        staffClub = 0.001 * bp;
-        gross = bp + da + hra;
-        net = gross - (pf + staffClub);
-    }
-
+  void processSalary() {
+    da = 0.97 * bp;
+    hra = 0.10 * bp;
+    pf = 0.12 * bp;
+    staffClub = 0.001 * bp;
+    gross = bp + da + hra;
+    net = gross - (pf + staffClub);
+  }
 }
 
 class Professor extends Employee {
-    Professor() {
-    }
+  Professor() {}
 
-    void processSalary() {
-        da = 0.97 * bp;
-        hra = 0.10 * bp;
-        pf = 0.12 * bp;
-        staffClub = 0.001 * bp;
-        gross = bp + da + hra;
-        net = gross - (pf + staffClub);
-    }
+  void processSalary() {
+    da = 0.97 * bp;
+    hra = 0.10 * bp;
+    pf = 0.12 * bp;
+    staffClub = 0.001 * bp;
+    gross = bp + da + hra;
+    net = gross - (pf + staffClub);
+  }
 }

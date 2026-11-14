@@ -1,5 +1,5 @@
-import app from "./app.js";
-import { connectDb } from "./db.js";
+import app from './app.js';
+import { connectDb } from './db.js';
 
 const PORT = 8000;
 
@@ -11,6 +11,6 @@ async function main(): Promise<void> {
 }
 
 main().catch((err: unknown) => {
-  console.error("Failed to start server:", err);
+  console.error('Failed to start server:', err);
   process.exit(1);
 });

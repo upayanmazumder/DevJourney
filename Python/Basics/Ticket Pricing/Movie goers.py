@@ -9,39 +9,43 @@
 # the movie type (regular or 3D), and the number of people in the group as input, and
 # calculates the total cost after applying any applicable discounts
 
-n=int(input("Enter number of moviegoers: "))
-cT=0
+n = int(input("Enter number of moviegoers: "))
+cT = 0
 
-tp=int(input("Enter the number corresponding to the type of movie: \n\t1. Regular Movie\n\t2. 3D Movie\nMovie type: "))
-while tp not in (1,2):
+tp = int(
+    input(
+        "Enter the number corresponding to the type of movie: \n\t1. Regular Movie\n\t2. 3D Movie\nMovie type: "
+    )
+)
+while tp not in (1, 2):
     print("Invalid Input! Supported inputs are 1 and 2")
-    tp=int(input("Enter the number corresponding to the type of movie: \n\t1. Regular Movie\n\t2. 3D Movie\nMovie type: "))
+    tp = int(
+        input(
+            "Enter the number corresponding to the type of movie: \n\t1. Regular Movie\n\t2. 3D Movie\nMovie type: "
+        )
+    )
 
-print("Selected",end=' ')  
-if tp==1:
-    t=0
+print("Selected", end=" ")
+if tp == 1:
+    t = 0
     print("Regular Movie")
-elif tp==2:
-    t=2
+elif tp == 2:
+    t = 2
     print("3D Movie")
 
 
 for i in range(n):
-    age=int(input(f'Enter age of {i+1}th moviegoer: '))
-    while age<0:
+    age = int(input(f"Enter age of {i+1}th moviegoer: "))
+    while age < 0:
         print("Age cannot be negative!")
-        age=int(input(f'Enter age of {i+1}th moviegoer: '))
-    if age<13:
-        cost=7+t
+        age = int(input(f"Enter age of {i+1}th moviegoer: "))
+    if age < 13:
+        cost = 7 + t
     else:
-        cost=10+t
-    cT+=cost
+        cost = 10 + t
+    cT += cost
 
-if n>=5:
-    cT=0.9*cT
+if n >= 5:
+    cT = 0.9 * cT
 
 print(f"Total cost={cT}")
-
-
-
-    

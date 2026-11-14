@@ -3,16 +3,14 @@ using namespace std;
 
 class UPSCInterviewScheduler {
 public:
-    void printSlot(const string& slot, const string& preferredSlot) {
+    void printSlot(const string &slot, const string &preferredSlot) {
         if (slot == preferredSlot)
             cout << "- " << slot << " (Preferred) " << endl;
         else
             cout << "- " << slot << " " << endl;
     }
 
-    void printSlot(const string& slot) {
-        cout << "- " << slot << " ";
-    }
+    void printSlot(const string &slot) { cout << "- " << slot << " "; }
 };
 
 int main() {

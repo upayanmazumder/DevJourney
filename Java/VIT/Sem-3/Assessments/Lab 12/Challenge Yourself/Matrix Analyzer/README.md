@@ -47,6 +47,7 @@ Code constraints :
 Only an N x N matrix will be given as input.
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -63,7 +64,7 @@ Smallest Element - 2: 1
 Largest Element - 2: 12
 Input 2 :
 4
-3 4 5 6 
+3 4 5 6
 3 2 1 0
 9 7 6 2
 1 7 4 3

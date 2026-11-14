@@ -1,14 +1,12 @@
 #include <iostream>
 using namespace std;
 
-template <class T>
-class Box {
+template <class T> class Box {
     T value;
+
 public:
     Box(T v) : value(v) {}
-    void show() {
-        cout << "Value: " << value << endl;
-    }
+    void show() { cout << "Value: " << value << endl; }
 };
 
 int main() {

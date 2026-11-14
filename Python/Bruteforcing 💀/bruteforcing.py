@@ -1,7 +1,8 @@
 import re
 
+
 def brute_force(password):
-    characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     attempts = 0
 
     def generate_attempts(current_attempt):
@@ -18,10 +19,11 @@ def brute_force(password):
                 return result
         return None
 
-    return generate_attempts('')
+    return generate_attempts("")
+
 
 password = input("Enter the password: ")
-rePat = r'[a-zA-Z0-9]+'
+rePat = r"[a-zA-Z0-9]+"
 if re.fullmatch(rePat, password):
     print("Password is valid")
     cPassword, attempts = brute_force(password)

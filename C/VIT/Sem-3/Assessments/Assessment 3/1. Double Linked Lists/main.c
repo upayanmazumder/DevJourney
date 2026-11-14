@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node
-{
+struct Node {
     int d;
     struct Node *p;
     struct Node *n;
@@ -10,19 +9,16 @@ struct Node
 
 struct Node *h = NULL;
 
-struct Node *newNode(int x)
-{
+struct Node *newNode(int x) {
     struct Node *t = (struct Node *)malloc(sizeof(struct Node));
     t->d = x;
     t->p = t->n = NULL;
     return t;
 }
 
-void insEnd(int x)
-{
+void insEnd(int x) {
     struct Node *t = newNode(x);
-    if (!h)
-    {
+    if (!h) {
         h = t;
         return;
     }
@@ -33,11 +29,9 @@ void insEnd(int x)
     t->p = c;
 }
 
-void insBeg(int x)
-{
+void insBeg(int x) {
     struct Node *t = newNode(x);
-    if (!h)
-    {
+    if (!h) {
         h = t;
         return;
     }
@@ -46,10 +40,8 @@ void insBeg(int x)
     h = t;
 }
 
-void insPos(int pos, int x)
-{
-    if (pos == 1)
-    {
+void insPos(int pos, int x) {
+    if (pos == 1) {
         insBeg(x);
         return;
     }
@@ -66,8 +58,7 @@ void insPos(int pos, int x)
     t->p = c;
 }
 
-void delVal(int x)
-{
+void delVal(int x) {
     struct Node *c = h;
     while (c && c->d != x)
         c = c->n;
@@ -82,11 +73,9 @@ void delVal(int x)
     free(c);
 }
 
-void rev()
-{
+void rev() {
     struct Node *c = h, *t = NULL;
-    while (c)
-    {
+    while (c) {
         t = c->p;
         c->p = c->n;
         c->n = t;
@@ -96,11 +85,9 @@ void rev()
         h = t->p;
 }
 
-void print()
-{
+void print() {
     struct Node *c = h;
-    while (c)
-    {
+    while (c) {
         printf("%d", c->d);
         if (c->n)
             printf(" ");
@@ -109,12 +96,10 @@ void print()
     printf("\n");
 }
 
-int main()
-{
+int main() {
     int n, x, pos;
     scanf("%d", &n);
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         scanf("%d", &x);
         insEnd(x);
     }

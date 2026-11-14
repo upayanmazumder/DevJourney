@@ -1,24 +1,22 @@
 <html>
-<head>
+  <head>
     <title>3</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="box">
-        <p>Hover me!</p>
+      <p>Hover me!</p>
     </div>
 
     <script>
-        const box = document.getElementById("box");
+      const box = document.getElementById('box');
 
-        box.addEventListener("mouseenter", () => {
-            box.style.backgroundColor = "blue";
-        });
+      box.addEventListener('mouseenter', () => {
+        box.style.backgroundColor = 'blue';
+      });
 
-        box.addEventListener("mouseleave", () => {
-            box.style.backgroundColor = "lightgray";
-        });
+      box.addEventListener('mouseleave', () => {
+        box.style.backgroundColor = 'lightgray';
+      });
     </script>
-
-</body>
+  </body>
 </html>

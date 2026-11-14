@@ -1,13 +1,15 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <cmath>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 bool isPrime(int num) {
-    if (num <= 1) return false;
+    if (num <= 1)
+        return false;
     for (int i = 2; i <= sqrt(num); i++)
-        if (num % i == 0) return false;
+        if (num % i == 0)
+            return false;
     return true;
 }
 
@@ -26,9 +28,8 @@ int main() {
         cin >> input[i];
     }
 
-    remove_copy_if(input.begin(), input.end(), back_inserter(composites), [](int x) {
-        return isPrime(x) || x <= 1;
-    });
+    remove_copy_if(input.begin(), input.end(), back_inserter(composites),
+                   [](int x) { return isPrime(x) || x <= 1; });
 
     if (composites.empty()) {
         cout << -1;

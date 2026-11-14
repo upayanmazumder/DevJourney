@@ -1,67 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node
-{
+struct Node {
     int data;
     struct Node *next;
 };
 
-struct Node *createNode(int value)
-{
+struct Node *createNode(int value) {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->next = NULL;
     return newNode;
 }
 
-void insertAtHead(struct Node **head, int value)
-{
+void insertAtHead(struct Node **head, int value) {
     struct Node *newNode = createNode(value);
     newNode->next = *head;
     *head = newNode;
 }
 
-void insertAtEnd(struct Node **head, int value)
-{
+void insertAtEnd(struct Node **head, int value) {
     struct Node *newNode = createNode(value);
-    if (*head == NULL)
-    {
+    if (*head == NULL) {
         *head = newNode;
         return;
     }
     struct Node *temp = *head;
-    while (temp->next != NULL)
-    {
+    while (temp->next != NULL) {
         temp = temp->next;
     }
     temp->next = newNode;
 }
 
-void printList(struct Node *head)
-{
+void printList(struct Node *head) {
     struct Node *temp = head;
-    while (temp != NULL)
-    {
+    while (temp != NULL) {
         printf("%d -> ", temp->data);
         temp = temp->next;
     }
     printf("NULL\n");
 }
 
-void freeList(struct Node *head)
-{
+void freeList(struct Node *head) {
     struct Node *temp;
-    while (head != NULL)
-    {
+    while (head != NULL) {
         temp = head;
         head = head->next;
         free(temp);
     }
 }
 
-int main()
-{
+int main() {
     struct Node *head = NULL;
 
     insertAtEnd(&head, 10);

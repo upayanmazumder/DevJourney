@@ -1,6 +1,6 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 #define MAX_ALT 10
 #define MAX_LEN 30
@@ -24,8 +24,7 @@ int main() {
     headSym = buf[pos++];
 
     while (buf[pos] != '\0' &&
-           (buf[pos] == ' ' || buf[pos] == '-' ||
-            buf[pos] == '>' || buf[pos] == '=')) {
+           (buf[pos] == ' ' || buf[pos] == '-' || buf[pos] == '>' || buf[pos] == '=')) {
         pos++;
     }
 
@@ -38,9 +37,7 @@ int main() {
         int wlen = strlen(word);
 
         while (wlen > 0 &&
-               (word[wlen - 1] == ' ' ||
-                word[wlen - 1] == '\t' ||
-                word[wlen - 1] == '\r')) {
+               (word[wlen - 1] == ' ' || word[wlen - 1] == '\t' || word[wlen - 1] == '\r')) {
             word[wlen - 1] = '\0';
             wlen--;
         }
@@ -83,9 +80,7 @@ int main() {
 
     common[commonLen] = '\0';
 
-    while (commonLen > 0 &&
-           (common[commonLen - 1] == ' ' ||
-            common[commonLen - 1] == '\t')) {
+    while (commonLen > 0 && (common[commonLen - 1] == ' ' || common[commonLen - 1] == '\t')) {
         common[commonLen - 1] = '\0';
         commonLen--;
     }

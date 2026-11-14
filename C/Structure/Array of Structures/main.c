@@ -7,14 +7,11 @@ struct Student {
 };
 
 int main() {
-    struct Student students[3] = {
-        {101, "Upayan", 95.5},
-        {102, "Raj", 89.0},
-        {103, "Anjali", 92.3}
-    };
+    struct Student students[3] = {{101, "Upayan", 95.5}, {102, "Raj", 89.0}, {103, "Anjali", 92.3}};
 
     for (int i = 0; i < 3; i++) {
-        printf("ID: %d, Name: %s, Marks: %.2f\n", students[i].id, students[i].name, students[i].marks);
+        printf("ID: %d, Name: %s, Marks: %.2f\n", students[i].id, students[i].name,
+               students[i].marks);
     }
 
     return 0;

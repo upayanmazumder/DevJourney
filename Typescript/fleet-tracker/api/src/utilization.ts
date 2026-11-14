@@ -1,6 +1,6 @@
-import { pings as pingsCollection } from "./db.js";
-import type { Ping } from "./trips.js";
-import { GAP_CLOSE_MS } from "./trips.js";
+import { pings as pingsCollection } from './db.js';
+import type { Ping } from './trips.js';
+import { GAP_CLOSE_MS } from './trips.js';
 
 export interface Utilization {
   vehicle_id: string;
@@ -11,11 +11,11 @@ export interface Utilization {
   off_pct: number;
 }
 
-type State = "driving" | "idle" | "off";
+type State = 'driving' | 'idle' | 'off';
 
 function stateOf(p: Ping): State {
-  if (p.ignition === "OFF") return "off";
-  return p.speed_kmph > 0 ? "driving" : "idle";
+  if (p.ignition === 'OFF') return 'off';
+  return p.speed_kmph > 0 ? 'driving' : 'idle';
 }
 
 /**
@@ -27,12 +27,15 @@ function stateOf(p: Ping): State {
 export async function computeUtilization(
   vehicleId: string,
   fromMs: number,
-  toMs: number
+  toMs: number,
 ): Promise<Utilization> {
   const pings = await pingsCollection
     .find({
       vehicle_id: vehicleId,
-      timestamp: { $gte: new Date(fromMs).toISOString(), $lte: new Date(toMs).toISOString() },
+      timestamp: {
+        $gte: new Date(fromMs).toISOString(),
+        $lte: new Date(toMs).toISOString(),
+      },
     })
     .sort({ timestamp: 1 })
     .toArray();
@@ -62,7 +65,8 @@ export async function computeUtilization(
     totals.off = windowMs;
   }
 
-  const pct = (ms: number) => (windowMs > 0 ? Number(((ms / windowMs) * 100).toFixed(2)) : 0);
+  const pct = (ms: number) =>
+    windowMs > 0 ? Number(((ms / windowMs) * 100).toFixed(2)) : 0;
 
   return {
     vehicle_id: vehicleId,

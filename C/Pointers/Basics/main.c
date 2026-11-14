@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
     int n, *p;
     n = 100;
     p = &n;

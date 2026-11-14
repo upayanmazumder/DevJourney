@@ -38,6 +38,7 @@ The given testcases fall under the following constraints:
 The string contains lowercase, uppercase and numbers with at most 50 characters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

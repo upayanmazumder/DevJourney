@@ -2,48 +2,37 @@
 
 using namespace std;
 
-struct Node
-{
+struct Node {
     int data;
     Node *next;
 };
 
-Node *createNode(int data)
-{
+Node *createNode(int data) {
     Node *node = new Node{data, nullptr};
     return node;
 }
 
-void insertEnd(Node *&head, int data)
-{
+void insertEnd(Node *&head, int data) {
     Node *node = createNode(data);
-    if (!head)
-    {
+    if (!head) {
         head = node;
         return;
     }
     Node *current = head;
-    while (current->next)
-    {
+    while (current->next) {
         current = current->next;
     }
     current->next = node;
 }
 
-void deleteValue(Node *&head, int data)
-{
+void deleteValue(Node *&head, int data) {
     Node *current = head;
     Node *previous = nullptr;
-    while (current)
-    {
-        if (current->data == data)
-        {
-            if (previous)
-            {
+    while (current) {
+        if (current->data == data) {
+            if (previous) {
                 previous->next = current->next;
-            }
-            else
-            {
+            } else {
                 head = current->next;
             }
             delete current;
@@ -54,29 +43,24 @@ void deleteValue(Node *&head, int data)
     }
 }
 
-void display(const Node *head)
-{
+void display(const Node *head) {
     const Node *current = head;
-    while (current)
-    {
+    while (current) {
         cout << current->data << ' ';
         current = current->next;
     }
     cout << '\n';
 }
 
-void clearList(Node *&head)
-{
-    while (head)
-    {
+void clearList(Node *&head) {
+    while (head) {
         Node *temp = head;
         head = head->next;
         delete temp;
     }
 }
 
-int main()
-{
+int main() {
     Node *head = nullptr;
     insertEnd(head, 10);
     insertEnd(head, 20);

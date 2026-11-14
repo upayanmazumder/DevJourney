@@ -1,11 +1,11 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int main() {
-    int C,p=0;
+    int C, p = 0;
     float X;
-    scanf("%d",&C);
-    scanf("%f",&X);
-    switch(C) {
+    scanf("%d", &C);
+    scanf("%f", &X);
+    switch (C) {
         case 1:
             if (X < 50) {
                 p = 1;
@@ -25,7 +25,7 @@ int main() {
             printf("Invalid");
             break;
     }
-    if ((C >= 1) && (C <=3)) {
+    if ((C >= 1) && (C <= 3)) {
         printf("Priority: ");
         if (p == 1) {
             printf("High");

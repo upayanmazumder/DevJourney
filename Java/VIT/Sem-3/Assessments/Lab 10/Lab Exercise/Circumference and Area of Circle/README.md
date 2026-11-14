@@ -8,8 +8,8 @@ Bob has been tasked with creating a program using CircleUtils class to calculate
 
 The program should allow Bob to input the radius of a circle as both an integer and a double and compute both the circumference and area of the circle using separate overloaded methods:
 
-calculateCircumference- To calculate the circumference using the formula 2 * 3.14 * radius
-calculateArea- To calculate the area 3.14 * radius * radius
+calculateCircumference- To calculate the circumference using the formula 2 _ 3.14 _ radius
+calculateArea- To calculate the area 3.14 _ radius _ radius
 
 Write a program to help Bob.
 
@@ -43,6 +43,7 @@ In this scenario, the test cases fall under the following constraints:
 1.00 ≤ n ≤ 100.00
 
 Sample test cases :
+
 #### Input 1:
 
 ```

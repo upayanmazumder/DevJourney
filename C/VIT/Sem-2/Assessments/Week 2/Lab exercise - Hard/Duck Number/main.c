@@ -1,20 +1,15 @@
 #include <stdio.h>
 
-bool isDuckNumber(int n)
-{
+bool isDuckNumber(int n) {
     int x = 0;
     int count = 0;
-    while (n != 0)
-    {
+    while (n != 0) {
         int digit = n % 10;
         n /= 10;
-        if (digit == 0)
-        {
+        if (digit == 0) {
             x = 1;
             return true;
-        }
-        else
-        {
+        } else {
             x = 0;
         }
     }
@@ -23,8 +18,7 @@ bool isDuckNumber(int n)
         return false;
 }
 
-int main()
-{
+int main() {
     int n, result;
     scanf("%d", &n);
     result = isDuckNumber(n);

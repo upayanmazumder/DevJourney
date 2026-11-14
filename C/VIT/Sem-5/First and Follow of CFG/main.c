@@ -1,6 +1,6 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 #define MAX_RULES 50
 #define MAX_SYM 10

@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -9,7 +9,8 @@ public:
     float pricePerUnit;
     float discountPercentage;
 
-    Plant(int n, float price, float discount) : count(n), pricePerUnit(price), discountPercentage(discount) {}
+    Plant(int n, float price, float discount)
+        : count(n), pricePerUnit(price), discountPercentage(discount) {}
 };
 
 class Discount : public Plant {
@@ -26,7 +27,8 @@ class Nursery : public Plant {
 public:
     float rating;
 
-    Nursery(int n, float price, float discount, float ratingValue) : Plant(n, price, discount), rating(ratingValue) {}
+    Nursery(int n, float price, float discount, float ratingValue)
+        : Plant(n, price, discount), rating(ratingValue) {}
 
     void categorizePlant() {
         if (rating >= 0.1 && rating <= 2.5)
@@ -45,7 +47,8 @@ int main() {
     Discount discountObj(n, price, discount);
     Nursery nurseryObj(n, price, discount, rating);
 
-    cout << "Final Price: " << fixed << setprecision(2) << discountObj.calculateFinalPrice() << endl;
+    cout << "Final Price: " << fixed << setprecision(2) << discountObj.calculateFinalPrice()
+         << endl;
 
     nurseryObj.categorizePlant();
 

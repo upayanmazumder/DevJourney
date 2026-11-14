@@ -13,7 +13,7 @@ Calculate and display the total daily expense for the solo traveller.
 
 Formulas
 
-Base daily expense = 1.2 * (budget / days)
+Base daily expense = 1.2 \* (budget / days)
 
 Total expense = base expense + lodging expense + food expense
 

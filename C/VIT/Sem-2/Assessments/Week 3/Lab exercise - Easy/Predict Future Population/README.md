@@ -6,7 +6,7 @@ Harsh is a city planner who is tasked with predicting the population growth of h
 
 Assist Harsh in completing his task using pointers and the function Growth() to find the growth rate.
 
-Formula: Predicted population = initial population * e growth rate * time
+Formula: Predicted population = initial population _ e growth rate _ time
 
 ### Input format :
 

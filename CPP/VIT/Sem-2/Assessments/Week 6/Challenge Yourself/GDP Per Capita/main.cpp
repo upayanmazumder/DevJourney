@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -23,9 +23,7 @@ class Country : public Population, public GDP {
 public:
     Country(long long population, double gdp) : Population(population), GDP(gdp) {}
 
-    double calculateGDPPerCapita() {
-        return gdpValue / totalPopulation;
-    }
+    double calculateGDPPerCapita() { return gdpValue / totalPopulation; }
 
     void displayGDPPerCapita() {
         cout << "GDP: " << fixed << setprecision(2) << calculateGDPPerCapita() << endl;

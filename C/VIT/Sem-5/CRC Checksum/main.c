@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
-{
+int main() {
     char data[100], key[30], temp[130];
     int n, k, i, j;
 
@@ -23,10 +22,8 @@ int main()
     temp[n + k - 1] = '\0';
 
     // XOR division
-    for (i = 0; i < n; i++)
-    {
-        if (temp[i] == '1')
-        {
+    for (i = 0; i < n; i++) {
+        if (temp[i] == '1') {
             for (j = 0; j < k; j++)
                 temp[i + j] ^= key[j] ^ '0';
         }

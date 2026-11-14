@@ -13,6 +13,7 @@ To achieve this, Maria needs to overload the concatenate method in the StringMan
 
 The first method should perform simple string concatenation (concatenate two strings directly).
 The second method should perform string concatenation with reversal (concatenate the strings, remove spaces, and return the reversed result).
+
 #### Input:
 
 ```
@@ -52,6 +53,7 @@ In this scenario, the test cases fall under the following constraints:
 The String may be uppercase or lowercase and consists of a maximum of 20 characters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -7,8 +7,10 @@
 3. If no path is found, stop.
 4. Find bottleneck flow (minimum residual capacity on path).
 5. Update residual graph:
- - reduce forward edges
- - increase backward edges
+
+- reduce forward edges
+- increase backward edges
+
 6. Add bottleneck to max flow.
 7. Repeat from BFS step.
 

@@ -29,22 +29,22 @@ int main(void) {
         if (number(left, &a) && number(right, &b)) {
             int valid = 1;
             switch (op) {
-            case '+':
-                valid = !__builtin_add_overflow(a, b, &result);
-                break;
-            case '-':
-                valid = !__builtin_sub_overflow(a, b, &result);
-                break;
-            case '*':
-                valid = !__builtin_mul_overflow(a, b, &result);
-                break;
-            case '/':
-                valid = b != 0 && !(a == (-9223372036854775807LL - 1) && b == -1);
-                if (valid)
-                    result = a / b;
-                break;
-            default:
-                valid = 0;
+                case '+':
+                    valid = !__builtin_add_overflow(a, b, &result);
+                    break;
+                case '-':
+                    valid = !__builtin_sub_overflow(a, b, &result);
+                    break;
+                case '*':
+                    valid = !__builtin_mul_overflow(a, b, &result);
+                    break;
+                case '/':
+                    valid = b != 0 && !(a == (-9223372036854775807LL - 1) && b == -1);
+                    if (valid)
+                        result = a / b;
+                    break;
+                default:
+                    valid = 0;
             }
             if (valid) {
                 printf("%s = %lld\n", dest, result);

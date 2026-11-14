@@ -40,6 +40,7 @@ The given test cases fall under the following constraints:
 1 ≤ length ≤ 15
 
 Sample test cases :
+
 #### Input 1:
 
 ```

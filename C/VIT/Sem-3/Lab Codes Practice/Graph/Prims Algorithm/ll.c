@@ -4,20 +4,17 @@
 #define V 5
 #define INF 9999
 
-struct Node
-{
+struct Node {
     int vertex;
     int weight;
     struct Node *next;
 };
 
-struct Graph
-{
+struct Graph {
     struct Node *adjList[V];
 };
 
-struct Node *createNode(int vertex, int weight)
-{
+struct Node *createNode(int vertex, int weight) {
     struct Node *newNode = malloc(sizeof(struct Node));
     newNode->vertex = vertex;
     newNode->weight = weight;
@@ -25,16 +22,14 @@ struct Node *createNode(int vertex, int weight)
     return newNode;
 }
 
-struct Graph *createGraph()
-{
+struct Graph *createGraph() {
     struct Graph *graph = malloc(sizeof(struct Graph));
     for (int i = 0; i < V; i++)
         graph->adjList[i] = NULL;
     return graph;
 }
 
-void addEdge(struct Graph *graph, int src, int dest, int weight)
-{
+void addEdge(struct Graph *graph, int src, int dest, int weight) {
 
     struct Node *newNode = createNode(dest, weight);
     newNode->next = graph->adjList[src];
@@ -45,13 +40,10 @@ void addEdge(struct Graph *graph, int src, int dest, int weight)
     graph->adjList[dest] = newNode;
 }
 
-int minKey(int key[], int mstSet[])
-{
+int minKey(int key[], int mstSet[]) {
     int min = INF, minIndex = -1;
-    for (int v = 0; v < V; v++)
-    {
-        if (!mstSet[v] && key[v] < min)
-        {
+    for (int v = 0; v < V; v++) {
+        if (!mstSet[v] && key[v] < min) {
             min = key[v];
             minIndex = v;
         }
@@ -59,14 +51,12 @@ int minKey(int key[], int mstSet[])
     return minIndex;
 }
 
-void prim(struct Graph *graph)
-{
+void prim(struct Graph *graph) {
     int parent[V];
     int key[V];
     int mstSet[V];
 
-    for (int i = 0; i < V; i++)
-    {
+    for (int i = 0; i < V; i++) {
         key[i] = INF;
         mstSet[i] = 0;
     }
@@ -74,19 +64,16 @@ void prim(struct Graph *graph)
     key[0] = 0;
     parent[0] = -1;
 
-    for (int count = 0; count < V - 1; count++)
-    {
+    for (int count = 0; count < V - 1; count++) {
         int u = minKey(key, mstSet);
         mstSet[u] = 1;
 
         struct Node *temp = graph->adjList[u];
-        while (temp)
-        {
+        while (temp) {
             int v = temp->vertex;
             int w = temp->weight;
 
-            if (!mstSet[v] && w < key[v])
-            {
+            if (!mstSet[v] && w < key[v]) {
                 key[v] = w;
                 parent[v] = u;
             }
@@ -99,8 +86,7 @@ void prim(struct Graph *graph)
         printf("%d - %d \t%d\n", parent[i], i, key[i]);
 }
 
-int main()
-{
+int main() {
     struct Graph *graph = createGraph();
 
     addEdge(graph, 0, 1, 2);

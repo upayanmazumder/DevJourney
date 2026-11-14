@@ -1,10 +1,11 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class Student {
 protected:
     string name, rollNumber;
+
 public:
     Student(string n, string r) : name(n), rollNumber(r) {}
 
@@ -20,12 +21,11 @@ public:
 
 class UndergraduateStudent : public Student {
     int midterm, finalExam;
+
 public:
     UndergraduateStudent(string n, string r) : Student(n, r), midterm(0), finalExam(0) {}
 
-    void inputGrades() override {
-        cin >> midterm >> finalExam;
-    }
+    void inputGrades() override { cin >> midterm >> finalExam; }
 
     void calculateGrade() override {
         int totalGrade = (midterm + finalExam) / 2;
@@ -36,12 +36,11 @@ public:
 
 class GraduateStudent : public Student {
     int research, presentation;
+
 public:
     GraduateStudent(string n, string r) : Student(n, r), research(0), presentation(0) {}
 
-    void inputGrades() override {
-        cin >> research >> presentation;
-    }
+    void inputGrades() override { cin >> research >> presentation; }
 
     void calculateGrade() override {
         int totalGrade = (research + presentation) / 2;
@@ -53,10 +52,10 @@ public:
 int main() {
     string name, rollNumber;
     char studentType;
-    
+
     cin >> name >> rollNumber >> studentType;
 
-    Student* student;
+    Student *student;
     if (studentType == 'U') {
         student = new UndergraduateStudent(name, rollNumber);
     } else if (studentType == 'G') {

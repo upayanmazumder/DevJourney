@@ -9,15 +9,15 @@ Enter Student Name: Thomas Shelby
 Enter Registered Credits: 18.5
 Enter Registration Number: 2
 Enter Student Name: Arthur Shelby
-Enter Registered Credits: 18 
+Enter Registered Credits: 18
 Enter Registration Number: 3
 Enter Student Name: Polly Gray
 Enter Registered Credits: 18
 Enter Registration Number: 4
 Enter Student Name: John Shelby
 Enter Registered Credits: 17
-Enter Registration Number: 5         
-Enter Student Name: Ada Shelby 
+Enter Registration Number: 5
+Enter Student Name: Ada Shelby
 Enter Registered Credits: 17.5
 Pandas DataFrame:
    Registration Number   Student Name  Registered Credits

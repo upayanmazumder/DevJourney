@@ -12,7 +12,7 @@ class Product - Contains cost and discount attributes.
 class ElectronicGadget - Derived from Product class for electronic gadgets with a method calcTotalE() to calculate the total cost specific to electronic gadgets.
 class MechanicalDevice - Derived from Product class for mechanical devices with a method calcTotalM() to calculate the total cost specific to mechanical devices.
 
-Formula: Total Cost = Cost - (Cost * Discount)
+Formula: Total Cost = Cost - (Cost \* Discount)
 
 Refer to the below class diagram:
 

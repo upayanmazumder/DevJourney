@@ -2,33 +2,28 @@
 #include <vector>
 using namespace std;
 
-class Matrix
-{
+class Matrix {
 public:
     int r, c;
     vector<vector<int>> m;
 
     Matrix(int r, int c) : r(r), c(c), m(r, vector<int>(c)) {}
 
-    void setElements()
-    {
+    void setElements() {
         for (int i = 0; i < r; i++)
             for (int j = 0; j < c; j++)
                 cin >> m[i][j];
     }
 
-    void print()
-    {
-        for (auto &row : m)
-        {
+    void print() {
+        for (auto &row : m) {
             for (int x : row)
                 cout << x << " ";
             cout << endl;
         }
     }
 
-    Matrix transpose()
-    {
+    Matrix transpose() {
         Matrix t(c, r);
         for (int i = 0; i < r; i++)
             for (int j = 0; j < c; j++)
@@ -37,8 +32,7 @@ public:
     }
 };
 
-int main()
-{
+int main() {
     int r, c;
     cin >> r >> c;
     Matrix m(r, c);

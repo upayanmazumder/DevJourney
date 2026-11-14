@@ -43,6 +43,7 @@ The given test cases fall under the following constraints:
 1.0 ≤ time ≤ 30.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

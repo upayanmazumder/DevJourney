@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 using namespace std;
 
 class Exercise {
@@ -54,7 +54,7 @@ public:
 int main() {
     int duration, weight, type;
     cin >> duration >> weight >> type;
-    
+
     if (type == 1) {
         int intensity;
         cin >> intensity;

@@ -6,6 +6,7 @@
 
 Arjun is working on a financial model that analyzes the daily percentage changes in stock prices. He wants to determine the maximum possible product of any contiguous sequence of changes to predict the highest potential growth.
 Your task is to help Arjun by implementing an algorithm that finds the contiguous subarray with the maximum product.
+
 #### Input:
 
 ```
@@ -14,6 +15,7 @@ format :
 
 The first line of input consists of an integer n, representing the number of elements in the array.
 The second line contains n space-separated integers, representing the array arr of size n.
+
 #### Output:
 
 ```
@@ -27,6 +29,7 @@ The given test cases fall under the following specifications:
 1 ≤ n ≤ 20
 -100 ≤ arr[i] ≤ 100 (for each element in the array)
 Sample test cases :
+
 #### Input 1:
 
 ```

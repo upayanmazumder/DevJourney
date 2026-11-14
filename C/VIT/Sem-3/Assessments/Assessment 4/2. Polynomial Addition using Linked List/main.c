@@ -2,15 +2,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct Node
-{
+typedef struct Node {
     int coeff;
     int power;
     struct Node *next;
 } Node;
 
-Node *cN(int coeff, int power)
-{
+Node *cN(int coeff, int power) {
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->coeff = coeff;
     newNode->power = power;
@@ -18,15 +16,11 @@ Node *cN(int coeff, int power)
     return newNode;
 }
 
-void iN(Node **poly, int coeff, int power)
-{
+void iN(Node **poly, int coeff, int power) {
     Node *newNode = cN(coeff, power);
-    if (*poly == NULL)
-    {
+    if (*poly == NULL) {
         *poly = newNode;
-    }
-    else
-    {
+    } else {
         Node *temp = *poly;
         while (temp->next != NULL)
             temp = temp->next;
@@ -34,13 +28,11 @@ void iN(Node **poly, int coeff, int power)
     }
 }
 
-Node *rP()
-{
+Node *rP() {
     int terms;
     scanf("%d", &terms);
     Node *poly = NULL;
-    for (int i = 0; i < terms; i++)
-    {
+    for (int i = 0; i < terms; i++) {
         int c, p;
         scanf("%d %d", &c, &p);
         iN(&poly, c, p);
@@ -48,36 +40,27 @@ Node *rP()
     return poly;
 }
 
-Node *addP(Node *poly1, Node *poly2)
-{
+Node *addP(Node *poly1, Node *poly2) {
     Node *result = NULL;
-    while (poly1 != NULL && poly2 != NULL)
-    {
-        if (poly1->power == poly2->power)
-        {
+    while (poly1 != NULL && poly2 != NULL) {
+        if (poly1->power == poly2->power) {
             iN(&result, poly1->coeff + poly2->coeff, poly1->power);
             poly1 = poly1->next;
             poly2 = poly2->next;
-        }
-        else if (poly1->power > poly2->power)
-        {
+        } else if (poly1->power > poly2->power) {
             iN(&result, poly1->coeff, poly1->power);
             poly1 = poly1->next;
-        }
-        else
-        {
+        } else {
             iN(&result, poly2->coeff, poly2->power);
             poly2 = poly2->next;
         }
     }
-    while (poly1 != NULL)
-    {
+    while (poly1 != NULL) {
         iN(&result, poly1->coeff, poly1->power);
         poly1 = poly1->next;
     }
 
-    while (poly2 != NULL)
-    {
+    while (poly2 != NULL) {
         iN(&result, poly2->coeff, poly2->power);
         poly2 = poly2->next;
     }
@@ -85,10 +68,8 @@ Node *addP(Node *poly1, Node *poly2)
     return result;
 }
 
-void display(Node *poly)
-{
-    while (poly != NULL)
-    {
+void display(Node *poly) {
+    while (poly != NULL) {
         printf("(%d,%d)", poly->coeff, poly->power);
         if (poly->next != NULL)
             printf(" -> ");
@@ -97,22 +78,17 @@ void display(Node *poly)
     printf("\n");
 }
 
-int main()
-{
+int main() {
     int n;
     scanf("%d", &n);
     Node *result = NULL;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         int pI;
         scanf("%d", &pI);
         Node *current = rP();
-        if (result == NULL)
-        {
+        if (result == NULL) {
             result = current;
-        }
-        else
-        {
+        } else {
             result = addP(result, current);
         }
     }

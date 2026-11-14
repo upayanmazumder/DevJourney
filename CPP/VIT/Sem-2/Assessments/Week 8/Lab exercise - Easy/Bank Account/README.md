@@ -8,7 +8,7 @@ The program provides functionality to set the balance, set the interest rate, ge
 
 Formula:
 
-Calculates the interest earned on the current balance after one year using the formula balance * interestRate / 100.
+Calculates the interest earned on the current balance after one year using the formula balance \* interestRate / 100.
 
 ### Input format :
 

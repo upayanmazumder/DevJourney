@@ -8,7 +8,7 @@ Arun wants to create a Java class named Appliance to track the energy consumptio
 
 Your task is to guide him in the program.
 
-Note: Daily Consumption = (wattage * hours used) / 1000. Assume there are 30 days in a month.
+Note: Daily Consumption = (wattage \* hours used) / 1000. Assume there are 30 days in a month.
 
 #### Input:
 
@@ -40,6 +40,7 @@ In this scenario, the test cases fall under the following constraints:
 1.0 ≤ hours ≤ 24.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

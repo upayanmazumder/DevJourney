@@ -8,9 +8,9 @@ Write a program that allows Ramanan to input temperatures in Fahrenheit and Cels
 
 Formulas:
 
-Fahrenheit to Celsius = (F - 32) * 5/9
+Fahrenheit to Celsius = (F - 32) \* 5/9
 
-Celsius to Fahrenheit = (C * 9/5) + 32
+Celsius to Fahrenheit = (C \* 9/5) + 32
 
 ### Input format :
 

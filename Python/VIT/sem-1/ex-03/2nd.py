@@ -1,4 +1,4 @@
-s="programming_in_python"
+s = "programming_in_python"
 print(s[-1:])
 print(s[-21:])
 print(s[-17:-7])

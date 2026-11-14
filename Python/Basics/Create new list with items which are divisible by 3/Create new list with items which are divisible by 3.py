@@ -5,7 +5,7 @@ for i in range(n):
     num = int(input(f"Enter number {i+1}: "))
     l.append(num)
 
-print("Original list: ",l)
+print("Original list: ", l)
 
 lN = [i for i in l if i % 3 == 0]
 

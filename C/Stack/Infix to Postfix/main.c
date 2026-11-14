@@ -1,7 +1,7 @@
+#include <ctype.h> // for isalpha(), isdigit()
 #include <stdio.h>
-#include <ctype.h>   // for isalpha(), isdigit()
-#include <string.h>  // for strlen()
-#include <stdlib.h>  // for exit()
+#include <stdlib.h> // for exit()
+#include <string.h> // for strlen()
 
 #define MAX 100
 
@@ -28,17 +28,24 @@ char pop() {
 
 // Peek top element of stack
 char peek() {
-    if (top == -1) return '\0';
+    if (top == -1)
+        return '\0';
     return stack[top];
 }
 
 // Function to check precedence of operators
 int precedence(char op) {
     switch (op) {
-        case '^': return 3;
-        case '*': case '/': return 2;
-        case '+': case '-': return 1;
-        default: return 0;
+        case '^':
+            return 3;
+        case '*':
+        case '/':
+            return 2;
+        case '+':
+        case '-':
+            return 1;
+        default:
+            return 0;
     }
 }
 
@@ -75,7 +82,7 @@ void infixToPostfix(char *infix) {
         else {
             while (top != -1 &&
                    ((precedence(peek()) > precedence(ch)) ||
-                   (precedence(peek()) == precedence(ch) && !isRightAssociative(ch))) &&
+                    (precedence(peek()) == precedence(ch) && !isRightAssociative(ch))) &&
                    peek() != '(') {
                 postfix[k++] = pop();
             }

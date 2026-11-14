@@ -36,7 +36,7 @@ Output:
 
 Explanation:
 
-The denominators are different (4 and 5), so a common denominator is found by multiplying them (20). The numerators are calculated by cross-multiplying and adding: (7 * 5) + (6 * 4) = 35 + 24 = 59. So, 59/20 is printed.
+The denominators are different (4 and 5), so a common denominator is found by multiplying them (20). The numerators are calculated by cross-multiplying and adding: (7 _ 5) + (6 _ 4) = 35 + 24 = 59. So, 59/20 is printed.
 
 ### Input format :
 

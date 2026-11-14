@@ -9,7 +9,7 @@ export function haversineKm(
   lat1: number,
   lon1: number,
   lat2: number,
-  lon2: number
+  lon2: number,
 ): number {
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);

@@ -20,14 +20,12 @@ public:
         denominator = den;
     }
 
-    friend Fraction addMixedFraction(const Fraction& f1, const Fraction& f2);
+    friend Fraction addMixedFraction(const Fraction &f1, const Fraction &f2);
 
-    void print() {
-        cout << numerator << "/" << denominator << endl;
-    }
+    void print() { cout << numerator << "/" << denominator << endl; }
 };
 
-Fraction addMixedFraction(const Fraction& f1, const Fraction& f2) {
+Fraction addMixedFraction(const Fraction &f1, const Fraction &f2) {
     int num1 = f1.numerator, den1 = f1.denominator;
     int num2 = f2.numerator, den2 = f2.denominator;
     int lcm = den1 * den2;

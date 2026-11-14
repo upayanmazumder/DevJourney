@@ -42,6 +42,7 @@ In this scenario, the test cases fall under the following constraints:
 1.0 ≤ W ≤ 6000.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

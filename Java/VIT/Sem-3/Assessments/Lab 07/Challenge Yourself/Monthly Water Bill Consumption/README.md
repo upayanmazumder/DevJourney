@@ -18,6 +18,7 @@ If units used > 100: ₹2.5 per unit
 Invalid Area Type:
 Only the flat ₹50 service fee is charged.
 Message: "Invalid area type entered." should be printed.
+
 #### Input:
 
 ```
@@ -27,6 +28,7 @@ format :
 The first line of input consists of a String, representing the consumer name.
 The second line consists of a String, representing the area type (Urban or Rural).
 The third line consists of an int, representing the number of water units used.
+
 #### Output:
 
 ```
@@ -42,6 +44,7 @@ The given testcases fall under the following constraints:
 areaType must be "Urban" or "Rural" (case-insensitive)
 Consumer name can be any non-empty string
 Sample test cases :
+
 #### Input 1:
 
 ```

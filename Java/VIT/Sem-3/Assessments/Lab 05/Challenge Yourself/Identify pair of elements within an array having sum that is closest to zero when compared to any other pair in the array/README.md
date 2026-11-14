@@ -40,6 +40,7 @@ The given testcases fall under the following constraints:
 elements displayed based on the input order.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

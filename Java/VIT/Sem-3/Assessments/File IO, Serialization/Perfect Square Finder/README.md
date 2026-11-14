@@ -14,6 +14,7 @@ Saves the integers in a file named integers.txt.
 Reads the integers from the file, identifies the perfect squares, and writes them to a file named perfect_squares.txt.
 Prints each perfect square to the console.
 If no perfect squares are found, prints and writes "No perfect squares found" to the file.
+
 #### Input:
 
 ```
@@ -42,6 +43,7 @@ Code constraints :
 1 ≤ n ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```

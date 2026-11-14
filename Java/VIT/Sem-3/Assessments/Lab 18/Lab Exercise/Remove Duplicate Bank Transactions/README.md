@@ -36,6 +36,7 @@ In this scenario, the test cases will fall under the following constraints:
 1 ≤ Amount ≤ 100000
 
 Sample test cases :
+
 #### Input 1:
 
 ```

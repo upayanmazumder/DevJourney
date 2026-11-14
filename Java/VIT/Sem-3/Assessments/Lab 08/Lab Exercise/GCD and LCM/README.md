@@ -34,6 +34,7 @@ JAThe given test cases fall under the following constraints:
 1 ≤ a, b ≤ 1000
 
 Sample test cases :
+
 #### Input 1:
 
 ```

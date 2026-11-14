@@ -1,10 +1,11 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class Principal {
 protected:
     double price;
+
 public:
     Principal(double p) : price(p) {}
 };
@@ -12,12 +13,14 @@ public:
 class InterestRate {
 protected:
     double rate;
+
 public:
     InterestRate(double r) : rate(r) {}
 };
 
 class Loan : public Principal, public InterestRate {
     int years;
+
 public:
     Loan(double p, double r, int y) : Principal(p), InterestRate(r), years(y) {}
 

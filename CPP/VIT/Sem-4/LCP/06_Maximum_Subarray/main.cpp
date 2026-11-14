@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     int n;
     cin >> n;
 
@@ -16,20 +15,15 @@ int main()
 
     int start = 0, end = 0, temp_start = 0;
 
-    for (int i = 1; i < n; i++)
-    {
-        if (current_sum + a[i] < a[i])
-        {
+    for (int i = 1; i < n; i++) {
+        if (current_sum + a[i] < a[i]) {
             current_sum = a[i];
             temp_start = i;
-        }
-        else
-        {
+        } else {
             current_sum += a[i];
         }
 
-        if (current_sum > max_sum)
-        {
+        if (current_sum > max_sum) {
             max_sum = current_sum;
             start = temp_start;
             end = i;

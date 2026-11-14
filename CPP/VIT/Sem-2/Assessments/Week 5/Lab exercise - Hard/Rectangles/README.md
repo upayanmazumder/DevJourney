@@ -8,7 +8,7 @@ Help Alice to retrieve the total number of rectangles created and calculate the 
 
 Formula:
 
-Area = length * width
+Area = length \* width
 
 ### Input format :
 

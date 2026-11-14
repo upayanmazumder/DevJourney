@@ -1,190 +1,196 @@
 @font-face {
-    font-family: 'RedHatDisplay';
-    src: url('./fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype'),
-        url('./fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'RedHatDisplay';
+  src:
+    url('./fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype'),
+    url('./fonts/RedHatDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
-    --background-color: black;
-    --text-color: white;
+  --background-color: black;
+  --text-color: white;
 
+  --card-background-color: rgba(104, 104, 104, 0.202);
 
-    --card-background-color: rgba(104, 104, 104, 0.202);
+  --link-text-color: #1356ad;
+  --link-text-hover-color: #2665b8;
 
-    --link-text-color: #1356ad;
-    --link-text-hover-color: #2665b8;
+  --border-radius-tiny: 5px;
+  --border-radius-small: 15px;
+  --border-radius-medium: 25px;
+  --border-radius-large: 30px;
 
-    --border-radius-tiny: 5px;
-    --border-radius-small: 15px;
-    --border-radius-medium: 25px;
-    --border-radius-large: 30px;
+  --padding-tiny: 5px;
+  --padding-small: 15px;
+  --padding-medium: 20px;
+  --padding-large: 30px;
 
-    --padding-tiny: 5px;
-    --padding-small: 15px;
-    --padding-medium: 20px;
-    --padding-large: 30px;
-
-    --margin-small: 15px;
-    --margin-medium: 25px;
-    --margin-large: 40px;
+  --margin-small: 15px;
+  --margin-medium: 25px;
+  --margin-large: 40px;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--background-color);
-    background: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    min-height: 100vh;
-    font-family: 'RedHatDisplay', sans-serif;
+  background-color: var(--background-color);
+  background: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  min-height: 100vh;
+  font-family: 'RedHatDisplay', sans-serif;
 }
 
 header {
-    position: sticky;
-    width: 100%;
-    text-align: center;
-    align-items: center;
-    z-index: 1000;
-    position: sticky;
-    top: 0;
+  position: sticky;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
 }
 
 header nav ul {
-    align-self: center;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    justify-content: center;
-    padding: 15px;
+  align-self: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  padding: 15px;
 }
 
 header nav ul li {
-    align-self: center;
-    justify-content: center;
-    padding: 5px;
+  align-self: center;
+  justify-content: center;
+  padding: 5px;
 }
 
 header nav ul li a {
-    padding: 5px 15px;
-    background-color: rgba(28, 28, 28, 0.507);
-    border-radius: 15px;
-    box-shadow: rgb(42, 56, 132) 1px 1px 6px 2px;
+  padding: 5px 15px;
+  background-color: rgba(28, 28, 28, 0.507);
+  border-radius: 15px;
+  box-shadow: rgb(42, 56, 132) 1px 1px 6px 2px;
 }
 
 footer {
-    padding: 5px;
-    text-align: center;
-    color: gray;
-    bottom: 0;
-    z-index: 1000;
+  padding: 5px;
+  text-align: center;
+  color: gray;
+  bottom: 0;
+  z-index: 1000;
 }
 
 footer ul {
-    justify-content: center;
-    display: flex;
-    gap: 15px;
+  justify-content: center;
+  display: flex;
+  gap: 15px;
 }
 
 .page {
-    margin: 0 50px;
-    padding: var(--padding-medium) var(--padding-large);
-    justify-content: center;
+  margin: 0 50px;
+  padding: var(--padding-medium) var(--padding-large);
+  justify-content: center;
 }
 
 a {
-    color: var(--link-text-color);
-    transition: color 0.3s ease-in-out;
-    text-decoration: none;
+  color: var(--link-text-color);
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
 }
 
 a:hover {
-    color: var(--link-text-hover-color);
+  color: var(--link-text-hover-color);
 }
 
 .upayan {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 section {
-    background-color: var(--card-background-color);
-    padding: var(--padding-medium) var(--padding-small);
-    border-radius: 15px;
-    margin: 15px auto;
-    border: 2px outset darkgray;
-    box-shadow: 2px 2px 10px 1px rgba(30, 133, 201, 0.5);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    max-width: 90%;
-    align-self: center;
+  background-color: var(--card-background-color);
+  padding: var(--padding-medium) var(--padding-small);
+  border-radius: 15px;
+  margin: 15px auto;
+  border: 2px outset darkgray;
+  box-shadow: 2px 2px 10px 1px rgba(30, 133, 201, 0.5);
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  max-width: 90%;
+  align-self: center;
 }
 
 section:hover {
-    transform: translateY(-5px);
-    box-shadow: 2px 2px 15px 3px rgba(30, 133, 201, 0.7);
+  transform: translateY(-5px);
+  box-shadow: 2px 2px 15px 3px rgba(30, 133, 201, 0.7);
 }
 
 form {
-    background-color: rgba(128, 128, 128, 0.26);
-    border-radius: var(--border-radius-medium);
-    padding: var(--padding-medium);
-    font-size: 0.8em;
-    box-shadow: 2px 2px 10px 1px rgba(30, 133, 201, 0.5);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    max-width: 400px;
-    align-self: center;
-    margin: auto;
+  background-color: rgba(128, 128, 128, 0.26);
+  border-radius: var(--border-radius-medium);
+  padding: var(--padding-medium);
+  font-size: 0.8em;
+  box-shadow: 2px 2px 10px 1px rgba(30, 133, 201, 0.5);
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  max-width: 400px;
+  align-self: center;
+  margin: auto;
 }
 
 form:hover {
-    transform: translateY(-5px);
-    box-shadow: 2px 2px 15px 3px rgba(30, 133, 201, 0.7);
+  transform: translateY(-5px);
+  box-shadow: 2px 2px 15px 3px rgba(30, 133, 201, 0.7);
 }
 
 form input {
-    background-color: rgba(158, 158, 158, 0.284);
-    border-radius: var(--border-radius-tiny);
-    border: rgba(255, 255, 255, 0.195) 1px solid;
-    margin: 5px 0;
-    padding: var(--padding-tiny);
-    color: white;
-    width: 100%;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  background-color: rgba(158, 158, 158, 0.284);
+  border-radius: var(--border-radius-tiny);
+  border: rgba(255, 255, 255, 0.195) 1px solid;
+  margin: 5px 0;
+  padding: var(--padding-tiny);
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  transition:
+    background-color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
 }
 
 form input:focus {
-    background-color: rgba(158, 158, 158, 0.5);
-    border-color: rgba(255, 255, 255, 0.5);
-    outline: none;
+  background-color: rgba(158, 158, 158, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
+  outline: none;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 ::-webkit-scrollbar {
-    background: var(--background-color);
-    width: 8px;
+  background: var(--background-color);
+  width: 8px;
 }
 
 ::-webkit-scrollbar-button {
-    display: none;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(99, 99, 99);
-    transition: background 0.3s ease-in-out;
-    border-radius: 8px;
+  background: rgb(99, 99, 99);
+  transition: background 0.3s ease-in-out;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(124, 124, 124);
+  background: rgb(124, 124, 124);
 }

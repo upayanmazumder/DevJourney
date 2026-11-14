@@ -9,12 +9,17 @@ public:
 };
 
 void compare(Weather h, Weather c) {
-    if (c.t > h.t) cout << "Warmer\n";
-    else if (c.t < h.t) cout << "Colder\n";
-    else cout << "Same temperature\n";
+    if (c.t > h.t)
+        cout << "Warmer\n";
+    else if (c.t < h.t)
+        cout << "Colder\n";
+    else
+        cout << "Same temperature\n";
 
-    if (c.c == h.c) cout << "Same conditions: " << c.c << endl;
-    else cout << "Conditions changing to: " << c.c << endl;
+    if (c.c == h.c)
+        cout << "Same conditions: " << c.c << endl;
+    else
+        cout << "Conditions changing to: " << c.c << endl;
 }
 
 int main() {

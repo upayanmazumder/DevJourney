@@ -1,10 +1,11 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class Circle {
     double r;
     static int circleCount;
+
 public:
     Circle(double x) : r(x) { circleCount++; }
     static int getCircleCount() { return circleCount; }

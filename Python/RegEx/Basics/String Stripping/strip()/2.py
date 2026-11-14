@@ -1,5 +1,5 @@
-text = '216Python is easy12621'
-print(text.strip('12'))
+text = "216Python is easy12621"
+print(text.strip("12"))
 
 # Output
 #####################

@@ -5,8 +5,10 @@ using namespace std;
 class User {
 protected:
     string username, name;
+
 public:
-    User(const string& userUsername, const string& userName) : username(userUsername), name(userName) {}
+    User(const string &userUsername, const string &userName)
+        : username(userUsername), name(userName) {}
 
     virtual void displayProfile() {
         cout << "User Profile:\n";
@@ -18,17 +20,16 @@ public:
 class Blogger : public User {
 protected:
     vector<string> posts;
-public:
-    Blogger(const string& userUsername, const string& userName) : User(userUsername, userName) {}
 
-    void createPost(const string& post) {
-        posts.push_back(post);
-    }
+public:
+    Blogger(const string &userUsername, const string &userName) : User(userUsername, userName) {}
+
+    void createPost(const string &post) { posts.push_back(post); }
 
     void displayProfile() override {
         User::displayProfile();
         cout << "Posts:\n";
-        for (const auto& post : posts) {
+        for (const auto &post : posts) {
             cout << post << endl;
         }
     }
@@ -36,12 +37,12 @@ public:
 
 class Influencer : public Blogger {
     int followerCount;
-public:
-    Influencer(const string& userUsername, const string& userName) : Blogger(userUsername, userName), followerCount(0) {}
 
-    void manageFollowers(int count) {
-        followerCount = count;
-    }
+public:
+    Influencer(const string &userUsername, const string &userName)
+        : Blogger(userUsername, userName), followerCount(0) {}
+
+    void manageFollowers(int count) { followerCount = count; }
 
     void displayProfile() override {
         Blogger::displayProfile();

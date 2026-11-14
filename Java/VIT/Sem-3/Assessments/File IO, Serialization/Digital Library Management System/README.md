@@ -49,6 +49,7 @@ Author length ≤ 30 characters
 10 ≤ Pages ≤ 2000
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -66,6 +67,7 @@ HistoryOfWorld
 Book with Longest Title: HistoryOfWorld
 
 Average Number of Pages: 236.67
+
 #### Input 2:
 
 ```

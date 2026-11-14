@@ -30,6 +30,7 @@ Code constraints :
 length, width > 0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

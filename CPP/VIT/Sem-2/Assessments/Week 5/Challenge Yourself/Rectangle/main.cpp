@@ -1,9 +1,10 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 using namespace std;
 
 class Rectangle {
     int llx, lly, urx, ury;
+
 public:
     Rectangle(int a, int b, int c, int d) : llx(a), lly(b), urx(c), ury(d) {
         cout << "Rectangle created." << endl;

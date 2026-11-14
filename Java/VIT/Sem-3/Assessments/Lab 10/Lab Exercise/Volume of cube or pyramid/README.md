@@ -10,8 +10,9 @@ Help her write the program then calculate and display the corresponding volume u
 
 Formulas Used:
 
-Volume of a cube = Side length * Side length * Side length
-Volume of a pyramid = (Base * Height) / 3.0
+Volume of a cube = Side length _ Side length _ Side length
+Volume of a pyramid = (Base \* Height) / 3.0
+
 #### Input:
 
 ```
@@ -26,6 +27,7 @@ If the choice is 2:
 
 The second line consists of a double value x, representing the base of the pyramid.
 The third line consists of a double value y, representing the height of the pyramid.
+
 #### Output:
 
 ```
@@ -48,6 +50,7 @@ In this scenario, the test cases fall under the following constraints:
 1.0 ≤ x, y ≤ 100.0﻿
 
 Sample test cases :
+
 #### Input 1:
 
 ```

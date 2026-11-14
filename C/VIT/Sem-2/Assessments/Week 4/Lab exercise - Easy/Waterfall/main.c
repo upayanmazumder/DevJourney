@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 struct Waterfall {
-  double w, h, d;
+    double w, h, d;
 };
 
 struct TotalFlow {
@@ -23,5 +23,5 @@ double calcA(struct TotalFlow flow) {
 int main() {
     struct TotalFlow flow;
     scanf("%lf %lf %lf", &flow.waterfall.w, &flow.waterfall.h, &flow.waterfall.d);
-    printf("%.2lf cubic meters\n%.2lf square meters",calcV(flow), calcA(flow));
+    printf("%.2lf cubic meters\n%.2lf square meters", calcV(flow), calcA(flow));
 }

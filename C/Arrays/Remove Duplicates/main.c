@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int main() {
     int i, j, n, a[100], unique[100], uniqueN = 0, found;

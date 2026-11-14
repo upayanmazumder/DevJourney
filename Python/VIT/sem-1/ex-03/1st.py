@@ -1,4 +1,4 @@
-s="programming_in_python"
+s = "programming_in_python"
 print(s[0])
 print(s[-1])
 print(len(s))

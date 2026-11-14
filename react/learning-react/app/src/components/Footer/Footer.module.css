@@ -18,7 +18,9 @@
   cursor: pointer;
   font-size: 1.25rem;
   color: var(--text-color);
-  transition: color 0.3s, transform 0.2s;
+  transition:
+    color 0.3s,
+    transform 0.2s;
 }
 
 .iconButton:hover {

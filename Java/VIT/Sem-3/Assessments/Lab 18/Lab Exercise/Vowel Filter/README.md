@@ -38,6 +38,7 @@ Each word consists of lowercase English letters only.
 The length of each word is between 1 and 50 characters.
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -76,6 +77,6 @@ instruction
 // You are using Javaclass VowelFilter {    //Type your code here}
 Footer Snippet
 123456789
-public class Main {    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        int n = sc.nextInt();         sc.nextLine();         VowelFilter.filterWords(n, sc);        sc.close();    }} 
+public class Main {    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        int n = sc.nextInt();         sc.nextLine();         VowelFilter.filterWords(n, sc);        sc.close();    }}
 Provide Custom Input
 ```

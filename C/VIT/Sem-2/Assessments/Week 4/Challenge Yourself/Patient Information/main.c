@@ -37,7 +37,8 @@ int main() {
     scanf("%d", &n);
     struct Patient patients[n];
     for (int i = 0; i < n; i++) {
-        scanf("%d %s %d %d", &patients[i].id, &patients[i].name, &patients[i].gender, &patients[i].age);
+        scanf("%d %s %d %d", &patients[i].id, &patients[i].name, &patients[i].gender,
+              &patients[i].age);
     }
     print_gender(patients, n);
     print_age(patients, n);

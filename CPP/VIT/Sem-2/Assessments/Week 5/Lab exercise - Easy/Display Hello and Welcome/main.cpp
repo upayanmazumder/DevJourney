@@ -1,28 +1,23 @@
 #include <iostream>
 using namespace std;
 
-void displayWelcome(const string &name = "")
-{
+void displayWelcome(const string &name = "") {
     cout << "Welcome";
-    if (!name.empty())
-    {
+    if (!name.empty()) {
         cout << " " << name;
     }
     cout << endl;
 }
 
-void displayHello(const string &name = "")
-{
+void displayHello(const string &name = "") {
     cout << "Hello";
-    if (!name.empty())
-    {
+    if (!name.empty()) {
         cout << " " << name;
     }
     cout << endl;
 }
 
-int main()
-{
+int main() {
     string name;
     getline(cin, name);
 

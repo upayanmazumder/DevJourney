@@ -15,7 +15,7 @@ Categorization of Rating:
 "Average" if the Rating is in the range of 0.1 to 2.5.
 "Excellent" if the Rating is in the range of 2.6 to 5.0.
 
-Formulas used: Discounted Rate = (1 - (Discount Percentage / 100)) * Price Per Unit
+Formulas used: Discounted Rate = (1 - (Discount Percentage / 100)) \* Price Per Unit
 
 Refer to the below class diagram:
 

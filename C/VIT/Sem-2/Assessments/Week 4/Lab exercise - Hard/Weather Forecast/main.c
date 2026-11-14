@@ -14,7 +14,7 @@ int main() {
     double avgPrec = (prec1 + prec2) / 2.0;
     printf("%.2f degree celsius\n", avgTemp);
     printf("%.2f mm\n", avgPrec);
-    
+
     if (avgTemp >= 25.0 && avgPrec < 10.0) {
         printf("Sunny\n");
     } else if (avgPrec >= 10.0) {

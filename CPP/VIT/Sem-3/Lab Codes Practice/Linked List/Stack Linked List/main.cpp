@@ -2,27 +2,22 @@
 
 using namespace std;
 
-struct Node
-{
+struct Node {
     int data;
     Node *next;
 };
 
-struct Stack
-{
+struct Stack {
     Node *top;
 };
 
-void push(Stack &stack, int data)
-{
+void push(Stack &stack, int data) {
     Node *node = new Node{data, stack.top};
     stack.top = node;
 }
 
-int pop(Stack &stack)
-{
-    if (!stack.top)
-    {
+int pop(Stack &stack) {
+    if (!stack.top) {
         return -1;
     }
     Node *temp = stack.top;
@@ -32,27 +27,22 @@ int pop(Stack &stack)
     return value;
 }
 
-void display(const Stack &stack)
-{
+void display(const Stack &stack) {
     const Node *current = stack.top;
-    while (current)
-    {
+    while (current) {
         cout << current->data << ' ';
         current = current->next;
     }
     cout << '\n';
 }
 
-void clearStack(Stack &stack)
-{
-    while (stack.top)
-    {
+void clearStack(Stack &stack) {
+    while (stack.top) {
         pop(stack);
     }
 }
 
-int main()
-{
+int main() {
     Stack stack{nullptr};
     push(stack, 5);
     push(stack, 10);

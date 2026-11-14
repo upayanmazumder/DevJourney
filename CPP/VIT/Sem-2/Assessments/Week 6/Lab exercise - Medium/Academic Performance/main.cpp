@@ -1,10 +1,11 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class GPA {
 protected:
     double gpa;
+
 public:
     GPA(double g) : gpa(g) {}
 };
@@ -12,12 +13,14 @@ public:
 class CreditHours {
 protected:
     int creditHours;
+
 public:
     CreditHours(int ch) : creditHours(ch) {}
 };
 
 class Student : public GPA, public CreditHours {
     double attendance;
+
 public:
     Student(double g, int ch, double a) : GPA(g), CreditHours(ch), attendance(a) {}
 

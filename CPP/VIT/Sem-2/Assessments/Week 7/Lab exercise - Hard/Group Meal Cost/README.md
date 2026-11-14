@@ -18,7 +18,7 @@ The total cost is calculated by adding all the costs and multiplying the number 
 
 For appetizers: (44.25 + 53.50 + 75.99) = 173.74
 For main courses: (48.99 + 53.25 + 86.75 + 92.00) = 280.99
-Total cost = (173.74 + 280.99) * 4 = 454.73 * 4 = 1818.92.
+Total cost = (173.74 + 280.99) _ 4 = 454.73 _ 4 = 1818.92.
 
 ### Input format :
 

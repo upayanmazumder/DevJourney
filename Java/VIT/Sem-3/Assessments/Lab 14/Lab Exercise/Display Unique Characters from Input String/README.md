@@ -34,6 +34,7 @@ The string contains spaces, lowercase and uppercase letters.
 The string characters are case-sensitive.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

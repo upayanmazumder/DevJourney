@@ -1,4 +1,4 @@
-// Write a C program that uses malloc() to allocate memory for 5 integers, 
+// Write a C program that uses malloc() to allocate memory for 5 integers,
 // takes input from the user, and prints the values.
 
 #include <stdio.h>
@@ -12,7 +12,7 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    for(i = 0; i < 5; i++) {
+    for (i = 0; i < 5; i++) {
         printf("%d ", arr[i]);
     }
 

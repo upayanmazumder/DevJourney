@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 class ItemType {
@@ -15,9 +15,7 @@ private:
 public:
     Wooden(int n, double c) : numberOfItems(n), cost(c) {}
 
-    double calculateAmount() override {
-        return numberOfItems * cost;
-    }
+    double calculateAmount() override { return numberOfItems * cost; }
 };
 
 class Electronics : public ItemType {
@@ -27,9 +25,7 @@ private:
 public:
     Electronics(double c) : cost(c) {}
 
-    double calculateAmount() override {
-        return cost * 0.8;
-    }
+    double calculateAmount() override { return cost * 0.8; }
 };
 
 int main() {

@@ -1,25 +1,19 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int main() {
-    int a,b,c,larger,largest;
-    cout<<"Enter three numbers: ";
-    cin>>a>>b>>c;
-    if (a>b)
-    {
-        larger=a;
+    int a, b, c, larger, largest;
+    cout << "Enter three numbers: ";
+    cin >> a >> b >> c;
+    if (a > b) {
+        larger = a;
+    } else {
+        larger = b;
     }
-    else
-    {
-        larger=b;
+    if (c > larger) {
+        largest = c;
+    } else {
+        largest = larger;
     }
-    if (c>larger)
-    {
-        largest=c;
-    }
-    else
-    {
-        largest=larger;
-    }
-    cout<<"The largest number is "<<largest;
+    cout << "The largest number is " << largest;
 }

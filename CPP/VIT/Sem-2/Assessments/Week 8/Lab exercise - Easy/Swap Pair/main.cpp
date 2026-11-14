@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-template <typename T1, typename T2>
-class Pair {
+template <typename T1, typename T2> class Pair {
     T1 first;
     T2 second;
 
@@ -15,7 +14,7 @@ public:
         second = static_cast<T2>(temp);
     }
 
-    void display(const string& message) {
+    void display(const string &message) {
         cout << message << " First: " << first << " Second: " << second << endl;
     }
 };

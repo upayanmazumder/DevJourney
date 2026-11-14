@@ -5,6 +5,7 @@ using namespace std;
 class Book {
     string title, author;
     int year;
+
 public:
     void getData(int i) {
         cin.ignore();
@@ -17,17 +18,11 @@ public:
         cin >> year;
     }
 
-    bool operator<=(const Book& b) const {
-        return year <= b.year;
-    }
+    bool operator<=(const Book &b) const { return year <= b.year; }
 
-    bool operator>=(const Book& b) const {
-        return year >= b.year;
-    }
+    bool operator>=(const Book &b) const { return year >= b.year; }
 
-    bool operator==(const string& t) const {
-        return title == t;
-    }
+    bool operator==(const string &t) const { return title == t; }
 
     void display() const {
         cout << "Title: " << title << endl;
@@ -41,7 +36,7 @@ int main() {
     cout << "Enter number of books: ";
     cin >> n;
 
-    Book* books = new Book[n];
+    Book *books = new Book[n];
     for (int i = 0; i < n; ++i) {
         books[i].getData(i);
     }
@@ -71,7 +66,8 @@ int main() {
             } else if (books[i] >= books[j] && !(books[j] >= books[i])) {
                 cout << "Book " << i + 1 << " is newer than Book " << j + 1 << ".\n";
             } else {
-                cout << "Book " << i + 1 << " and Book " << j + 1 << " were published in the same year.\n";
+                cout << "Book " << i + 1 << " and Book " << j + 1
+                     << " were published in the same year.\n";
             }
         }
     }

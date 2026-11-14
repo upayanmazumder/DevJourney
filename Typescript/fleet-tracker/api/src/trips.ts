@@ -1,5 +1,5 @@
-import { pings as pingsCollection } from "./db.js";
-import { haversineKm } from "./geo.js";
+import { pings as pingsCollection } from './db.js';
+import { haversineKm } from './geo.js';
 
 export interface Ping {
   vehicle_id: string;
@@ -7,7 +7,7 @@ export interface Ping {
   lat: number;
   lon: number;
   speed_kmph: number;
-  ignition: "ON" | "OFF";
+  ignition: 'ON' | 'OFF';
 }
 
 export interface Trip {
@@ -32,7 +32,7 @@ export async function getPings(vehicleId: string): Promise<Ping[]> {
 }
 
 export async function getAllVehicleIds(): Promise<string[]> {
-  return pingsCollection.distinct("vehicle_id");
+  return pingsCollection.distinct('vehicle_id');
 }
 
 function buildTrip(segment: Ping[]): Trip {
@@ -82,7 +82,7 @@ export function reconstructTrips(pings: Ping[]): Trip[] {
   };
 
   for (const p of pings) {
-    if (p.ignition === "OFF") {
+    if (p.ignition === 'OFF') {
       flush();
       continue;
     }
@@ -91,7 +91,8 @@ export function reconstructTrips(pings: Ping[]): Trip[] {
       continue;
     }
     const prev = current[current.length - 1]!;
-    const gapMs = new Date(p.timestamp).getTime() - new Date(prev.timestamp).getTime();
+    const gapMs =
+      new Date(p.timestamp).getTime() - new Date(prev.timestamp).getTime();
     if (gapMs > GAP_CLOSE_MS) {
       flush();
       current = [p];

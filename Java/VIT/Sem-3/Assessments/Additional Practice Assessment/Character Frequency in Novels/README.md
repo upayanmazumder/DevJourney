@@ -14,6 +14,7 @@ Question Instructions:
 
 The solution code should have its driver class named as CharacterFrequency which should extends Thread Class
 The solution logic should be written in the CharacterFrequency class
+
 #### Input:
 
 ```
@@ -35,6 +36,7 @@ The output displays the Frequency of characters
 Refer to the sample input and output for format specifications.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -43,6 +43,7 @@ Book ID: Must be a positive integer.
 Borrower's Name: A non-empty string.
 
 Sample test cases :
+
 #### Input 1:
 
 ```

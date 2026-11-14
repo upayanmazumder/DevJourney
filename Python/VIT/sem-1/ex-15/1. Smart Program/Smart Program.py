@@ -8,22 +8,24 @@ def make_list():
     print(l)
     return l
 
-def op(c,l):
+
+def op(c, l):
     """Handles which operation to perform"""
-    if c>0 and c<6:
-        if c==1:
+    if c > 0 and c < 6:
+        if c == 1:
             res = op1(l)
-        elif c==2:
+        elif c == 2:
             res = op2(l)
-        elif c==3:
+        elif c == 3:
             res = op3(l)
-        elif c==4:
+        elif c == 4:
             res = op4(l)
-        elif c==5:
+        elif c == 5:
             res = op5(l)
         print(res)
     else:
         print("Invalid choice")
+
 
 def op1(l):
     """Add all elements of given list"""
@@ -31,6 +33,7 @@ def op1(l):
     for i in range(len(l)):
         sum += l[i]
     return sum
+
 
 def op2(l):
     """Add even index numbers"""
@@ -40,6 +43,7 @@ def op2(l):
             sum += l[i]
     return sum
 
+
 def op3(l):
     """Add odd index numbers"""
     sum = 0
@@ -48,31 +52,36 @@ def op3(l):
             sum += l[i]
     return sum
 
+
 def op4(l):
     """Factorial of first element"""
     x = l[0]
+
     def factorial(y):
         if y == 1:
             return 1
         else:
-            return y * factorial(y-1)
+            return y * factorial(y - 1)
+
     fact = factorial(x)
     return fact
+
 
 def op5(l):
     """Check if second element is armstrong number or not"""
     x = l[1]
-    xOrg=x
-    xS=0
+    xOrg = x
+    xS = 0
     while x:
-        l=x%10
-        xS+=l**3
-        x=x//10
-    if xS==xOrg:
+        l = x % 10
+        xS += l**3
+        x = x // 10
+    if xS == xOrg:
         res = True
-    else: 
+    else:
         res = False
     return res
+
 
 def print_instructions():
     """Print the instructions"""
@@ -85,14 +94,15 @@ def print_instructions():
         6. End
     """)
 
+
 l = make_list()
 print_instructions()
 choice = int(input("Enter the operation you wish to perform: "))
 if choice != 6:
-    op(choice,l)
+    op(choice, l)
 
 while choice != 6:
     choice = int(input("Enter the operation you wish to perform: "))
     if choice != 6:
-        op(choice,l)
+        op(choice, l)
 print("Stopping..")

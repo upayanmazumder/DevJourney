@@ -1,35 +1,22 @@
 #include <iostream>
 using namespace std;
 
-template <typename T>
-class BankAccount {
+template <typename T> class BankAccount {
     T balance;
     T interestRate;
 
 public:
-    void setBalance(T b) {
-        balance = b;
-    }
+    void setBalance(T b) { balance = b; }
 
-    void setInterestRate(T rate) {
-        interestRate = rate;
-    }
+    void setInterestRate(T rate) { interestRate = rate; }
 
-    T getBalance() const {
-        return balance;
-    }
+    T getBalance() const { return balance; }
 
-    T getInterestRate() const {
-        return interestRate;
-    }
+    T getInterestRate() const { return interestRate; }
 
-    T calculateInterest() const {
-        return balance * interestRate / 100;
-    }
+    T calculateInterest() const { return balance * interestRate / 100; }
 
-    T balanceAfterOneYear() const {
-        return balance + calculateInterest();
-    }
+    T balanceAfterOneYear() const { return balance + calculateInterest(); }
 };
 
 int main() {

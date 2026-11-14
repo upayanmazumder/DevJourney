@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
-{
+int main() {
     char data[100], gen[30];
     int i, j, n, m;
 
@@ -22,8 +21,7 @@ int main()
     for (i = 0; i < n; i++)
         if (data[i] == '1')
             for (j = 0; j < m; j++)
-                data[i + j] =
-                    (data[i + j] == gen[j]) ? '0' : '1';
+                data[i + j] = (data[i + j] == gen[j]) ? '0' : '1';
 
     printf("CRC: %s\n", data + n);
 

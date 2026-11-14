@@ -27,7 +27,8 @@ void findStudentsByEvenRoll(struct Student *students, int n) {
 void searchStudentByRollNo(struct Student *students, int n, int searchRollNo) {
     for (int i = 0; i < n; i++) {
         if (students[i].rollNo == searchRollNo) {
-            printf("%d %s %d %s\n", students[i].rollNo, students[i].name, students[i].age, students[i].address);
+            printf("%d %s %d %s\n", students[i].rollNo, students[i].name, students[i].age,
+                   students[i].address);
             return;
         }
     }
@@ -38,11 +39,12 @@ int main() {
     scanf("%d", &n);
     struct Student students[n];
     for (int i = 0; i < n; i++) {
-        scanf("%d %s %d %s", &students[i].rollNo, students[i].name, &students[i].age, students[i].address);
+        scanf("%d %s %d %s", &students[i].rollNo, students[i].name, &students[i].age,
+              students[i].address);
     }
     scanf("%d", &searchRollNo);
-    findStudentsByAge(students,n);
+    findStudentsByAge(students, n);
     findStudentsByEvenRoll(students, n);
-    searchStudentByRollNo(students,n,searchRollNo);
+    searchStudentByRollNo(students, n, searchRollNo);
     return 0;
 }

@@ -31,7 +31,7 @@ strings into list object.
 #### Test Case 3
 
 ```plaintext
-["Malayalam",(3+3j),(7-2j),"CSE",7] 
+["Malayalam",(3+3j),(7-2j),"CSE",7]
 (7-2j)
 ```
 
@@ -45,6 +45,6 @@ strings into list object.
 #### Test Case 5
 
 ```plaintext
-[1,1,1] 
+[1,1,1]
 Invalid Data!
 ```

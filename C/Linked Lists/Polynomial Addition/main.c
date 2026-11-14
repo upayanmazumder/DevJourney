@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node
-{
+struct Node {
     int coeff, pow;
     struct Node *next;
 };
 
-struct Node *createNode(int c, int p)
-{
+struct Node *createNode(int c, int p) {
     struct Node *n = malloc(sizeof(struct Node));
     n->coeff = c;
     n->pow = p;
@@ -16,11 +14,9 @@ struct Node *createNode(int c, int p)
     return n;
 }
 
-void insertEnd(struct Node **head, int c, int p)
-{
+void insertEnd(struct Node **head, int c, int p) {
     struct Node *n = createNode(c, p);
-    if (*head == NULL)
-    {
+    if (*head == NULL) {
         *head = n;
         return;
     }
@@ -30,45 +26,34 @@ void insertEnd(struct Node **head, int c, int p)
     t->next = n;
 }
 
-struct Node *addPoly(struct Node *p1, struct Node *p2)
-{
+struct Node *addPoly(struct Node *p1, struct Node *p2) {
     struct Node *res = NULL;
-    while (p1 && p2)
-    {
-        if (p1->pow > p2->pow)
-        {
+    while (p1 && p2) {
+        if (p1->pow > p2->pow) {
             insertEnd(&res, p1->coeff, p1->pow);
             p1 = p1->next;
-        }
-        else if (p2->pow > p1->pow)
-        {
+        } else if (p2->pow > p1->pow) {
             insertEnd(&res, p2->coeff, p2->pow);
             p2 = p2->next;
-        }
-        else
-        { // same power
+        } else { // same power
             insertEnd(&res, p1->coeff + p2->coeff, p1->pow);
             p1 = p1->next;
             p2 = p2->next;
         }
     }
-    while (p1)
-    {
+    while (p1) {
         insertEnd(&res, p1->coeff, p1->pow);
         p1 = p1->next;
     }
-    while (p2)
-    {
+    while (p2) {
         insertEnd(&res, p2->coeff, p2->pow);
         p2 = p2->next;
     }
     return res;
 }
 
-void display(struct Node *head)
-{
-    while (head)
-    {
+void display(struct Node *head) {
+    while (head) {
         printf("%dx^%d", head->coeff, head->pow);
         if (head->next)
             printf(" + ");
@@ -77,8 +62,7 @@ void display(struct Node *head)
     printf("\n");
 }
 
-int main()
-{
+int main() {
     struct Node *p1 = NULL, *p2 = NULL, *res = NULL;
 
     // P1: 5x^3 + 4x^2 + 2

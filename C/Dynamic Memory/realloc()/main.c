@@ -8,7 +8,7 @@ int main() {
 
     // Resize memory to hold 4 integers
     ptr = (int *)realloc(ptr, 4 * sizeof(int));
-    
+
     ptr[2] = 30;
     ptr[3] = 40;
 

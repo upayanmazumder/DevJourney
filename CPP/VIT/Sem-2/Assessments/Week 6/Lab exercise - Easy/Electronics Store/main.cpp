@@ -1,6 +1,6 @@
-#include <iostream>
-#include <iomanip>
 #include <cmath>
+#include <iomanip>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -14,8 +14,7 @@ public:
     Device(string brand, double price) : brand(brand), price(price) {}
 
     virtual void display(bool isRefrigerator = false) {
-        cout << "Device: " << brand << ", Price: $" 
-             << fixed << setprecision(isRefrigerator ? 1 : 2) 
+        cout << "Device: " << brand << ", Price: $" << fixed << setprecision(isRefrigerator ? 1 : 2)
              << (isRefrigerator ? std::round(price) : price) << endl;
     }
 };
@@ -31,9 +30,11 @@ public:
     void calculatePixelDensity(int resolutionWidth, int resolutionHeight) {
         double screenSizeCm = screenSize * 2.54;
         double pixelDensity = (resolutionWidth * resolutionHeight) / (screenSizeCm * screenSizeCm);
-        
-        cout << "Screen Size: " << screenSize << " inches (" << fixed << setprecision(1) << screenSizeCm << " cm)" << endl;
-        cout << "Pixel Density: " << fixed << setprecision(1) << pixelDensity << " pixels per square centimeter" << endl;
+
+        cout << "Screen Size: " << screenSize << " inches (" << fixed << setprecision(1)
+             << screenSizeCm << " cm)" << endl;
+        cout << "Pixel Density: " << fixed << setprecision(1) << pixelDensity
+             << " pixels per square centimeter" << endl;
     }
 };
 
@@ -49,8 +50,10 @@ public:
         double capacityCubicFeet = capacity * 0.0353;
         double energyEfficiency = energyConsumption / capacityCubicFeet;
 
-        cout << "Capacity: " << capacity << " liters (" << fixed << setprecision(1) << capacityCubicFeet << " cubic feet)" << endl;
-        cout << "Energy Efficiency: " << fixed << setprecision(1) << energyEfficiency << " kWh per cubic foot" << endl;
+        cout << "Capacity: " << capacity << " liters (" << fixed << setprecision(1)
+             << capacityCubicFeet << " cubic feet)" << endl;
+        cout << "Energy Efficiency: " << fixed << setprecision(1) << energyEfficiency
+             << " kWh per cubic foot" << endl;
     }
 };
 

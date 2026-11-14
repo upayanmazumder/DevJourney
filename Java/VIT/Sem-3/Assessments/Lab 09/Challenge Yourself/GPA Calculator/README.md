@@ -43,6 +43,7 @@ The given test cases fall under the following constraints:
 0.0 ≤ grade ≤ 5.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

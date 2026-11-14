@@ -5,9 +5,9 @@ class person {
     char name[30];
     int age;
 
-    public:
-        void getdata(void);
-        void display(void);
+public:
+    void getdata(void);
+    void display(void);
 };
 
 void person::getdata(void) {

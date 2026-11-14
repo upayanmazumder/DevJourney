@@ -46,6 +46,7 @@ Seat number is a string of format "RowColumn" (e.g., A5, B10, C3)
 100.0 ≤ price ≤ 1000.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

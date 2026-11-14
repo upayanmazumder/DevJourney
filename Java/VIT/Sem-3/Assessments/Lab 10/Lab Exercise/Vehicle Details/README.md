@@ -53,6 +53,7 @@ New time (for predicting distance): 1.0 ≤ newTime ≤ 500.0
 New distance (for predicting time): 1.0 ≤ newDistance ≤ 500.0
 
 Sample test cases :
+
 #### Input 1:
 
 ```

@@ -1,1 +1,1 @@
-print('s'+'Hello')
+print("s" + "Hello")

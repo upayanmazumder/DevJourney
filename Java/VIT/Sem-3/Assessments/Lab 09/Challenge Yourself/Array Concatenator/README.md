@@ -40,6 +40,7 @@ In this scenario, the test cases fall under the following constraints
 1 ≤ array elements ≤ 100
 
 Sample test cases :
+
 #### Input 1:
 
 ```
@@ -48,12 +49,12 @@ Sample test cases :
 3
 1 4 3
 Output 1 :
-7 8 5 6 9 1 4 3 
+7 8 5 6 9 1 4 3
 Input 2 :
 4
 78 56 93 14
 1
 56
 Output 2 :
-78 56 93 14 56 
+78 56 93 14 56
 ```

@@ -1,79 +1,76 @@
 import java.util.Scanner;
 
 class Vehicle {
-    double distance;
-    double time;
+  double distance;
+  double time;
 
-    Vehicle(double distance, double time) {
-        this.distance = distance;
-        this.time = time;
-
-    }
+  Vehicle(double distance, double time) {
+    this.distance = distance;
+    this.time = time;
+  }
 }
 
 class Car extends Vehicle {
-    final String brand;
-    private double speed;
+  final String brand;
+  private double speed;
 
-    Car(String brand, double distance, double time) {
-        super(distance, time);
-        this.brand = brand;
-    }
+  Car(String brand, double distance, double time) {
+    super(distance, time);
+    this.brand = brand;
+  }
 
-    void calc() {
-        speed = distance / time;
-    }
+  void calc() {
+    speed = distance / time;
+  }
 
-    final void display() {
-        System.out.println("Brand: " + brand);
-        String category;
-        if (speed < 20) {
-            category = "Slow";
-        } else if (speed <= 60) {
-            category = "Average";
-        } else {
-            category = "Fast";
-        }
-        System.out.printf("Speed: %.2f km/hr (%s)\n", speed, category);
+  final void display() {
+    System.out.println("Brand: " + brand);
+    String category;
+    if (speed < 20) {
+      category = "Slow";
+    } else if (speed <= 60) {
+      category = "Average";
+    } else {
+      category = "Fast";
     }
+    System.out.printf("Speed: %.2f km/hr (%s)\n", speed, category);
+  }
 
-    double predictDistance(double newTime) {
-        return speed * newTime;
-    }
+  double predictDistance(double newTime) {
+    return speed * newTime;
+  }
 
-    double predictTime(double newDistance) {
-        return newDistance / speed;
-    }
+  double predictTime(double newDistance) {
+    return newDistance / speed;
+  }
 }
 
 class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
 
-        double distance = scanner.nextDouble();
+    double distance = scanner.nextDouble();
 
-        double time = scanner.nextDouble();
+    double time = scanner.nextDouble();
 
-        double newTime = scanner.nextDouble();
+    double newTime = scanner.nextDouble();
 
-        double newDistance = scanner.nextDouble();
+    double newDistance = scanner.nextDouble();
 
-        Car car = new Car("Toyota", distance, time);
+    Car car = new Car("Toyota", distance, time);
 
-        car.calc();
+    car.calc();
 
-        car.display();
+    car.display();
 
-        System.out.printf("Distance covered in %.1f hours: %.2f km\n", newTime,
-                car.predictDistance(newTime));
+    System.out.printf(
+        "Distance covered in %.1f hours: %.2f km\n", newTime, car.predictDistance(newTime));
 
-        System.out.printf("Time taken to cover %.1f km: %.2f hours\n", newDistance,
-                car.predictTime(newDistance));
+    System.out.printf(
+        "Time taken to cover %.1f km: %.2f hours\n", newDistance, car.predictTime(newDistance));
 
-        scanner.close();
-
-    }
-
+    scanner.close();
+  }
 }

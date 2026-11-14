@@ -14,9 +14,9 @@ class EmilyCar - derived from Car class and computes the payload capacity and fu
 
 Formulas
 
-Maximum range = Fuel efficiency * Maximum capacity
+Maximum range = Fuel efficiency _ Maximum capacity
 Payload capacity = 80% of the Maximum capacity
-Total fully loaded weight = Payload capacity + (Fuel efficiency * Maximum capacity)
+Total fully loaded weight = Payload capacity + (Fuel efficiency _ Maximum capacity)
 
 ### Input format :
 

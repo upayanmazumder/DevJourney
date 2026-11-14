@@ -34,6 +34,7 @@ The given test cases fall under the following constraints:
 The string S will contain only printable ASCII characters, including spaces.
 
 Sample test cases :
+
 #### Input 1:
 
 ```
