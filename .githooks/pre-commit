@@ -28,8 +28,10 @@ done
 
 # -------------------------------------------------------------- 2. large files
 max_bytes=$((10 * 1024 * 1024))
+media_pattern='\.(mp4|mov|avi|mkv|webm|blend|blend1|pdf|zip|psd|wav|mp3|woff2?|ttf|otf)$'
 for f in "${staged[@]}"; do
     [ -f "$f" ] || continue
+    [[ $f =~ $media_pattern ]] && continue
     size=$(wc -c <"$f")
     if ((size > max_bytes)); then
         printf 'pre-commit: file larger than 10 MB (%s bytes): %s\n' "$size" "$f" >&2
