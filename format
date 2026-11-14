@@ -80,7 +80,14 @@ require() {
 
 if [ "${SKIP_FORMAT:-0}" != "1" ]; then
     if ((${#web[@]})); then
-        require prettier
+        # Prefer the prettier pinned in the repository's root package.json so
+        # local runs and CI produce identical output.
+        if [ -x "$root/node_modules/.bin/prettier" ]; then
+            prettier_bin="$root/node_modules/.bin/prettier"
+        else
+            require prettier
+            prettier_bin=prettier
+        fi
         # Group files by the nearest ancestor that has a package.json, so each
         # project's prettier config/plugins resolve from that project root.
         declare -A groups=()
@@ -103,7 +110,7 @@ if [ "${SKIP_FORMAT:-0}" != "1" ]; then
             ((${#batch[@]})) || continue
             flags=(--config "$root/.prettierrc.json" --ignore-path "$root/.prettierignore")
             [ "$mode" = check ] && flags+=(--check) || flags+=(--write)
-            (cd "$base" && prettier "${flags[@]}" "${batch[@]}")
+            (cd "$base" && "$prettier_bin" "${flags[@]}" "${batch[@]}")
         done
     fi
 

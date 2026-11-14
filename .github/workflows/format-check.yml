@@ -45,7 +45,9 @@ jobs:
 
       - name: Install formatters
         run: |
-          npm install -g prettier@3
+          # prettier comes from the repository's pinned devDependency so the
+          # check matches developer machines exactly.
+          pnpm install --frozen-lockfile
           python -m pip install --quiet black clang-format==23.1.5
           # google-java-format is not packaged for apt; use the all-deps jar
           # pinned to the same version developers run locally.

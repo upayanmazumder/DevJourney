@@ -1,0 +1,14 @@
+{
+  "name": "devjourney",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.28.6",
+  "description": "Repository-wide formatting tooling for the DevJourney monorepo.",
+  "scripts": {
+    "format": "./format",
+    "format:check": "./format --all --check"
+  },
+  "devDependencies": {
+    "prettier": "3.10.1"
+  }
+}
