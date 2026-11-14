@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.2.8"
+    "astro": "^7.4.7"
   },
   "overrides": {
     "devalue": "^5.9.2",
