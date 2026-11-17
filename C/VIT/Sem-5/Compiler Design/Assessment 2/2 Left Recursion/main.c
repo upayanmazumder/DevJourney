@@ -1,6 +1,6 @@
-#include &lt; stdio.h & gt;
-#include &lt; string.h & gt;
-#include &lt; ctype.h & gt;
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
 
 #define MAX_PROD 25
 #define MAX_TOKENS 10
@@ -23,7 +23,7 @@ int is_non_terminal(char *str) {
 }
 
 void add_to_first(char *val) {
-    for (int i = 0; i & lt; first_ptr; i++) {
+    for (int i = 0; i < first_ptr; i++) {
         if (strcmp(first_set[i], val) == 0)
             return;
     }
@@ -31,7 +31,7 @@ void add_to_first(char *val) {
 }
 
 void add_to_follow(char *val) {
-    for (int i = 0; i & lt; follow_ptr; i++) {
+    for (int i = 0; i < follow_ptr; i++) {
         if (strcmp(follow_set[i], val) == 0)
             return;
     }
@@ -44,19 +44,19 @@ void find_first(char *symbol) {
         return;
     }
 
-    for (int i = 0; i & lt; num_productions; i++) {
+    for (int i = 0; i < num_productions; i++) {
         if (strcmp(lhs[i], symbol) == 0) {
-            if (strcmp(rhs[i][0], &quot; # & quot;) == 0) {
-                add_to_first(&quot; # & quot;);
+            if (strcmp(rhs[i][0], " # ") == 0) {
+                add_to_first(" # ");
             } else {
                 int j = 0;
-                while (j & lt; rhs_count[i]) {
+                while (j < rhs_count[i]) {
                     int current_first_ptr = first_ptr;
                     find_first(rhs[i][j]);
 
                     int has_epsilon = 0;
-                    for (int temp = current_first_ptr; temp & lt; first_ptr; temp++) {
-                        if (strcmp(first_set[temp], &quot; # & quot;) == 0) {
+                    for (int temp = current_first_ptr; temp < first_ptr; temp++) {
+                        if (strcmp(first_set[temp], " # ") == 0) {
                             has_epsilon = 1;
                         }
                     }
@@ -72,7 +72,7 @@ void find_first(char *symbol) {
 }
 
 void find_follow(char *symbol) {
-    for (int i = 0; i & lt; num_productions; i++) {
+    for (int i = 0; i < num_productions; i++) {
         if (strcmp(lhs[i], symbol) == 0) {
             if (follow_visited[i])
                 return;
@@ -80,19 +80,19 @@ void find_follow(char *symbol) {
         }
     }
 
-    // Rule 1: The start symbol gets &#39;$&#39;
+    // Rule 1: The start symbol gets '$'
     if (strcmp(lhs[0], symbol) == 0) {
-        add_to_follow(&quot; $ & quot;);
+        add_to_follow(" $ ");
     }
 
-    for (int i = 0; i & lt; num_productions; i++) {
-        for (int j = 0; j & lt; rhs_count[i]; j++) {
+    for (int i = 0; i < num_productions; i++) {
+        for (int j = 0; j < rhs_count[i]; j++) {
             if (strcmp(rhs[i][j], symbol) == 0) {
 
                 int k = j + 1;
                 int carry_on = 1;
 
-                while (k & lt; rhs_count[i] & amp; &amp; carry_on) {
+                while (k < rhs_count[i] && carry_on) {
                     char *next_sym = rhs[i][k];
 
                     if (!is_non_terminal(next_sym)) {
@@ -107,8 +107,8 @@ void find_follow(char *symbol) {
                         find_first(next_sym);
 
                         int has_epsilon = 0;
-                        for (int temp = 0; temp & lt; first_ptr; temp++) {
-                            if (strcmp(first_set[temp], &quot; # & quot;) != 0) {
+                        for (int temp = 0; temp < first_ptr; temp++) {
+                            if (strcmp(first_set[temp], " # ") != 0) {
                                 add_to_follow(first_set[temp]);
                             } else {
                                 has_epsilon = 1;
@@ -123,7 +123,7 @@ void find_follow(char *symbol) {
                     k++;
                 }
 
-                if (carry_on &amp; &amp; strcmp(symbol, lhs[i]) != 0) {
+                if (carry_on && strcmp(symbol, lhs[i]) != 0) {
                     find_follow(lhs[i]);
                 }
             }
@@ -132,12 +132,12 @@ void find_follow(char *symbol) {
 }
 
 int main() {
-    printf(&quot; Enter number of productions : &quot;);
-    if (scanf(&quot; % d & quot;, &amp; num_productions) != 1)
+    printf(" Enter number of productions : ");
+    if (scanf("%d", &num_productions) != 1)
         return 1;
 
-    printf(&quot; Enter productions using & #39; -&gt; &#39; or &#39; = &#39;
-           (e.g., E - &gt; T E & #39; or E &#39; = #) :\n & quot;);
+    printf(" Enter productions using ' -> ' or ' = '\n");
+    printf("           (e.g., E -> T E ' or E ' = #) :\n ");
 
     char line[100];
     fgets(line, sizeof(line), stdin); // Flush buffer
@@ -145,10 +145,10 @@ int main() {
     char unique_nt[MAX_PROD][MAX_LEN];
     int unique_count = 0;
 
-    for (int i = 0; i & lt; num_productions; i++) {
+    for (int i = 0; i < num_productions; i++) {
         fgets(line, sizeof(line), stdin);
 
-        char *token = strtok(line, &quot; \t\n & quot;);
+        char *token = strtok(line, " \t\n ");
         if (token == NULL)
             continue;
 
@@ -156,7 +156,7 @@ int main() {
 
         // Track unique non-terminals to print all answers cleanly at the end
         int found = 0;
-        for (int u = 0; u & lt; unique_count; u++) {
+        for (int u = 0; u < unique_count; u++) {
             if (strcmp(unique_nt[u], token) == 0) {
                 found = 1;
                 break;
@@ -166,46 +166,41 @@ int main() {
             strcpy(unique_nt[unique_count++], token);
         }
 
-        token = strtok(NULL, &quot; \t\n & quot;);
-        if (token != NULL &amp; &amp;
-            (strcmp(token, &quot; -&gt; &quot;) == 0 || strcmp(token, &quot; = &quot;) == 0)) {
-            token = strtok(NULL, &quot; \t\n & quot;);
+        token = strtok(NULL, " \t\n");
+        if (token != NULL && (strcmp(token, "->") == 0 || strcmp(token, "=") == 0)) {
+            token = strtok(NULL, " \t\n");
         }
 
         int r_idx = 0;
         while (token != NULL) {
             strcpy(rhs[i][r_idx++], token);
-            token = strtok(NULL, &quot; \t\n & quot;);
+            token = strtok(NULL, " \t\n");
         }
         rhs_count[i] = r_idx;
     }
 
-    printf(&quot;\n == == == == == == == == COMPUTED RESULTS == == == == == == == ==\n & quot;);
+    printf("\n ================================================ COMPUTED RESULTS "
+           "================================================\n ");
 
-    for (int u = 0; u & lt; unique_count; u++) {
+    for (int u = 0; u < unique_count; u++) {
         // Compute FIRST Set
         first_ptr = 0;
         find_first(unique_nt[u]);
-        printf(&quot; FIRST(% s) = {
-            &quot;, unique_nt[u]);
-            for (int i = 0; i & lt; first_ptr; i++)
-                printf(&quot; % s & quot;, first_set[i]);
-printf(&quot;
-        }\n & quot;);
+        printf(" FIRST(%s) = {", unique_nt[u]);
+        for (int i = 0; i < first_ptr; i++)
+            printf(" %s ", first_set[i]);
+        printf("}\n ");
 
         // Compute FOLLOW Set
         follow_ptr = 0;
         memset(follow_visited, 0, sizeof(follow_visited));
         find_follow(unique_nt[u]);
-        printf(&quot; FOLLOW(% s) = {
-            &quot;, unique_nt[u]);
-            for (int i = 0; i & lt; follow_ptr; i++)
-                printf(&quot; % s & quot;, follow_set[i]);
-printf(&quot;
-        }\n\n & quot;);
+        printf(" FOLLOW(%s) = {", unique_nt[u]);
+        for (int i = 0; i < follow_ptr; i++)
+            printf(" %s ", follow_set[i]);
+        printf("}\n\n ");
     }
-    printf(&quot;
-           == == == == == == == == == == == == == == == == == == == == == == == == ==\n & quot;);
+    printf("\n           ========================================\n ");
 
     return 0;
 }

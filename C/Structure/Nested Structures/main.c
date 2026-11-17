@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 struct Address {
     char city[50];
     int pin;

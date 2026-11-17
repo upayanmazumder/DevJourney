@@ -1,11 +1,13 @@
 #include <stdio.h>
+#include <string.h>
 
 void main() {
     char str[100], rev[100];
     int i, j;
 
     printf("Enter a string: ");
-    gets(str);
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
 
     for (i = 0; str[i] != '\0'; i++)
         ;
