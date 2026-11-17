@@ -11,7 +11,7 @@ di = {}
 
 # Populate the dictionary
 for i in range(n):
-    di.clear
+    di.clear()
     count = 0
     for j in range(n):
         if l[i] == l[j]:
