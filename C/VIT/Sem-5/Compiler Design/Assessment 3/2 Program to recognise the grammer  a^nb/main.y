@@ -1,12 +1,12 @@
 %{
-#include&lt;stdio.h&gt;
+#include<stdio.h>
 int yylex();
 void yyerror(char const*);
 %}
 %token TA TB
 %%
 list :
-|list s &#39;\n&#39; {printf(&quot;\n Accepted...\n&quot;);return 1;}
+|list s '\n' {printf("\n Accepted...\n");return 1;}
 ;
 s :TA s
 |TB
@@ -18,14 +18,14 @@ return(yyparse());
 }
 void yyerror(char const*s)
 {
-printf(&quot;%s\n&quot;,s);
+printf("%s\n",s);
 }
 int yylex()
 {
 int c;
-while((c=getchar())==&#39; &#39;);
-if(c==&#39;a&#39;)return(TA);
-if(c==&#39;b&#39;)return(TB);
+while((c=getchar())==' ');
+if(c=='a')return(TA);
+if(c=='b')return(TB);
 return(c);
 }
 int yywrap()

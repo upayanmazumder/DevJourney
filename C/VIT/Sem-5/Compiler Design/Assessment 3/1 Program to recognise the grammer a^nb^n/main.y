@@ -1,19 +1,19 @@
 %{
-#include&lt;stdio.h&gt;
+#include<stdio.h>
 int valid=1;
 int yylex();
-void yyerror(char *);
+void yyerror(char const *);
 %}
 %token A B
 %%
-str:S&#39;\n&#39; {return 0;}
+str:S'\n' {return 0;}
 S:A S B
 |
 ;
 %%
 void yyerror (char const *s)
 {
-fprintf (stderr, &quot;%s\n&quot;, s); valid=0;
+fprintf (stderr, "%s\n", s); valid=0;
 }
 int yywrap()
 {
@@ -21,9 +21,9 @@ return(1);
 }
 int main()
 {
-printf(&quot;Enter the string:\n&quot;);
+printf("Enter the string:\n");
 yyparse();
 if(valid==1)
-printf(&quot;\nValid string&quot;);
+printf("\nValid string");
 return 0;
 }

@@ -87,9 +87,37 @@ jobs:
           set -euo pipefail
           # The Compiler Design assessment sources are Flex specifications, so
           # they are validated with flex and the generated scanner is compiled.
+          # A scanner that includes y.tab.h belongs to a yacc grammar and is
+          # compiled in the step below, after bison generates the header.
+          # These scanners define their own yywrap, so libfl is not needed.
           while IFS= read -r -d '' file; do
+            if grep -q 'y\.tab\.h' "$file"; then
+              echo "SKIP (paired with a yacc grammar): $file"
+              continue
+            fi
             flex -o /tmp/scan.c "$file"
             gcc -std=gnu11 -Wall -Wno-unused-function \
-              -o /tmp/scan /tmp/scan.c -lfl
+              -o /tmp/scan /tmp/scan.c
             echo "OK $file"
           done < <(git ls-files -z '*.l')
+
+      - name: Compile yacc grammars
+        run: |
+          set -euo pipefail
+          # generate y.tab.h/y.tab.c in a scratch directory, then build the
+          # paired scanner against it.
+          build=$(mktemp -d)
+          while IFS= read -r -d '' file; do
+            dir=$(dirname "$file")
+            (cd "$build" && bison -d -o y.tab.c "$OLDPWD/$file")
+            lexer="$dir/main.l"
+            if [ -f "$lexer" ]; then
+              flex -o "$build/lex.yy.c" "$lexer"
+              sources="$build/lex.yy.c $build/y.tab.c"
+            else
+              sources="$build/y.tab.c"
+            fi
+            gcc -std=gnu11 -Wall -Wno-unused-function -I"$build" \
+              -o "$build/parser" $sources
+            echo "OK $file"
+          done < <(git ls-files -z '*.y')

@@ -1,5 +1,5 @@
 %{
-#include &quot;y.tab.h&quot;
+#include "y.tab.h"
 %}
 %%
 a return A;
