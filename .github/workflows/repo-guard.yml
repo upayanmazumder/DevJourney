@@ -2,6 +2,7 @@ name: Repository Guard
 
 # Structural checks that do not depend on installing dependencies:
 #   - no committed build output, compiled binaries or dependency trees
+#   - no committed R Markdown render output (knitted HTML, *_files, .Rhistory)
 #   - only pnpm lockfiles are tracked (no package-lock.json / yarn.lock)
 #   - every project with a pnpm lockfile declares packageManager pnpm
 #   - no files above the size limit are added
@@ -38,6 +39,19 @@ jobs:
             exit 1
           fi
           echo "No tracked build artifacts."
+
+      - name: Reject generated R Markdown output
+        run: |
+          set -euo pipefail
+          pattern='^R/.*\.html$|^R/.*_files/|^R/.*\.Rhistory$'
+          found=$(git ls-files | grep -E "$pattern" || true)
+          if [ -n "$found" ]; then
+            echo "Generated R Markdown output is tracked:"
+            echo "$found"
+            echo "Render the .Rmd source instead: git rm --cached <path>"
+            exit 1
+          fi
+          echo "No tracked R Markdown output."
 
       - name: Reject non-pnpm lockfiles
         run: |

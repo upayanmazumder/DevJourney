@@ -54,6 +54,12 @@ __pycache__/
 .ruff_cache
 .ipynb_checkpoints
 
+# R
+.Rhistory
+.Rapp.history
+.RData
+.Rproj.user/
+
 # C / C++ build output
 *.o
 *.obj

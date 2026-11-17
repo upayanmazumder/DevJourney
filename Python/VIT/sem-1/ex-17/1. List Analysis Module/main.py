@@ -1,3 +1,5 @@
+import ast
+
 import analyzer as a
 
 n = int(input("Enter number of elements: "))
@@ -6,10 +8,10 @@ l = []
 for i in range(n):
     element = input(f"Enter element {i+1}: ")
     try:
-        element = eval(element)
-        l.append(element)
-    except:
-        l.append(element)
+        element = ast.literal_eval(element)
+    except (SyntaxError, TypeError, ValueError):
+        pass
+    l.append(element)
 
 print(l)
 

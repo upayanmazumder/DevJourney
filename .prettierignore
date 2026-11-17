@@ -46,6 +46,7 @@ Godot/**/assets
 **/*.d.ts
 **/CHANGELOG.md
 **/.github/FUNDING.yml
+R/**/*.html
 
 # Simulation / HDL output
 **/qsim

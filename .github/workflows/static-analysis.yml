@@ -1,0 +1,95 @@
+name: Static Analysis
+
+# Lints the hand-written sources with the checker for each language. Generated
+# output is excluded, so every finding points at code that a person maintains.
+# Errors fail the job. Ruff reports style rules as warnings for information.
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: Python (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.x"
+
+      - name: Install ruff
+        run: python -m pip install --quiet ruff==0.17.5
+
+      - name: Lint Python sources
+        run: |
+          # Real defects fail the build: syntax errors, undefined names,
+          # unused imports and variables, and bugbear rules such as bare
+          # except clauses and mutable default arguments.
+          ruff check Python \
+            --line-length 100 \
+            --select E9,F401,F63,F7,F811,F821,F822,F823,B006,B008,B012,B018,E722 \
+            --output-format concise
+
+      - name: Report remaining findings
+        continue-on-error: true
+        run: |
+          # Style and hygiene findings. They do not fail the build, but they are
+          # visible so that new code can avoid them.
+          ruff check Python \
+            --line-length 100 \
+            --select E4,E7,B,PLE,PLW \
+            --output-format concise
+
+  c:
+    name: C (gcc analyzer)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Analyze C sources
+        run: |
+          set -euo pipefail
+          failed=0
+          skipped=0
+          # -fsyntax-only with warnings promoted to errors for the defects that
+          # matter. Files that include DOS-only headers (conio.h) cannot build on
+          # Linux, so they are reported and skipped.
+          while IFS= read -r -d '' file; do
+            if ! out=$(gcc -std=gnu11 -fsyntax-only \
+                 -Wall -Wextra -Wno-unused-parameter -Wno-main \
+                 -Werror=return-type -Werror=implicit-function-declaration \
+                 -Werror=incompatible-pointer-types "$file" 2>&1); then
+              if grep -q 'fatal error: conio.h' <<<"$out"; then
+                echo "SKIP (DOS-only header): $file"
+                skipped=$((skipped + 1))
+                continue
+              fi
+              printf '%s\n%s\n' "$file" "$out"
+              failed=1
+            fi
+          done < <(git ls-files -z '*.c')
+          echo "Skipped $skipped DOS-only file(s)."
+          exit $failed
+
+      - name: Compile Flex scanners
+        run: |
+          set -euo pipefail
+          # The Compiler Design assessment sources are Flex specifications, so
+          # they are validated with flex and the generated scanner is compiled.
+          while IFS= read -r -d '' file; do
+            flex -o /tmp/scan.c "$file"
+            gcc -std=gnu11 -Wall -Wno-unused-function \
+              -o /tmp/scan /tmp/scan.c -lfl
+            echo "OK $file"
+          done < <(git ls-files -z '*.l')

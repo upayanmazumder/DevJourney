@@ -1,0 +1,14 @@
+# Knitted R Markdown output. Rebuild from the .Rmd source with rmarkdown::render().
+*.html
+*_files/
+*_cache/
+*_even_cache/
+
+# R session state
+.Rhistory
+.Rapp.history
+.RData
+.Rproj.user/
+
+# {renv} library cache
+renv/library/

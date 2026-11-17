@@ -15,7 +15,7 @@ for i in range(1, num_subjects + 1):
     try:
         credit = float(entry[0])
         grade = entry[1].upper()
-    except:
+    except ValueError:
         print("Invalid input. Skipping this subject.")
         continue
 

@@ -51,6 +51,7 @@ skip_path() {
         node_modules/* | */node_modules/*) return 0 ;;
         dist/* | */dist/* | build/* | */build/*) return 0 ;;
         .next/* | */.next/* | coverage/* | */coverage/*) return 0 ;;
+        R/*.html | R/*_files/* | R/*/.Rhistory) return 0 ;;
         */pnpm-lock.yaml | */package-lock.json | */yarn.lock) return 0 ;;
         *) return 1 ;;
     esac
