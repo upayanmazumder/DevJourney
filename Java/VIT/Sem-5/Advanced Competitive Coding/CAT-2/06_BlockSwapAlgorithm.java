@@ -29,8 +29,10 @@ public class Main {
     int n = s.nextInt(), d = s.nextInt();
     int[] a = new int[n];
     for (int i = 0; i < n; i++) a[i] = s.nextInt();
-    d %= n;
-    rot(a, d, n);
+    if (n > 0) {
+      d = Math.floorMod(d, n);
+      rot(a, d, n);
+    }
     for (int x : a) System.out.print(x + " ");
   }
 }

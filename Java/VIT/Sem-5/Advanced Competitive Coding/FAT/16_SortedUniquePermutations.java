@@ -27,7 +27,7 @@ public class Main {
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     String line = br.readLine();
-    if (line == null) return;
+    if (line == null) line = "";
 
     char[] a = line.toCharArray();
     Arrays.sort(a);
