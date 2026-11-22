@@ -17,3 +17,6 @@ Input:
 12 Lexicographically first palindromic string: one string
 
 EXPLANATIONS.txt contains a 20-word gist and concise algorithm for each.
+
+FAT also includes these CAT-2 topics. Use these files instead of duplicate downloads.
+See ../README.txt for the course index and ../FAT/README.txt for additional programs.

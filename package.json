@@ -6,7 +6,9 @@
   "description": "Repository-wide formatting tooling for the DevJourney monorepo.",
   "scripts": {
     "format": "./format",
-    "format:check": "./format --all --check"
+    "format:check": "./format --all --check",
+    "format:java": "./format --java --all",
+    "format:java:check": "./format --java --all --check"
   },
   "devDependencies": {
     "prettier": "3.10.1"

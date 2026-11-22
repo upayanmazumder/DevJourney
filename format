@@ -7,6 +7,7 @@
 #   ./format --check         # verify staged files, non-zero exit on drift (CI)
 #   ./format --all           # format every tracked file
 #   ./format --all --check   # verify every tracked file
+#   ./format --java --all    # format tracked and untracked Java files only
 #
 # Prettier is executed from the nearest directory containing a package.json so
 # that project-local configs and plugins (e.g. prettier-plugin-tailwindcss in
@@ -18,12 +19,14 @@ cd "$root"
 
 mode=write
 scope=staged
+java_only=false
 for arg in "$@"; do
     case "$arg" in
         --check) mode=check ;;
         --write) mode=write ;;
         --staged) scope=staged ;;
         --all) scope=all ;;
+        --java) java_only=true ;;
         -h | --help)
             sed -n '2,15p' "$0"
             exit 0
@@ -37,7 +40,11 @@ done
 
 mapfile -d '' files < <(
     if [ "$scope" = all ]; then
-        git ls-files -z
+        if [ "$java_only" = true ]; then
+            git ls-files --cached --others --exclude-standard -z -- '*.java'
+        else
+            git ls-files -z
+        fi
     else
         git diff --cached --name-only --diff-filter=ACMR -z
     fi
@@ -61,6 +68,7 @@ java=() c=() cpp=() go=() python=() web=()
 for file in "${files[@]}"; do
     [ -f "$file" ] || continue
     skip_path "$file" && continue
+    if [ "$java_only" = true ] && [[ $file != *.java ]]; then continue; fi
     case "$file" in
         *.java) java+=("$file") ;;
         *.c | *.h) c+=("$file") ;;
@@ -117,8 +125,16 @@ if [ "${SKIP_FORMAT:-0}" != "1" ]; then
 
     if ((${#java[@]})); then
         require google-java-format
+        expected_java_version=$(<"$root/.google-java-format-version")
+        actual_java_version=$(google-java-format --version 2>&1)
+        if [ "$actual_java_version" != "google-java-format: Version $expected_java_version" ]; then
+            printf 'format: expected google-java-format %s, got %s\n' \
+                "$expected_java_version" "$actual_java_version" >&2
+            printf 'format: see Java/README.md for installation instructions\n' >&2
+            exit 1
+        fi
         [ "$mode" = check ] && java_flags=(--dry-run --set-exit-if-changed) || java_flags=(--replace)
-        google-java-format "${java_flags[@]}" "${java[@]}"
+        google-java-format "@$root/.google-java-format" "${java_flags[@]}" "${java[@]}"
     fi
 
     if ((${#c[@]})); then

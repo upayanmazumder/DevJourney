@@ -1,5 +1,9 @@
 JAVA LAB QUICK SHEET
 
+FAT preparation also uses these algorithms.
+See ../FAT/EXPLANATIONS.txt for the additional downloaded topics.
+See ../README.txt for differences between these programs and downloaded variants.
+
 1. BOOTH'S ALGORITHM
 Gist (20 words): Multiplies signed binary integers efficiently by examining adjacent multiplier bits and reducing repeated additions through arithmetic shifts.
 Algo:

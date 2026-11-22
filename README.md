@@ -35,18 +35,23 @@ CI rejects `package-lock.json`, `yarn.lock` and `bun.lock` if they appear.
 the repository root to get the exact version CI uses. Styles are declared per
 language:
 
-| Language                                | Config                                |
-| --------------------------------------- | ------------------------------------- |
-| JS, TS, JSON, CSS, HTML, Markdown, YAML | `.prettierrc.json`, `.prettierignore` |
-| C, C++                                  | `.clang-format`                       |
-| Python                                  | `pyproject.toml` (`[tool.black]`)     |
-| Java                                    | `google-java-format` (fixed style)    |
-| Go                                      | `gofmt` (fixed style)                 |
-| Editors                                 | `.editorconfig`                       |
+| Language                                | Config                                               |
+| --------------------------------------- | ---------------------------------------------------- |
+| JS, TS, JSON, CSS, HTML, Markdown, YAML | `.prettierrc.json`, `.prettierignore`                |
+| C, C++                                  | `.clang-format`                                      |
+| Python                                  | `pyproject.toml` (`[tool.black]`)                    |
+| Java                                    | `.google-java-format`, `.google-java-format-version` |
+| Go                                      | `gofmt` (fixed style)                                |
+| Editors                                 | `.editorconfig`                                      |
 
 `./format` formats staged files, `./format --check` verifies them, and
 `./format --all` formats every tracked file. CI runs `./format --all --check`
 over the whole tree, which is kept fully formatted.
+
+Java uses Google Java Style with 2-space indentation and a 100-column limit.
+Run `pnpm format:java` to format old and new Java files.
+Run `pnpm format:java:check` for the same check CI runs.
+See [Java formatting](Java/README.md#java-formatting) for installation and complete rules.
 
 ### Git hooks
 
