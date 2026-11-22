@@ -1,3 +1,6 @@
+// Compare digit runs by numeric value without parsing them into fixed-width integers.
+// Break equal-value ties by leading-zero count and compare other characters normally.
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;

@@ -1,3 +1,6 @@
+// Mark multiples of each prime, starting at its square, in a composite array.
+// The unmarked integers from two through n are the primes.
+
 import java.util.*;
 
 public class Main {

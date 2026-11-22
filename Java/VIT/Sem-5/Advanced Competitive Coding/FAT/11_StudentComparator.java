@@ -1,3 +1,6 @@
+// Sort student records by name, then age, then roll number to resolve ties.
+// Print each record as roll, name, and age in that order.
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

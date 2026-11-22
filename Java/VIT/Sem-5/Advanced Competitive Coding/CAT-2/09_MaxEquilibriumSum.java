@@ -1,3 +1,6 @@
+// Compare the sums strictly before and after each index, excluding its element.
+// Print the largest matching sum, or zero when no equilibrium exists.
+
 import java.math.BigInteger;
 import java.util.*;
 

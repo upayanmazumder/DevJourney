@@ -1,3 +1,6 @@
+// Factor n and remove each distinct prime factor from the working value.
+// For every factor p, subtract result/p to count the integers coprime to n.
+
 import java.util.*;
 
 public class Main {

@@ -1,3 +1,6 @@
+// Count the hyphens while collecting all other characters in their original order.
+// Print the hyphens first, followed by the collected characters.
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 

@@ -1,3 +1,6 @@
+// Generate base primes up to the square root of the upper bound.
+// Use those primes to mark composites in blocks, then print the remaining interval primes.
+
 import java.util.*;
 
 public class Main {

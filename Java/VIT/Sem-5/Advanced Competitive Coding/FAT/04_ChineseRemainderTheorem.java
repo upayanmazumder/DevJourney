@@ -1,3 +1,6 @@
+// Merge congruences using GCD checks and modular inverses, even when moduli share factors.
+// Print the least nonnegative solution, or No solution when the constraints conflict.
+
 import java.math.BigInteger;
 import java.util.*;
 

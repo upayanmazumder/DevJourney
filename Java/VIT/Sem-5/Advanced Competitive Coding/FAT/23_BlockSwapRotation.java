@@ -1,3 +1,6 @@
+// Normalize the rotation distance and divide the array into left and right blocks.
+// Swap equal-sized pieces until both remaining blocks match, then perform the final swap.
+
 import java.util.Scanner;
 
 public class Main {

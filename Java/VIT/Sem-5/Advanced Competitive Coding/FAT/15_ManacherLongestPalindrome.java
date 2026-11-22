@@ -1,3 +1,6 @@
+// Manacher reuses mirrored palindrome radii to find the longest substring in linear time.
+// Integer sentinels prevent input collisions, and equal-length ties keep the leftmost result.
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 

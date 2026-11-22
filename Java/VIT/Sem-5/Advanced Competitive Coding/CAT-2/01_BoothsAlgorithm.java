@@ -1,3 +1,6 @@
+// Booth multiplication uses adjacent multiplier bits to select addition or subtraction.
+// Arithmetic shifts combine the accumulator and multiplier into the signed product.
+
 import java.util.*;
 
 public class Main {

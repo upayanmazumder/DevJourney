@@ -1,3 +1,6 @@
+// Find the smallest element in the unsorted suffix and swap it into the next position.
+// Repeat for every position to sort the array in ascending order.
+
 import java.util.Scanner;
 
 public class Main {

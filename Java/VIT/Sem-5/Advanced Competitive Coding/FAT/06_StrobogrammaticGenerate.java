@@ -1,3 +1,6 @@
+// Fill mirrored positions recursively with valid strobogrammatic digit pairs.
+// Skip outer leading zeros and use only 0, 1, or 8 at the center.
+
 import java.util.*;
 
 public class Main {

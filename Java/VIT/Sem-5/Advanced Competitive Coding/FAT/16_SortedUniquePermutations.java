@@ -1,3 +1,6 @@
+// Sort the characters, then repeatedly generate the next lexicographic permutation.
+// This prints every distinct permutation in order without storing a deduplication set.
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;

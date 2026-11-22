@@ -1,3 +1,6 @@
+// Track the largest and smallest products ending at each array position.
+// Negative values can exchange their roles, so both are needed for the maximum product.
+
 import java.math.BigInteger;
 import java.util.*;
 

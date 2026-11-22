@@ -1,3 +1,6 @@
+// Search open maze cells by trying a downward move before a rightward move.
+// Mark the path, undo failed choices, and print one solution or No solution.
+
 import java.util.Scanner;
 
 public class Main {

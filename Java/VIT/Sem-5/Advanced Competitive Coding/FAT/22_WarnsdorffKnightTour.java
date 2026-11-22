@@ -1,3 +1,6 @@
+// Move the knight to the unvisited square with the fewest onward moves.
+// Warnsdorff is a greedy heuristic, so No tour found does not prove impossibility.
+
 import java.util.Scanner;
 
 public class Main {

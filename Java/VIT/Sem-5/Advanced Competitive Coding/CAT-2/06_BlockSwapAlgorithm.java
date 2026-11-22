@@ -1,3 +1,6 @@
+// Rotate the array by repeatedly swapping the smaller block with an equal-sized block.
+// Normalize the distance so negative values rotate right and large values wrap around.
+
 import java.util.*;
 
 public class Main {

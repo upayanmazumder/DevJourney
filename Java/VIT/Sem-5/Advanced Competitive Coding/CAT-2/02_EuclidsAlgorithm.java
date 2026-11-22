@@ -1,3 +1,6 @@
+// Euclid repeatedly replaces the larger division problem with its remainder.
+// When the remainder reaches zero, the other value is the nonnegative GCD.
+
 import java.math.BigInteger;
 import java.util.*;
 

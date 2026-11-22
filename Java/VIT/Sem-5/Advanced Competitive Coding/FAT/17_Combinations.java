@@ -1,3 +1,6 @@
+// Choose r input positions recursively, allowing only later positions after each choice.
+// Print each combination in input order, retaining positional duplicates when values repeat.
+
 import java.util.Scanner;
 
 public class Main {

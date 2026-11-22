@@ -1,3 +1,6 @@
+// Scan from right to left while tracking the greatest value seen so far.
+// Keep values at least that large, then print the leaders in their original order.
+
 import java.util.*;
 
 public class Main {

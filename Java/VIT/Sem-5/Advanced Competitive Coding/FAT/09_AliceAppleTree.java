@@ -1,3 +1,6 @@
+// A square garden of radius r contains 2*r*(r+1)*(2*r+1) apples.
+// Binary-search the smallest radius that meets the target and print its perimeter, 8*r.
+
 import java.math.BigInteger;
 import java.util.*;
 

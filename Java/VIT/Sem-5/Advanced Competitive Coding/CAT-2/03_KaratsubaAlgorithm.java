@@ -1,3 +1,6 @@
+// Karatsuba splits each number into halves and computes three recursive products.
+// It combines these products and restores the sign to obtain the exact result.
+
 import java.math.BigInteger;
 import java.util.*;
 

@@ -1,3 +1,6 @@
+// Count Unicode code points and reject inputs with more than one odd frequency.
+// Build the smallest ordered half, add the odd center, and mirror the half.
+
 import java.util.*;
 
 public class Main {

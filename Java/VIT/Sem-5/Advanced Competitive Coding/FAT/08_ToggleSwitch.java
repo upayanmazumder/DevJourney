@@ -1,3 +1,6 @@
+// A switch remains on only when its position has an odd number of divisors.
+// Those positions are perfect squares, so compute the exact integer square root of n.
+
 import java.util.*;
 
 public class Main {

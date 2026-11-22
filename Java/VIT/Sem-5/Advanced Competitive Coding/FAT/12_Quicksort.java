@@ -1,3 +1,6 @@
+// Lomuto partitioning places the final element between smaller and remaining values.
+// Recurse on the smaller partition and loop over the larger one to bound stack depth.
+
 import java.util.Scanner;
 
 public class Main {

@@ -1,3 +1,6 @@
+// Build the Josephus survivor from a one-person circle to a circle of size n.
+// Reduce the step modulo each size and convert the final index to a 1-based position.
+
 import java.util.Scanner;
 
 public class Main {

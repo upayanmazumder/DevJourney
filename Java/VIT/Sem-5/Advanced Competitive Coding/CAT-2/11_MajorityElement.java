@@ -1,3 +1,6 @@
+// Boyer-Moore voting cancels different values to select a possible majority.
+// Count that candidate again and print it only if it occurs more than n/2 times.
+
 import java.util.*;
 
 public class Main {

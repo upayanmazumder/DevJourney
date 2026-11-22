@@ -1,3 +1,6 @@
+// Scan all 32 bits while tracking the runs before and after the latest zero.
+// Join those runs with one flipped bit to find the longest run, capped at 32.
+
 import java.util.*;
 
 public class Main {

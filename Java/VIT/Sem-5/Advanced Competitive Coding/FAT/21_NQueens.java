@@ -1,3 +1,6 @@
+// Place one queen per row while excluding occupied columns and both diagonal directions.
+// Undo each choice after recursion to print every valid board, or No solution.
+
 import java.util.Scanner;
 
 public class Main {

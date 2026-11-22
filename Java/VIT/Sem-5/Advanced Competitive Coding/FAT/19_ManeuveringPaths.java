@@ -1,3 +1,6 @@
+// Each grid cell receives the paths from the cell above and the cell to its left.
+// Store one row of exact counts to count all down/right paths to the destination.
+
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Scanner;

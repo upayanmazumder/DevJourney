@@ -1,3 +1,6 @@
+// Compare digits from opposite ends using their 180-degree rotation partners.
+// Only 0, 1, 8, and the paired digits 6 and 9 can pass the check.
+
 import java.util.*;
 
 public class Main {

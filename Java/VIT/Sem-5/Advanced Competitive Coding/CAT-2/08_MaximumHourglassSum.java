@@ -1,3 +1,6 @@
+// Visit every 3-by-3 window in the 6-by-6 matrix and sum its seven hourglass cells.
+// Keep the largest sum, using long arithmetic to avoid overflow for integer cells.
+
 import java.util.*;
 
 public class Main {

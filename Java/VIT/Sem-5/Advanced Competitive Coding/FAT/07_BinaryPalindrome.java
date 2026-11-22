@@ -1,3 +1,6 @@
+// Compare mirrored bits between the lowest bit and the highest set bit.
+// A nonnegative number is a binary palindrome when every pair matches, including zero.
+
 import java.util.*;
 
 public class Main {
