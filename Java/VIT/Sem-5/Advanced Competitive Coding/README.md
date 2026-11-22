@@ -11,6 +11,11 @@ Course materials: BSTS301P / USTS301P / STS4021.
 
 FAT preparation includes both directories. Duplicate downloaded examples reuse CAT-2 programs.
 
+## Exam preparation
+
+- [One-hour crash sheet](ONE_HOUR_CRASH_SHEET.md): essential Java syntax, short recipes, and a final practice test.
+- [Three-hour crash course](CRASH_COURSE.md): the longer study plan, detailed steps, and additional explanations.
+
 ## Run one program
 
 Each numbered source contains an independent public class `Main`.
