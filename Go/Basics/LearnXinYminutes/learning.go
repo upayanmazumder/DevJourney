@@ -57,16 +57,17 @@ func learnTypes() {
 	var pi float32 = 22. / 7
 
 	// Conversion syntax with a short declaration
-	n := byte('\n')	// byte is an alias for uint8
+	n := byte('\n') // byte is an alias for uint8
 
 	// Arrays have size fixed at compile time
-	var a4 [4]int											// An array of 4 ints, initialized to all 0
-	a5 := [...]int[3, 1, 5, 10, 100]	/* An array initialized with a fixed size of five
-																		elements with values 3, 1, 5, 10, 100 */
+	var a4 [4]int                    // An array of 4 ints, initialized to all 0
+	a5 := [...]int{3, 1, 5, 10, 100} /* An array initialized with a fixed size of five
+	   elements with values 3, 1, 5, 10, 100 */
 
-  // Arrays have value semantics
-  a4_cpy := a4										// a4_cpy is a copy of a4, 2 separate instances
-  a4_cpy[0] = 25									// only a4_cpy is changed, a4 stays the same
-  fmt.Println(a4_cpy[0]) = a4[0])	// false
+	// Arrays have value semantics
+	a4_cpy := a4                    // a4_cpy is a copy of a4, 2 separate instances
+	a4_cpy[0] = 25                  // only a4_cpy is changed, a4 stays the same
+	fmt.Println(a4_cpy[0] == a4[0]) // false
+	fmt.Println(s1, s2, g, f, c, u, pi, n, a5)
 
 }
